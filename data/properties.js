@@ -42,7 +42,7 @@ window.PROPERTIES_DATA = {
       "groupFit": "Host markets it for families, friends and corporate team-building trips, with karaoke nights, BBQ and steamboat.",
       "rating": { "score": 4.92, "reviews": 12, "note": "Superhost · Guest favourite · 8 months hosting" },
       "headline": { "bedrooms": 7, "beds": 13, "baths": 5 },
-      "card": { "price": "Needs your dates — check the Airbnb app", "guests": "16+ (host: 30+)", "beds": "3 double · 4 queen · 2 single · 2 bunk · 6 floor mattresses", "baths": "5 baths" },
+      "card": { "price": "RM2,310 per night (gross)", "guests": "16+ (host: 30+)", "beds": "3 double · 4 queen · 2 single · 2 bunk · 6 floor mattresses", "baths": "5 baths" },
       "maxGuests": {
         "display": "16+ on Airbnb · host text says 30 and more",
         "status": "need_confirmation",
@@ -102,13 +102,14 @@ window.PROPERTIES_DATA = {
         "other": { "status": "confirmed", "note": "Steamboat equipment, a dedicated workspace and self check-in (remote controls from building security)." }
       },
       "pricing": {
-        "total": null,
-        "totalNote": "",
+        "total": 2310,
+        "totalUnit": "night",
+        "totalNote": "per night, gross (price quoted by the group)",
         "status": "need_confirmation",
-        "headline": "Price not shown without dates",
-        "note": "Airbnb shows the price only after check-in, check-out and guests are entered.",
+        "headline": "RM2,310 per night (gross, quoted by the group)",
+        "note": "Gross price per night quoted by the group. Availability and the final total for the countdown dates must be verified on Airbnb.",
         "items": {
-          "nightly": { "status": "need_confirmation", "value": "Check your dates on Airbnb" },
+          "nightly": { "status": "need_confirmation", "value": "RM2,310 per night, gross", "note": "Quoted by the group from the Airbnb app. Availability for the countdown dates must still be verified. What the gross figure includes (cleaning, service fee, taxes) was not specified." },
           "activities": { "status": "confirmed", "value": "BBQ and steamboat equipment, charcoal and ice are included", "note": "Bring your own ingredients." },
           "multiUnit": { "status": "confirmed", "value": "No — one whole-house listing" }
         }
@@ -156,7 +157,7 @@ window.PROPERTIES_DATA = {
       "groupFit": "Built for large gatherings, reunions and weekend retreats. Highest capacity of all four options.",
       "rating": { "score": 4.57, "reviews": 105, "note": "Host has 9 years of experience (284 reviews across listings)" },
       "headline": { "bedrooms": 15, "beds": 22, "baths": 14 },
-      "card": { "price": "Needs your dates — check the Airbnb app", "guests": "38 (host-stated)", "beds": "Totals need confirmation · Airbnb says 22 beds", "baths": "14 bathrooms · 2 rooms without ensuite" },
+      "card": { "price": "RM1,743 per night (gross)", "guests": "38 (host-stated)", "beds": "Totals need confirmation · Airbnb says 22 beds", "baths": "14 bathrooms · 2 rooms without ensuite" },
       "maxGuests": {
         "display": "38 pax (host title and description) · Airbnb shows 16+",
         "status": "confirmed",
@@ -223,13 +224,14 @@ window.PROPERTIES_DATA = {
         "other": { "status": "additional_charge", "note": "Host offers airport transfer, city tours, car/van/coach rental and discounted Sunway Lagoon tickets at extra cost." }
       },
       "pricing": {
-        "total": null,
-        "totalNote": "",
+        "total": 1743,
+        "totalUnit": "night",
+        "totalNote": "per night, gross (price quoted by the group)",
         "status": "need_confirmation",
-        "headline": "Price not shown without dates",
-        "note": "Airbnb shows the price only after check-in, check-out and guests are entered.",
+        "headline": "RM1,743 per night (gross, quoted by the group)",
+        "note": "Gross price per night quoted by the group. Availability and the final total for the countdown dates must be verified on Airbnb.",
         "items": {
-          "nightly": { "status": "need_confirmation", "value": "Check your dates on Airbnb" },
+          "nightly": { "status": "need_confirmation", "value": "RM1,743 per night, gross", "note": "Quoted by the group from the Airbnb app. Availability for the countdown dates must still be verified. What the gross figure includes (cleaning, service fee, taxes) was not specified." },
           "extraMattress": { "status": "additional_charge", "value": "Air bed RM30 per bed per night", "note": "Compulsory from 38 pax onwards (host)." },
           "extraGuests": { "status": "confirmed", "value": "No extra charge for a child under 6 sharing bedding with parents" },
           "multiUnit": { "status": "confirmed", "value": "No — one whole-house listing" }
@@ -279,7 +281,7 @@ window.PROPERTIES_DATA = {
       "groupFit": "Host calls it \"a home for a family to gather\". Event room with online karaoke fits about 30 guests.",
       "rating": { "score": 4.73, "reviews": 90, "note": "Host has 7 years of experience" },
       "headline": { "bedrooms": 7, "beds": 21, "baths": 6 },
-      "card": { "price": "Needs your dates — check the Airbnb app", "guests": "16+ (event room ~30)", "beds": "7 queen · 1 single · 6 bunk · 1 sofa bed", "baths": "6 baths" },
+      "card": { "price": "RM1,700 per night (gross)", "guests": "16+ (event room ~30)", "beds": "7 queen · 1 single · 6 bunk · 1 sofa bed", "baths": "6 baths" },
       "maxGuests": {
         "display": "16+ on Airbnb · event room fits about 30",
         "status": "need_confirmation",
@@ -342,13 +344,14 @@ window.PROPERTIES_DATA = {
         "other": { "status": "confirmed", "note": "Private hot tub." }
       },
       "pricing": {
-        "total": null,
-        "totalNote": "",
+        "total": 1700,
+        "totalUnit": "night",
+        "totalNote": "per night, gross (price quoted by the group)",
         "status": "need_confirmation",
-        "headline": "Price not shown without dates",
-        "note": "Airbnb shows the price only after check-in, check-out and guests are entered.",
+        "headline": "RM1,700 per night (gross, quoted by the group)",
+        "note": "Gross price per night quoted by the group. Availability and the final total for the countdown dates must be verified on Airbnb.",
         "items": {
-          "nightly": { "status": "need_confirmation", "value": "Check your dates on Airbnb" },
+          "nightly": { "status": "need_confirmation", "value": "RM1,700 per night, gross", "note": "Quoted by the group from the Airbnb app. Availability for the countdown dates must still be verified. What the gross figure includes (cleaning, service fee, taxes) was not specified." },
           "multiUnit": { "status": "confirmed", "value": "No — one whole-house listing" }
         }
       },
@@ -397,7 +400,7 @@ window.PROPERTIES_DATA = {
       "groupFit": "Official site: groups can book several units and organise their own activities, but there is no group package. An FAQ entry says it suits relaxing stays and family gatherings with casual activities better than team building.",
       "rating": null,
       "headline": { "bedrooms": null, "beds": null, "baths": null, "units": 18 },
-      "card": { "price": "RM400–RM850 per unit per night (reference)", "guests": "4–6 adults per unit", "beds": "Villa: queen bunk + single · Glam 5: 3 queen · Glam 4: 2 queen", "baths": "Private bath for every unit" },
+      "card": { "price": "About RM100–120 per person (gross, group figure)", "guests": "4–6 adults per unit", "beds": "Villa: queen bunk + single · Glam 5: 3 queen · Glam 4: 2 queen", "baths": "Private bath for every unit" },
       "maxGuests": {
         "display": "Set per unit — Studio Villa 5 adults · Glam 5 6 adults · Glam 4 4 adults (each + 1 child under 12)",
         "status": "confirmed",
@@ -588,8 +591,9 @@ window.PROPERTIES_DATA = {
         "total": null,
         "totalNote": "",
         "status": "need_confirmation",
-        "headline": "RM400 – RM850 per unit per night (reference rates)",
-        "pin": "RM400–850",
+        "headline": "About RM100–120 per person (gross, group figure) · official unit rates RM400 – RM850 per night",
+        "pin": "RM100–120/pax",
+        "perPerson": { "min": 100, "max": 120, "note": "(average, gross, provided by the group)" },
         "note": "Rates are per unit, not per person, include breakfast and exclude SST. Booking calendar currently open to 31 March 2027. Final price and availability for your dates must be checked on the website.",
         "items": {
           "nightly": { "status": "need_confirmation", "value": "Reference rates only — see the rate table below", "note": "Tier depends on the check-in day: Mon–Thu, Fri/Sun/school holidays, or Sat/public holidays/eve of public holidays." },

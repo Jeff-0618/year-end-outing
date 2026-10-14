@@ -35,25 +35,28 @@ python tools/download_photos.py
 
 上传后用手机打开 Vercel 给你的 `https://xxx.vercel.app` 链接即可。
 
-## 3. 价格（你需要填的地方）
+## 3. 价格（已经按你给的填好）
 
-- **Dusun Bonda**：官网参考价已经放进去了，每单位每晚 RM400 – RM850（按单位类型和日期档位），含早餐、未含 SST，另加 RM5 可持续费。地图气泡显示 “RM400–850”。
-- **三个 Airbnb**：Airbnb 必须输入日期才显示价格，我读不到。请你在 Airbnb App 里输入你们的日期和人数，把“总价”填进 `data/properties.js`：
+都是 gross（你给的含全部费用的数字），已经显示在地图气泡、卡片、详情页和比较页：
 
-  在对应地点的 `pricing` 里：
-  ```
-  "total": 5200,
-  "totalNote": "31 Dec – 1 Jan, 20 guests, Airbnb app 14 Oct",
-  ```
-  填好后，地图气泡、卡片、详情页、比较页都会显示这个价格，并自动算每人费用。
-  再在文件最上面的 `meta` 里填参加人数：`"participants": 20`。
+| 地点 | 价格 |
+|---|---|
+| Airbnb A · Genting | RM2,310 一个晚上 |
+| Airbnb B · Puchong | RM1,743 一个晚上 |
+| Airbnb C · Kajang | RM1,700 一个晚上 |
+| Dusun Bonda | 每人平均约 RM100–120 |
 
-- 不想改文件也行：在网页的 Compare 页输入总价和人数，**只对你当前这个浏览器有效**，别人手机上看不到。
+- Dusun Bonda 官网的单位参考价（每单位每晚 RM400–850，含早餐、未含 SST，另加 RM5 可持续费）仍然保留在它的详情页里。
+- **每人费用**：在 Compare 页顶部输入参加人数，Airbnb 三个会自动用总价 ÷ 人数算出每人费用，Dusun Bonda 保持你给的 RM100–120。想固定人数，在 `data/properties.js` 最上面的 `meta` 里填 `"participants": 20`。
+- 改价格：在 `data/properties.js` 里找到对应地点的 `pricing`，改 `"total"` 的数字就行（Airbnb 三个），或者改 `"perPerson"`（Dusun Bonda）。
+- 价格旁边仍然写着“Price and availability for the actual countdown dates must be verified.”，因为空房情况还要确认。
+- 你给的 gross 里面包含哪些费用（清洁费、服务费、税）我不知道，页面里也没有写，请你自己确认。
 
 ## 4. 地图
 
 - 默认是浅色地图（CARTO Voyager，基于 OpenStreetMap，样子最接近 Google 地图），右上角图层按钮可切换夜间地图和 OpenStreetMap。
-- 每个地点是 Airbnb 风格的价格气泡。点击气泡会出现照片、价格、人数、床位和 “View details” 按钮，也有 “Google Maps” 按钮。
+- 每个地点是一个带字母的圆点，旁边是价格标签（Airbnb 风格）。标签故意放在圆点的左边或右边，缩小后也不会叠在一起。点击会出现照片、价格、人数、床位和 “View details” 按钮，也有 “Google Maps” 按钮。
+- 地图上方有 “Show all 4” 按钮，随时点一下就回到能看到四个地点的视角。
 - Google 自己的地图底图需要 Google API Key 并绑定付款方式，所以没有直接使用。如果你有 API Key，告诉我，我可以改成 Google Maps 的底图。
 - 所有坐标都是区域级近似位置。Dusun Bonda 的 “Open in Google Maps” 是按名称搜索，能找到准确位置。
 
@@ -69,7 +72,7 @@ python tools/download_photos.py
 
 ## 6. 仍然缺失
 
-- 三个 Airbnb 在年末日期的价格、清洁费、服务费、押金。
+- 三个 Airbnb 在年末日期是否有空房；gross 价格包含哪些费用、押金多少。
 - A、C 的真实最大住宿人数；各处的厕所和淋浴数量；A / B / C 的完整设施清单（在 Airbnb 页面点 “Show all amenities”）。
 - Dusun Bonda 在 12 月 31 日前后是否有空房，以及是否允许年末倒数聚会（官方规则禁止大声音乐和卡拉 OK，晚上 11 点关门熄灯，只允许清真食物）。
 - 你的 10 张照片里，“Covered lounge deck with TV” 那张我不确定是官网上的哪个区域，说明里只写了看得见的内容。

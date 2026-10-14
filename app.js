@@ -172,15 +172,26 @@
   }
   function perPerson(id) { var total = totalFor(id), n = headcount(); return total && n ? total / n : null; }
   function priceLine(p) {
-    var t = totalFor(p.id);
-    if (t) return 'Quoted ' + fmtRM(t) + ' total' + ((p.pricing && p.pricing.totalNote) ? ' (' + p.pricing.totalNote + ')' : '');
+    var s = parseFloat(state.totals[p.id]);
+    if (s > 0) return fmtRM(s) + ' total (entered in this browser)';
+    var d = p.pricing && p.pricing.total;
+    if (d > 0) return fmtRM(d) + ' ' + (p.pricing.totalNote || 'total');
     return p.card.price || 'Not yet confirmed';
   }
   function pinInfo(p) {
-    var t = totalFor(p.id);
-    if (t) return { text: fmtRM(t), known: true };
+    var s = parseFloat(state.totals[p.id]);
+    if (s > 0) return { text: fmtRM(s), known: true };
+    var d = p.pricing && p.pricing.total;
+    if (d > 0) return { text: fmtRM(d) + (p.pricing.totalUnit ? '/' + p.pricing.totalUnit : ''), known: true };
     if (p.pricing && p.pricing.pin) return { text: p.pricing.pin, known: true };
     return { text: 'Price ?', known: false };
+  }
+  function ppHtml(id) {
+    var v = perPerson(id), p = BY_ID[id];
+    if (v) return '<b>' + fmtRM2(v) + '</b> per person';
+    if (p.pricing && p.pricing.perPerson) return '<b>RM' + p.pricing.perPerson.min + '–' + p.pricing.perPerson.max + '</b> per person ' + esc(p.pricing.perPerson.note || '(provided)');
+    if (totalFor(id)) return 'Add the number of participants to see the cost per person.';
+    return 'Per person: not shown until total and participants are confirmed';
   }
 
   /* ---------- photos with a three-step fallback: local folder -> official URL -> placeholder ---------- */
@@ -268,7 +279,7 @@
     var photos = P.reduce(function (n, p) { return n + p.photos.length; }, 0);
     var kv = P.filter(function (p) { return p.zone === 'klang_valley'; }).length;
     var out = P.length - kv;
-    var priced = P.filter(function (p) { return p.pricing && p.pricing.status === 'confirmed'; }).length;
+    var priced = P.filter(function (p) { return p.pricing && (p.pricing.total > 0 || p.pricing.perPerson); }).length;
     $('#view-home').innerHTML =
       '<header class="hero" id="intro">' +
         '<div class="lights" aria-hidden="true">' + lightsSvg() + '</div>' +
@@ -280,7 +291,7 @@
             '<div><dt>Candidate places</dt><dd>' + P.length + '</dd><small>3 whole-house Airbnbs + 1 glamping site</small></div>' +
             '<div><dt>By area</dt><dd>' + kv + ' + ' + out + '</dd><small>' + kv + ' Klang Valley suburbs, ' + out + ' highland / nature</small></div>' +
             '<div><dt>Real photos linked</dt><dd>' + photos + '</dd><small>from the listings and the official site</small></div>' +
-            '<div class="warn"><dt>Prices confirmed for our dates</dt><dd>' + priced + ' of ' + P.length + '</dd><small>' + esc(META.priceDisclaimer) + '</small></div>' +
+            '<div class="warn"><dt>Prices entered (gross)</dt><dd>' + priced + ' of ' + P.length + '</dd><small>Figures from the group. ' + esc(META.priceDisclaimer) + '</small></div>' +
           '</dl>' +
           '<div class="hero-cta"><a class="btn primary" href="#/map">Open the map</a><a class="btn ghost" href="#/compare">Jump to comparison</a></div>' +
         '</div>' +
@@ -293,6 +304,7 @@
             return '<button type="button" class="fchip" data-filter="' + f[0] + '" aria-pressed="false">' + icon(AM_LABEL[f[0]][2], 16) + f[1] + '</button>';
           }).join('') +
           '<button type="button" class="fchip clear" data-filter="__clear" hidden>Clear</button>' +
+          '<button type="button" class="fchip" data-fit>Show all 4</button>' +
           '<span class="fnote" id="fnote"></span>' +
           '<div class="seg" role="group" aria-label="Map style"><button type="button" class="on" data-maptab="map" aria-pressed="true">Map</button><button type="button" data-maptab="schem" aria-pressed="false">Schematic</button></div>' +
         '</div>' +
@@ -343,7 +355,13 @@
   }
 
   /* ---------- MAP ---------- */
-  var mapObj = null, markers = {}, circles = {}, tilesOk = 0, tilesBad = 0;
+  var mapObj = null, markers = {}, circles = {}, tilesOk = 0, tilesBad = 0, allBounds = null, userMoved = false;
+  function fitAll() {
+    if (!mapObj || !allBounds) return;
+    mapObj.invalidateSize();
+    if (mapObj.closePopup) mapObj.closePopup();
+    mapObj.fitBounds(allBounds, { padding: [30, 30] });
+  }
 
   function popupHtml(p) {
     return '<div class="pop"><div class="pop-img">' + img(p, 0, 'thumb') + '</div><div class="pop-body">' +
@@ -360,10 +378,11 @@
   }
 
   function markerIcon(p) {
-    var c = zone(p).color, pi = pinInfo(p);
+    var c = zone(p).color, pi = pinInfo(p), side = p.location.lng >= 101.75 ? 'r' : 'l';
     return L.divIcon({
-      className: 'mk', iconSize: [0, 0], iconAnchor: [0, 0], popupAnchor: [0, -26],
-      html: '<span class="mk-price' + (pi.known ? '' : ' unk') + '" style="--c:' + c + '"><i>' + p._badge + '</i><b>' + esc(pi.text) + '</b></span>'
+      className: 'mk', iconSize: [0, 0], iconAnchor: [0, 0], popupAnchor: [0, -18],
+      html: '<span class="mk-dot" style="--c:' + c + '"><b>' + p._badge + '</b></span>' +
+            '<span class="mk-tag ' + side + (pi.known ? '' : ' unk') + '">' + esc(pi.text) + '</span>'
     });
   }
   function refreshPins() {
@@ -399,7 +418,12 @@
     L.circleMarker([META.kl.lat, META.kl.lng], { radius: 6, color: '#f4ecdc', weight: 1.5, fillColor: '#0c1022', fillOpacity: 1 }).addTo(mapObj)
       .bindTooltip('KL city centre (reference)', { permanent: false, direction: 'right' });
     pts.push([META.kl.lat, META.kl.lng]);
-    mapObj.fitBounds(L.latLngBounds(pts).pad(0.35));
+    allBounds = L.latLngBounds(pts).pad(0.25);
+    mapObj.fitBounds(allBounds, { padding: [30, 30] });
+    mapObj.on('dragstart', function () { userMoved = true; });
+    if (window.ResizeObserver) {
+      new ResizeObserver(function () { if (!userMoved) fitAll(); }).observe($('#leaflet'));
+    }
     mapObj.on('popupopen', function (e) {
       var el = e.popup.getElement(); if (!el) return;
       $$('[data-go]', el).forEach(function (b) { b.addEventListener('click', function () { go('#/p/' + b.getAttribute('data-go')); }); });
@@ -465,8 +489,8 @@
     $$('.card').forEach(function (c) { c.classList.toggle('sel', c.getAttribute('data-id') === id); });
     $$('.sc-pt').forEach(function (g) { g.classList.toggle('sel', g.getAttribute('data-id') === id); });
     P.forEach(function (p) {
-      var m = markers[p.id], el = m && m.getElement && m.getElement(), pin = el && el.querySelector('.mk-price');
-      if (pin) pin.classList.toggle('sel', p.id === id);
+      var m = markers[p.id], el = m && m.getElement && m.getElement();
+      if (el) el.classList.toggle('sel', p.id === id);
       if (m && m.setZIndexOffset) m.setZIndexOffset(p.id === id ? 1000 : 0);
     });
   }
@@ -651,7 +675,7 @@
       '<p class="small">Per person = confirmed total ÷ participants. Nothing is shown until both numbers are entered.</p>' +
       '<div class="pp-in"><label>Confirmed total for the stay (RM)<input type="number" min="0" step="any" inputmode="decimal" data-total="' + id + '" value="' + esc(totalVal(id)) + '" placeholder="e.g. from a quote"></label>' +
       '<label>Participants<input type="number" min="1" step="1" inputmode="numeric" data-headcount value="' + esc(hcVal()) + '" placeholder="head count"></label></div>' +
-      '<p class="pp-out" data-ppout="' + id + '">' + (v ? '<b>' + fmtRM2(v) + '</b> per person' : 'Enter a confirmed total and the number of participants.') + '</p></div>';
+      '<p class="pp-out" data-ppout="' + id + '">' + ppHtml(id) + '</p></div>';
   }
 
   function secPrice(p) {
@@ -721,7 +745,7 @@
       crit('bath', 'Toilets & bathrooms', function (p) { return '<b>' + esc(p.card.baths) + '</b><small>' + esc(rec(p.bathrooms, 'toilets').note || rec(p.bathrooms, 'privacy').note || 'Private / shared not disclosed') + '</small>'; }) +
       crit('pool', 'Facilities', function (p) { return '<div class="cchips">' + party.map(function (k) { var s = amStatus(p, k); return '<span class="cc ' + STATUS[s].cls + '" title="' + esc(AM_LABEL[k][1] + ': ' + STATUS[s].label) + '">' + icon(AM_LABEL[k][2], 14) + AM_LABEL[k][1].replace('Swimming ', '').replace(' facilities', '').replace('Projector / meeting space', 'Projector') + '<i>' + STATUS[s].glyph + '</i></span>'; }).join('') + '</div>'; }) +
       crit('pot', 'Kitchen', function (p) { var t = kitchenTally(p); return pill(rec(p.kitchen, 'selfCooking').status) + '<b>' + t.confirmed + ' of ' + t.total + ' points confirmed</b><small>' + esc(rec(p.kitchen, 'selfCooking').note || '') + '</small>'; }) +
-      crit('tag', 'Price & per person', function (p) { var v = perPerson(p.id); return '<b>' + esc(p.pricing.headline) + '</b>' + pill(p.pricing.status) + '<label class="mini-in">Confirmed total (RM)<input type="number" min="0" step="any" inputmode="decimal" data-total="' + p.id + '" value="' + esc(totalVal(p.id)) + '"></label><p class="pp-out" data-ppout="' + p.id + '">' + (v ? '<b>' + fmtRM2(v) + '</b> per person' : 'Per person: not shown until total and participants are confirmed') + '</p>'; }) +
+      crit('tag', 'Price & per person', function (p) { var v = perPerson(p.id); return '<b>' + esc(p.pricing.headline) + '</b>' + pill(p.pricing.status) + '<label class="mini-in">Confirmed total (RM)<input type="number" min="0" step="any" inputmode="decimal" data-total="' + p.id + '" value="' + esc(totalVal(p.id)) + '"></label><p class="pp-out" data-ppout="' + p.id + '">' + ppHtml(p.id) + '</p>'; }) +
       '<p class="disclaimer">' + icon('alert', 16) + esc(META.priceDisclaimer) + '</p>' +
       crit('camera', 'Photos', function (p) { if (HOSTED) return '<b>' + p.photos.length + ' real photos</b><small>Not shown in this hosted version</small><a href="' + esc(p.links[p.id === 'dusun_bonda' ? 1 : 0].url) + '" target="_blank" rel="noopener noreferrer">Open photos</a>'; return '<div class="cthumbs">' + [0, 1, 2].map(function (i) { return p.photos[i] ? '<button type="button" class="ct" data-lbp="' + p.id + '" data-lb="' + i + '" aria-label="Open photo ' + (i + 1) + '">' + img(p, i, 'thumb') + '</button>' : ''; }).join('') + '</div><small>' + p.photos.length + ' real listing photos</small>'; }) +
       crit('car', 'Transport & location', function (p) { return '<b>' + esc(zone(p).label) + '</b><span>≈ ' + kmFromKL(p) + ' km from KL centre (straight-line)</span>' + (p.location.precision === 'approximate' ? '<span class="chip warn">Approximate location</span>' : '') + '<small>' + esc(p.surroundings.split('. ')[0]) + '.</small>'; }) +
@@ -771,8 +795,9 @@
   /* ---------- events ---------- */
   function wire() {
     document.addEventListener('click', function (e) {
-      var t = e.target.closest ? e.target.closest('[data-select],[data-go],[data-nav],[data-scroll],[data-filter],[data-maptab],[data-lb],[data-amfilter],[data-bld],[data-vote],[data-resetvotes],[data-usetotal],[data-combo]') : null;
+      var t = e.target.closest ? e.target.closest('[data-select],[data-go],[data-nav],[data-scroll],[data-filter],[data-maptab],[data-lb],[data-amfilter],[data-bld],[data-vote],[data-resetvotes],[data-usetotal],[data-combo],[data-fit]') : null;
       if (!t) return;
+      if (t.hasAttribute('data-fit')) { userMoved = false; fitAll(); return; }
       if (t.hasAttribute('data-select')) { selectProperty(t.getAttribute('data-select'), t.closest('.sc-pt') ? 'schem' : 'card'); return; }
       if (t.hasAttribute('data-go')) { go('#/p/' + t.getAttribute('data-go')); return; }
       if (t.hasAttribute('data-nav')) { go(t.getAttribute('data-nav')); return; }
@@ -830,7 +855,7 @@
     P.forEach(function (p) {
       var v = perPerson(p.id);
       $$('[data-ppout="' + p.id + '"]').forEach(function (o) {
-        o.innerHTML = v ? '<b>' + fmtRM2(v) + '</b> per person' : (current.view === 'compare' ? 'Per person: not shown until total and participants are confirmed' : 'Enter a confirmed total and the number of participants.');
+        o.innerHTML = ppHtml(p.id);
       });
     });
   }
