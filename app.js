@@ -211,7 +211,11 @@
     return out;
   }
   function img(p, i, size, cls) {
-    if (HOSTED) return '<div class="ph-missing"><span>Photo not shown here</span><small>Open the original listing</small></div>';
+    if (HOSTED) {
+      var hp = p.photos[i];
+      if (hp && hp.src && /^data:/.test(hp.src)) return '<img class="' + (cls || '') + '" src="' + hp.src + '" alt="' + esc(p.name + ' — ' + hp.caption) + '" loading="' + (size === 'large' ? 'eager' : 'lazy') + '" decoding="async">';
+      return '<div class="ph-missing"><span>Photo not shown here</span><small>Open the original listing</small></div>';
+    }
     var s = photoSrcs(p, i, size); var ph = p.photos[i];
     if (!s.length) return '<div class="ph-missing"><span>No photo yet</span><small>Add one in data/properties.js</small></div>';
     return '<img class="' + (cls || '') + '" src="' + esc(s[0]) + '" data-fb="' + esc(s.slice(1).join('|')) + '" alt="' + esc(p.name + ' — ' + ph.caption) + '" loading="' + (size === 'large' ? 'eager' : 'lazy') + '" decoding="async">';
@@ -396,13 +400,11 @@
     if (!window.L) { showBanner('The map library could not load (are you offline?). The schematic map and the cards below still work.'); setMapTab('schem'); return; }
     mapObj = L.map('leaflet', { zoomControl: true, scrollWheelZoom: false });
     var attrOsm = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
-    var carto = attrOsm + ' &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>';
-    var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { subdomains: 'abcd', maxZoom: 19, attribution: carto });
-    var dark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { subdomains: 'abcd', maxZoom: 19, attribution: carto });
+    /* CARTO basemaps now demand an API key (watermark "API KEY REQUIRED"), so the free OpenStreetMap tiles are used. */
     var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: attrOsm });
-    [light, dark, osm].forEach(function (l) { l.on('tileload', function () { tilesOk++; }); l.on('tileerror', function () { tilesBad++; }); });
-    light.addTo(mapObj);
-    L.control.layers({ 'Map (Google-style)': light, 'Night map': dark, 'OpenStreetMap': osm }, null, { collapsed: true }).addTo(mapObj);
+    osm.on('tileload', function () { tilesOk++; });
+    osm.on('tileerror', function () { tilesBad++; });
+    osm.addTo(mapObj);
     mapObj.on('focus', function () { mapObj.scrollWheelZoom.enable(); });
     mapObj.on('blur', function () { mapObj.scrollWheelZoom.disable(); });
 
@@ -571,8 +573,12 @@
   function secGallery(p) {
     if (HOSTED) {
       var pl = p.id === 'dusun_bonda' ? [p.links[1], p.links[2]] : [p.links[0]];
+      var own = p.photos.map(function (ph, i) {
+        return ph.src && /^data:/.test(ph.src) ? '<button type="button" class="g-item' + (i === 0 ? ' big' : '') + '" data-lb="' + i + '" aria-label="Open photo: ' + esc(ph.caption) + '">' + img(p, i, i === 0 ? 'large' : 'thumb') + '<span class="cap">' + esc(ph.caption) + '</span></button>' : '';
+      }).join('');
       return sec('gallery', 'Photos', 'camera',
-        '<div class="banner warn">' + icon('alert', 20) + '<div><b>Photos are not shown in this hosted version</b><span>The host blocks images from other websites. ' + p.photos.length + ' real photos are on the ' + (p.id === 'dusun_bonda' ? 'official Dusun Bonda website' : 'Airbnb listing') + '. Tap below to see them. The downloadable project shows them here.</span></div></div>' +
+        (own ? '<div class="gallery">' + own + '</div>' : '') +
+        '<div class="banner warn">' + icon('alert', 20) + '<div><b>' + (own ? 'Only our own photos are shown in this hosted version' : 'Photos are not shown in this hosted version') + '</b><span>The host blocks images from other websites. ' + p.photos.length + ' photos are listed on the ' + (p.id === 'dusun_bonda' ? 'official Dusun Bonda website' : 'Airbnb listing') + '. Tap below to see them. The downloadable project shows them here.</span></div></div>' +
         '<div class="links">' + pl.map(function (l) { return '<a class="btn primary" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' + icon('camera', 16) + 'See photos: ' + esc(l.label) + '</a>'; }).join('') + '</div>');
     }
     var items = p.photos.map(function (ph, i) {

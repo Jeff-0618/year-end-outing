@@ -410,9 +410,9 @@ textarea { resize: vertical; }
 /* ---------- hosted-preview mode (no outside images, no map tiles) ---------- */
 .hosted-note { padding: .5rem 1rem; background: rgba(242, 182, 99, .12); border-bottom: 1px solid rgba(242, 182, 99, .4); font-size: .82rem; text-align: center; }
 .hosted .ph-missing span, .hosted .ph-missing small { display: none; }
-.hosted .card-img { aspect-ratio: 16 / 5; }
-.hosted .unit-img { aspect-ratio: auto; height: 44px; }
-.hosted .d-hero { height: clamp(190px, 30vh, 300px); }
+.hosted .card-img:has(.ph-missing) { aspect-ratio: 16 / 5; }
+.hosted .unit-img:has(.ph-missing) { aspect-ratio: auto; height: 44px; }
+.hosted .d-hero:has(.ph-missing) { height: clamp(190px, 30vh, 300px); }
 .hosted .map-banner { position: static; margin: .6rem; }
 
 /* ---------- Airbnb-style price pins on a light, Google-like map ---------- */

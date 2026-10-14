@@ -54,7 +54,7 @@ python tools/download_photos.py
 
 ## 4. 地图
 
-- 默认是浅色地图（CARTO Voyager，基于 OpenStreetMap，样子最接近 Google 地图），右上角图层按钮可切换夜间地图和 OpenStreetMap。
+- 底图是 OpenStreetMap（免费、不需要 Key）。我之前用的 CARTO 浅色地图现在要 Key，会出现 “API KEY REQUIRED” 水印，已经去掉。
 - 每个地点是一个带字母的圆点，旁边是价格标签（Airbnb 风格）。标签故意放在圆点的左边或右边，缩小后也不会叠在一起。点击会出现照片、价格、人数、床位和 “View details” 按钮，也有 “Google Maps” 按钮。
 - 地图上方有 “Show all 4” 按钮，随时点一下就回到能看到四个地点的视角。
 - Google 自己的地图底图需要 Google API Key 并绑定付款方式，所以没有直接使用。如果你有 API Key，告诉我，我可以改成 Google Maps 的底图。
