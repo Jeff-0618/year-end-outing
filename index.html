@@ -3,50 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="color-scheme" content="dark">
-  <title>YEAR-END COUNTDOWN 2026 — Accommodation Map</title>
-  <meta name="description" content="Interactive map and comparison of four accommodation options for the Year-End Countdown 2026 (2 days 1 night, KL and surrounding areas).">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#fbf8f2">
+  <title>Year-End Countdown 2026</title>
+  <meta name="description" content="Year-End Countdown 2026: compare accommodation options by distance from FGA CYC Kuchai Lama. 年终倒数 2026 住宿比较。">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
   <header class="topbar">
-    <a class="brand" href="#/intro" aria-label="Back to the introduction">Countdown <b>2026</b></a>
-    <nav class="steps" id="steps" aria-label="Presentation views"></nav>
-    <div class="ctl">
-      <button type="button" id="prev" class="btn ghost sm" aria-label="Previous view">‹</button>
-      <button type="button" id="next" class="btn ghost sm" aria-label="Next view">›</button>
-      <button type="button" id="presentBtn" class="btn ghost sm" aria-pressed="false" title="Larger text and full screen. Arrow keys move between views.">Present</button>
-    </div>
+    <a id="brand" class="brand" href="#/places">Year-End Countdown 2026</a>
+    <div id="langbox" class="lang" role="group" aria-label="Language / 语言"></div>
   </header>
 
   <main id="main">
-    <div class="view" id="view-home"></div>
-    <div class="view" id="view-detail" hidden></div>
-    <div class="view" id="view-compare" hidden></div>
-    <div class="view" id="view-discuss" hidden></div>
-    <noscript><p class="nojs">This page needs JavaScript. Open index.html in a normal browser.</p></noscript>
+    <div id="view"></div>
+    <div id="mapView" hidden>
+      <div class="mapui"></div>
+      <div id="mapbox"></div>
+      <div id="sheet" class="sheet" hidden></div>
+    </div>
+    <noscript><p class="nojs">This page needs JavaScript. 请使用支持 JavaScript 的浏览器。</p></noscript>
   </main>
 
-  <footer class="foot">
-    <p>Researched 14 Oct 2026 from the public Airbnb listings and dusunbonda.com. Photos belong to the hosts and are linked for internal group discussion only. Map data © OpenStreetMap contributors. Edit <code>data/properties.js</code> to update anything on this page.</p>
-  </footer>
+  <nav id="nav" class="nav" aria-label="Main"></nav>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
   <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
-    <button type="button" id="lbClose" class="lb-btn close" aria-label="Close photo viewer">×</button>
+    <button type="button" id="lbClose" class="lb-btn close" aria-label="Close">×</button>
     <button type="button" id="lbPrev" class="lb-btn prev" aria-label="Previous photo">‹</button>
     <figure><div id="lbImg"></div><figcaption id="lbCap"></figcaption></figure>
     <button type="button" id="lbNext" class="lb-btn next" aria-label="Next photo">›</button>
   </div>
 
-  <!-- Leaflet loads async: if it is blocked or offline, the page still works (schematic map + cards). -->
+  <!-- Leaflet loads in the background: if it is blocked or offline, the page still works. -->
   <script id="leaflet-js" async src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data/config.js"></script>
   <script src="data/properties.js"></script>
+  <script src="data/zh.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
