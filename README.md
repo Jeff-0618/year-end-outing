@@ -1,84 +1,70 @@
-# YEAR-END COUNTDOWN 2026 — 住宿互动地图
+# 年终倒数 2026 · 住宿地图（第 2 版初版）
 
-网页内容全部是英文（方便投影给大家看）；这份说明用中文写给你自己用。
+出发点：**FGA CYC Kuchai Lama**。网页上有 14 个场地，按离教会的距离排列，点进去看资料，可以按赞、选“第一选择”、提问，随时切换中文／英文。
 
-## 1. 文件结构
+## 1. 这一版有什么
 
-```
-countdown2026/
-├─ index.html            网页入口
-├─ styles.css            样式
-├─ app.js                程序逻辑
-├─ start.bat             Windows 双击启动（本机预览用）
-├─ data/properties.js    ★ 所有房源资料、价格、照片清单都在这一个文件
-├─ assets/
-│  ├─ user-photos/dusun_bonda/   你拍的 10 张 Dusun Bonda 照片（已放进相册，已去掉定位等元数据）
-│  └─ images/                    下载脚本会把官方照片存到这里
-└─ tools/download_photos.py      一键把官方照片（Airbnb + Dusun Bonda 官网）下载到本机
-```
+- **场地**（首页）：手机单列卡片，只显示照片、名字、地区、离教会多远、价格、人数、♥ 票数。顶部可以按“近 / 中等 / 远”筛选，也可以只看有泳池／BBQ／卡拉 OK 的。
+- **地图**：教会在中间，虚线圈是 50、100、200 公里。圆点上的数字就是场地编号（和首页卡片的号码一样），颜色表示远近：绿＝近（≤50 公里）、黄＝中等、红＝远（>100 公里）。点圆点会弹出小卡片，有“详情”和“导航”。
+- **详情**：大图可左右滑、价格、人数、床和浴室、优点、注意事项、重点设施，更多资料收在折叠区里。每个场地都有“从教会导航”按钮，打开 Google Maps 会直接显示车程。
+- **对比**：在最多 3 个场地上点天平图标，再到“对比”页并排看。输入人数，会自动算每人费用。
+- **投票·提问**：每个场地可以按 ♥，也可以选一个“我的第一选择”（每人只有一个）；每个场地和“投票·提问”页都有提问表单。
+- **中 / EN**：右上角，每一页都有，会记住你的选择。
 
-## 2. 上传 Vercel 之前，先在电脑上做这两步（约 2 分钟）
+## 2. 上传到 GitHub / Vercel（最简单：只传 1 个文件）
 
-**第 1 步：把官方照片下载进项目。** 我这边没有外网，没办法替你下载。网页里的官方照片现在是“链接”，能显示，但最稳的做法是存成文件，和网页一起上传：
+我另外做了一个**单文件版 `index.html`**（里面已经包含全部程序、资料和中文），所以更新只要：
 
-```
-cd 你的文件夹路径\countdown2026
-python tools/download_photos.py
-```
+1. 把 `index.html` 下载到手机。
+2. 打开 GitHub 仓库首页（最外层），点 **Add file → Upload files**，选 `index.html`，点 **Commit changes**（同名文件会被替换）。
+3. 等约 30 秒，用手机打开网址，刷新两次。页面最底下会有一行小字 `v2.1 · 14 个场地`，看到它就表示新版已经生效。
 
-完成后会看到 `Done. saved: xx`。照片存到 `assets/images/`，网页会优先用这些文件，手机打开就不依赖 Airbnb 或官网的服务器。
+这样不用管 `data` 文件夹，也不会出现“有的文件是旧的”这种问题。`assets` 文件夹（你拍的照片）不用重传。仓库里原来的 `app.js`、`styles.css`、`data/…` 可以留着，新版不会用到它们。
 
-**第 2 步：上传整个文件夹。** 上传整个 `countdown2026` 文件夹（包括 `assets`、`data`、`tools`），不要只传 index.html。Vercel 不需要任何配置（纯静态网页）：
+**如果页面是空白，或者出现“有文件缺少或还是旧版”**：说明网站上还是旧的 `index.html`，或者上传放错了位置。重新上传 `index.html` 到最外层即可。
 
-- 命令行：`npx vercel login`，然后 `npx vercel --prod`，项目目录直接回车。
-- 或者把文件夹放到 GitHub，在 vercel.com/new 导入，Framework Preset 选 **Other**，其它留空，点 Deploy。
+（想自己改资料的话，用 zip 里的多文件版：`index.html`、`styles.css`、`app.js` 放最外层；`properties.js`、`zh.js`、`config.js` 放在 `data` 文件夹里。）
 
-上传后用手机打开 Vercel 给你的 `https://xxx.vercel.app` 链接即可。
+## 3. 投票和提问连接你的 Google Sheet（约 5 分钟，建议用电脑）
 
-## 3. 价格（已经按你给的填好）
+没连接之前，投票和提问只存在每个人自己的手机里，别人看不到（页面上会写明）。连接后，所有人看到的票数和问题都一样。
 
-都是 gross（你给的含全部费用的数字），已经显示在地图气泡、卡片、详情页和比较页：
+1. 打开 Google 云端硬盘，新建一个 **Google 表格**（名字随意，比如“倒数投票”）。
+2. 菜单点 **扩展程序 → Apps Script**。把里面原有的代码全部删掉，打开项目里的 `tools/google-sheet-script.gs`，复制全部内容粘贴进去，点保存。
+3. 点右上角 **部署 → 新建部署**，类型选 **网页应用**：
+   - 执行身份：**我**
+   - 谁可以访问：**任何人**
+   然后点部署，按提示授权（会出现“Google 未验证此应用”，点“高级”→“前往……（不安全）”，这是你自己的脚本）。
+4. 复制得到的 **网页应用网址**（以 `https://script.google.com/macros/s/…/exec` 结尾）。
+5. 把网址填进 `config.js` 里的 `"sheetUrl": ""` 的引号里。**单文件版**：把 `config.js` 上传到最外层（和 `index.html` 放一起）；多文件版：放在 `data` 文件夹里。GitHub 网页上点铅笔图标也可以直接编辑。
 
-| 地点 | 价格 |
-|---|---|
-| Airbnb A · Genting | RM2,310 一个晚上 |
-| Airbnb B · Puchong | RM1,743 一个晚上 |
-| Airbnb C · Kajang | RM1,700 一个晚上 |
-| Dusun Bonda | 每人平均约 RM100–120 |
+脚本会自动在你的表格里建两个分页：
 
-- Dusun Bonda 官网的单位参考价（每单位每晚 RM400–850，含早餐、未含 SST，另加 RM5 可持续费）仍然保留在它的详情页里。
-- **每人费用**：在 Compare 页顶部输入参加人数，Airbnb 三个会自动用总价 ÷ 人数算出每人费用，Dusun Bonda 保持你给的 RM100–120。想固定人数，在 `data/properties.js` 最上面的 `meta` 里填 `"participants": 20`。
-- 改价格：在 `data/properties.js` 里找到对应地点的 `pricing`，改 `"total"` 的数字就行（Airbnb 三个），或者改 `"perPerson"`（Dusun Bonda）。
-- 价格旁边仍然写着“Price and availability for the actual countdown dates must be verified.”，因为空房情况还要确认。
-- 你给的 gross 里面包含哪些费用（清洁费、服务费、税）我不知道，页面里也没有写，请你自己确认。
+| 分页 | 列 | 用途 |
+|---|---|---|
+| **Questions** | Time、Venue（场地名）、VenueId、Name、Question、Lang、Reply | 每条提问一行。**在 Reply 列写答案，网页上就会显示出来。** |
+| **Votes** | Time、VoterId、Type（like / pick）、VenueId、Venue | 每个 ♥ 或“第一选择”一行，网页自动统计。 |
 
-## 4. 地图
+注意：Reply 要写在表格里同一行的第 7 列；不要改前两行的列名。
 
-- 底图是 OpenStreetMap（免费、不需要 Key）。我之前用的 CARTO 浅色地图现在要 Key，会出现 “API KEY REQUIRED” 水印，已经去掉。
-- 每个地点是一个带字母的圆点，旁边是价格标签（Airbnb 风格）。标签故意放在圆点的左边或右边，缩小后也不会叠在一起。点击会出现照片、价格、人数、床位和 “View details” 按钮，也有 “Google Maps” 按钮。
-- 地图上方有 “Show all 4” 按钮，随时点一下就回到能看到四个地点的视角。
-- Google 自己的地图底图需要 Google API Key 并绑定付款方式，所以没有直接使用。如果你有 API Key，告诉我，我可以改成 Google Maps 的底图。
-- 所有坐标都是区域级近似位置。Dusun Bonda 的 “Open in Google Maps” 是按名称搜索，能找到准确位置。
+## 4. 你可以自己改的地方
 
-## 5. 照片
+- 价格：`data/properties.js` 里找到场地，改 `pricing.total`（Airbnb 每晚总价，gross）或 `pricing.perPerson`（Dusun Bonda 每人）。没填价格的场地会显示“价格待确认”。
+- 人数：`data/config.js` 里的 `"participants": 20`，对比页会自动用它算每人费用。
+- 加新场地：复制 `properties.js` 里最后一个场地的结构，填上名字、坐标、链接即可（坐标没有就先用城镇中心）。中文文字加在 `data/zh.js`，没写的会自动显示英文。
+- 官方照片下载到本机：`python tools/download_photos.py`。
 
-- Dusun Bonda：你的 10 张照片排在最前面，第一张（泳池和人工瀑布）是封面；后面是官网照片。
-- Airbnb A / B / C：来自各自的 Airbnb 页面，没有混用别家的图。
-- 想再加照片：放进 `assets/user-photos/<地点id>/`，在 `data/properties.js` 的 `photos` 里加一行：
-  ```
-  { "src": "assets/user-photos/airbnb_b/living-room.jpg", "caption": "Living room (our own photo)" }
-  ```
-  地点 id：`airbnb_a`、`airbnb_b`、`airbnb_c`、`dusun_bonda`。
+## 5. 已确认和还缺什么
 
-## 6. 仍然缺失
+**资料比较完整（Airbnb 页面读到的）**：A Genting、B Puchong、C Kajang、Port Dickson（PD4R3BR）、Tanjong Sepat（E & J）、Batu Gajah（Royale Villa）、Bentong（ActB）、Alor Gajah（Memories Homestay 4）、Dusun Bonda。
+**只有名字和地址（来自 Google Maps 链接，没有价格、床位、照片）**：Silver House（Janda Baik）、Sunrise Villa 和 Bird of Paradise Villa（Genting Sempah）、H&H Leisure Guest House（马六甲）、GM Pool Villa（波德申，Google 不让我读取分享链接，只拿到名字）。
+**还没放进来**：你发的 3 个 Airbnb 搜索页链接，里面的房源编号是 598138597401215012、48247401、727233884641821852，需要房源本身的链接（在 Airbnb App 里打开房源 → 分享 → 复制链接）。
+**价格**：只有 A、B、C 和 Dusun Bonda 有价格（你给的）。新增的场地都没有。
 
-- 三个 Airbnb 在年末日期是否有空房；gross 价格包含哪些费用、押金多少。
-- A、C 的真实最大住宿人数；各处的厕所和淋浴数量；A / B / C 的完整设施清单（在 Airbnb 页面点 “Show all amenities”）。
-- Dusun Bonda 在 12 月 31 日前后是否有空房，以及是否允许年末倒数聚会（官方规则禁止大声音乐和卡拉 OK，晚上 11 点关门熄灯，只允许清真食物）。
-- 你的 10 张照片里，“Covered lounge deck with TV” 那张我不确定是官网上的哪个区域，说明里只写了看得见的内容。
+**位置与距离**：所有场地的位置只到城镇／区域级（网页上写了“大概位置”）。教会的位置也是 Kuchai Lama 区域级（我没有找到准确地址）。距离是直线距离，**不是车程**，真正车程请点“从教会导航”看 Google Maps。几个在同一地区的场地（例如两个 Genting Sempah 的别墅）的圆点会稍微错开，方便点击。
 
-## 7. 测试情况
+## 6. 测试情况
 
-在无头 Chromium 里测试（我这边没有外网）：94 项页面测试通过，20 项地图代码测试通过（用模拟的地图库）。包括：你的 10 张照片真的能加载、封面和 Glam 4 单位用了你的照片、价格栏和 Google Maps 按钮、价格气泡、输入总价后气泡更新、卡片与地图联动、手机宽度无横向溢出。
+在无头 Chromium 里测试（我这边没有外网）：44 项页面测试通过（多文件版和单文件版各测一遍）；投票脚本 14 项通过。包括：14 个场地的距离和独立算法一致、距离分组、筛选、中英切换、每个场地的详情页、你的 10 张照片能加载、♥／第一选择／提问、对比页每人费用、地图标记和弹出卡片（用模拟地图库）、地图载入失败时的按距离清单，以及**用真正的 Google Apps Script 代码模拟两部手机共用同一张表格**（点赞、第一选择、提问、你在表格里写的回复能显示回来）。
 
-**没有测试到：** 真实的浅色地图底图、Airbnb 和官网照片的实际显示、下载脚本的真实下载、真机触摸。请上传后用手机打开，先点一遍确认。
+**没有测试到的**：真实的地图底图和 Leaflet 库、Airbnb／官网照片的实际显示、真正部署到你的 Google 账号后的投票和提问（授权步骤我没法代你做）、真机触摸。上传后请用手机点一遍，并让朋友点个赞试试。

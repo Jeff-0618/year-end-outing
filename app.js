@@ -8,6 +8,12 @@
     document.body.innerHTML = '<p style="padding:2rem;font:16px system-ui">data/properties.js did not load.</p>';
     return;
   }
+  /* If some files on the web server are old or missing, say so on the page instead of showing a blank screen. */
+  if (!DATA.meta || !DATA.meta.origin) {
+    var vv = document.getElementById('view') || document.body;
+    vv.innerHTML = '<div style="padding:20px;font:16px/1.5 system-ui;max-width:560px"><h2>Some files are old</h2><p><b>data/properties.js</b> on the website is still the OLD version. Upload the new <b>properties.js</b> into the <b>data</b> folder (not the top level), then refresh twice.</p><p>网站上的 <b>data/properties.js</b> 还是旧版。请把新的 <b>properties.js</b> 上传到 <b>data</b> 文件夹里（不是最外层），然后刷新两次。</p></div>';
+    return;
+  }
   var ZHD = (window.ZH && window.ZH.places) || {};
   var CFG = window.APP_CONFIG || {};
   var META = DATA.meta, ORIGIN = META.origin, P = DATA.properties, BY = {};
@@ -340,7 +346,8 @@
       '<div class="bar"><p class="count">' + list.length + ' ' + esc(t('places')) + '</p>' +
       '<label class="sort"><span class="sr">' + esc(t('sort')) + '</span><select id="sort" aria-label="' + esc(t('sort')) + '">' +
         [['distance', 'sortDistance'], ['votes', 'sortVotes'], ['guests', 'sortGuests']].map(function (k) { return '<option value="' + k[0] + '"' + (S.sort === k[0] ? ' selected' : '') + '>' + esc(t(k[1])) + '</option>'; }).join('') + '</select></label></div>' +
-      (list.length ? '<div class="grid">' + list.map(card).join('') + '</div>' : '<div class="empty"><p>' + esc(t('noMatch')) + '</p><button type="button" class="btn" data-clear>' + esc(t('clear')) + '</button></div>');
+      (list.length ? '<div class="grid">' + list.map(card).join('') + '</div>' : '<div class="empty"><p>' + esc(t('noMatch')) + '</p><button type="button" class="btn" data-clear>' + esc(t('clear')) + '</button></div>') +
+      '<p class="ver">v2.1 · ' + P.length + ' ' + esc(t('places')) + '</p>';
   }
 
   /* ---------- DETAIL ---------- */
@@ -662,5 +669,5 @@
     setInterval(function () { if (!document.hidden) socLoad(); }, 60000);
     document.addEventListener('visibilitychange', function () { if (!document.hidden) socLoad(); });
   }
-  window.__c26 = { data: DATA, S: S, Soc: Soc };
+  window.__c26 = { data: DATA, S: S, Soc: Soc, version: 2 };
 })();

@@ -104,6 +104,8 @@ body.on-map #main { max-width: none; padding: 0; }
 .mapbtn { margin-left: auto; }
 .empty { text-align: center; padding: 40px 10px; display: grid; gap: 14px; justify-items: center; color: var(--muted); }
 
+.ver { text-align: center; color: #a3a9b5; font-size: .72rem; margin: 22px 0 4px; }
+
 /* ---------- detail ---------- */
 .back { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; color: var(--muted); text-decoration: none; font-weight: 600; margin-top: 4px; }
 .strip { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; border-radius: var(--r); -webkit-overflow-scrolling: touch; scrollbar-width: none; }
