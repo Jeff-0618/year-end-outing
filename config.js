@@ -10,8 +10,8 @@
    userPhotosFirst: true shows the photos you added yourself first; false puts them after the Airbnb / website photos.
    ========================================================================== */
 window.APP_CONFIG = {
-  "sheetUrl": "",
-  "googleClientId": "",
+  "sheetUrl": "https://script.google.com/macros/s/AKfycby2KwJv0Q5_Yy9Uk-Gs6oyPG_uqzqgk7OTcjBN5eG3rYASDmVrrCojW95eZIdMgLdWIPQ/exec",
+  "googleClientId": "697249602311-eqgen5h437mlbv1ib5a004h9ap1g2unr.apps.googleusercontent.com",
   "participants": null,
   "userPhotosFirst": true
 };
