@@ -1668,7 +1668,8 @@ window.PROPERTIES_DATA = {
    "guests": {
     "n": 4,
     "plus": false,
-    "perUnit": true
+    "perUnit": true,
+    "range": "4–6"
    }
   },
   {
@@ -1878,154 +1879,6 @@ window.PROPERTIES_DATA = {
     "Is BBQ equipment provided? Is karaoke possible? Quiet hours?",
     "Number of toilets and showers",
     "Full 39-amenity list (tap \"Show all amenities\" on Airbnb)"
-   ]
-  },
-  {
-   "id": "sepat_ej",
-   "label": "Tanjong Sepat",
-   "name": "E & J Sweet Home Private Pool Villa 5BR-20pax",
-   "region": "Tanjong Sepat, Selangor",
-   "type": "Entire home — private pool villa",
-   "address": "Exact address not shown by Airbnb before booking",
-   "summary": "5-bedroom private pool villa on the Selangor coast (Tanjong Sepat), rated 5.0, with beach access.",
-   "location": {
-    "lat": 2.64,
-    "lng": 101.58,
-    "radiusKm": 8,
-    "precision": "approximate",
-    "basis": "Airbnb shows the area only (Tanjong Sepat, Selangor). The pin sits at town level, not at the house.",
-    "gmaps": "https://www.google.com/maps/search/?api=1&query=2.64,101.58",
-    "gmapsLabel": "Open the area in Google Maps",
-    "dirQuery": "2.64,101.58"
-   },
-   "surroundings": "Villa in Tanjong Sepat. Beach access is listed among the amenities.",
-   "groupFit": "Host: \"suitable for team building and family gathering\".",
-   "rating": {
-    "score": 5.0,
-    "reviews": 18,
-    "note": "Superhost · Guest favourite · top 10% of homes · 4 years hosting"
-   },
-   "headline": {
-    "bedrooms": 5,
-    "beds": 12,
-    "baths": 2
-   },
-   "guests": {
-    "n": 20,
-    "plus": false
-   },
-   "maxGuests": {
-    "display": "16+ on Airbnb · listing title: 20 pax",
-    "status": "need_confirmation",
-    "note": "The listing title says 20 pax. Airbnb's guest selector shows 16+. Confirm the real maximum."
-   },
-   "links": [
-    {
-     "label": "Airbnb listing (original link)",
-     "url": "https://www.airbnb.com/rooms/1614906124224375036?unique_share_id=479294b7-ea67-4c37-bce9-42a720a8247f&viralityEntryPoint=1&s=76"
-    }
-   ],
-   "photos": [
-    {
-     "remote": "https://a0.muscache.com/im/pictures/hosting/Hosting-1614906124224375036/original/2a1c8684-bf03-43d5-ba93-6cc51d61dd97.jpeg",
-     "caption": "Listing cover photo"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/hosting/Hosting-1614906124224375036/original/594c0da8-a0f8-406f-bf10-3e75811eb629.jpeg",
-     "caption": "Listing photo 2"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/hosting/Hosting-1614906124224375036/original/82a72239-1cfd-4bda-aa67-f9a7874cb1bd.jpeg",
-     "caption": "Listing photo 3"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/hosting/Hosting-1614906124224375036/original/b151c040-f3de-4d43-9001-65c5930acd74.jpeg",
-     "caption": "Listing photo 4"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/hosting/Hosting-1614906124224375036/original/6fc22409-bba8-4702-84d7-c8ddb643ef8a.jpeg",
-     "caption": "Listing photo 5"
-    }
-   ],
-   "bedroomsComplete": false,
-   "bedrooms": [],
-   "sleepingNotes": [
-    "Airbnb's headline says 12 beds in 5 bedrooms. The bed types per room were not readable from the page."
-   ],
-   "bedding": {
-    "status": "not_disclosed"
-   },
-   "bathrooms": {
-    "total": {
-     "status": "confirmed",
-     "value": "2 baths (Airbnb)"
-    },
-    "toilets": {
-     "status": "need_confirmation",
-     "note": "Toilet count is not listed separately from baths."
-    }
-   },
-   "kitchen": {
-    "selfCooking": {
-     "status": "confirmed",
-     "note": "Kitchen listed in the amenities."
-    }
-   },
-   "amenities": {
-    "pool": {
-     "status": "confirmed",
-     "note": "Pool listed. Size and hours not stated."
-    },
-    "kitchen": {
-     "status": "confirmed"
-    },
-    "wifi": {
-     "status": "confirmed"
-    },
-    "parking": {
-     "status": "confirmed",
-     "note": "Free parking on premises."
-    },
-    "outdoor": {
-     "status": "confirmed",
-     "note": "Beach access is listed."
-    },
-    "other": {
-     "status": "confirmed",
-     "note": "Self check-in with a keypad."
-    }
-   },
-   "pricing": {
-    "total": null,
-    "totalUnit": "night",
-    "totalNote": "per night, gross (price quoted by the group)",
-    "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
-    "items": {
-     "nightly": {
-      "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
-     }
-    }
-   },
-   "pros": [
-    "Rated 5.0, in the top 10% of homes on Airbnb (18 reviews)",
-    "Pool and beach access",
-    "Host says it suits team building and family gatherings"
-   ],
-   "cautions": [
-    "Only 2 bathrooms for a listing titled 20 pax",
-    "Airbnb lists the smoke alarm and carbon monoxide alarm as unavailable",
-    "BBQ and karaoke are not mentioned",
-    "Price not yet known"
-   ],
-   "openItems": [
-    "Price for the countdown dates",
-    "Real maximum guests and bed layout per room",
-    "Number of toilets and showers (2 baths listed)",
-    "BBQ, karaoke and noise rules",
-    "Smoke / CO alarm situation"
    ]
   },
   {
@@ -2551,254 +2404,84 @@ window.PROPERTIES_DATA = {
    ]
   },
   {
-   "id": "alor_gajah",
+   "id": "hh_melaka",
    "label": "Melaka",
-   "name": "Memories Homestay 4 (Alor Gajah, Melaka)",
-   "region": "Alor Gajah, Melaka",
-   "type": "Entire home — 9,000 sq ft corner bungalow with private pool",
-   "address": "Exact address not shown by Airbnb before booking",
-   "summary": "Big Melaka bungalow with a 20×40 ft private pool, karaoke, BBQ, table tennis, pool table and more. 26 guests as standard, up to 40.",
+   "name": "H&H Leisure Guest House (H&H 1, Melaka)",
+   "region": "Taman Bukit Cheng, Melaka",
+   "type": "Entire house — guest house with a pool",
+   "address": "39, Jalan TBC 17, Taman Bukit Cheng, 75260 Melaka",
+   "summary": "5-bedroom guest house in Taman Bukit Cheng, Melaka, with an outdoor pool, garden, BBQ facilities, free Wi-Fi and free parking (from the listing sites).",
    "location": {
-    "lat": 2.38,
-    "lng": 102.21,
-    "radiusKm": 8,
+    "lat": 2.22,
+    "lng": 102.27,
+    "radiusKm": 5,
     "precision": "approximate",
-    "basis": "Airbnb shows the area only (Alor Gajah, Melaka). The pin sits at town level, not at the house.",
-    "gmaps": "https://www.google.com/maps/search/?api=1&query=2.38,102.21",
-    "gmapsLabel": "Open the area in Google Maps",
-    "dirQuery": "2.38,102.21"
+    "basis": "Only the name and address were available from the Google Maps link. The pin sits at area level. Pins of places in the same area are nudged apart a little so they stay readable.",
+    "gmaps": "https://maps.app.goo.gl/Ey9QVeVGdUK6wZyV7?g_st=aw",
+    "gmapsLabel": "Open this place in Google Maps",
+    "dirQuery": "H&H Leisure Guest House 39 Jalan TBC 17 Taman Bukit Cheng Melaka"
    },
-   "surroundings": "Corner double-storey bungalow in Alor Gajah, Melaka.",
-   "groupFit": "Host: suitable for family gatherings, birthday parties and wedding parties.",
-   "rating": {
-    "score": 5.0,
-    "reviews": 39,
-    "note": "Superhost · Guest favourite · 10 years hosting"
-   },
+   "surroundings": "",
+   "groupFit": "",
+   "rating": null,
    "headline": {
-    "bedrooms": 7,
-    "beds": 15,
-    "baths": 7.5
+    "bedrooms": 5,
+    "beds": null,
+    "baths": null
    },
-   "guests": {
-    "n": 26,
-    "plus": false
-   },
+   "guests": null,
    "maxGuests": {
-    "display": "26 pax standard · up to 40 pax",
-    "status": "confirmed",
-    "note": "Price covers 7 rooms for 26 pax. The balcony room (7.5 rooms) adds RM300 for 30 pax. From 31 to 40 pax: RM50 per extra floor bed per night (host)."
+    "display": "Not collected yet",
+    "status": "need_confirmation",
+    "note": "Maximum guests, bathrooms and the bed layout have not been collected yet. The 5 bedrooms come from the Travelocity / Hotels.com listing."
    },
    "links": [
     {
-     "label": "Airbnb listing (original link)",
-     "url": "https://www.airbnb.com/rooms/770079611317087577?source_impression_id=p3_1792043605_P3PvLOFcyUsIKXHw"
+     "label": "Trip.com page (31 Dec – 1 Jan)",
+     "url": "https://my.trip.com/hotels/detail/?cityEnName=Melaka&cityId=62&hotelId=4971367&checkIn=2026-12-31&checkOut=2027-01-01&adult=2&children=0&curr=MYR&locale=en-MY"
+    },
+    {
+     "label": "Trip.com (your full original link)",
+     "url": "https://my.trip.com/hotels/detail/?cityEnName=Melaka&cityId=62&hotelId=4971367&checkIn=2026-12-31&checkOut=2027-01-01&adult=2&children=0&crn=1&ages=&curr=MYR&barcurr=MYR&fgt=1&mincurr=MYR&minprice=1491.75&hoteluniquekey=H4sIAAAAAAAA_-Oy5mKSEBBi4mCUMuR4-efrB7YZjM-3rWfawShwkTENBDZPdnjIaAwC_tMdupgYmTpZWl8H7pBrjXeQ4vEN8LAwDHFNL9VNL1Fg0bi__Ns1Ng_GIDZDCwNHY4soGS5m38ggwQmG5bqK8r_spUA8RRgvibUqQ9c3MuOlWBcjkwfjKkZ2LmZDMyMBgU-MfMjmxhsAAHQHR92lAAAA&masterhotelid_tracelogid=100051355-0a8f9366-498033-220305-metaRoom&detailFilters=17%7C1%7E17%7E1*80%7C2%7C0%7E80%7E2*29%7C1%7E29%7E1%7C2&hotelType=meta&display=incavg&subStamp=759&isCT=true&isFlexible=F&roomkey=1847426665__0_0_162_16_&roomToken=T8VR82-DI-7&msr=%5B%7B%22roomId%22%3A1847426665%2C%22ratePlanId%22%3A%22%22%2C%22shadowId%22%3A0%2C%22rateID%22%3A%22162%22%2C%22adult%22%3A16%2C%22childAgeList%22%3A%5B%5D%2C%22xPkgToken%22%3A%22%22%2C%22productCode%22%3A%22%22%7D%5D&trip_sub1=31_12_2026_1_localuniversal_4971367_MY_desktop_selected_21370154316_9065804858_1_0-LANG_MY_ZH-landing&hasAidInUrl=true&mproom=1847426665&locale=en-MY"
+    },
+    {
+     "label": "Google Maps",
+     "url": "https://maps.app.goo.gl/Ey9QVeVGdUK6wZyV7?g_st=aw"
     }
    ],
-   "photos": [
-    {
-     "remote": "https://a0.muscache.com/im/pictures/176e402b-02dd-4a4b-80a3-624b639433dc.jpg",
-     "caption": "Listing cover photo"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/992d56b7-6518-4322-9371-2c3279cbf227.jpg",
-     "caption": "Listing photo 2"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/3f10d22a-0ebf-4e90-bb62-1510010a978a.jpg",
-     "caption": "Listing photo 3"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/8390e2f3-2ac3-4bbf-a5ce-7671221d0007.jpg",
-     "caption": "Listing photo 4"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/03ca229a-59ee-474f-87e1-3d28b34afe45.jpg",
-     "caption": "Bedroom 1"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/b181f87e-eee0-4f4d-aaa0-a5b2b8a00105.jpg",
-     "caption": "Bedroom 2"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/e8cc0f4a-bd18-4a29-a491-a9cd931c2556.jpg",
-     "caption": "Bedroom 3"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/f7d92a04-fc9c-41ab-9916-91d12974a2ed.jpg",
-     "caption": "Bedroom 4"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/36ce8d45-7bf9-4fbf-96f7-2610d5ca3141.jpg",
-     "caption": "Bedroom 5"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/0aa70124-2252-4f9e-be0f-b6ee50747268.jpg",
-     "caption": "Bedroom 6"
-    },
-    {
-     "remote": "https://a0.muscache.com/im/pictures/273a9517-b57e-4231-8762-5a234b368ab3.jpg",
-     "caption": "Bedroom 7 (balcony room)"
-    }
-   ],
+   "photos": [],
    "bedroomsComplete": false,
-   "bedrooms": [
-    {
-     "name": "Bedroom 1",
-     "photo": 4,
-     "beds": [
-      {
-       "type": "queen",
-       "qty": 1
-      },
-      {
-       "type": "single",
-       "qty": 1
-      }
-     ]
-    },
-    {
-     "name": "Bedroom 2",
-     "photo": 5,
-     "beds": [
-      {
-       "type": "queen",
-       "qty": 2
-      }
-     ]
-    },
-    {
-     "name": "Bedroom 3",
-     "photo": 6,
-     "beds": [
-      {
-       "type": "queen",
-       "qty": 1
-      }
-     ]
-    },
-    {
-     "name": "Bedroom 4",
-     "photo": 7,
-     "beds": [
-      {
-       "type": "queen",
-       "qty": 1
-      },
-      {
-       "type": "single",
-       "qty": 1
-      }
-     ]
-    },
-    {
-     "name": "Bedroom 5",
-     "photo": 8,
-     "beds": [
-      {
-       "type": "queen",
-       "qty": 1
-      },
-      {
-       "type": "single",
-       "qty": 1
-      }
-     ]
-    },
-    {
-     "name": "Bedroom 6",
-     "photo": 9,
-     "beds": [
-      {
-       "type": "queen",
-       "qty": 3
-      }
-     ]
-    },
-    {
-     "name": "Bedroom 7 (balcony room, +RM300)",
-     "photo": 10,
-     "beds": [
-      {
-       "type": "queen",
-       "qty": 2
-      },
-      {
-       "type": "single",
-       "qty": 1
-      }
-     ]
-    }
-   ],
-   "sleepingNotes": [
-    "Airbnb's headline says 15 beds: that matches 11 queen + 4 single beds.",
-    "The standard price covers 7 rooms for 26 guests. The balcony room is an extra RM300 for 30 guests in total.",
-    "Towels are not provided (rent RM2 each, or bring your own)."
-   ],
+   "bedrooms": [],
+   "sleepingNotes": [],
    "bedding": {
-    "status": "need_confirmation",
-    "note": "Towels are not provided."
+    "status": "not_disclosed"
    },
-   "bathrooms": {
-    "total": {
-     "status": "confirmed",
-     "value": "7.5 baths (Airbnb)"
-    },
-    "towels": {
-     "status": "additional_charge",
-     "note": "Towels are not provided. Rent at RM2 each or bring your own."
-    },
-    "toilets": {
-     "status": "need_confirmation",
-     "note": "Toilet count is not listed separately from baths."
-    }
-   },
-   "kitchen": {
-    "selfCooking": {
-     "status": "confirmed",
-     "note": "Kitchen utensils are provided."
-    },
-    "bbqAllowed": {
-     "status": "confirmed",
-     "note": "BBQ facilities are provided."
-    },
-    "ownSupplies": {
-     "status": "additional_charge",
-     "note": "Charcoal is not provided. Bring your own."
-    },
-    "limits": {
-     "status": "confirmed",
-     "note": "No smoking inside the house or toilets (outside is allowed). Loudspeakers are not allowed outside the house."
-    }
-   },
+   "bathrooms": {},
+   "kitchen": {},
    "amenities": {
     "pool": {
      "status": "confirmed",
-     "note": "20 ft × 40 ft colourful private pool."
+     "note": "Outdoor / private pool (Kayak and Travelocity listings)."
+    },
+    "garden": {
+     "status": "confirmed",
+     "note": "Garden (Kayak listing)."
     },
     "bbq": {
      "status": "confirmed",
-     "note": "BBQ facilities. Charcoal is not provided."
-    },
-    "karaoke": {
-     "status": "confirmed",
-     "note": "Karaoke (host)."
-    },
-    "kitchen": {
-     "status": "confirmed",
-     "note": "Kitchen utensils provided."
+     "note": "Barbecue facilities listed (Kayak). Charcoal and tools not described."
     },
     "wifi": {
      "status": "confirmed",
-     "note": "300 Mbps internet."
+     "note": "Free Wi-Fi in all areas."
     },
     "parking": {
      "status": "confirmed",
-     "note": "Free parking on premises."
+     "note": "Free private parking."
     },
     "other": {
      "status": "confirmed",
-     "note": "Table tennis, soccer table, pool table, carom and a TV box."
+     "note": "Flat-screen TV and a tea/coffee maker (Kayak)."
     }
    },
    "pricing": {
@@ -2816,308 +2499,29 @@ window.PROPERTIES_DATA = {
     }
    },
    "pros": [
-    "20×40 ft private pool, karaoke, BBQ, table tennis, pool table",
-    "Biggest capacity of the new places: 26 pax standard, up to 40",
-    "Rated 5.0 from 39 reviews, Superhost with 524 reviews overall",
-    "7.5 bathrooms"
+    "5 bedrooms, an outdoor pool, a garden and BBQ facilities",
+    "Free Wi-Fi and free parking"
    ],
    "cautions": [
-    "Far from Kuala Lumpur (Melaka)",
-    "Loudspeakers are not allowed outside the house",
-    "No charcoal and no towels provided",
-    "Airbnb lists the smoke alarm and carbon monoxide alarm as unavailable"
+    "Maximum guests, bathrooms and bed layout have not been collected yet",
+    "Far from Kuala Lumpur (Melaka)"
    ],
    "openItems": [
-    "Price for the countdown dates, including the extra balcony room and extra beds",
-    "Karaoke rules around midnight",
-    "Charcoal supply and towels",
-    "Driving time and whether the group is happy with the distance"
-   ]
-  },
-  {
-   "id": "silver_house",
-   "label": "Janda Baik",
-   "name": "The Silver House Private Villa Janda Baik",
-   "region": "Janda Baik, Bentong, Pahang",
-   "type": "Place from a Google Maps link — details not collected yet",
-   "address": "Jalan Cheringin Tengah 1, Kampung Janda Baik, 28750 Bentong, Pahang",
-   "summary": "Private villa in Janda Baik (Bentong, Pahang). Details not collected yet.",
-   "location": {
-    "lat": 3.34,
-    "lng": 101.86,
-    "radiusKm": 4,
-    "precision": "approximate",
-    "basis": "Only the name and address were available from the Google Maps link. The pin sits at area level. Pins of places in the same area are nudged apart a little so they stay readable.",
-    "gmaps": "https://maps.app.goo.gl/yQv3zAfmxxnBhLmbA?g_st=aw",
-    "gmapsLabel": "Open this place in Google Maps",
-    "dirQuery": "The Silver House Private Villa Janda Baik Jalan Cheringin Tengah 1 Kampung Janda Baik Bentong"
-   },
-   "surroundings": "",
-   "groupFit": "",
-   "rating": null,
-   "headline": null,
-   "guests": null,
-   "maxGuests": {
-    "display": "Not collected yet",
-    "status": "need_confirmation",
-    "note": "Capacity, beds, bathrooms, facilities, price and photos have not been collected for this place yet."
-   },
-   "links": [
-    {
-     "label": "Google Maps (your link)",
-     "url": "https://maps.app.goo.gl/yQv3zAfmxxnBhLmbA?g_st=aw"
-    }
-   ],
-   "photos": [],
-   "bedroomsComplete": false,
-   "bedrooms": [],
-   "sleepingNotes": [],
-   "bedding": {
-    "status": "not_disclosed"
-   },
-   "bathrooms": {},
-   "kitchen": {},
-   "amenities": {},
-   "pricing": {
-    "total": null,
-    "totalUnit": "night",
-    "totalNote": "per night, gross (price quoted by the group)",
-    "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
-    "items": {
-     "nightly": {
-      "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
-     }
-    }
-   },
-   "pros": [],
-   "cautions": [
-    "Details have not been collected yet. Open the Google Maps link or ask the group."
-   ],
-   "openItems": [
-    "Capacity, beds and bathrooms",
-    "Facilities (pool, BBQ, karaoke, kitchen)",
-    "Price for the countdown dates",
+    "Maximum guests and the bed layout",
+    "Number of bathrooms",
+    "Karaoke / noise rules and quiet hours",
     "Photos"
-   ]
-  },
-  {
-   "id": "sunrise_villa",
-   "label": "Genting Sempah",
-   "name": "Sunrise Villa @ Genting Sempah | Genting HomeStay",
-   "region": "Genting Sempah, Bentong, Pahang",
-   "type": "Place from a Google Maps link — details not collected yet",
-   "address": "Genting Sempah, Bentong, Pahang (see the Google Maps link)",
-   "summary": "Villa in Genting Sempah. Details not collected yet.",
-   "location": {
-    "lat": 3.39,
-    "lng": 101.77,
-    "radiusKm": 4,
-    "precision": "approximate",
-    "basis": "Only the name and address were available from the Google Maps link. The pin sits at area level. Pins of places in the same area are nudged apart a little so they stay readable.",
-    "gmaps": "https://maps.app.goo.gl/eLmYiCUP4p1mDKoSA?g_st=aw",
-    "gmapsLabel": "Open this place in Google Maps",
-    "dirQuery": "Sunrise Villa @ Genting Sempah Genting HomeStay"
-   },
-   "surroundings": "",
-   "groupFit": "",
-   "rating": null,
-   "headline": null,
-   "guests": null,
-   "maxGuests": {
-    "display": "Not collected yet",
-    "status": "need_confirmation",
-    "note": "Capacity, beds, bathrooms, facilities, price and photos have not been collected for this place yet."
-   },
-   "links": [
-    {
-     "label": "Google Maps (your link)",
-     "url": "https://maps.app.goo.gl/eLmYiCUP4p1mDKoSA?g_st=aw"
-    }
    ],
-   "photos": [],
-   "bedroomsComplete": false,
-   "bedrooms": [],
-   "sleepingNotes": [],
-   "bedding": {
-    "status": "not_disclosed"
-   },
-   "bathrooms": {},
-   "kitchen": {},
-   "amenities": {},
-   "pricing": {
-    "total": null,
-    "totalUnit": "night",
-    "totalNote": "per night, gross (price quoted by the group)",
-    "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
-    "items": {
-     "nightly": {
-      "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
-     }
-    }
-   },
-   "pros": [],
-   "cautions": [
-    "Details have not been collected yet. Open the Google Maps link or ask the group."
-   ],
-   "openItems": [
-    "Capacity, beds and bathrooms",
-    "Facilities (pool, BBQ, karaoke, kitchen)",
-    "Price for the countdown dates",
-    "Photos"
-   ]
-  },
-  {
-   "id": "bird_paradise",
-   "label": "Genting Sempah",
-   "name": "Bird of Paradise Villa at Rainforest Sanctuary",
-   "region": "Genting Sempah, Bentong, Pahang",
-   "type": "Place from a Google Maps link — details not collected yet",
-   "address": "65, Jalan Rimba 2/1, Taman Puncak Rimba, Genting Sempah, 28750 Bentong, Pahang",
-   "summary": "Villa in a rainforest setting in Genting Sempah. Details not collected yet.",
-   "location": {
-    "lat": 3.37,
-    "lng": 101.78,
-    "radiusKm": 4,
-    "precision": "approximate",
-    "basis": "Only the name and address were available from the Google Maps link. The pin sits at area level. Pins of places in the same area are nudged apart a little so they stay readable.",
-    "gmaps": "https://maps.app.goo.gl/zDdJfo1xcuzgqCUp7?g_st=aw",
-    "gmapsLabel": "Open this place in Google Maps",
-    "dirQuery": "Bird of Paradise Villa at Rainforest Sanctuary 65 Jalan Rimba 2/1 Taman Puncak Rimba Genting Sempah"
-   },
-   "surroundings": "",
-   "groupFit": "",
-   "rating": null,
-   "headline": null,
-   "guests": null,
-   "maxGuests": {
-    "display": "Not collected yet",
-    "status": "need_confirmation",
-    "note": "Capacity, beds, bathrooms, facilities, price and photos have not been collected for this place yet."
-   },
-   "links": [
-    {
-     "label": "Google Maps (your link)",
-     "url": "https://maps.app.goo.gl/zDdJfo1xcuzgqCUp7?g_st=aw"
-    }
-   ],
-   "photos": [],
-   "bedroomsComplete": false,
-   "bedrooms": [],
-   "sleepingNotes": [],
-   "bedding": {
-    "status": "not_disclosed"
-   },
-   "bathrooms": {},
-   "kitchen": {},
-   "amenities": {},
-   "pricing": {
-    "total": null,
-    "totalUnit": "night",
-    "totalNote": "per night, gross (price quoted by the group)",
-    "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
-    "items": {
-     "nightly": {
-      "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
-     }
-    }
-   },
-   "pros": [],
-   "cautions": [
-    "Details have not been collected yet. Open the Google Maps link or ask the group."
-   ],
-   "openItems": [
-    "Capacity, beds and bathrooms",
-    "Facilities (pool, BBQ, karaoke, kitchen)",
-    "Price for the countdown dates",
-    "Photos"
-   ]
-  },
-  {
-   "id": "hh_melaka",
-   "label": "Melaka",
-   "name": "H&H Leisure Guest House",
-   "region": "Taman Bukit Cheng, Melaka",
-   "type": "Place from a Google Maps link — details not collected yet",
-   "address": "39, Jalan TBC 17, Taman Bukit Cheng, 75260 Melaka",
-   "summary": "Guest house in Taman Bukit Cheng, Melaka. Details not collected yet.",
-   "location": {
-    "lat": 2.22,
-    "lng": 102.27,
-    "radiusKm": 5,
-    "precision": "approximate",
-    "basis": "Only the name and address were available from the Google Maps link. The pin sits at area level. Pins of places in the same area are nudged apart a little so they stay readable.",
-    "gmaps": "https://maps.app.goo.gl/Ey9QVeVGdUK6wZyV7?g_st=aw",
-    "gmapsLabel": "Open this place in Google Maps",
-    "dirQuery": "H&H Leisure Guest House 39 Jalan TBC 17 Taman Bukit Cheng Melaka"
-   },
-   "surroundings": "",
-   "groupFit": "",
-   "rating": null,
-   "headline": null,
-   "guests": null,
-   "maxGuests": {
-    "display": "Not collected yet",
-    "status": "need_confirmation",
-    "note": "Capacity, beds, bathrooms, facilities, price and photos have not been collected for this place yet."
-   },
-   "links": [
-    {
-     "label": "Google Maps (your link)",
-     "url": "https://maps.app.goo.gl/Ey9QVeVGdUK6wZyV7?g_st=aw"
-    }
-   ],
-   "photos": [],
-   "bedroomsComplete": false,
-   "bedrooms": [],
-   "sleepingNotes": [],
-   "bedding": {
-    "status": "not_disclosed"
-   },
-   "bathrooms": {},
-   "kitchen": {},
-   "amenities": {},
-   "pricing": {
-    "total": null,
-    "totalUnit": "night",
-    "totalNote": "per night, gross (price quoted by the group)",
-    "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
-    "items": {
-     "nightly": {
-      "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
-     }
-    }
-   },
-   "pros": [],
-   "cautions": [
-    "Details have not been collected yet. Open the Google Maps link or ask the group."
-   ],
-   "openItems": [
-    "Capacity, beds and bathrooms",
-    "Facilities (pool, BBQ, karaoke, kitchen)",
-    "Price for the countdown dates",
-    "Photos"
-   ]
+   "shareUrl": "https://my.trip.com/hotels/detail/?cityEnName=Melaka&cityId=62&hotelId=4971367&checkIn=2026-12-31&checkOut=2027-01-01&adult=2&children=0&curr=MYR&locale=en-MY"
   },
   {
    "id": "gm_pool_pd",
    "label": "Port Dickson",
-   "name": "GM Pool Villa Port Dickson",
+   "name": "GM Pool Villa Port Dickson — Lok B (Viking theme)",
    "region": "Port Dickson, Negeri Sembilan",
-   "type": "Place from a Google Maps link — details not collected yet",
+   "type": "Villa — Lok B (Viking theme) with a private pool",
    "address": "Address not available (Google blocks automated reading of the shared link)",
-   "summary": "Pool villa in Port Dickson. Only the name was available. Details not collected yet.",
+   "summary": "Two identical pool villas in Port Dickson (the one described is \"Lok B\", Viking theme). Each villa has 3 rooms, 3 bathrooms and 1 private pool, and fits up to 15 people including 4 extra beds. Together: 6 rooms, 6 bathrooms, 2 pools, 30 people. Super-peak price RM1,480 per villa, RM2,960 for both.",
    "location": {
     "lat": 2.5,
     "lng": 101.83,
@@ -3131,12 +2535,22 @@ window.PROPERTIES_DATA = {
    "surroundings": "",
    "groupFit": "",
    "rating": null,
-   "headline": null,
-   "guests": null,
+   "headline": {
+    "bedrooms": 3,
+    "beds": null,
+    "baths": 3
+   },
+   "guests": {
+    "n": 15,
+    "plus": false,
+    "perUnit": true,
+    "units": 2,
+    "identical": true
+   },
    "maxGuests": {
-    "display": "Not collected yet",
-    "status": "need_confirmation",
-    "note": "Capacity, beds, bathrooms, facilities, price and photos have not been collected for this place yet."
+    "display": "15 per villa (incl. 4 extra beds) · 2 identical villas = 30",
+    "status": "confirmed",
+    "note": "From the owner: maximum 15 people per villa, which includes 4 extra beds. The two villas are identical. The super-peak price is RM1,480 per villa, so RM2,960 for both."
    },
    "links": [
     {
@@ -3147,13 +2561,26 @@ window.PROPERTIES_DATA = {
    "photos": [],
    "bedroomsComplete": false,
    "bedrooms": [],
-   "sleepingNotes": [],
+   "sleepingNotes": [
+    "The two villas are identical, so every number on this page (rooms, bathrooms, pool, people) is per villa.",
+    "Maximum 15 people per villa, including 4 extra beds (so about 11 on the normal beds)."
+   ],
    "bedding": {
     "status": "not_disclosed"
    },
-   "bathrooms": {},
+   "bathrooms": {
+    "total": {
+     "status": "confirmed",
+     "value": "3 bathrooms per villa (owner)"
+    }
+   },
    "kitchen": {},
-   "amenities": {},
+   "amenities": {
+    "pool": {
+     "status": "confirmed",
+     "note": "1 private pool per villa (owner)."
+    }
+   },
    "pricing": {
     "total": null,
     "totalUnit": "night",
@@ -3168,15 +2595,20 @@ window.PROPERTIES_DATA = {
      }
     }
    },
-   "pros": [],
+   "pros": [
+    "Two identical villas: each has 3 rooms, 3 bathrooms and a private pool",
+    "Each villa fits up to 15 people; book both for 30 (6 rooms, 6 bathrooms)",
+    "Viking-themed villas (Lok B)"
+   ],
    "cautions": [
-    "Details have not been collected yet. Open the Google Maps link or ask the group."
+    "The limit of 15 people includes 4 extra beds",
+    "This is the super-peak price. Bed layout, other facilities and photos have not been collected yet"
    ],
    "openItems": [
-    "Capacity, beds and bathrooms",
-    "Facilities (pool, BBQ, karaoke, kitchen)",
-    "Price for the countdown dates",
-    "Photos"
+    "Bed layout in the 3 rooms and what the 4 extra beds are",
+    "Facilities (BBQ, karaoke, kitchen)",
+    "Photos",
+    "Is the RM2,960 super-peak price fixed for the countdown dates?"
    ]
   }
  ]
