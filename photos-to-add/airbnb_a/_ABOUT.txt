@@ -1,0 +1,7 @@
+Put photos of THIS place in this folder (any file names, .jpg .jpeg .png .webp).
+Then run:  python tools/add_photos.py
+
+Place: Highlands Retreat 33 (Bungalow)
+Region: Genting Highlands, Pahang
+Links:
+  Airbnb listing (original link): https://www.airbnb.com/rooms/1541177576857901597?unique_share_id=29761433-f80e-4243-b864-8d3be9fc9029&viralityEntryPoint=1&s=76

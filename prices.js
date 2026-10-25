@@ -12,14 +12,9 @@ window.PRICES = {
   "airbnb_b": { "night": 1743 },     // One 5 Residence Homestay Bungalow
   "airbnb_c": { "night": 1700 },     // Teratak Amandarii (Bungalow)
   "dusun_bonda": { "perPerson": [100, 120] }, // Dusun Bonda — Villas & Bell Tent Glamping
-  "pd_pool": { "night": 1438 },      // PD4R3BR 20pax Private Pool Homestay
-  "sepat_ej": { "night": null },     // E & J Sweet Home Private Pool Villa 5BR-20pax
-  "batu_gajah": { "night": 1430 },   // Royale Villa Homestay Private Pool Batu Gajah Ipoh
-  "bentong_actb": { "night": 1527 }, // ActB GuestHouse 装B民宿 (Bentong)
-  "alor_gajah": { "night": null },   // Memories Homestay 4 (Alor Gajah, Melaka)
-  "silver_house": { "night": null }, // The Silver House Private Villa Janda Baik
-  "sunrise_villa": { "night": null }, // Sunrise Villa @ Genting Sempah | Genting HomeStay
-  "bird_paradise": { "night": null }, // Bird of Paradise Villa at Rainforest Sanctuary
-  "hh_melaka": { "night": 1475 },    // H&H Leisure Guest House
+  "pd_pool": { "night": null },      // PD4R3BR 20pax Private Pool Homestay
+  "batu_gajah": { "night": null },   // Royale Villa Homestay Private Pool Batu Gajah Ipoh
+  "bentong_actb": { "night": null }, // ActB GuestHouse 装B民宿 (Bentong)
+  "hh_melaka": { "night": null },    // H&H Leisure Guest House
   "gm_pool_pd": { "night": null }    // GM Pool Villa Port Dickson
 };

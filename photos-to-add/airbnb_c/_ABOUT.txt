@@ -1,0 +1,7 @@
+Put photos of THIS place in this folder (any file names, .jpg .jpeg .png .webp).
+Then run:  python tools/add_photos.py
+
+Place: Teratak Amandarii (Bungalow)
+Region: Kajang, Selangor
+Links:
+  Airbnb listing (original link): https://www.airbnb.com/rooms/39371105?unique_share_id=8de9a885-0ef2-485b-8ebd-757616e037a7&viralityEntryPoint=1&s=76

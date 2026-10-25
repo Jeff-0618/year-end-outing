@@ -1,0 +1,7 @@
+Put photos of THIS place in this folder (any file names, .jpg .jpeg .png .webp).
+Then run:  python tools/add_photos.py
+
+Place: One 5 Residence Homestay Bungalow
+Region: Puchong / Sepang area, Selangor
+Links:
+  Airbnb listing (original link): https://www.airbnb.com/rooms/21313686?unique_share_id=892facc3-364f-4018-b1bb-a9a458ef0f3e&viralityEntryPoint=1&s=76

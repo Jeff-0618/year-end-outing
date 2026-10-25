@@ -1,0 +1,7 @@
+Put photos of THIS place in this folder (any file names, .jpg .jpeg .png .webp).
+Then run:  python tools/add_photos.py
+
+Place: ActB GuestHouse 装B民宿 (Bentong)
+Region: Bentong, Pahang
+Links:
+  Airbnb listing (original link): https://www.airbnb.com/rooms/20531909?unique_share_id=d99d057f-3659-4ebe-87b2-78f3c9f23813&viralityEntryPoint=1&s=76

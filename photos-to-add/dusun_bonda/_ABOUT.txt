@@ -1,0 +1,12 @@
+Put photos of THIS place in this folder (any file names, .jpg .jpeg .png .webp).
+Then run:  python tools/add_photos.py
+
+Place: Dusun Bonda — Villas & Bell Tent Glamping
+Region: Ulu Tamu, Batang Kali, Selangor
+Links:
+  Official website: https://dusunbonda.com/
+  Facilities: https://dusunbonda.com/facilities/
+  Reservations & units: https://dusunbonda.com/reservations/
+  FAQ & house rules: https://dusunbonda.com/faq/
+  Our rates: https://dusunbonda.com/our-rates/
+  Team building / group booking: https://dusunbonda.com/team-building-group-booking/
