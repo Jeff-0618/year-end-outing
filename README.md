@@ -8,53 +8,70 @@
 - **地图**：教会在中间，虚线圈是 50、100、200 公里。圆点上的数字就是场地编号（和首页卡片的号码一样），颜色表示远近：绿＝近（≤50 公里）、黄＝中等、红＝远（>100 公里）。点圆点会弹出小卡片，有“详情”和“导航”。
 - **详情**：大图可左右滑、价格、人数、床和浴室、优点、注意事项、重点设施，更多资料收在折叠区里。每个场地都有“从教会导航”按钮，打开 Google Maps 会直接显示车程。
 - **对比**：在最多 3 个场地上点天平图标，再到“对比”页并排看。输入人数，会自动算每人费用。
-- **投票·提问**：每个场地可以按 ♥，也可以选一个“我的第一选择”（每人只有一个）；每个场地和“投票·提问”页都有提问表单。
+- **投票**：每个场地可以按 ♥，也可以“投一票给这里”（每人一票）。**首页顶部**显示大家的投票结果。
+- **分享**：每个场地有分享按钮，给出的是**真正的地点链接**（Airbnb、官网或 Google 地图），可以复制或直接发 WhatsApp，对方打开就是那个地点。
+- **提问**：每个场地底部可以留言提问，不开放自由发帖。
+- **登录**：大家用 Google 账号登录后才能点赞、投票、提问，名字来自 Google，你的表格里能看到是谁。
 - **中 / EN**：右上角，每一页都有，会记住你的选择。
 
-## 2. 上传到 GitHub / Vercel（最简单：只传 1 个文件）
+## 2. 上传到 GitHub / Vercel
 
-我另外做了一个**单文件版 `index.html`**（里面已经包含全部程序、资料和中文），所以更新只要：
+**更新网页程序（只传 1 个文件）**：用单文件版 `index.html`（里面已经包含全部程序、资料和中文）。
 
-1. 把 `index.html` 下载到手机。
+1. 把 `index.html` 下载到手机或电脑。
 2. 打开 GitHub 仓库首页（最外层），点 **Add file → Upload files**，选 `index.html`，点 **Commit changes**（同名文件会被替换）。
-3. 等约 30 秒，用手机打开网址，刷新两次。页面最底下会有一行小字 `v2.1 · 14 个场地`，看到它就表示新版已经生效。
+3. 等约 30 秒，打开网址，刷新两次。页面最底下有一行小字 `v2.1 · 14 个场地`，看到它就表示新版已经生效。
 
-这样不用管 `data` 文件夹，也不会出现“有的文件是旧的”这种问题。`assets` 文件夹（你拍的照片）不用重传。仓库里原来的 `app.js`、`styles.css`、`data/…` 可以留着，新版不会用到它们。
+仓库里原来的 `app.js`、`styles.css`、`data/…` 可以留着，新版不会用到。
 
 **如果页面是空白，或者出现“有文件缺少或还是旧版”**：说明网站上还是旧的 `index.html`，或者上传放错了位置。重新上传 `index.html` 到最外层即可。
 
-（想自己改资料的话，用 zip 里的多文件版：`index.html`、`styles.css`、`app.js` 放最外层；`properties.js`、`zh.js`、`config.js` 放在 `data` 文件夹里。）
+**其他三个小文件也放最外层（和 `index.html` 放一起）**：`prices.js`（价格，见第 5 节）、`config.js`（填 Google Sheet 网址、人数）和 `user-photos.js`（你加的照片清单，第 3 节会自动生成）。
 
-## 3. 投票和提问连接你的 Google Sheet（约 5 分钟，建议用电脑）
+## 3. 加你自己的照片（不用发给我）
 
-没连接之前，投票和提问只存在每个人自己的手机里，别人看不到（页面上会写明）。连接后，所有人看到的票数和问题都一样。
+每个场地有一个专属文件夹：`photos-to-add/<场地代号>/`，里面的 `_ABOUT.txt` 写着这是哪个场地。
 
-1. 打开 Google 云端硬盘，新建一个 **Google 表格**（名字随意，比如“倒数投票”）。
-2. 菜单点 **扩展程序 → Apps Script**。把里面原有的代码全部删掉，打开项目里的 `tools/google-sheet-script.gs`，复制全部内容粘贴进去，点保存。
-3. 点右上角 **部署 → 新建部署**，类型选 **网页应用**：
-   - 执行身份：**我**
-   - 谁可以访问：**任何人**
-   然后点部署，按提示授权（会出现“Google 未验证此应用”，点“高级”→“前往……（不安全）”，这是你自己的脚本）。
-4. 复制得到的 **网页应用网址**（以 `https://script.google.com/macros/s/…/exec` 结尾）。
-5. 把网址填进 `config.js` 里的 `"sheetUrl": ""` 的引号里。**单文件版**：把 `config.js` 上传到最外层（和 `index.html` 放一起）；多文件版：放在 `data` 文件夹里。GitHub 网页上点铅笔图标也可以直接编辑。
+1. 把这个场地的照片放进对应文件夹（文件名随意，`.jpg` `.jpeg` `.png` `.webp` 都可以）。
+2. 在项目文件夹打开 PowerShell，运行：
+   ```
+   pip install pillow          （只需要一次，用来缩小照片、去掉照片里的定位信息）
+   python tools/add_photos.py
+   ```
+3. 把 `assets/user-photos` 文件夹和 `user-photos.js` 上传到 GitHub 最外层。刷新网页，照片会排在最前面，标成“我们的照片 1、2、3…”。
 
-脚本会自动在你的表格里建两个分页：
+脚本会把照片缩到最长边 1600 像素，存成 `.jpg`；同一张照片重复放不会加两次，所以随时可以再放新照片再运行一次。想看每个场地的代号和链接：`python tools/add_photos.py --links`。`photos-to-add` 里的原图不用上传。
 
-| 分页 | 列 | 用途 |
+**目前没有照片的场地（可以先去下载）：**
+
+| 文件夹代号 | 场地 | 链接 |
 |---|---|---|
-| **Questions** | Time、Venue（场地名）、VenueId、Name、Question、Lang、Reply | 每条提问一行。**在 Reply 列写答案，网页上就会显示出来。** |
-| **Votes** | Time、VoterId、Type（like / pick）、VenueId、Venue | 每个 ♥ 或“第一选择”一行，网页自动统计。 |
+| `silver_house` | The Silver House Private Villa Janda Baik | https://maps.app.goo.gl/yQv3zAfmxxnBhLmbA?g_st=aw |
+| `sunrise_villa` | Sunrise Villa @ Genting Sempah \| Genting HomeStay | https://maps.app.goo.gl/eLmYiCUP4p1mDKoSA?g_st=aw |
+| `bird_paradise` | Bird of Paradise Villa at Rainforest Sanctuary | https://maps.app.goo.gl/zDdJfo1xcuzgqCUp7?g_st=aw |
+| `hh_melaka` | H&H Leisure Guest House（马六甲） | https://maps.app.goo.gl/Ey9QVeVGdUK6wZyV7?g_st=aw |
+| `gm_pool_pd` | GM Pool Villa Port Dickson | https://share.google/PLnzDCD4DBzlIpwTO |
 
-注意：Reply 要写在表格里同一行的第 7 列；不要改前两行的列名。
+其他场地已经有 Airbnb 或官网的照片，也可以再往它们的文件夹里加。想让你的照片排在 Airbnb 照片后面，把 `config.js` 里的 `userPhotosFirst` 改成 `false`。
 
-## 4. 你可以自己改的地方
+## 4. Google 登录 + Google 表格
 
-- 价格：`data/properties.js` 里找到场地，改 `pricing.total`（Airbnb 每晚总价，gross）或 `pricing.perPerson`（Dusun Bonda 每人）。没填价格的场地会显示“价格待确认”。
+完整的一步一步教程在 **GOOGLE-SHEET-SETUP.md**（约 20 分钟，不用付费）。做完之后：
+
+- 大家用 **Google 账号登录**，才能点赞、投票、提问。登出再登入、换手机，记录都还在。
+- 每个场地底下可以按 ♥、**投一票给这里**（每人一票，可以改票）、提问；首页顶部的“大家的投票”所有人都看得到。
+- 你的表格里有 **Votes**（谁投了什么，含名字和邮箱）、**Results**（每个场地的票数、赞数、谁投的）、**Questions**（场地名、名字、问题，在 Reply 格子写回复）。
+- 没连接之前，投票和提问只存在各自的手机里。只填 `sheetUrl` 不填 `googleClientId` 时，改为“第一次输入名字”的方式。
+
+## 5. 你可以自己改的地方
+
+- **价格**：只改最外层的 `prices.js`。每个场地一行，例如 `"pd_pool": { "night": 2100 }` 表示整间一晚 RM2,100（gross）；按人收费的写 `{ "perPerson": [100, 120] }`；还不知道就写 `{ "night": null }`。可以加一句备注：`{ "night": 2100, "note": "31 Dec, 20 guests" }`。在 GitHub 上点开 `prices.js` → 铅笔图标 → 改数字 → Commit 就行，手机也可以。
 - 人数：`data/config.js` 里的 `"participants": 20`，对比页会自动用它算每人费用。
 - 加新场地：复制 `properties.js` 里最后一个场地的结构，填上名字、坐标、链接即可（坐标没有就先用城镇中心）。中文文字加在 `data/zh.js`，没写的会自动显示英文。
 - 官方照片下载到本机：`python tools/download_photos.py`。
+- 自己的照片：见第 3 节。
 
-## 5. 已确认和还缺什么
+## 6. 已确认和还缺什么
 
 **资料比较完整（Airbnb 页面读到的）**：A Genting、B Puchong、C Kajang、Port Dickson（PD4R3BR）、Tanjong Sepat（E & J）、Batu Gajah（Royale Villa）、Bentong（ActB）、Alor Gajah（Memories Homestay 4）、Dusun Bonda。
 **只有名字和地址（来自 Google Maps 链接，没有价格、床位、照片）**：Silver House（Janda Baik）、Sunrise Villa 和 Bird of Paradise Villa（Genting Sempah）、H&H Leisure Guest House（马六甲）、GM Pool Villa（波德申，Google 不让我读取分享链接，只拿到名字）。
@@ -63,8 +80,8 @@
 
 **位置与距离**：所有场地的位置只到城镇／区域级（网页上写了“大概位置”）。教会的位置也是 Kuchai Lama 区域级（我没有找到准确地址）。距离是直线距离，**不是车程**，真正车程请点“从教会导航”看 Google Maps。几个在同一地区的场地（例如两个 Genting Sempah 的别墅）的圆点会稍微错开，方便点击。
 
-## 6. 测试情况
+## 7. 测试情况
 
-在无头 Chromium 里测试（我这边没有外网）：44 项页面测试通过（多文件版和单文件版各测一遍）；投票脚本 14 项通过。包括：14 个场地的距离和独立算法一致、距离分组、筛选、中英切换、每个场地的详情页、你的 10 张照片能加载、♥／第一选择／提问、对比页每人费用、地图标记和弹出卡片（用模拟地图库）、地图载入失败时的按距离清单，以及**用真正的 Google Apps Script 代码模拟两部手机共用同一张表格**（点赞、第一选择、提问、你在表格里写的回复能显示回来）。
+在无头 Chromium 里测试（我这边没有外网）：59 项页面测试、28 项登录流程测试通过（多文件版和单文件版各测一遍）；投票脚本 14 项通过。包括：14 个场地的距离和独立算法一致、距离分组、筛选、中英切换、每个场地的详情页、你的 10 张照片能加载、♥／第一选择／提问、对比页每人费用、地图标记和弹出卡片（用模拟地图库）、地图载入失败时的按距离清单，以及**用真正的 Google Apps Script 代码模拟两部手机共用同一张表格**（点赞、第一选择、提问、你在表格里写的回复能显示回来）。
 
 **没有测试到的**：真实的地图底图和 Leaflet 库、Airbnb／官网照片的实际显示、真正部署到你的 Google 账号后的投票和提问（授权步骤我没法代你做）、真机触摸。上传后请用手机点一遍，并让朋友点个赞试试。

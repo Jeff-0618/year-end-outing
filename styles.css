@@ -75,7 +75,7 @@ body.on-map #main { max-width: none; padding: 0; }
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; }
 .facs { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: none; }
 .facs::-webkit-scrollbar { display: none; }
-.lbl { font-size: .85rem; color: var(--muted); }
+.lbl { font-size: .85rem; color: var(--muted); white-space: nowrap; flex: none; }
 .fchip { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 40px; padding: 0 12px; border-radius: 999px; border: 1.5px solid var(--line); background: #fff; font: 600 .85rem var(--font); cursor: pointer; color: var(--ink); }
 .fchip.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 .sort select { min-height: 40px; border-radius: 10px; border: 1.5px solid var(--line); background: #fff; font: 600 .88rem var(--font); padding: 0 8px; color: var(--ink); }
@@ -241,6 +241,30 @@ table.cmp { border-collapse: collapse; width: 100%; font-size: .86rem; }
 #mapView.fb .mapui { position: static; padding: 8px; }
 #mapView.fb .seg { display: none; }
 #mapView.fb #mapbox { position: static; }
+
+/* ---------- results on the home page, share, name ---------- */
+.results { background: #fff; border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; margin: 6px 0 12px; display: grid; gap: 8px; }
+.res-h { display: flex; align-items: center; justify-content: space-between; } .res-h h2 { font-size: 1rem; display: flex; align-items: center; gap: 6px; } .res-h a { font-size: .85rem; font-weight: 600; }
+.res-row { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; color: var(--ink); text-decoration: none; min-height: 44px; }
+.res-main { display: grid; gap: 4px; min-width: 0; } .res-main b { font-size: .92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.res-bar { display: block; height: 8px; background: #eee9de; border-radius: 4px; overflow: hidden; } .res-bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+.res-n { font-size: .78rem; color: var(--muted); text-align: right; line-height: 1.35; white-space: nowrap; }
+.shr { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; border-radius: 12px; border: 1.5px solid var(--line); background: #fff; color: var(--muted); cursor: pointer; }
+.cmp span { font-size: .9rem; }
+.card-actions .mapbtn { margin-left: auto; }
+.modal { position: fixed; inset: 0; z-index: 150; background: rgba(20, 24, 33, .55); display: flex; align-items: flex-end; justify-content: center; padding: 0; }
+.modal-in { width: 100%; max-width: 480px; background: #fff; border-radius: 18px 18px 0 0; padding: 18px 16px calc(18px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 12px; }
+.modal-in h3 { font-size: 1.15rem; } .modal-in input { font: 1rem var(--font); padding: 12px; border: 1.5px solid var(--line); border-radius: 10px; width: 100%; color: var(--ink); }
+.mbtns { display: flex; gap: 8px; flex-wrap: wrap; } .mbtns .btn { flex: 1; }
+@media (min-width: 640px) { .modal { align-items: center; } .modal-in { border-radius: 18px; } }
+.namebox { margin: 4px 0 10px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; } .linkbtn { border: 0; background: none; color: var(--accent); font: 600 .85rem var(--font); cursor: pointer; padding: 8px 4px; min-height: 40px; }
+.geo-b .cmp { min-height: 44px; }
+
+.topright { display: flex; align-items: center; gap: 8px; flex: none; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--accent); color: #fff; font: 700 1rem var(--font); cursor: pointer; }
+.signin-sm { min-height: 40px; padding: 0 12px; border-radius: 999px; border: 1.5px solid var(--accent); background: #fff; color: var(--accent); font: 700 .85rem var(--font); cursor: pointer; white-space: nowrap; }
+.gbtn { min-height: 52px; display: grid; place-items: center; }
+.postas { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; min-height: 44px; }
 
 /* ---------- lightbox ---------- */
 .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(8, 10, 16, .94); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 6px; padding: 10px; }

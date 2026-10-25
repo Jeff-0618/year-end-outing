@@ -16,7 +16,32 @@
   }
   var ZHD = (window.ZH && window.ZH.places) || {};
   var CFG = window.APP_CONFIG || {};
+  var LOGIN = !!(CFG.sheetUrl && CFG.googleClientId);   /* Google sign-in is on only when both are set in config.js */
   var META = DATA.meta, ORIGIN = META.origin, P = DATA.properties, BY = {};
+
+  /* Prices typed into prices.js (top level of the website) replace the prices in the data. */
+  var PR = window.PRICES || {};
+  P.forEach(function (p) {
+    var o = PR[p.id]; if (!o) return;
+    p.pricing = p.pricing || {};
+    if ('night' in o) { if (Number(o.night) > 0) { p.pricing.total = Number(o.night); p.pricing.totalUnit = 'night'; } else { p.pricing.total = null; } }
+    if ('perPerson' in o) { var pp = o.perPerson; p.pricing.perPerson = (pp && pp.length === 2 && Number(pp[0]) > 0) ? { min: Number(pp[0]), max: Number(pp[1]) || Number(pp[0]), note: '(gross)' } : null; }
+    if (o.note) p.pricing.note = o.note + (p.pricing.note ? ' ' + p.pricing.note : '');
+  });
+
+  /* Photos you drop into assets/user-photos/<place-id>/ are listed in user-photos.js by tools/add_photos.py. They are shown first. */
+  var UP = window.USER_PHOTOS || {};
+  P.forEach(function (p) {
+    var have = {}, add = [];
+    p.photos.forEach(function (ph) { if (ph.src) have[ph.src] = 1; });
+    (UP[p.id] || []).forEach(function (f) { var src = 'assets/user-photos/' + p.id + '/' + f; if (!have[src]) add.push({ src: src, caption: 'Our photo', own: true }); });
+    if (!add.length) return;
+    add.forEach(function (ph, i) { ph.n = i + 1; });
+    if (CFG.userPhotosFirst === false) { p.photos = p.photos.concat(add); return; }
+    (p.bedrooms || []).forEach(function (r) { if (r.photo != null) r.photo += add.length; });
+    (p.units || []).forEach(function (u) { if (u.photo != null) u.photo += add.length; });
+    p.photos = add.concat(p.photos);
+  });
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
@@ -36,9 +61,10 @@
 
   /* ---------- saved state ---------- */
   var KEY = 'countdown2026.v2';
-  var S = { lang: '', compare: [], voter: '', localLikes: [], localPick: null, localComments: [], band: 'all', sort: 'distance', fac: [], people: '', name: '' };
+  var S = { lang: '', compare: [], voter: '', localLikes: [], localPick: null, localComments: [], band: 'all', sort: 'distance', fac: [], people: '', name: '', auth: { session: '', name: '' } };
   try { var sv = JSON.parse(localStorage.getItem(KEY) || 'null'); if (sv) Object.keys(sv).forEach(function (k) { S[k] = sv[k]; }); } catch (e) { /* storage unavailable */ }
   if (!S.lang) S.lang = /^zh/i.test(navigator.language || '') ? 'zh' : 'en';
+  if (!S.auth || typeof S.auth !== 'object') S.auth = { session: '', name: '' };
   if (!S.voter) S.voter = 'v' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* ignore */ } }
   save();
@@ -46,7 +72,7 @@
   /* ---------- words ---------- */
   var UI = {
     en: {
-      title: 'Year-End Countdown 2026', pickTitle: 'Where shall we stay?', tagline: '2 days 1 night · from FGA CYC Kuchai Lama',
+      title: 'Year-End Countdown 2026', brand: 'Countdown 2026', pickTitle: 'Where shall we stay?', tagline: '2 days 1 night · from FGA CYC Kuchai Lama',
       tabPlaces: 'Places', tabMap: 'Map', tabCompare: 'Compare', tabTalk: 'Votes & Q&A',
       near: 'Near', mid: 'Medium', far: 'Far', all: 'All', nearR: '≤ {n} km', midR: '{a}–{b} km', farR: '> {n} km',
       sort: 'Sort', sortDistance: 'Nearest first', sortVotes: 'Most liked', sortGuests: 'Most guests', needFac: 'Must have',
@@ -62,7 +88,7 @@
       officialLimit: 'Official limit: {a} adults + {c} child under 12', rateRange: '{a} – {b} per unit per night (before SST)',
       ratesTitle: 'Reference rates per unit per night (breakfast included, before SST)', tier1: 'Mon–Thu', tier2: 'Fri, Sun, school holidays', tier3: 'Sat, public holidays and their eve',
       priceDisclaimer: 'Price and availability for the actual countdown dates must be verified.',
-      like: 'Like', pick: 'My #1 pick', picked: 'My #1 pick ✓', ask: 'Ask',
+      like: 'Like', pick: 'Vote for this place', picked: 'Voted ✓', ask: 'Ask', share: 'Share', shareTitle: 'Share this place', shareHint: 'This is the link to the real place (not this website). Copy it and send it to friends, e.g. on WhatsApp.', copyLink: 'Copy link', copied: 'Link copied', voteWord: 'vote', signinTitle: 'Sign in with Google', signinShort: 'Sign in', signinHint: 'Sign in to like, vote and ask. We only use your name and email, and the organiser can see who voted. Sign in once and your votes stay with you, even on another phone.', signinWait: 'Loading Google sign-in…', signinFail: 'Google sign-in could not load. Check your connection and try again.', signinBad: 'Sign-in did not work. Please try again.', signout: 'Sign out', signoutDone: 'Signed out', signedAs: 'Signed in as', postingAs: 'Posting as', accountTitle: 'Your account', inapp: 'This looks like an in-app browser (Facebook, Instagram, Line, WeChat…). Google blocks sign-in here. Open this page in Chrome or Safari.', whatsapp: 'WhatsApp', openLink: 'Open the place', nameTitle: 'What is your name?', nameHint: 'So the group can see who voted and who asked. It is saved on this phone.', nameSave: 'Save', nameLabel: 'Your name', nameChange: 'Change', cancel: 'Cancel', resTitle: 'Group votes', resNone: 'No votes yet. Open a place and tap “Vote for this place”.', resAll: 'See all', votesWord: 'votes',
       askTitle: 'Ask a question or leave a comment', yourName: 'Your name (optional)', yourQ: 'Your question or comment', send: 'Send', sent: 'Sent. Thank you!', sendFail: 'Could not send. Try again.',
       noQ: 'No questions yet. Be the first.', reply: 'Reply', anon: 'Anonymous', general: 'General',
       localNote: 'Votes and questions are saved on this phone only. Everyone will see them once the Google Sheet is connected.',
@@ -70,17 +96,17 @@
       compareTitle: 'Compare', compareHint: 'Tap the scale icon on up to 3 places, then compare them here.', compareEmpty: 'No places selected yet.', compareAdd: 'Add to compare', compareRemove: 'Remove from compare', compareMax: 'You can compare up to 3 places. The oldest one was replaced.',
       people: 'Number of people', perPerson: 'Per person', perPersonHint: 'Enter the number of people to see the cost per person.',
       rowDistance: 'From the church', rowPrice: 'Price', rowGuests: 'Guests', rowRooms: 'Rooms and beds', rowBaths: 'Bathrooms', rowPool: 'Pool', rowBbq: 'BBQ', rowKaraoke: 'Karaoke', rowVotes: 'Likes',
-      talkTitle: 'Votes & Q&A', ranking: 'Ranking', rankHint: '#1 picks count first, then likes.', picksLabel: '#1 picks',
+      talkTitle: 'Votes & Q&A', ranking: 'Ranking', rankHint: 'One vote per person (you can change it). Likes are extra.', picksLabel: 'votes',
       questions: 'Questions and comments', askGeneral: 'Ask something general',
       mapNear: 'Near view', mapAll: 'All places', church: 'FGA CYC Kuchai Lama', legendChurch: 'Church (start)',
       mapFail: 'The map could not load (offline?). Here are the places by distance instead.', loadingMap: 'Loading map…', details: 'Details',
       noPhoto: 'No photo yet', photoOff: 'Photo unavailable', photosOf: 'Photo {i} of {n}',
       status_confirmed: 'Confirmed', status_not_provided: 'Not provided', status_not_disclosed: 'Not disclosed', status_additional_charge: 'Extra charge', status_need_confirmation: 'To confirm',
       english: 'Details below are in English.', reviews: 'reviews', close: 'Close',
-      facPool: 'Pool', facBbq: 'BBQ', facKaraoke: 'Karaoke', photoCount: 'photos, tap to enlarge'
+      facPool: 'Pool', facBbq: 'BBQ', facKaraoke: 'Karaoke', photoCount: 'photos, tap to enlarge', ourPhoto: 'Our photo'
     },
     zh: {
-      title: '年终倒数 2026', pickTitle: '我们住哪里？', tagline: '两天一夜 · 从 FGA CYC Kuchai Lama 出发',
+      title: '年终倒数 2026', brand: '年终倒数 2026', pickTitle: '我们住哪里？', tagline: '两天一夜 · 从 FGA CYC Kuchai Lama 出发',
       tabPlaces: '场地', tabMap: '地图', tabCompare: '对比', tabTalk: '投票·提问',
       near: '近', mid: '中等', far: '远', all: '全部', nearR: '≤ {n} 公里', midR: '{a}–{b} 公里', farR: '> {n} 公里',
       sort: '排序', sortDistance: '最近优先', sortVotes: '最多赞', sortGuests: '人数最多', needFac: '必须有',
@@ -96,7 +122,7 @@
       officialLimit: '官方上限：{a} 位成人 + {c} 名 12 岁以下儿童', rateRange: '每单位每晚 {a} – {b}（未含 SST）',
       ratesTitle: '每单位每晚参考价（含早餐，未含 SST）', tier1: '周一至周四', tier2: '周五、周日、学校假期', tier3: '周六、公共假期及其前夕',
       priceDisclaimer: '倒数日期的价格和空房必须再确认。',
-      like: '赞', pick: '我的第一选择', picked: '我的第一选择 ✓', ask: '提问',
+      like: '赞', pick: '投一票给这里', picked: '已投票 ✓', ask: '提问', share: '分享', shareTitle: '分享这个场地', shareHint: '这是真正的地点链接（不是本网站）。复制后可以发给朋友，例如发到 WhatsApp。', copyLink: '复制链接', copied: '链接已复制', voteWord: '票', signinTitle: '用 Google 登录', signinShort: '登录', signinHint: '登录后才能点赞、投票和提问。我们只用你的名字和邮箱，主办人能看到谁投了票。登录一次，你的票会一直跟着你，换手机也在。', signinWait: '正在载入 Google 登录…', signinFail: '无法载入 Google 登录，请检查网络后再试。', signinBad: '登录没有成功，请再试一次。', signout: '退出登录', signoutDone: '已退出登录', signedAs: '已登录：', postingAs: '以这个身份发言：', accountTitle: '你的账号', inapp: '这好像是应用内置浏览器（Facebook、Instagram、Line、微信…），Google 会拦截登录。请用 Chrome 或 Safari 打开这个网页。', whatsapp: 'WhatsApp', openLink: '打开这个地点', nameTitle: '你的名字是？', nameHint: '让大家知道谁投了票、谁提了问。名字只保存在这部手机上。', nameSave: '保存', nameLabel: '你的名字', nameChange: '修改', cancel: '取消', resTitle: '大家的投票', resNone: '还没有人投票。打开一个场地，点“投一票给这里”。', resAll: '查看全部', votesWord: '票',
       askTitle: '提问或留言', yourName: '你的名字（可不填）', yourQ: '你的问题或留言', send: '发送', sent: '已发送，谢谢！', sendFail: '发送失败，请再试一次。',
       noQ: '还没有人提问，你来第一个。', reply: '回复', anon: '匿名', general: '综合',
       localNote: '投票和提问目前只保存在这部手机上。连接 Google Sheet 后，所有人才会看到。',
@@ -104,14 +130,14 @@
       compareTitle: '对比', compareHint: '在最多 3 个场地上点天平图标，然后在这里对比。', compareEmpty: '还没有选择场地。', compareAdd: '加入对比', compareRemove: '移出对比', compareMax: '最多对比 3 个场地，已替换最早的一个。',
       people: '人数', perPerson: '每人', perPersonHint: '输入人数，就能看到每人费用。',
       rowDistance: '离教会', rowPrice: '价格', rowGuests: '可住人数', rowRooms: '房间和床', rowBaths: '浴室', rowPool: '泳池', rowBbq: 'BBQ', rowKaraoke: '卡拉 OK', rowVotes: '赞',
-      talkTitle: '投票·提问', ranking: '排行', rankHint: '先比“第一选择”票数，再比赞数。', picksLabel: '第一选择',
+      talkTitle: '投票·提问', ranking: '排行', rankHint: '每人一票（可以改票），♥ 另算。', picksLabel: '票',
       questions: '问题和留言', askGeneral: '问一个综合问题',
       mapNear: '近处视图', mapAll: '全部场地', church: 'FGA CYC Kuchai Lama', legendChurch: '教会（出发点）',
       mapFail: '地图载入失败（可能没有网络）。改用按距离排列的清单。', loadingMap: '正在载入地图…', details: '详情',
       noPhoto: '还没有照片', photoOff: '照片无法显示', photosOf: '第 {i} 张，共 {n} 张',
       status_confirmed: '已确认', status_not_provided: '不提供', status_not_disclosed: '未说明', status_additional_charge: '另收费', status_need_confirmation: '待确认',
       english: '以下详细资料为英文。', reviews: '条评价', close: '关闭',
-      facPool: '泳池', facBbq: 'BBQ', facKaraoke: '卡拉 OK', photoCount: '张照片，点开放大'
+      facPool: '泳池', facBbq: 'BBQ', facKaraoke: '卡拉 OK', photoCount: '张照片，点开放大', ourPhoto: '我们的照片'
     }
   };
   function t(key, v) {
@@ -200,6 +226,8 @@
     church: '<path d="M12 2v6M9 5h6M5 22V13l7-5 7 5v9zM10 22v-5h4v5"/>',
     x: '<path d="M6 6l12 12M18 6L6 18"/>',
     link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/>',
+    copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>',
     back: '<path d="M15 5l-7 7 7 7"/>'
   };
   function icon(n, s) { s = s || 20; return '<svg class="ic" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[n] || IC.spark) + '</svg>'; }
@@ -224,10 +252,16 @@
     return { text: t('priceTbc'), known: false };
   }
   function distBadge(p) { return '<span class="dist band-' + band(p) + '">≈ ' + distKm(p) + ' km · ' + esc(t(band(p))) + '</span>'; }
+  /* the real place's own link (Airbnb room, official site or Google Maps link), never this website */
+  function realUrl(p) {
+    var u = (p.links && p.links[0] && p.links[0].url) || p.location.gmaps, m = /airbnb\.[a-z.]+\/rooms\/(\d+)/.exec(u);
+    return m ? 'https://www.airbnb.com/rooms/' + m[1] : u;
+  }
   function dirUrl(p) {
     return 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent(ORIGIN.dirQuery) + '&destination=' + encodeURIComponent(p.location.dirQuery || (p.location.lat + ',' + p.location.lng));
   }
 
+  function capText(ph) { return ph.own ? t('ourPhoto') + ' ' + ph.n : ph.caption; }
   /* ---------- photos (local folder first, then the original link, then a placeholder) ---------- */
   function baseName(u) { var s = String(u).split('?')[0].split('/').pop(); try { s = decodeURIComponent(s); } catch (e) { /* raw */ } return s.replace(/[^A-Za-z0-9._-]/g, '_'); }
   function photoSrcs(p, i, size) {
@@ -240,7 +274,7 @@
   function img(p, i, size, cls) {
     var s = photoSrcs(p, i, size), ph = p.photos[i];
     if (!s.length) return '<div class="noph"><span>' + esc(t('noPhoto')) + '</span></div>';
-    return '<img class="' + (cls || '') + '" src="' + esc(s[0]) + '" data-fb="' + esc(s.slice(1).join('|')) + '" alt="' + esc(p.name + ' — ' + ph.caption) + '" loading="' + (size === 'large' ? 'eager' : 'lazy') + '" decoding="async">';
+    return '<img class="' + (cls || '') + '" src="' + esc(s[0]) + '" data-fb="' + esc(s.slice(1).join('|')) + '" alt="' + esc(p.name + ' — ' + capText(ph)) + '" loading="' + (size === 'large' ? 'eager' : 'lazy') + '" decoding="async">';
   }
   document.addEventListener('error', function (e) {
     var el = e.target; if (!el || el.tagName !== 'IMG') return;
@@ -260,39 +294,52 @@
     Soc.comments = S.localComments.slice();
   }
   function applySummary(j) {
-    if (j && j.ok) { Soc.likes = j.likes || {}; Soc.picks = j.picks || {}; Soc.mine = j.mine || { likes: [], pick: null }; Soc.comments = j.comments || []; Soc.offline = false; }
+    if (!(j && j.ok)) return;
+    Soc.likes = j.likes || {}; Soc.picks = j.picks || {}; Soc.mine = j.mine || { likes: [], pick: null }; Soc.comments = j.comments || []; Soc.offline = false;
+    if (LOGIN) {
+      if (j.me && j.me.name) { if (S.auth.name !== j.me.name) { S.auth.name = j.me.name; save(); refreshAuthUI(); } }
+      else if (S.auth.session) { S.auth = { session: '', name: '' }; save(); refreshAuthUI(); }   /* session ran out: show signed out */
+    }
   }
   function socLoad() {
     if (!Soc.shared) { localSummary(); return Promise.resolve(); }
-    return fetch(CFG.sheetUrl + (CFG.sheetUrl.indexOf('?') > -1 ? '&' : '?') + 'voter=' + encodeURIComponent(S.voter))
+    return fetch(CFG.sheetUrl + (CFG.sheetUrl.indexOf('?') > -1 ? '&' : '?') + 'voter=' + encodeURIComponent(S.voter) + '&name=' + encodeURIComponent(S.name || '') + '&session=' + encodeURIComponent(S.auth.session || ''))
       .then(function (r) { return r.json(); }).then(applySummary)
       .catch(function () { Soc.offline = true; }).then(function () { refreshSocial(); });
   }
   function socPost(payload) {
-    return fetch(CFG.sheetUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ voter: S.voter }, payload)) })
-      .then(function (r) { return r.json(); }).then(function (j) { if (!j.ok) throw new Error(j.error || 'failed'); applySummary(j); Soc.offline = false; });
+    return fetch(CFG.sheetUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ voter: S.voter, name: S.name || '', session: S.auth.session || '' }, payload)) })
+      .then(function (r) { return r.json(); }).then(function (j) {
+        if (!j.ok) { if (LOGIN && j.error === 'login required') handleLoginRequired(); throw new Error(j.error || 'failed'); }
+        applySummary(j); Soc.offline = false; return j;
+      });
   }
+  function postFailed(e) { if (!/login required/.test(String(e && e.message))) Soc.offline = true; }
   function isLiked(id) { return Soc.mine.likes.indexOf(id) > -1; }
   function likeCount(id) { return Soc.likes[id] || 0; }
+  function hasIdentity() { return LOGIN ? !!S.auth.session : !!S.name; }
+  function requireIdentity(cb) { if (LOGIN) openSignIn(cb); else askName(cb); }
   function toggleLike(id) {
     var on = !isLiked(id);
+    if ((on || LOGIN) && !hasIdentity()) { requireIdentity(function () { if (isLiked(id) !== on) toggleLike(id); }); return; }
     if (on) { Soc.mine.likes.push(id); Soc.likes[id] = likeCount(id) + 1; } else { Soc.mine.likes = Soc.mine.likes.filter(function (x) { return x !== id; }); Soc.likes[id] = Math.max(0, likeCount(id) - 1); }
-    if (!Soc.shared) { S.localLikes = Soc.mine.likes.slice(); save(); } else socPost({ action: 'like', id: id, venue: BY[id].name, on: on }).catch(function () { Soc.offline = true; }).then(refreshSocial);
+    if (!Soc.shared) { S.localLikes = Soc.mine.likes.slice(); save(); } else socPost({ action: 'like', id: id, venue: BY[id].name, on: on }).catch(postFailed).then(refreshSocial);
     refreshSocial();
   }
   function setPick(id) {
     var prev = Soc.mine.pick, on = prev !== id;
+    if ((on || LOGIN) && !hasIdentity()) { requireIdentity(function () { if ((Soc.mine.pick === id) !== on) setPick(id); }); return; }
     if (prev) Soc.picks[prev] = Math.max(0, (Soc.picks[prev] || 0) - 1);
     Soc.mine.pick = on ? id : null; if (on) Soc.picks[id] = (Soc.picks[id] || 0) + 1;
-    if (!Soc.shared) { S.localPick = Soc.mine.pick; save(); } else socPost({ action: 'pick', id: id, venue: BY[id].name, on: on }).catch(function () { Soc.offline = true; }).then(refreshSocial);
+    if (!Soc.shared) { S.localPick = Soc.mine.pick; save(); } else socPost({ action: 'pick', id: id, venue: BY[id].name, on: on }).catch(postFailed).then(refreshSocial);
     refreshSocial();
   }
   function addComment(id, name, text) {
     var venue = id === 'general' ? t('general') : BY[id].name;
     if (!Soc.shared) {
-      S.localComments.push({ id: id, venue: venue, name: name, text: text, time: new Date().toISOString(), reply: '' }); save(); localSummary(); refreshSocial(); return Promise.resolve();
+      S.localComments.push({ id: id, venue: venue, name: name || S.name || '', text: text, time: new Date().toISOString(), reply: '' }); save(); localSummary(); refreshSocial(); return Promise.resolve();
     }
-    return socPost({ action: 'comment', id: id, venue: venue, name: name, text: text, lang: S.lang }).then(refreshSocial);
+    return socPost({ action: 'comment', id: id, venue: venue, name: name || S.name || '', text: text, lang: S.lang }).then(refreshSocial);
   }
 
   /* ---------- small helpers for views ---------- */
@@ -300,12 +347,94 @@
   function toast(msg) {
     var el = $('#toast'); el.textContent = msg; el.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(function () { el.hidden = true; }, 2600);
   }
+  var modal = $('#modal'), afterName = null;
+  function openModal(html) { $('#modalIn').innerHTML = html; modal.hidden = false; document.body.classList.add('noscroll'); var f = $('#modalIn input'); if (f) setTimeout(function () { f.focus(); }, 80); }
+  function closeModal() { modal.hidden = true; document.body.classList.remove('noscroll'); afterName = null; }
+  function askName(cb) {
+    afterName = cb;
+    openModal('<h3>' + esc(t('nameTitle')) + '</h3><p class="muted small">' + esc(t('nameHint')) + '</p><input type="text" id="nameInput" maxlength="40" value="' + esc(S.name) + '" autocomplete="name"><div class="mbtns"><button type="button" class="btn" data-modalclose>' + esc(t('cancel')) + '</button><button type="button" class="btn primary" data-namesave>' + esc(t('nameSave')) + '</button></div>');
+  }
+  function saveName() {
+    var v = ($('#nameInput') || {}).value; v = (v || '').trim(); if (!v) { var i = $('#nameInput'); if (i) i.focus(); return; }
+    S.name = v; save(); var cb = afterName; closeModal(); renderNameBoxes(); if (cb) cb();
+  }
+  function renderNameBoxes() { $$('[data-namebox]').forEach(function (el) { el.innerHTML = nameBoxHtml(); }); }
+  function nameBoxHtml() {
+    if (LOGIN) return S.auth.session ? '<span class="muted small">' + esc(t('signedAs')) + '</span> <b>' + esc(S.auth.name) + '</b> <button type="button" class="linkbtn" data-signout>' + esc(t('signout')) + '</button>' : '<button type="button" class="btn primary" data-signin>' + esc(t('signinTitle')) + '</button>';
+    return '<span class="muted small">' + esc(t('nameLabel')) + ':</span> <b>' + esc(S.name || '—') + '</b> <button type="button" class="linkbtn" data-namechange>' + esc(t('nameChange')) + '</button>'; }
+  /* ---------- Google sign-in ---------- */
+  var gisInit = false, afterLogin = null;
+  function loadGIS() {
+    if (!LOGIN || document.getElementById('gis-js')) return;
+    var s = document.createElement('script'); s.id = 'gis-js'; s.src = 'https://accounts.google.com/gsi/client'; s.async = true; s.defer = true; document.head.appendChild(s);
+  }
+  function whenGIS(cb, tries) {
+    tries = tries || 0;
+    if (window.google && window.google.accounts && window.google.accounts.id) { cb(true); return; }
+    if (tries > 80) { cb(false); return; }
+    setTimeout(function () { whenGIS(cb, tries + 1); }, 100);
+  }
+  function inAppBrowser() { return /FBAN|FBAV|Instagram|Line\/|MicroMessenger|Messenger|Snapchat|TikTok/i.test(navigator.userAgent || ''); }
+  function openSignIn(cb) {
+    afterLogin = cb || null;
+    openModal('<h3>' + esc(t('signinTitle')) + '</h3><p class="muted small">' + esc(t('signinHint')) + '</p>' +
+      (inAppBrowser() ? '<p class="snote warn">' + esc(t('inapp')) + '</p>' : '') +
+      '<div id="gbtn" class="gbtn"><span class="muted small">' + esc(t('signinWait')) + '</span></div><div class="mbtns"><button type="button" class="btn" data-modalclose>' + esc(t('cancel')) + '</button></div>');
+    loadGIS();
+    whenGIS(function (ok) {
+      var box = $('#gbtn'); if (!box) return;
+      if (!ok) { box.innerHTML = '<span class="snote warn">' + esc(t('signinFail')) + '</span>'; return; }
+      if (!gisInit) { google.accounts.id.initialize({ client_id: CFG.googleClientId, callback: onCredential, auto_select: false }); gisInit = true; }
+      box.innerHTML = '';
+      google.accounts.id.renderButton(box, { type: 'standard', theme: 'outline', size: 'large', shape: 'pill', text: 'signin_with', width: 260, locale: S.lang === 'zh' ? 'zh_CN' : 'en' });
+    });
+  }
+  function onCredential(resp) {
+    socPost({ action: 'login', credential: resp && resp.credential }).then(function (j) {
+      S.auth = { session: j.session, name: (j.me && j.me.name) || '' }; save();
+      var cb = afterLogin; afterLogin = null; closeModal(); refreshAuthUI(); refreshSocial();
+      if (cb) cb();
+    }).catch(function () { toast(t('signinBad')); });
+  }
+  function handleLoginRequired() {
+    S.auth = { session: '', name: '' }; save(); Soc.mine = { likes: [], pick: null }; refreshAuthUI(); refreshSocial(); openSignIn(null); socLoad();
+  }
+  function signOut() {
+    S.auth = { session: '', name: '' }; save(); Soc.mine = { likes: [], pick: null };
+    try { if (window.google && google.accounts && google.accounts.id) google.accounts.id.disableAutoSelect(); } catch (e) { /* ignore */ }
+    closeModal(); refreshAuthUI(); refreshSocial(); toast(t('signoutDone'));
+  }
+  function openAccount() {
+    openModal('<h3>' + esc(t('accountTitle')) + '</h3><p>' + esc(t('signedAs')) + ' <b>' + esc(S.auth.name) + '</b></p><div class="mbtns"><button type="button" class="btn" data-modalclose>' + esc(t('close')) + '</button><button type="button" class="btn primary" data-signout>' + esc(t('signout')) + '</button></div>');
+  }
+  function renderAccount() {
+    var el = $('#acct'); if (!el) return;
+    if (!LOGIN) { el.innerHTML = ''; return; }
+    if (!S.auth.session) { el.innerHTML = '<button type="button" class="signin-sm" data-signin>' + esc(t('signinShort')) + '</button>'; return; }
+    el.innerHTML = '<button type="button" class="avatar" data-account aria-label="' + esc(t('accountTitle') + ': ' + S.auth.name) + '">' + esc((S.auth.name || '?').trim().charAt(0).toUpperCase()) + '</button>';
+  }
+  function postAsHtml() {
+    return S.auth.session ? '<span class="muted small">' + esc(t('postingAs')) + '</span> <b>' + esc(S.auth.name) + '</b>' : '<button type="button" class="btn" data-signin>' + esc(t('signinTitle')) + '</button>';
+  }
+  function refreshAuthUI() { renderAccount(); renderNameBoxes(); $$('[data-postas]').forEach(function (el) { el.innerHTML = postAsHtml(); }); }
+  function openShare(id) {
+    var p = BY[id], url = realUrl(p), msg = p.name + '\n' + url;
+    openModal('<h3>' + esc(t('shareTitle')) + '</h3><p><b>' + esc(p.name) + '</b></p><p class="muted small">' + esc(t('shareHint')) + '</p><input type="text" id="shareUrl" readonly value="' + esc(url) + '" aria-label="link">' +
+      '<div class="mbtns"><button type="button" class="btn primary" data-copy>' + icon('copy', 16) + esc(t('copyLink')) + '</button><a class="btn" id="waLink" href="https://wa.me/?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener noreferrer">' + icon('chat', 16) + esc(t('whatsapp')) + '</a></div>' +
+      '<div class="mbtns"><a class="btn ghost" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">' + icon('link', 16) + esc(t('openLink')) + '</a><button type="button" class="btn ghost" data-modalclose>' + esc(t('close')) + '</button></div>');
+  }
+  function copyShare() {
+    var inp = $('#shareUrl'); if (!inp) return; var done = function () { toast(t('copied')); };
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(inp.value).then(done, function () { inp.select(); document.execCommand('copy'); done(); }); }
+    else { inp.select(); inp.setSelectionRange(0, 999); try { document.execCommand('copy'); } catch (e) { /* user can copy by hand */ } done(); }
+  }
+  function shareBtn(id) { return '<button type="button" class="shr" data-share="' + id + '" aria-label="' + esc(t('share')) + '">' + icon('share', 18) + '</button>'; }
   function likeBtn(id, cls) {
     return '<button type="button" class="like ' + (cls || '') + (isLiked(id) ? ' on' : '') + '" data-like="' + id + '" aria-pressed="' + isLiked(id) + '" aria-label="' + esc(t('like')) + '">' + icon('heart', 18) + '<b data-likecount="' + id + '">' + likeCount(id) + '</b></button>';
   }
-  function cmpBtn(id) {
+  function cmpBtn(id, label) {
     var on = S.compare.indexOf(id) > -1;
-    return '<button type="button" class="cmp' + (on ? ' on' : '') + '" data-cmp="' + id + '" aria-pressed="' + on + '" aria-label="' + esc(t(on ? 'compareRemove' : 'compareAdd')) + '">' + icon('scale', 18) + '</button>';
+    return '<button type="button" class="cmp' + (on ? ' on' : '') + '" data-cmp="' + id + '" aria-pressed="' + on + '" aria-label="' + esc(t(on ? 'compareRemove' : 'compareAdd')) + '">' + icon('scale', 18) + (label ? '<span>' + esc(t('tabCompare')) + '</span>' : '') + '</button>';
   }
 
   /* ---------- PLACES ---------- */
@@ -328,7 +457,7 @@
         '<p class="price' + (pr.known ? '' : ' tbc') + '">' + esc(pr.text) + '</p>' +
         '<p class="facts"><span>' + icon('users', 16) + esc(guestsText(p)) + '</span>' + (p.headline && p.headline.bedrooms ? '<span>' + icon('bed', 16) + p.headline.bedrooms + ' ' + esc(t('rooms')) + '</span>' : '') + (p.headline && p.headline.baths ? '<span>' + icon('bath', 16) + p.headline.baths + '</span>' : '') + '</p></div>' +
       '</a>' +
-      '<div class="card-actions">' + likeBtn(p.id) + cmpBtn(p.id) + '<a class="mapbtn" href="#/map/' + p.id + '" aria-label="' + esc(t('mapPin')) + '">' + icon('map', 18) + '</a></div></article>';
+      '<div class="card-actions">' + likeBtn(p.id) + cmpBtn(p.id) + shareBtn(p.id) + '<a class="mapbtn" href="#/map/' + p.id + '" aria-label="' + esc(t('mapPin')) + '">' + icon('map', 18) + '</a></div></article>';
   }
   function renderPlaces() {
     var counts = { all: P.length, near: 0, mid: 0, far: 0 }; P.forEach(function (p) { counts[band(p)]++; });
@@ -341,6 +470,7 @@
     }).join('');
     view.innerHTML =
       '<section class="intro"><h1>' + esc(t('pickTitle')) + '</h1><p>' + icon('church', 16) + esc(t('tagline')) + '</p></section>' +
+      '<section class="results" id="homeResults"></section>' +
       '<div class="bands" role="group">' + chips + '</div>' +
       '<div class="facs" role="group"><span class="lbl">' + esc(t('needFac')) + ':</span>' + facs + '</div>' +
       '<div class="bar"><p class="count">' + list.length + ' ' + esc(t('places')) + '</p>' +
@@ -420,7 +550,7 @@
       '<div><span>' + icon('users', 15) + esc(t('rowGuests')) + '</span><b>' + esc(guestsText(p)) + '</b></div>' +
       '<div><span>' + icon('bed', 15) + esc(t('beds')) + '</span><b>' + (p.units ? '—' : esc(bedsText(p))) + '</b></div>' +
       '<div><span>' + icon('bath', 15) + esc(t('baths')) + '</span><b>' + (p.headline && p.headline.baths != null ? p.headline.baths : (p.units ? '1 / ' + esc(t('perUnit')) : '?')) + '</b></div></div>' +
-      '<div class="geo"><p>' + icon('route', 16) + esc(t('straight')) + '</p><div class="geo-b"><a class="btn" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + icon('route', 16) + esc(t('directions')) + '</a><a class="btn ghost" href="' + esc(p.location.gmaps) + '" target="_blank" rel="noopener noreferrer">' + icon('pin', 16) + esc(t('openMaps')) + '</a><a class="btn ghost" href="#/map/' + p.id + '">' + icon('map', 16) + esc(t('mapPin')) + '</a></div></div>' +
+      '<div class="geo"><p>' + icon('route', 16) + esc(t('straight')) + '</p><div class="geo-b"><a class="btn" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + icon('route', 16) + esc(t('directions')) + '</a><a class="btn ghost" href="' + esc(p.location.gmaps) + '" target="_blank" rel="noopener noreferrer">' + icon('pin', 16) + esc(t('openMaps')) + '</a><a class="btn ghost" href="#/map/' + p.id + '">' + icon('map', 16) + esc(t('mapPin')) + '</a>' + cmpBtn(p.id, true) + '</div></div>' +
       (good.length ? '<section class="pc good"><h3>' + esc(t('good')) + '</h3><ul>' + good.slice(0, 4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>' : '') +
       (watchL.length ? '<section class="pc watch"><h3>' + esc(t('watch')) + '</h3><ul>' + watchL.slice(0, 4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>' : '') +
       '<section><h3 class="h">' + esc(t('keyFac')) + '</h3><div class="kfs">' + keys + '</div></section>' +
@@ -436,10 +566,10 @@
       '</section>' +
       '<section class="qa" id="qa"><h3 class="h">' + icon('chat', 18) + esc(t('askTitle')) + '</h3><div id="qaNote"></div><div id="qaList"></div>' + qaForm(p.id) + '</section>' +
       '</article>' +
-      '<div class="actions" role="group">' + likeBtn(p.id, 'big') + '<button type="button" class="pickbtn' + (picked ? ' on' : '') + '" data-pick="' + p.id + '" aria-pressed="' + picked + '">' + icon('star', 18) + '<span>' + esc(picked ? t('picked') : t('pick')) + '</span></button>' + cmpBtn(p.id) + '<button type="button" class="askbtn" data-askjump>' + icon('chat', 18) + '<span>' + esc(t('ask')) + '</span></button></div>';
+      '<div class="actions" role="group">' + likeBtn(p.id, 'big') + '<button type="button" class="pickbtn' + (picked ? ' on' : '') + '" data-pick="' + p.id + '" aria-pressed="' + picked + '">' + icon('star', 18) + '<span>' + esc(picked ? t('picked') : t('pick')) + '</span></button>' + shareBtn(p.id) + '<button type="button" class="askbtn" data-askjump>' + icon('chat', 18) + '<span>' + esc(t('ask')) + '</span></button></div>';
   }
   function qaForm(id) {
-    return '<form class="qform" data-qform="' + id + '" autocomplete="off"><label><span>' + esc(t('yourName')) + '</span><input type="text" name="name" maxlength="40" value="' + esc(S.name) + '"></label>' +
+    return '<form class="qform" data-qform="' + id + '" autocomplete="off">' + (LOGIN ? '<div class="postas" data-postas>' + postAsHtml() + '</div>' : '<label><span>' + esc(t('yourName')) + '</span><input type="text" name="name" maxlength="40" value="' + esc(S.name) + '"></label>') +
       '<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
       '<label><span>' + esc(t('yourQ')) + '</span><textarea name="text" rows="3" maxlength="600" required></textarea></label>' +
       '<button type="submit" class="btn primary">' + esc(t('send')) + '</button></form>';
@@ -482,7 +612,7 @@
 
   /* ---------- VOTES & Q&A ---------- */
   function renderTalk() {
-    view.innerHTML = '<section class="intro"><h1>' + esc(t('talkTitle')) + '</h1></section><div id="talkNote"></div>' +
+    view.innerHTML = '<section class="intro"><h1>' + esc(t('talkTitle')) + '</h1></section><div id="talkNote"></div><p class="namebox" data-namebox>' + nameBoxHtml() + '</p>' +
       '<section><h3 class="h">' + icon('star', 18) + esc(t('ranking')) + '</h3><p class="muted small">' + esc(t('rankHint')) + '</p><div id="rankList"></div></section>' +
       '<section class="qa"><h3 class="h">' + icon('chat', 18) + esc(t('questions')) + '</h3><div id="talkList"></div><h4 class="sub">' + esc(t('askGeneral')) + '</h4>' + qaForm('general') + '</section>';
   }
@@ -491,8 +621,20 @@
     if (!ranked.length) return '<p class="muted">—</p>';
     return '<ol class="rank">' + ranked.map(function (p) { return '<li><a href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><b>' + esc(p.name) + '</b></a><span class="sc">★ ' + (Soc.picks[p.id] || 0) + ' ' + esc(t('picksLabel')) + ' · ♥ ' + likeCount(p.id) + '</span></li>'; }).join('') + '</ol>';
   }
+  function resultsHtml() {
+    var ranked = P.filter(function (p) { return likeCount(p.id) || (Soc.picks[p.id] || 0); }).sort(function (a, b) { return ((Soc.picks[b.id] || 0) - (Soc.picks[a.id] || 0)) || (likeCount(b.id) - likeCount(a.id)) || a.dist - b.dist; }).slice(0, 3);
+    var head = '<div class="res-h"><h2>' + icon('star', 18) + esc(t('resTitle')) + '</h2><a href="#/talk">' + esc(t('resAll')) + '</a></div>';
+    if (!ranked.length) return head + '<p class="muted small">' + esc(t('resNone')) + '</p>';
+    var byVotes = ranked.some(function (p) { return Soc.picks[p.id]; });
+    var max = Math.max.apply(null, ranked.map(function (p) { return byVotes ? (Soc.picks[p.id] || 0) : likeCount(p.id); }).concat(1));
+    return head + ranked.map(function (p, i) {
+      var v = Soc.picks[p.id] || 0, l = likeCount(p.id), w = Math.max(6, Math.round((byVotes ? v : l) / max * 100));
+      return '<a class="res-row" href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><span class="res-main"><b>' + esc(p.name) + '</b><span class="res-bar"><i style="width:' + w + '%"></i></span></span><span class="res-n">★ ' + v + ' ' + esc(t(v === 1 ? 'voteWord' : 'votesWord')) + '<br>♥ ' + l + '</span></a>';
+    }).join('');
+  }
   /* update only the parts that show votes and questions (keeps typing and scroll position) */
   function refreshSocial() {
+    var hr = $('#homeResults'); if (hr) hr.innerHTML = resultsHtml();
     $$('[data-likecount]').forEach(function (el) { el.textContent = likeCount(el.getAttribute('data-likecount')); });
     $$('[data-like]').forEach(function (b) { var on = isLiked(b.getAttribute('data-like')); b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
     $$('[data-pick]').forEach(function (b) { var on = Soc.mine.pick === b.getAttribute('data-pick'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); var sp = $('span', b); if (sp) sp.textContent = t(on ? 'picked' : 'pick'); });
@@ -515,7 +657,7 @@
   function sheetHtml(p) {
     var pr = price(p);
     return '<button type="button" class="sx" data-sheetclose aria-label="' + esc(t('close')) + '">' + icon('x', 18) + '</button><div class="sh"><div class="ph sm">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span></div><div class="si"><h3>' + esc(p.name) + '</h3><p class="where">' + esc(regionOf(p)) + '</p><p>' + distBadge(p) + '</p><p class="price' + (pr.known ? '' : ' tbc') + '">' + esc(pr.text) + '</p></div></div>' +
-      '<div class="sa"><a class="btn primary" href="#/p/' + p.id + '">' + esc(t('details')) + '</a>' + likeBtn(p.id) + '<a class="btn ghost" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + icon('route', 16) + esc(t('directions')) + '</a></div>';
+      '<div class="sa"><a class="btn primary" href="#/p/' + p.id + '">' + esc(t('details')) + '</a>' + likeBtn(p.id) + shareBtn(p.id) + '<a class="btn ghost" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + icon('route', 16) + esc(t('directions')) + '</a></div>';
   }
   function showSheet(id) {
     selected = id; var el = $('#sheet'); el.innerHTML = sheetHtml(BY[id]); el.hidden = false;
@@ -565,7 +707,7 @@
   var lb = { id: null, i: 0, open: false };
   function openLB(id, i) { lb = { id: id, i: i, open: true }; renderLB(); $('#lightbox').hidden = false; document.body.classList.add('noscroll'); $('#lbClose').focus(); }
   function closeLB() { lb.open = false; $('#lightbox').hidden = true; document.body.classList.remove('noscroll'); }
-  function renderLB() { var p = BY[lb.id]; $('#lbImg').innerHTML = img(p, lb.i, 'large'); $('#lbCap').textContent = p.photos[lb.i].caption + ' · ' + (lb.i + 1) + ' / ' + p.photos.length; }
+  function renderLB() { var p = BY[lb.id]; $('#lbImg').innerHTML = img(p, lb.i, 'large'); $('#lbCap').textContent = capText(p.photos[lb.i]) + ' · ' + (lb.i + 1) + ' / ' + p.photos.length; }
   function lbStep(d) { var n = BY[lb.id].photos.length; lb.i = (lb.i + d + n) % n; renderLB(); }
 
   /* ---------- router ---------- */
@@ -585,7 +727,8 @@
       return '<a href="#/' + it[0] + '"' + (on ? ' class="on" aria-current="page"' : '') + '>' + icon(it[2], 22) + '<span>' + esc(t(it[1])) + '</span>' + badge + '</a>';
     }).join('');
     $('#langbox').innerHTML = ['en', 'zh'].map(function (l) { return '<button type="button" data-lang="' + l + '" class="' + (S.lang === l ? 'on' : '') + '" aria-pressed="' + (S.lang === l) + '">' + (l === 'en' ? 'EN' : '中') + '</button>'; }).join('');
-    $('#brand').textContent = t('title');
+    $('#brand').textContent = t('brand');
+    renderAccount();
     document.documentElement.lang = S.lang === 'zh' ? 'zh-CN' : 'en';
     document.title = t('title');
   }
@@ -616,7 +759,7 @@
 
   /* ---------- events ---------- */
   document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('[data-lang],[data-band],[data-fac],[data-clear],[data-like],[data-pick],[data-cmp],[data-lb],[data-askjump],[data-mapmode],[data-sheetclose]') : null;
+    var el = e.target.closest ? e.target.closest('[data-lang],[data-band],[data-fac],[data-clear],[data-like],[data-pick],[data-cmp],[data-lb],[data-askjump],[data-mapmode],[data-sheetclose],[data-share],[data-copy],[data-modalclose],[data-namesave],[data-namechange],[data-signin],[data-signout],[data-account]') : null;
     if (!el) return;
     if (el.hasAttribute('data-lang')) { S.lang = el.getAttribute('data-lang'); save(); render(); return; }
     if (el.hasAttribute('data-band')) { S.band = el.getAttribute('data-band'); save(); renderPlaces(); refreshSocial(); return; }
@@ -636,7 +779,17 @@
     if (el.hasAttribute('data-askjump')) { var q = $('#qa'); if (q) { q.scrollIntoView({ behavior: 'smooth', block: 'start' }); var ta = $('textarea', q); if (ta) setTimeout(function () { ta.focus({ preventScroll: true }); }, 400); } return; }
     if (el.hasAttribute('data-mapmode')) { mapMode = el.getAttribute('data-mapmode'); renderMapUI(); fitMap(); return; }
     if (el.hasAttribute('data-sheetclose')) { hideSheet(); return; }
+    if (el.hasAttribute('data-share')) { e.preventDefault(); openShare(el.getAttribute('data-share')); return; }
+    if (el.hasAttribute('data-copy')) { copyShare(); return; }
+    if (el.hasAttribute('data-modalclose')) { closeModal(); return; }
+    if (el.hasAttribute('data-namesave')) { saveName(); return; }
+    if (el.hasAttribute('data-namechange')) { askName(null); return; }
+    if (el.hasAttribute('data-signin')) { openSignIn(null); return; }
+    if (el.hasAttribute('data-signout')) { signOut(); return; }
+    if (el.hasAttribute('data-account')) { openAccount(); return; }
   });
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (!modal.hidden) { if (e.key === 'Escape') closeModal(); else if (e.key === 'Enter' && e.target.id === 'nameInput') saveName(); } });
   document.addEventListener('change', function (e) { if (e.target.id === 'sort') { S.sort = e.target.value; save(); renderPlaces(); refreshSocial(); } });
   document.addEventListener('input', function (e) {
     if (e.target.id !== 'people') return;
@@ -646,10 +799,13 @@
   document.addEventListener('submit', function (e) {
     var f = e.target; if (!f.hasAttribute || !f.hasAttribute('data-qform')) return;
     e.preventDefault();
-    var id = f.getAttribute('data-qform'), name = f.name.value.trim(), text = f.text.value.trim(), btn = $('button[type=submit]', f);
-    if (f.website.value || !text) return;
-    S.name = name; save(); btn.disabled = true;
-    Promise.resolve(addComment(id, name, text)).then(function () { f.text.value = ''; toast(t('sent')); }).catch(function () { toast(t('sendFail')); }).then(function () { setTimeout(function () { btn.disabled = false; }, 1500); });
+    var id = f.getAttribute('data-qform'), nameEl = f.elements.name, name = nameEl ? nameEl.value.trim() : '', text = f.elements.text.value.trim(), btn = $('button[type=submit]', f);
+    if (f.elements.website.value || !text) return;
+    var resubmit = function () { if (nameEl) nameEl.value = S.name; f.requestSubmit ? f.requestSubmit() : f.dispatchEvent(new Event('submit', { cancelable: true })); };
+    if (LOGIN) { if (!S.auth.session) { openSignIn(resubmit); return; } name = ''; }
+    else { if (!name && !S.name) { askName(resubmit); return; } if (name) { S.name = name; save(); } }
+    btn.disabled = true;
+    Promise.resolve(addComment(id, name, text)).then(function () { f.elements.text.value = ''; toast(t('sent')); }).catch(function () { toast(t('sendFail')); }).then(function () { setTimeout(function () { btn.disabled = false; }, 1500); });
   });
   document.addEventListener('keydown', function (e) {
     if (!lb.open) return;
@@ -663,6 +819,7 @@
 
   /* ---------- start ---------- */
   localSummary();
+  loadGIS();
   render();
   socLoad();
   if (Soc.shared) {

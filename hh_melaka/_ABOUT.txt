@@ -1,0 +1,7 @@
+Put photos of THIS place in this folder (any file names, .jpg .jpeg .png .webp).
+Then run:  python tools/add_photos.py
+
+Place: H&H Leisure Guest House
+Region: Taman Bukit Cheng, Melaka
+Links:
+  Google Maps (your link): https://maps.app.goo.gl/Ey9QVeVGdUK6wZyV7?g_st=aw

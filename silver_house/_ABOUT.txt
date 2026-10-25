@@ -1,0 +1,7 @@
+Put photos of THIS place in this folder (any file names, .jpg .jpeg .png .webp).
+Then run:  python tools/add_photos.py
+
+Place: The Silver House Private Villa Janda Baik
+Region: Janda Baik, Bentong, Pahang
+Links:
+  Google Maps (your link): https://maps.app.goo.gl/yQv3zAfmxxnBhLmbA?g_st=aw
