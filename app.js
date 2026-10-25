@@ -26,6 +26,8 @@
     p.pricing = p.pricing || {};
     if ('night' in o) { if (Number(o.night) > 0) { p.pricing.total = Number(o.night); p.pricing.totalUnit = 'night'; } else { p.pricing.total = null; } }
     if ('perPerson' in o) { var pp = o.perPerson; p.pricing.perPerson = (pp && pp.length === 2 && Number(pp[0]) > 0) ? { min: Number(pp[0]), max: Number(pp[1]) || Number(pp[0]), note: '(gross)' } : null; }
+    if ('units' in o) { p.pricing.units = Number(o.units) > 1 ? Number(o.units) : 0; }
+    if (o.unitName) p.pricing.unitName = String(o.unitName);
     if (o.note) p.pricing.note = o.note + (p.pricing.note ? ' ' + p.pricing.note : '');
   });
 
@@ -241,20 +243,59 @@
   }
   function guestsText(p) {
     if (!p.guests) return '?';
-    if (p.guests.perUnit) return '4–6 / ' + t('perUnit');
+    if (p.guests.range) return p.guests.range + ' / ' + t('perUnit');
+    if (p.guests.perUnit) return p.guests.n + ' / ' + (S.lang === 'zh' ? '间' : (p.pricing && p.pricing.unitName) || t('perUnit').replace('per ', ''));
     return p.guests.n + (p.guests.plus ? '+' : '');
   }
+  function capN(p) { return p.guests ? p.guests.n * ((p.guests.perUnit && p.guests.units) || 1) : 0; }
+  /* beds if known; otherwise the number of bedrooms; otherwise ? */
+  function roomsOrBeds(p) {
+    var h = p.headline || {};
+    if (h.beds != null) return { label: t('beds'), value: String(h.beds) };
+    if (h.bedrooms) return { label: t('rooms'), value: String(h.bedrooms) + perUnitSuffix(p) };
+    return { label: t('beds'), value: '?' };
+  }
   function bedsText(p) { return (p.headline && p.headline.beds != null) ? String(p.headline.beds) : '?'; }
+  /* several houses/villas sold together (prices.js "units"): say clearly what one costs and fits */
+  function unitName(p, n) { var w = (p.pricing && p.pricing.unitName) || 'unit'; return S.lang === 'zh' ? '间' : w + (n > 1 ? 's' : ''); }
+  function perUnitSuffix(p) {
+    if (!(p.guests && p.guests.perUnit && p.guests.units > 1)) return '';
+    return ' / ' + (S.lang === 'zh' ? '间' : ((p.pricing && p.pricing.unitName) || 'unit'));
+  }
+  function unitsSub(p) {
+    var pr = p.pricing, n = pr.units, each = fmtRM(Math.round(pr.total / n)), g = p.guests && p.guests.n;
+    return S.lang === 'zh' ? n + ' 间 × ' + each + (g ? ' · 每间 ' + g + ' 人' : '') : n + ' ' + unitName(p, n) + ' × ' + each + (g ? ' · ' + g + ' people each' : '');
+  }
+  function sameEn(p, w) {
+    var h = p.headline, n = p.pricing.units;
+    if (!(p.guests && p.guests.identical && h && h.bedrooms)) return '';
+    return ' The ' + n + ' ' + w + ' are identical: each has ' + h.bedrooms + ' rooms' + (h.baths ? ' and ' + h.baths + ' bathrooms' : '') + ' (' + h.bedrooms * n + ' rooms' + (h.baths ? ' and ' + h.baths * n + ' bathrooms' : '') + ' together).';
+  }
+  function sameZh(p) {
+    var h = p.headline, n = p.pricing.units;
+    if (!(p.guests && p.guests.identical && h && h.bedrooms)) return '';
+    return '这 ' + n + ' 间一模一样：每间 ' + h.bedrooms + ' 房' + (h.baths ? '、' + h.baths + ' 浴室' : '') + '（' + n + ' 间一共 ' + h.bedrooms * n + ' 房' + (h.baths ? '、' + h.baths * n + ' 浴室' : '') + '）。';
+  }
+  function unitsNote(p) {
+    var pr = p.pricing, n = pr.units, each = fmtRM(Math.round(pr.total / n)), g = p.guests && p.guests.n, w = unitName(p, n), w1 = unitName(p, 1);
+    return S.lang === 'zh'
+      ? '这个价格（' + fmtRM(pr.total) + '）是 ' + n + ' 间一起的价钱。每间 ' + each + (g ? '，可住 ' + g + ' 人；' + n + ' 间一共可住 ' + g * n + ' 人' : '') + '。' + sameZh(p)
+      : 'This price (' + fmtRM(pr.total) + ') is for ' + n + ' ' + w + ' together. One ' + w1 + ' costs ' + each + (g ? ' and fits ' + g + ' people; ' + (n === 2 ? 'both' : 'all ' + n) + ' together fit ' + g * n + ' people' : '') + '.' + sameEn(p, w);
+  }
   function price(p) {
     var pr = p.pricing || {};
-    if (pr.total > 0) return { text: fmtRM(pr.total) + ' ' + t('perNight'), known: true };
+    if (pr.total > 0) {
+      var r = { text: fmtRM(pr.total) + ' ' + t('perNight'), known: true };
+      if (pr.units > 1) { r.sub = unitsSub(p); r.note = unitsNote(p); }
+      return r;
+    }
     if (pr.perPerson) return { text: t('aboutPP', { a: pr.perPerson.min, b: pr.perPerson.max }), known: true };
     return { text: t('priceTbc'), known: false };
   }
   function distBadge(p) { return '<span class="dist band-' + band(p) + '">≈ ' + distKm(p) + ' km · ' + esc(t(band(p))) + '</span>'; }
   /* the real place's own link (Airbnb room, official site or Google Maps link), never this website */
   function realUrl(p) {
-    var u = (p.links && p.links[0] && p.links[0].url) || p.location.gmaps, m = /airbnb\.[a-z.]+\/rooms\/(\d+)/.exec(u);
+    var u = p.shareUrl || (p.links && p.links[0] && p.links[0].url) || p.location.gmaps, m = /airbnb\.[a-z.]+\/rooms\/(\d+)/.exec(u);
     return m ? 'https://www.airbnb.com/rooms/' + m[1] : u;
   }
   function dirUrl(p) {
@@ -443,7 +484,7 @@
     var list = P.filter(function (p) { return (S.band === 'all' || band(p) === S.band) && matchesFac(p); });
     list.sort(function (a, b) {
       if (S.sort === 'votes') return ((Soc.picks[b.id] || 0) * 1000 + likeCount(b.id)) - ((Soc.picks[a.id] || 0) * 1000 + likeCount(a.id)) || a.dist - b.dist;
-      if (S.sort === 'guests') return ((b.guests && b.guests.n) || 0) - ((a.guests && a.guests.n) || 0) || a.dist - b.dist;
+      if (S.sort === 'guests') return capN(b) - capN(a) || a.dist - b.dist;
       return a.dist - b.dist;
     });
     return list;
@@ -454,8 +495,8 @@
       '<a class="card-link" href="#/p/' + p.id + '" aria-label="' + esc(p.name) + '">' +
         '<div class="ph">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span>' + distBadge(p) + '</div>' +
         '<div class="cb"><h3>' + esc(p.name) + '</h3><p class="where">' + icon('pin', 15) + esc(regionOf(p)) + '</p>' +
-        '<p class="price' + (pr.known ? '' : ' tbc') + '">' + esc(pr.text) + '</p>' +
-        '<p class="facts"><span>' + icon('users', 16) + esc(guestsText(p)) + '</span>' + (p.headline && p.headline.bedrooms ? '<span>' + icon('bed', 16) + p.headline.bedrooms + ' ' + esc(t('rooms')) + '</span>' : '') + (p.headline && p.headline.baths ? '<span>' + icon('bath', 16) + p.headline.baths + '</span>' : '') + '</p></div>' +
+        '<p class="price' + (pr.known ? '' : ' tbc') + '">' + esc(pr.text) + '</p>' + (pr.sub ? '<p class="usub">' + esc(pr.sub) + '</p>' : '') +
+        '<p class="facts"><span>' + icon('users', 16) + esc(guestsText(p)) + '</span>' + (p.headline && p.headline.bedrooms ? '<span>' + icon('bed', 16) + p.headline.bedrooms + ' ' + esc(t('rooms')) + esc(perUnitSuffix(p)) + '</span>' : '') + (p.headline && p.headline.baths ? '<span>' + icon('bath', 16) + p.headline.baths + esc(perUnitSuffix(p)) + '</span>' : '') + '</p></div>' +
       '</a>' +
       '<div class="card-actions">' + likeBtn(p.id) + cmpBtn(p.id) + shareBtn(p.id) + '<a class="mapbtn" href="#/map/' + p.id + '" aria-label="' + esc(t('mapPin')) + '">' + icon('map', 18) + '</a></div></article>';
   }
@@ -546,10 +587,11 @@
       '<header class="dh"><div class="row1"><span class="num lg">' + p.n + '</span>' + distBadge(p) + rating + '</div><h2>' + esc(p.name) + '</h2>' +
       '<p class="where">' + icon('pin', 16) + esc(regionOf(p)) + '</p><p class="muted small">' + esc(typeOf(p)) + '</p>' +
       '<p class="sum">' + esc(summaryOf(p)) + '</p></header>' +
-      '<div class="nums"><div class="n1"><span>' + esc(t('rowPrice')) + '</span><b class="' + (pr.known ? '' : 'tbc') + '">' + esc(pr.text) + '</b>' + (pr.known ? '<small>' + esc(t('gross')) + '</small>' : '') + '</div>' +
+      '<div class="nums"><div class="n1"><span>' + esc(t('rowPrice')) + '</span><b class="' + (pr.known ? '' : 'tbc') + '">' + esc(pr.text) + '</b>' + (pr.sub ? '<small class="usub">' + esc(pr.sub) + '</small>' : '') + (pr.known ? '<small>' + esc(t('gross')) + '</small>' : '') + '</div>' +
       '<div><span>' + icon('users', 15) + esc(t('rowGuests')) + '</span><b>' + esc(guestsText(p)) + '</b></div>' +
-      '<div><span>' + icon('bed', 15) + esc(t('beds')) + '</span><b>' + (p.units ? '—' : esc(bedsText(p))) + '</b></div>' +
-      '<div><span>' + icon('bath', 15) + esc(t('baths')) + '</span><b>' + (p.headline && p.headline.baths != null ? p.headline.baths : (p.units ? '1 / ' + esc(t('perUnit')) : '?')) + '</b></div></div>' +
+      '<div><span>' + icon('bed', 15) + esc(roomsOrBeds(p).label) + '</span><b>' + (p.units ? '—' : esc(roomsOrBeds(p).value)) + '</b></div>' +
+      '<div><span>' + icon('bath', 15) + esc(t('baths')) + '</span><b>' + (p.headline && p.headline.baths != null ? esc(p.headline.baths + perUnitSuffix(p)) : (p.units ? '1 / ' + esc(t('perUnit')) : '?')) + '</b></div></div>' +
+      (pr.note ? '<div class="note unit-note"><div><b>' + esc(pr.sub) + '</b><span>' + esc(pr.note) + '</span></div></div>' : '') +
       '<div class="geo"><p>' + icon('route', 16) + esc(t('straight')) + '</p><div class="geo-b"><a class="btn" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + icon('route', 16) + esc(t('directions')) + '</a><a class="btn ghost" href="' + esc(p.location.gmaps) + '" target="_blank" rel="noopener noreferrer">' + icon('pin', 16) + esc(t('openMaps')) + '</a><a class="btn ghost" href="#/map/' + p.id + '">' + icon('map', 16) + esc(t('mapPin')) + '</a>' + cmpBtn(p.id, true) + '</div></div>' +
       (good.length ? '<section class="pc good"><h3>' + esc(t('good')) + '</h3><ul>' + good.slice(0, 4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>' : '') +
       (watchL.length ? '<section class="pc watch"><h3>' + esc(t('watch')) + '</h3><ul>' + watchL.slice(0, 4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>' : '') +
@@ -593,11 +635,11 @@
     var rows = [
       ['', function (p) { return '<div class="ch"><a href="#/p/' + p.id + '"><div class="ph sm">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span></div><b>' + esc(p.name) + '</b></a><button type="button" class="x" data-cmp="' + p.id + '" aria-label="' + esc(t('compareRemove')) + '">' + icon('x', 16) + '</button></div>'; }],
       [t('rowDistance'), function (p) { return distBadge(p); }],
-      [t('rowPrice'), function (p) { var pr = price(p); return '<b class="' + (pr.known ? '' : 'tbc') + '">' + esc(pr.text) + '</b>'; }],
+      [t('rowPrice'), function (p) { var pr = price(p); return '<b class="' + (pr.known ? '' : 'tbc') + '">' + esc(pr.text) + '</b>' + (pr.sub ? '<br><span class="usub">' + esc(pr.sub) + '</span>' : ''); }],
       [t('perPerson'), function (p) { var tot = p.pricing && p.pricing.total; if (tot > 0 && people) return '<b>' + fmtRM2(tot / people) + '</b>'; if (p.pricing && p.pricing.perPerson) return '<b>RM' + p.pricing.perPerson.min + '–' + p.pricing.perPerson.max + '</b>'; return '<span class="muted">' + (tot > 0 ? esc(t('perPersonHint')) : '—') + '</span>'; }],
       [t('rowGuests'), function (p) { return '<b>' + esc(guestsText(p)) + '</b>'; }],
-      [t('rowRooms'), function (p) { return p.headline ? p.headline.bedrooms + ' ' + esc(t('rooms')) + ' · ' + p.headline.beds + ' ' + esc(t('beds')) : (p.units ? p.units.length + ' ' + esc(t('units')) : '?'); }],
-      [t('rowBaths'), function (p) { return p.headline && p.headline.baths != null ? String(p.headline.baths) : (p.units ? '1 / ' + esc(t('perUnit')) : '?'); }],
+      [t('rowRooms'), function (p) { return p.headline ? p.headline.bedrooms + ' ' + esc(t('rooms')) + esc(perUnitSuffix(p)) + (p.headline.beds != null ? ' · ' + p.headline.beds + ' ' + esc(t('beds')) : '') : (p.units ? p.units.length + ' ' + esc(t('units')) : '?'); }],
+      [t('rowBaths'), function (p) { return p.headline && p.headline.baths != null ? esc(p.headline.baths + perUnitSuffix(p)) : (p.units ? '1 / ' + esc(t('perUnit')) : '?'); }],
       [t('rowPool'), function (p) { return pill(amStatus(p, 'pool')); }],
       [t('rowBbq'), function (p) { return pill(amStatus(p, 'bbq')); }],
       [t('rowKaraoke'), function (p) { return pill(amStatus(p, 'karaoke')); }],
@@ -656,7 +698,7 @@
   }
   function sheetHtml(p) {
     var pr = price(p);
-    return '<button type="button" class="sx" data-sheetclose aria-label="' + esc(t('close')) + '">' + icon('x', 18) + '</button><div class="sh"><div class="ph sm">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span></div><div class="si"><h3>' + esc(p.name) + '</h3><p class="where">' + esc(regionOf(p)) + '</p><p>' + distBadge(p) + '</p><p class="price' + (pr.known ? '' : ' tbc') + '">' + esc(pr.text) + '</p></div></div>' +
+    return '<button type="button" class="sx" data-sheetclose aria-label="' + esc(t('close')) + '">' + icon('x', 18) + '</button><div class="sh"><div class="ph sm">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span></div><div class="si"><h3>' + esc(p.name) + '</h3><p class="where">' + esc(regionOf(p)) + '</p><p>' + distBadge(p) + '</p><p class="price' + (pr.known ? '' : ' tbc') + '">' + esc(pr.text) + '</p>' + (pr.sub ? '<p class="usub">' + esc(pr.sub) + '</p>' : '') + '</div></div>' +
       '<div class="sa"><a class="btn primary" href="#/p/' + p.id + '">' + esc(t('details')) + '</a>' + likeBtn(p.id) + shareBtn(p.id) + '<a class="btn ghost" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + icon('route', 16) + esc(t('directions')) + '</a></div>';
   }
   function showSheet(id) {

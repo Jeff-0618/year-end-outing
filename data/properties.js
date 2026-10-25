@@ -1668,7 +1668,8 @@ window.PROPERTIES_DATA = {
    "guests": {
     "n": 4,
     "plus": false,
-    "perUnit": true
+    "perUnit": true,
+    "range": "4–6"
    }
   },
   {
@@ -2405,11 +2406,11 @@ window.PROPERTIES_DATA = {
   {
    "id": "hh_melaka",
    "label": "Melaka",
-   "name": "H&H Leisure Guest House",
+   "name": "H&H Leisure Guest House (H&H 1, Melaka)",
    "region": "Taman Bukit Cheng, Melaka",
-   "type": "Place from a Google Maps link — details not collected yet",
+   "type": "Entire house — guest house with a pool",
    "address": "39, Jalan TBC 17, Taman Bukit Cheng, 75260 Melaka",
-   "summary": "Guest house in Taman Bukit Cheng, Melaka. Details not collected yet.",
+   "summary": "5-bedroom guest house in Taman Bukit Cheng, Melaka, with an outdoor pool, garden, BBQ facilities, free Wi-Fi and free parking (from the listing sites).",
    "location": {
     "lat": 2.22,
     "lng": 102.27,
@@ -2423,16 +2424,28 @@ window.PROPERTIES_DATA = {
    "surroundings": "",
    "groupFit": "",
    "rating": null,
-   "headline": null,
+   "headline": {
+    "bedrooms": 5,
+    "beds": null,
+    "baths": null
+   },
    "guests": null,
    "maxGuests": {
     "display": "Not collected yet",
     "status": "need_confirmation",
-    "note": "Capacity, beds, bathrooms, facilities, price and photos have not been collected for this place yet."
+    "note": "Maximum guests, bathrooms and the bed layout have not been collected yet. The 5 bedrooms come from the Travelocity / Hotels.com listing."
    },
    "links": [
     {
-     "label": "Google Maps (your link)",
+     "label": "Trip.com page (31 Dec – 1 Jan)",
+     "url": "https://my.trip.com/hotels/detail/?cityEnName=Melaka&cityId=62&hotelId=4971367&checkIn=2026-12-31&checkOut=2027-01-01&adult=2&children=0&curr=MYR&locale=en-MY"
+    },
+    {
+     "label": "Trip.com (your full original link)",
+     "url": "https://my.trip.com/hotels/detail/?cityEnName=Melaka&cityId=62&hotelId=4971367&checkIn=2026-12-31&checkOut=2027-01-01&adult=2&children=0&crn=1&ages=&curr=MYR&barcurr=MYR&fgt=1&mincurr=MYR&minprice=1491.75&hoteluniquekey=H4sIAAAAAAAA_-Oy5mKSEBBi4mCUMuR4-efrB7YZjM-3rWfawShwkTENBDZPdnjIaAwC_tMdupgYmTpZWl8H7pBrjXeQ4vEN8LAwDHFNL9VNL1Fg0bi__Ns1Ng_GIDZDCwNHY4soGS5m38ggwQmG5bqK8r_spUA8RRgvibUqQ9c3MuOlWBcjkwfjKkZ2LmZDMyMBgU-MfMjmxhsAAHQHR92lAAAA&masterhotelid_tracelogid=100051355-0a8f9366-498033-220305-metaRoom&detailFilters=17%7C1%7E17%7E1*80%7C2%7C0%7E80%7E2*29%7C1%7E29%7E1%7C2&hotelType=meta&display=incavg&subStamp=759&isCT=true&isFlexible=F&roomkey=1847426665__0_0_162_16_&roomToken=T8VR82-DI-7&msr=%5B%7B%22roomId%22%3A1847426665%2C%22ratePlanId%22%3A%22%22%2C%22shadowId%22%3A0%2C%22rateID%22%3A%22162%22%2C%22adult%22%3A16%2C%22childAgeList%22%3A%5B%5D%2C%22xPkgToken%22%3A%22%22%2C%22productCode%22%3A%22%22%7D%5D&trip_sub1=31_12_2026_1_localuniversal_4971367_MY_desktop_selected_21370154316_9065804858_1_0-LANG_MY_ZH-landing&hasAidInUrl=true&mproom=1847426665&locale=en-MY"
+    },
+    {
+     "label": "Google Maps",
      "url": "https://maps.app.goo.gl/Ey9QVeVGdUK6wZyV7?g_st=aw"
     }
    ],
@@ -2445,7 +2458,32 @@ window.PROPERTIES_DATA = {
    },
    "bathrooms": {},
    "kitchen": {},
-   "amenities": {},
+   "amenities": {
+    "pool": {
+     "status": "confirmed",
+     "note": "Outdoor / private pool (Kayak and Travelocity listings)."
+    },
+    "garden": {
+     "status": "confirmed",
+     "note": "Garden (Kayak listing)."
+    },
+    "bbq": {
+     "status": "confirmed",
+     "note": "Barbecue facilities listed (Kayak). Charcoal and tools not described."
+    },
+    "wifi": {
+     "status": "confirmed",
+     "note": "Free Wi-Fi in all areas."
+    },
+    "parking": {
+     "status": "confirmed",
+     "note": "Free private parking."
+    },
+    "other": {
+     "status": "confirmed",
+     "note": "Flat-screen TV and a tea/coffee maker (Kayak)."
+    }
+   },
    "pricing": {
     "total": null,
     "totalUnit": "night",
@@ -2460,25 +2498,30 @@ window.PROPERTIES_DATA = {
      }
     }
    },
-   "pros": [],
+   "pros": [
+    "5 bedrooms, an outdoor pool, a garden and BBQ facilities",
+    "Free Wi-Fi and free parking"
+   ],
    "cautions": [
-    "Details have not been collected yet. Open the Google Maps link or ask the group."
+    "Maximum guests, bathrooms and bed layout have not been collected yet",
+    "Far from Kuala Lumpur (Melaka)"
    ],
    "openItems": [
-    "Capacity, beds and bathrooms",
-    "Facilities (pool, BBQ, karaoke, kitchen)",
-    "Price for the countdown dates",
+    "Maximum guests and the bed layout",
+    "Number of bathrooms",
+    "Karaoke / noise rules and quiet hours",
     "Photos"
-   ]
+   ],
+   "shareUrl": "https://my.trip.com/hotels/detail/?cityEnName=Melaka&cityId=62&hotelId=4971367&checkIn=2026-12-31&checkOut=2027-01-01&adult=2&children=0&curr=MYR&locale=en-MY"
   },
   {
    "id": "gm_pool_pd",
    "label": "Port Dickson",
-   "name": "GM Pool Villa Port Dickson",
+   "name": "GM Pool Villa Port Dickson — Lok B (Viking theme)",
    "region": "Port Dickson, Negeri Sembilan",
-   "type": "Place from a Google Maps link — details not collected yet",
+   "type": "Villa — Lok B (Viking theme) with a private pool",
    "address": "Address not available (Google blocks automated reading of the shared link)",
-   "summary": "Pool villa in Port Dickson. Only the name was available. Details not collected yet.",
+   "summary": "Two identical pool villas in Port Dickson (the one described is \"Lok B\", Viking theme). Each villa has 3 rooms, 3 bathrooms and 1 private pool, and fits up to 15 people including 4 extra beds. Together: 6 rooms, 6 bathrooms, 2 pools, 30 people. Super-peak price RM1,480 per villa, RM2,960 for both.",
    "location": {
     "lat": 2.5,
     "lng": 101.83,
@@ -2492,12 +2535,22 @@ window.PROPERTIES_DATA = {
    "surroundings": "",
    "groupFit": "",
    "rating": null,
-   "headline": null,
-   "guests": null,
+   "headline": {
+    "bedrooms": 3,
+    "beds": null,
+    "baths": 3
+   },
+   "guests": {
+    "n": 15,
+    "plus": false,
+    "perUnit": true,
+    "units": 2,
+    "identical": true
+   },
    "maxGuests": {
-    "display": "Not collected yet",
-    "status": "need_confirmation",
-    "note": "Capacity, beds, bathrooms, facilities, price and photos have not been collected for this place yet."
+    "display": "15 per villa (incl. 4 extra beds) · 2 identical villas = 30",
+    "status": "confirmed",
+    "note": "From the owner: maximum 15 people per villa, which includes 4 extra beds. The two villas are identical. The super-peak price is RM1,480 per villa, so RM2,960 for both."
    },
    "links": [
     {
@@ -2508,13 +2561,26 @@ window.PROPERTIES_DATA = {
    "photos": [],
    "bedroomsComplete": false,
    "bedrooms": [],
-   "sleepingNotes": [],
+   "sleepingNotes": [
+    "The two villas are identical, so every number on this page (rooms, bathrooms, pool, people) is per villa.",
+    "Maximum 15 people per villa, including 4 extra beds (so about 11 on the normal beds)."
+   ],
    "bedding": {
     "status": "not_disclosed"
    },
-   "bathrooms": {},
+   "bathrooms": {
+    "total": {
+     "status": "confirmed",
+     "value": "3 bathrooms per villa (owner)"
+    }
+   },
    "kitchen": {},
-   "amenities": {},
+   "amenities": {
+    "pool": {
+     "status": "confirmed",
+     "note": "1 private pool per villa (owner)."
+    }
+   },
    "pricing": {
     "total": null,
     "totalUnit": "night",
@@ -2529,15 +2595,20 @@ window.PROPERTIES_DATA = {
      }
     }
    },
-   "pros": [],
+   "pros": [
+    "Two identical villas: each has 3 rooms, 3 bathrooms and a private pool",
+    "Each villa fits up to 15 people; book both for 30 (6 rooms, 6 bathrooms)",
+    "Viking-themed villas (Lok B)"
+   ],
    "cautions": [
-    "Details have not been collected yet. Open the Google Maps link or ask the group."
+    "The limit of 15 people includes 4 extra beds",
+    "This is the super-peak price. Bed layout, other facilities and photos have not been collected yet"
    ],
    "openItems": [
-    "Capacity, beds and bathrooms",
-    "Facilities (pool, BBQ, karaoke, kitchen)",
-    "Price for the countdown dates",
-    "Photos"
+    "Bed layout in the 3 rooms and what the 4 extra beds are",
+    "Facilities (BBQ, karaoke, kitchen)",
+    "Photos",
+    "Is the RM2,960 super-peak price fixed for the countdown dates?"
    ]
   }
  ]

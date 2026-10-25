@@ -40,9 +40,41 @@ python tools/make_site_folder.py
 
 **如果页面是空白，或者出现“有文件缺少或还是旧版”**：说明网站上还是旧的 `index.html`，或上传放错了位置。重新上传 `index.html` 到最外层即可。
 
-**GitHub 网页还是不让你传？** 换个办法，不用 GitHub 网页：在 VS Code 里打开 `site-to-upload` 文件夹，用左边的“源代码管理”按钮提交并推送；或者在这个文件夹里运行 `npx vercel --prod` 直接上传到 Vercel。
+### 用 GitHub Desktop 上传（推荐：没有“一次 100 个文件”的限制）
+
+GitHub Desktop 是用 Git 推送的，一次几百个文件也可以，单个文件上限 100 MB（我们的照片每张只有 100–400 KB）。设置只需要做一次。
+
+**一次性设置（约 10 分钟）**
+1. 打开 **GitHub Desktop** → 菜单 **File → Options → Accounts** → 点 **Sign in**（登录 GitHub.com）。浏览器会弹出授权页，点 **Authorize desktop**，回到程序。
+2. 先弄清楚你的网站用的是哪个仓库：打开 vercel.com → 你的项目 → **Settings → Git**，里面的 **Connected Git Repository** 就是（形如 `你的用户名/仓库名`）。
+3. 回到 GitHub Desktop：**File → Clone repository…** → 选 **GitHub.com** 页签 → 在列表里点那个仓库 → **Local path** 用默认的就行（例如 `C:\Users\你\Documents\GitHub\仓库名`）→ 点 **Clone**。
+4. 记下这个文件夹路径：在 GitHub Desktop 点 **Repository → Show in Explorer**，在打开的资源管理器地址栏点一下，**Ctrl+C** 复制路径。
+
+**第一次整理（可选）**：在这个文件夹里把旧的 `app.js`、`styles.css`、`data` 文件夹、`assets\images` 文件夹删掉（新版不用它们），回 GitHub Desktop 会看到它们显示为删除，照下面的步骤提交即可。
+
+**以后每次更新**
+1. 在项目文件夹打开 PowerShell，运行（路径换成第 4 步复制的，**两边要加引号**）：
+   ```
+   python tools/make_site_folder.py "C:\Users\你\Documents\GitHub\仓库名"
+   ```
+   它会把需要的 14 个文件直接放进这个仓库文件夹。你自己仓库里的 `config.js`（Google 设置）**不会被覆盖**。
+2. 打开 **GitHub Desktop**：左边 **Changes** 会自动列出所有改动的文件，有几个都没关系。
+3. 左下角 **Summary** 随便写一句，例如“更新价格”，点蓝色按钮 **Commit to main**。
+4. 点上方的 **Push origin**。
+5. 等约 30 秒，Vercel 自动更新，手机刷新两次就看到了。
+
+**要改 Google 设置（`config.js`）时**：直接用记事本打开仓库文件夹里的 `config.js` 修改保存，GitHub Desktop 会显示它改了，照上面第 3、4 步提交并推送。
+
+**常见问题**
+- 推送时提示要先 **Pull** / 上方按钮是 **Pull origin**：先点它，再点 **Push origin**（通常是你曾经在 GitHub 网页上改过东西）。
+- 登录失败：**File → Options → Accounts → Sign out**，再 Sign in 一次。
+- 脚本说 “Folder not found”：路径没加引号，或者复制错了。重新用第 4 步复制。
+- **只把脚本放进去的 14 个文件推送**，不要把整个项目文件夹（含 `tools`、`photos-to-add`）放进仓库。
 
 ## 3. 加你自己的照片（不用发给我）
+
+> **照片放进 `photos-to-add` 文件夹以后，网页不会自动显示。** 网站读的是另一个文件夹 `assets\user-photos` 和一个清单 `user-photos.js`，这两样要靠脚本生成。最省事的做法：**双击项目文件夹里的 `update-site.bat`**，它会自动完成“加照片 → 生成网站文件 → 放进你的 GitHub 文件夹”三步（第一次会顺便安装 pillow）。然后在 GitHub Desktop 点 **Commit to main** 和 **Push origin**，约 30 秒后刷新网页就有了。`update-site.bat` 里的 `REPO=` 那一行是你的 GitHub 文件夹路径，换了位置就改它。
+
 
 每个场地有一个专属文件夹：`photos-to-add/<场地代号>/`，里面的 `_ABOUT.txt` 写着这是哪个场地。
 
@@ -78,6 +110,7 @@ python tools/make_site_folder.py
 ## 5. 你可以自己改的地方
 
 - **价格**：只改最外层的 `prices.js`。每个场地一行，例如 `"pd_pool": { "night": 2100 }` 表示整间一晚 RM2,100（gross）；按人收费的写 `{ "perPerson": [100, 120] }`；还不知道就写 `{ "night": null }`。可以加一句备注：`{ "night": 2100, "note": "31 Dec, 20 guests" }`。在 GitHub 上点开 `prices.js` → 铅笔图标 → 改数字 → Commit 就行，手机也可以。
+- **几间一起卖的价钱**（例如 GM Pool Villa：2 间一共 RM2,960，每间 15 人）：在 `prices.js` 里写 `{ "night": 2960, "units": 2, "unitName": "villa" }`，页面就会在卡片、详情页、地图小卡片和对比页显示“2 villas × RM1,480 · 15 people each”，详情页还有一个醒目的说明框。每间的人数写在资料里（`guests`）。
 - 人数：`data/config.js` 里的 `"participants": 20`，对比页会自动用它算每人费用。
 - 加新场地：复制 `properties.js` 里最后一个场地的结构，填上名字、坐标、链接即可（坐标没有就先用城镇中心）。中文文字加在 `data/zh.js`，没写的会自动显示英文。
 - 不要运行 `tools/download_photos.py`：它会下载上百张官方照片，文件太多，GitHub 网页放不下，而且网站不需要它。
@@ -94,7 +127,7 @@ python tools/make_site_folder.py
 
 **资料比较完整（Airbnb 页面读到的）**：A、B、C、Port Dickson、Batu Gajah、Bentong、Dusun Bonda。
 **只有名字和地址（来自 Google 链接，没有价格、床位、照片）**：H&H Leisure Guest House、GM Pool Villa（Google 不让我读取分享链接，只拿到名字）。
-**价格**：只有 A、B、C 和 Dusun Bonda 有价格（你给的），其余是“价格待确认”，改 `prices.js` 即可。
+**价格**：9 个场地都有价格了（你给的最新价格表，都是 gross）。GM Pool Villa 的 RM2,960 是两间一起的价钱，每间 RM1,480、可住 15 人，网页上已特别标注。
 
 **位置与距离**：所有场地的位置只到城镇／区域级（网页上写了“大概位置”）。教会的位置也是 Kuchai Lama 区域级。距离是直线距离，**不是车程**，真正车程请点“从教会导航”看 Google Maps。
 
