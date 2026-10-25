@@ -19,5 +19,5 @@ window.PRICES = {
   "batu_gajah": { "night": 1430 },               // Royale Villa Homestay Private Pool Batu Gajah Ipoh
   "bentong_actb": { "night": 1527 },             // ActB GuestHouse 装B民宿 (Bentong)
   "hh_melaka": { "night": 1735 },                // H&H Leisure Guest House
-  "gm_pool_pd": { "night": 2960, "units": 2, "unitName": "villa", "note": "Super-peak price: RM1,480 per villa." }   // GM Pool Villa Port Dickson (Lok B): 2 villas, RM1,480 each, 15 people each
+  "gm_pool_pd": { "night": 2960, "units": 2, "unitName": "villa", "note": "Super-peak price: RM1,480 per villa." }   // GM Pool Villa Port Dickson: Viking + Mermaid villas, RM1,480 each
 };

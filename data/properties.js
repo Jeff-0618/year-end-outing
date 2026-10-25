@@ -7,13 +7,13 @@
    * Status values for facilities / kitchen / bathroom / price rows:
        confirmed | not_provided | not_disclosed | additional_charge | need_confirmation
      A key that is missing is shown as "Not disclosed".
-   * Researched 14 Oct 2026 from the public Airbnb pages and dusunbonda.com.
+   * Researched 14–26 Oct 2026 from the public Airbnb pages, dusunbonda.com, gmpoolvillapd.com, Trip.com and Google Maps.
    ========================================================================== */
 window.PROPERTIES_DATA = {
  "meta": {
   "title": "YEAR-END COUNTDOWN 2026",
   "subtitle": "2 DAYS 1 NIGHT — KL & SURROUNDING AREAS",
-  "researchedOn": "14–18 Oct 2026",
+  "researchedOn": "14–26 Oct 2026",
   "participants": null,
   "priceDisclaimer": "Price and availability for the actual countdown dates must be verified.",
   "origin": {
@@ -48,12 +48,12 @@ window.PROPERTIES_DATA = {
     "basis": "Airbnb only shows the area (Genting Highlands, Pahang) before booking. The pin sits at area level, not at the house.",
     "dirQuery": "3.42,101.79"
    },
-   "surroundings": "Highland setting with cool, windy weather and views of the Genting range (host description). Outdoor porch with views.",
-   "groupFit": "Host markets it for families, friends and corporate team-building trips, with karaoke nights, BBQ and steamboat.",
+   "surroundings": "Highland setting with cool, windy weather and views of the Genting range (host description). Outdoor porch with views. Airbnb's highlights place it in the Bentong highlands near Genting, about a 15-minute walk to Butterfly Wonderland. A guest review says it is close to restaurants and about 20 minutes from Genting Highlands.",
+   "groupFit": "Host markets it for families, friends and corporate team-building trips, with karaoke nights, BBQ and steamboat. A July 2026 review says 16 adults and kids stayed and found it spacious.",
    "rating": {
     "score": 4.92,
     "reviews": 12,
-    "note": "Superhost · Guest favourite · 8 months hosting"
+    "note": "Superhost · Guest favourite · 9 months hosting"
    },
    "headline": {
     "bedrooms": 7,
@@ -231,10 +231,11 @@ window.PROPERTIES_DATA = {
    "sleepingNotes": [
     "Airbnb's headline says 13 beds. That matches counting each bunk bed as 2 and leaving out the 6 floor mattresses.",
     "Bunk-bed size is not stated. Estimate assumes one sleeper per bunk tier.",
-    "Sharing of rooms: not stated. Linen, pillows and blankets: not disclosed."
+    "Sharing of rooms: not stated. Airbnb lists bed linens, extra pillows and blankets."
    ],
    "bedding": {
-    "status": "not_disclosed"
+    "status": "confirmed",
+    "note": "Bed linens, extra pillows and blankets, a mosquito net and a drying rack are listed."
    },
    "bathrooms": {
     "total": {
@@ -244,16 +245,28 @@ window.PROPERTIES_DATA = {
     "toilets": {
      "status": "need_confirmation",
      "note": "Toilet count is not listed separately from baths."
+    },
+    "hotWater": {
+     "status": "confirmed",
+     "note": "Hot water is listed, with a bidet and an outdoor shower."
+    },
+    "toiletries": {
+     "status": "confirmed",
+     "note": "Shampoo, conditioner, body soap, shower gel, a hair dryer and cleaning products."
+    },
+    "towels": {
+     "status": "confirmed",
+     "note": "Towels, bed sheets, soap and toilet paper are listed under Essentials. A June 2026 review says the towels were fresh and clean."
     }
    },
    "kitchen": {
     "selfCooking": {
      "status": "confirmed",
-     "note": "Two separate kitchens: one for Muslim and one for non-Muslim guests (host description)."
+     "note": "Two separate kitchens: one for Muslim and one for non-Muslim guests (host description). Refrigerator, mini fridge, freezer, microwave, rice maker, toaster, pots and pans with oil, salt and pepper, plates, bowls, cups, cutlery and a dining table are listed."
     },
     "bbqAllowed": {
      "status": "confirmed",
-     "note": "BBQ and steamboat equipment are provided."
+     "note": "BBQ grill and an outdoor kitchen with sink. BBQ and steamboat equipment are provided."
     },
     "ownSupplies": {
      "status": "confirmed",
@@ -261,7 +274,19 @@ window.PROPERTIES_DATA = {
     },
     "limits": {
      "status": "confirmed",
-     "note": "Keep noise down from 11 pm. Guests keep the house clean. No illegal activities or disruptive behaviour."
+     "note": "Quiet hours 10 pm to 7 am. Guests keep the house clean. No illegal activities or disruptive behaviour. Only registered guests are allowed."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator, mini fridge and freezer."
+    },
+    "potsPans": {
+     "status": "confirmed",
+     "note": "Pots and pans, oil, salt and pepper."
+    },
+    "tableware": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
     }
    },
    "amenities": {
@@ -271,11 +296,11 @@ window.PROPERTIES_DATA = {
     },
     "bbq": {
      "status": "confirmed",
-     "note": "BBQ equipment provided; bring your own ingredients. Charcoal is complimentary."
+     "note": "BBQ grill, outdoor kitchen with sink and barbecue utensils (grill, charcoal, skewers) are listed. BBQ and steamboat equipment provided; bring your own ingredients. Charcoal is complimentary."
     },
     "karaoke": {
      "status": "need_confirmation",
-     "note": "The host description mentions \"karaoke nights\" but does not describe the equipment."
+     "note": "The host description mentions \"karaoke nights\". The amenity list shows a sound system and a movie theater, and Airbnb's highlight summary mentions a karaoke setup, but the host does not describe the equipment."
     },
     "kitchen": {
      "status": "confirmed",
@@ -286,15 +311,55 @@ window.PROPERTIES_DATA = {
     },
     "parking": {
      "status": "confirmed",
-     "note": "Free on-site parking; host says up to 10 vehicles. Tell the host in advance if you bring several cars."
+     "note": "Free on-site parking; host says up to 10 vehicles. A July 2026 review mentions parking for 4 cars inside the gate. Tell the host in advance if you bring several cars."
     },
     "outdoor": {
      "status": "confirmed",
-     "note": "Outdoor porch with Genting views."
+     "note": "Outdoor porch with Genting views, private patio or balcony, outdoor furniture and dining area."
     },
     "other": {
      "status": "confirmed",
-     "note": "Steamboat equipment, a dedicated workspace and self check-in (remote controls from building security)."
+     "note": "Steamboat equipment, dedicated workspace, self check-in (building staff available 24 hours), cleaning available during the stay, 24-hour CCTV, fire extinguisher, first-aid kit, crib and mosquito net. Pets allowed (1 maximum). No washer or dryer."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator, mini fridge and freezer."
+    },
+    "microwave": {
+     "status": "confirmed"
+    },
+    "ricecooker": {
+     "status": "confirmed",
+     "note": "Rice maker."
+    },
+    "utensils": {
+     "status": "confirmed",
+     "note": "Pots and pans, oil, salt and pepper, barbecue utensils."
+    },
+    "plates": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
+    },
+    "dining": {
+     "status": "confirmed",
+     "note": "Dining table and an outdoor dining area."
+    },
+    "boardgames": {
+     "status": "confirmed",
+     "note": "Board games are listed (also a crib)."
+    },
+    "projector": {
+     "status": "need_confirmation",
+     "note": "A \"movie theater\" is listed and the host mentions movie marathons. A projector or screen is not described."
+    },
+    "aircon": {
+     "status": "confirmed",
+     "qualifier": "coverage not stated",
+     "note": "Air conditioning is listed. Coverage per room is not stated."
+    },
+    "fans": {
+     "status": "confirmed",
+     "note": "Ceiling fan and portable fans."
     }
    },
    "pricing": {
@@ -318,6 +383,10 @@ window.PROPERTIES_DATA = {
      "multiUnit": {
       "status": "confirmed",
       "value": "No — one whole-house listing"
+     },
+     "deposit": {
+      "status": "need_confirmation",
+      "note": "The host's house rules mention a refundable security deposit. The amount is not stated."
      }
     }
    },
@@ -329,9 +398,9 @@ window.PROPERTIES_DATA = {
     "Large house: 7 bedrooms, 5 baths, parking for about 10 vehicles"
    ],
    "cautions": [
-    "Only 12 reviews and 8 months of hosting history",
-    "Quiet hours start at 11 pm, which is before a midnight countdown",
-    "Airbnb lists smoke alarm and carbon monoxide alarm as unavailable. Relevant if you use charcoal BBQ",
+    "Only 12 reviews and 9 months of hosting history",
+    "Quiet hours are 10 pm to 7 am, before a midnight countdown. The host may contact the authorities after neighbour complaints",
+    "Airbnb lists no smoke alarm and no carbon monoxide alarm (a fire extinguisher and first-aid kit are provided). Relevant if you use charcoal BBQ",
     "6 of the sleeping spots are floor mattresses",
     "Cool, windy highland weather. Bring warm clothes"
    ],
@@ -339,16 +408,43 @@ window.PROPERTIES_DATA = {
     "Real maximum guests (16+ vs 30+) and any extra-guest charge",
     "Total price for the countdown dates (nightly rate, cleaning, service fee, taxes, deposit)",
     "Karaoke: is a system included, and can it be used for the countdown?",
-    "Host's rule for a New Year's Eve gathering vs the 11 pm quiet hours",
-    "Full 52-amenity list (tap \"Show all amenities\" on Airbnb): fridge, microwave, rice cooker, A/C, fans, dining table, water dispenser, board games",
+    "Host's rule for a New Year's Eve gathering vs the 10 pm quiet hours",
+    "Drinking water: no water dispenser is in the amenity list. Ask whether bottled or filtered water is provided",
     "Number of toilets and showers, and which bedrooms have private bathrooms",
-    "Smoke / CO alarm situation and fire-safety rules for charcoal"
+    "Missing smoke and CO alarms: ask about fire-safety rules for charcoal (a fire extinguisher is provided)"
    ],
    "summary": "Large 7-bedroom bungalow in Genting Highlands with a pool, BBQ and steamboat set, and separate kitchens for Muslim and non-Muslim guests.",
    "guests": {
     "n": 16,
     "plus": true
-   }
+   },
+   "rules": [
+    {
+     "tone": "warn",
+     "title": "Quiet hours 10 pm – 7 am",
+     "body": "Keep noise to a minimum. After excessive noise or neighbour complaints the host may contact the authorities without further notice."
+    },
+    {
+     "tone": "info",
+     "title": "Check-in after 3 pm, check-out before 12 noon",
+     "body": "Self check-in: show your check-in picture to security, who hands over the gate remote controls. Return the remote to the guard at check-out."
+    },
+    {
+     "tone": "info",
+     "title": "Pets allowed (1 maximum), no smoking inside",
+     "body": "Only one pet is allowed. No smoking inside the house. No illegal activities or disruptive behaviour."
+    },
+    {
+     "tone": "info",
+     "title": "Registered guests only, children supervised",
+     "body": "Only registered guests are allowed. Children need supervision at the pool. Lock doors and windows when you leave."
+    },
+    {
+     "tone": "info",
+     "title": "Refundable security deposit",
+     "body": "Damage to the property, furniture or equipment is deducted from the refundable deposit. Guests pay any amount above the deposit. The deposit amount is not stated."
+    }
+   ]
   },
   {
    "id": "airbnb_b",
@@ -368,7 +464,7 @@ window.PROPERTIES_DATA = {
     "dirQuery": "2.95,101.66"
    },
    "surroundings": "Between Putrajaya, Cyberjaya and Puchong. Host travel times: 15 min to KLIA/KLIA2, 5 min to Cyberjaya, 10 min to Putrajaya, 15 min to IOI Mall Puchong, 30 min to Sunway Pyramid.",
-   "groupFit": "Built for large gatherings, reunions and weekend retreats. Highest capacity of all four options.",
+   "groupFit": "Built for large gatherings, reunions and weekend retreats. Highest capacity of all the options. But the house rules ban parties, events and music sound systems.",
    "rating": {
     "score": 4.57,
     "reviews": 105,
@@ -476,10 +572,11 @@ window.PROPERTIES_DATA = {
    "sleepingNotes": [
     "Airbnb's \"Where you'll sleep\" section shows only 3 of the 15 rooms. The other 12 are described only by room type.",
     "The headline (22 beds / 15 bedrooms) and the host's room-type list cannot be reconciled from the page, so no bed total is shown.",
-    "Extra air bed: RM30 per bed per night (rental). Children under 6 sharing bedding pay no extra (host)."
+    "Extra air bed: RM30 per bed per night (rental). Children under 6 sharing bedding pay no extra (host). Towels are not provided."
    ],
    "bedding": {
-    "status": "not_disclosed"
+    "status": "need_confirmation",
+    "note": "Airbnb marks Essentials (towels, bed sheets, soap, toilet paper) as unavailable, but the host says only the towels are not provided. Confirm the linen."
    },
    "bathrooms": {
     "total": {
@@ -491,18 +588,26 @@ window.PROPERTIES_DATA = {
      "note": "2 of the 15 rooms have no attached bathroom (1 twin, 1 triple)."
     },
     "hotWater": {
-     "status": "confirmed",
-     "note": "Water heater in the bathrooms (host)."
+     "status": "need_confirmation",
+     "note": "The host says all 14 bathrooms have a water heater, but Airbnb's amenity list marks hot water as unavailable and a March 2026 review says the master bedroom's heater was not working."
     },
     "toilets": {
      "status": "need_confirmation",
      "note": "Toilet count is not listed separately from bathrooms."
+    },
+    "towels": {
+     "status": "not_provided",
+     "note": "Towels are not provided (host request). Bring your own."
+    },
+    "toiletries": {
+     "status": "need_confirmation",
+     "note": "Shampoo and a hair dryer are listed, and a June 2026 review says shower gel was provided. Airbnb marks Essentials (towels, bed sheets, soap, toilet paper) as unavailable, and a September 2026 review says toilet paper was not provided."
     }
    },
    "kitchen": {
     "selfCooking": {
      "status": "confirmed",
-     "note": "Well-equipped kitchen with fridge, twin cooking hob, microwave, electric kettle, sandwich maker, pots and pans, tablewares."
+     "note": "Kitchen with fridge, twin cooking hob (gas stove), microwave, electric kettle, sandwich maker, toaster, rice maker, pots and pans, tablewares. Two reviews (Mar 2026) say the kitchen has only a few appliances."
     },
     "fridge": {
      "status": "confirmed"
@@ -525,6 +630,14 @@ window.PROPERTIES_DATA = {
     "water": {
      "status": "confirmed",
      "note": "Water dispenser."
+    },
+    "bbqAllowed": {
+     "status": "need_confirmation",
+     "note": "No BBQ grill or barbecue utensils are in Airbnb's 22-amenity list and the host does not mention BBQ."
+    },
+    "limits": {
+     "status": "confirmed",
+     "note": "No parties or events. Quiet hours 9 pm to 8 am. No alcohol and no non-halal items. Any music sound system, mic hosting or DJ is not allowed (house rules)."
     }
    },
    "amenities": {
@@ -551,11 +664,11 @@ window.PROPERTIES_DATA = {
     },
     "stove": {
      "status": "confirmed",
-     "note": "Twin cooking hob."
+     "note": "Gas stove (amenity list) and twin cooking hob (host)."
     },
     "utensils": {
      "status": "confirmed",
-     "note": "Pots and pans."
+     "note": "Pots and pans, oil, salt and pepper."
     },
     "plates": {
      "status": "confirmed",
@@ -585,7 +698,19 @@ window.PROPERTIES_DATA = {
     },
     "other": {
      "status": "additional_charge",
-     "note": "Host offers airport transfer, city tours, car/van/coach rental and discounted Sunway Lagoon tickets at extra cost."
+     "note": "Host offers airport transfer, city tours, car/van/coach rental and discounted Sunway Lagoon tickets at extra cost. Self check-in with building staff available 24 hours. Fire extinguisher, first-aid kit, smoke and CO alarms, iron and hangers are listed. No washer, dryer or heating."
+    },
+    "bbq": {
+     "status": "need_confirmation",
+     "note": "No BBQ grill or barbecue utensils are listed. Ask the host whether BBQ is allowed."
+    },
+    "karaoke": {
+     "status": "not_provided",
+     "note": "House rules: any music sound system, mic hosting or DJ is not allowed. A June 2026 review mentions a karaoke system, so ask the host."
+    },
+    "ricecooker": {
+     "status": "confirmed",
+     "note": "Rice maker (and a toaster)."
     }
    },
    "pricing": {
@@ -624,27 +749,66 @@ window.PROPERTIES_DATA = {
     "Live-in caretaker in the vicinity (host)"
    ],
    "cautions": [
+    "House rules: no parties or events, quiet hours 9 pm to 8 am, and no music sound system, mic hosting or DJ. This conflicts with a countdown party",
+    "Alcohol and non-halal items are strictly prohibited, and towels are not provided (host requests)",
     "Airbnb flags the listing as in the bottom 10% of eligible listings for ratings, reviews and reliability. Cleanliness scores 4.4",
     "Parking for only 4 cars",
-    "BBQ, karaoke, party and noise rules are not mentioned on the page",
+    "Recent reviews mention mosquitoes in the bedrooms, no toilet paper supplied and a broken water heater. Airbnb marks hot water as unavailable",
     "2 rooms have no attached bathroom",
     "Bed count per room is incomplete"
    ],
    "openItems": [
     "Full bed list for all 15 rooms and how 38 people would be split",
     "Total price for the countdown dates, including any New Year surcharge, cleaning fee, deposit",
-    "Is BBQ allowed? Is karaoke or loud music allowed? Any party or noise cut-off time?",
-    "Recent guest reviews on cleanliness (rating 4.4) before deciding",
-    "Rice cooker, fans, board games or mahjong (not mentioned)",
-    "Full 22-amenity list (tap \"Show all amenities\" on Airbnb)",
+    "Is a New Year's Eve countdown gathering allowed at all? House rules say no parties or events and no music sound system",
+    "Hot water: Airbnb marks it unavailable while the host says every bathroom has a heater. Read recent reviews on cleanliness (4.4) before deciding",
+    "Is BBQ allowed? No BBQ equipment is listed",
+    "Fans, board games or mahjong (not in the amenity list)",
     "How the compulsory extra bed from 38 pax is counted",
     "Number of toilets and showers per bathroom"
    ],
-   "summary": "The biggest house: 15 air-conditioned rooms, a pool and a large garden, in the Putrajaya–Cyberjaya–Puchong area.",
+   "summary": "The biggest house: 15 air-conditioned rooms, a pool and a large garden, in the Putrajaya–Cyberjaya–Puchong area. House rules: no parties or events, no music sound system, no alcohol.",
    "guests": {
     "n": 38,
     "plus": false
-   }
+   },
+   "rules": [
+    {
+     "tone": "warn",
+     "title": "No parties or events",
+     "body": "House rules: no parties or events. Quiet hours 9 pm to 8 am."
+    },
+    {
+     "tone": "warn",
+     "title": "No music sound system, mic hosting or DJ",
+     "body": "Host request: any music sound system, mic hosting or DJ is strictly not allowed. A June 2026 review mentions a karaoke system, so ask the host."
+    },
+    {
+     "tone": "warn",
+     "title": "No alcohol, no non-halal items",
+     "body": "Host request: consumption of alcohol is strictly prohibited, and non-halal items are strictly prohibited."
+    },
+    {
+     "tone": "warn",
+     "title": "Towels not provided",
+     "body": "Bring your own towels. Airbnb also marks soap and toilet paper (Essentials) as unavailable, so bring your own."
+    },
+    {
+     "tone": "info",
+     "title": "No pets, no smoking",
+     "body": "No pets (service animals only). No smoking, including vaping and e-cigarettes."
+    },
+    {
+     "tone": "info",
+     "title": "Self check-in, gated parking for 4 cars",
+     "body": "Self check-in with building staff available 24 hours. Gated parking for up to 4 cars only."
+    },
+    {
+     "tone": "info",
+     "title": "Extra air bed",
+     "body": "RM30 per bed per night, compulsory from 38 pax. No extra charge for a child under 6 sharing bedding with parents."
+    }
+   ]
   },
   {
    "id": "airbnb_c",
@@ -663,11 +827,11 @@ window.PROPERTIES_DATA = {
     "basis": "Airbnb only shows the town (Kajang, Selangor). The host describes a private bungalow on 10,000 sq ft of land with a 2 km+ private road. The pin sits at Kajang town level, not at the house.",
     "dirQuery": "2.99,101.79"
    },
-   "surroundings": "Private bungalow with a covered pool area that cannot be seen from outside. Spacious land for outdoor activities and a private tree-lined road (2 km+) for walking, running or cycling (host description).",
+   "surroundings": "Private bungalow with a covered pool area that cannot be seen from outside. Spacious land for outdoor activities and a private tree-lined road (2 km+) for walking, running or cycling (host description). Airbnb's highlights place it in Ulu Langat, near Kajang.",
    "groupFit": "Host calls it \"a home for a family to gather\". Event room with online karaoke fits about 30 guests.",
    "rating": {
-    "score": 4.73,
-    "reviews": 90,
+    "score": 4.74,
+    "reviews": 91,
     "note": "Host has 7 years of experience"
    },
    "headline": {
@@ -850,10 +1014,12 @@ window.PROPERTIES_DATA = {
    "sleepingNotes": [
     "Airbnb's headline says 21 beds (7 queen + 1 single + 1 sofa bed + 6 bunks counted twice). The host description says 27 beds. These do not match.",
     "Bunk-bed size is not stated. Estimate assumes one sleeper per bunk tier and one per sofa bed. Couches are not counted.",
-    "6 of the 7 bedrooms contain a bunk bed."
+    "6 of the 7 bedrooms contain a bunk bed.",
+    "Airbnb lists bed linens, extra pillows and blankets, and towels (Essentials)."
    ],
    "bedding": {
-    "status": "not_disclosed"
+    "status": "confirmed",
+    "note": "Bed linens, extra pillows and blankets, room-darkening shades, towels and soap are listed."
    },
    "bathrooms": {
     "total": {
@@ -863,6 +1029,18 @@ window.PROPERTIES_DATA = {
     "toilets": {
      "status": "need_confirmation",
      "note": "Toilet count is not listed separately from bathrooms."
+    },
+    "hotWater": {
+     "status": "confirmed",
+     "note": "Hot water, a bathtub, a bidet and an outdoor shower are listed."
+    },
+    "toiletries": {
+     "status": "confirmed",
+     "note": "Shampoo, shower gel, cleaning products and a hair dryer."
+    },
+    "towels": {
+     "status": "confirmed",
+     "note": "Towels, bed sheets, soap and toilet paper are listed under Essentials."
     }
    },
    "kitchen": {
@@ -872,25 +1050,41 @@ window.PROPERTIES_DATA = {
     },
     "bbqAllowed": {
      "status": "confirmed",
-     "note": "Open access to a BBQ pit area."
+     "note": "Open access to a BBQ pit area and a private charcoal BBQ grill."
     },
     "ownSupplies": {
-     "status": "need_confirmation",
-     "note": "Charcoal and grill tools are not mentioned."
+     "status": "confirmed",
+     "note": "Barbecue utensils are listed as \"grill, charcoal, bamboo skewers / iron skewers, etc.\". Whether charcoal is refilled for each stay is not stated."
     },
     "limits": {
      "status": "confirmed",
-     "note": "No alcohol and no pets. No party or loud sound after 12 am. Cars park outside the compound."
+     "note": "No alcohol, no pets, no smoking and no shoes in the house. No party or loud sound after 12 am. Cars park outside the compound."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Toshiba refrigerator and a freezer."
+    },
+    "stove": {
+     "status": "confirmed",
+     "note": "Stainless steel gas stove."
+    },
+    "potsPans": {
+     "status": "confirmed",
+     "note": "Pots and pans, oil, salt and pepper."
+    },
+    "tableware": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
     }
    },
    "amenities": {
     "pool": {
      "status": "confirmed",
-     "note": "Private outdoor pool (15 ft × 40 ft) plus kids pool. Airbnb says \"open specific hours\" — confirm the hours."
+     "note": "Private outdoor pool (15 ft × 40 ft) plus kids pool, with pool toys. The amenity list says it is open from 7:30 AM to 11:00 PM."
     },
     "bbq": {
      "status": "confirmed",
-     "note": "BBQ pit area with open access from the kitchen. Charcoal not mentioned."
+     "note": "BBQ pit area with open access from the kitchen, a private charcoal grill, and barbecue utensils (grill, charcoal, skewers)."
     },
     "karaoke": {
      "status": "confirmed",
@@ -908,8 +1102,9 @@ window.PROPERTIES_DATA = {
      "status": "confirmed"
     },
     "aircon": {
-     "status": "need_confirmation",
-     "note": "Guests mention air-conditioning in reviews. Coverage per room is not stated."
+     "status": "confirmed",
+     "qualifier": "coverage not itemised",
+     "note": "Split-type (ductless) air conditioning and a ceiling fan. Coverage per room is not itemised."
     },
     "parking": {
      "status": "confirmed",
@@ -921,11 +1116,50 @@ window.PROPERTIES_DATA = {
     },
     "projector": {
      "status": "need_confirmation",
-     "note": "The event room is mentioned. A projector or screen is not."
+     "note": "A 50-inch HDTV with Netflix, Chromecast and standard cable is listed. A projector or screen in the event room is not mentioned."
     },
     "other": {
      "status": "confirmed",
-     "note": "Private hot tub."
+     "note": "Private hot tub. Free in-unit washer and dryer, ethernet connection, bathtub, self check-in with lockbox, exterior security cameras (3 cameras) and smoke alarms in each room, kitchen and upstairs hall."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Toshiba refrigerator and a freezer."
+    },
+    "microwave": {
+     "status": "confirmed"
+    },
+    "ricecooker": {
+     "status": "confirmed",
+     "note": "Rice maker (and a toaster)."
+    },
+    "stove": {
+     "status": "confirmed",
+     "note": "Stainless steel gas stove."
+    },
+    "utensils": {
+     "status": "confirmed",
+     "note": "Pots and pans, oil, salt and pepper, barbecue utensils."
+    },
+    "plates": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
+    },
+    "dining": {
+     "status": "confirmed",
+     "note": "Dining table and an outdoor dining area."
+    },
+    "boardgames": {
+     "status": "confirmed",
+     "note": "Board games."
+    },
+    "gaming": {
+     "status": "confirmed",
+     "note": "Ping pong table."
+    },
+    "fans": {
+     "status": "confirmed",
+     "note": "Ceiling fan."
     }
    },
    "pricing": {
@@ -951,13 +1185,13 @@ window.PROPERTIES_DATA = {
     "Private pool with kids pool and a private hot tub",
     "Event room with online karaoke, fits about 30 guests",
     "BBQ pit area next to an open kitchen with pool view",
-    "Good ratings (4.73 from 90 reviews, 4.8 for location and check-in)",
+    "Good ratings (4.74 from 91 reviews)",
     "Private grounds. Pool area is not visible from outside"
    ],
    "cautions": [
-    "No alcohol allowed (stated by the host)",
+    "No alcohol, no pets and no shoes inside the house (host rules)",
     "Party and loud sound must stop at 12 am. A countdown ends right at that limit",
-    "Pool is \"open specific hours\"",
+    "Pool is open 7:30 am to 11:00 pm only (Airbnb amenity list)",
     "Bed counts conflict (21 on Airbnb vs 27 in the host text) and 6 of 7 rooms have bunk beds",
     "Cars park outside the compound",
     "Airbnb lists the carbon monoxide alarm as unavailable. Relevant for charcoal BBQ"
@@ -965,18 +1199,45 @@ window.PROPERTIES_DATA = {
    "openItems": [
     "Total price for the countdown dates (nightly rate, cleaning, service fee, taxes, deposit)",
     "Actual maximum overnight guests, and the true bed count (21 vs 27)",
-    "Pool opening hours on 31 Dec and whether it can be used late",
+    "Can the pool be used after 11 pm on 31 Dec? Airbnb lists 7:30 am to 11:00 pm",
     "Karaoke rules around midnight (the 12 am sound limit)",
-    "BBQ: are charcoal, grill and tools provided?",
-    "Air-conditioning coverage, fridge, rice cooker, dining table, water dispenser (not itemised)",
-    "Projector or screen in the event room",
+    "BBQ: is charcoal refilled for each stay? (Airbnb lists a grill, charcoal and skewers)",
+    "Water dispenser and air-conditioning per room (split-type A/C is listed, coverage is not itemised)",
+    "Projector or screen in the event room (a 50-inch HDTV with Netflix and Chromecast is listed)",
     "Number of toilets and showers per bathroom"
    ],
    "summary": "Bungalow in Kajang with a private pool and hot tub, a BBQ pit, and an event room with an online karaoke system.",
    "guests": {
     "n": 16,
     "plus": true
-   }
+   },
+   "rules": [
+    {
+     "tone": "warn",
+     "title": "No alcohol, no pets, no shoes inside",
+     "body": "Host rules: strictly no alcohol and no pets. No shoes and no smoking (including vaping) in the house."
+    },
+    {
+     "tone": "warn",
+     "title": "No party or loud sound after 12 am",
+     "body": "To respect the residential surroundings. A countdown ends right at the limit."
+    },
+    {
+     "tone": "info",
+     "title": "Pool hours 7:30 am – 11:00 pm",
+     "body": "Private pool (15 ft × 40 ft, kids section included) is open from 7:30 AM to 11:00 PM per the amenity list."
+    },
+    {
+     "tone": "info",
+     "title": "Park outside the compound",
+     "body": "Entry is through a sliding gate near the main road. No need to register with a guard, and cars park outside the compound."
+    },
+    {
+     "tone": "info",
+     "title": "Self check-in with lockbox",
+     "body": "Check-in uses a lockbox."
+    }
+   ]
   },
   {
    "id": "dusun_bonda",
@@ -986,13 +1247,13 @@ window.PROPERTIES_DATA = {
    "type": "Licensed orchard stay — 2 Studio Villas, 8 Glam 5 Premium Bell Tents, 8 Glam 4 Bell Tents",
    "address": "Lot 2121 (2996) Jalan Ulu Tamu, Kampung Orang Asli Gurney, Ulu Tamu, 44300 Batang Kali, Selangor",
    "location": {
-    "lat": 3.45,
-    "lng": 101.7,
-    "radiusKm": 5,
-    "precision": "approximate",
-    "gmaps": "https://www.google.com/maps/search/?api=1&query=Dusun+Bonda+Kampung+Orang+Asli+Gurney+Ulu+Tamu+Batang+Kali",
+    "lat": 3.462,
+    "lng": 101.704,
+    "radiusKm": 1,
+    "precision": "place pin",
+    "gmaps": "https://goo.gl/maps/RbnEU8Q842gJYREw6",
     "gmapsLabel": "Open Dusun Bonda in Google Maps",
-    "basis": "Official address is known but the entrance coordinates were not found. The pin is placed from the official FAQ distances (about 9 km from Bandar Baru Batang Kali / Ligamas and about 4 km from Kampung Kuantan). For the exact entrance search \"Dusun Bonda Kampung Orang Asli Gurney\" in Waze or Google Maps.",
+    "basis": "From the Google Maps place pin that the official Contact page links to (checked 26 Oct 2026). For the entrance you can also search \"Dusun Bonda Kampung Orang Asli Gurney\" in Waze or Google Maps.",
     "dirQuery": "Dusun Bonda Kampung Orang Asli Gurney Ulu Tamu Batang Kali"
    },
    "surroundings": "2.1-acre fruit orchard beside the Ulu Tamu river, with a man-made waterfall pool, river swings and hammocks. Nearest town: Bandar Baru Batang Kali (Ligamas), about 9 km / 20 min by car.",
@@ -1039,6 +1300,14 @@ window.PROPERTIES_DATA = {
     {
      "label": "Team building / group booking",
      "url": "https://dusunbonda.com/team-building-group-booking/"
+    },
+    {
+     "label": "Activities",
+     "url": "https://dusunbonda.com/activities/"
+    },
+    {
+     "label": "Contact us",
+     "url": "https://dusunbonda.com/contact-us/"
     }
    ],
    "photos": [
@@ -1429,7 +1698,7 @@ window.PROPERTIES_DATA = {
    "amenities": {
     "pool": {
      "status": "confirmed",
-     "note": "Adult pool with water bucket, kids pool and play pool with slide. Pool use is not allowed before check-in time."
+     "note": "Adult pool with water bucket, kids pool and play pool with slide. Open daily 8 am to 7 pm, closed 12:30 to 2 pm for maintenance and cleaning. Pool use is not allowed before check-in time."
     },
     "bbq": {
      "status": "additional_charge",
@@ -1517,7 +1786,7 @@ window.PROPERTIES_DATA = {
     },
     "outdoor": {
      "status": "confirmed",
-     "note": "River, swings, hammocks, bonfire after dinner (about 9 pm, weather permitting). See the official Activities page for more."
+     "note": "River, swings, hammocks, free bamboo water rafting, mini river tubing (RM8 per tube), a bonfire 9:00 to 9:45 pm and a guided forest walk to Hulu Tamu Waterfall (permit needed). See the official Activities page."
     },
     "projector": {
      "status": "need_confirmation",
@@ -1552,7 +1821,7 @@ window.PROPERTIES_DATA = {
      },
      "taxes": {
       "status": "additional_charge",
-      "value": "Sustainability fee RM5 per unit per night, paid at check-in. SST is added on top of listed prices (rate not stated on the page)."
+      "value": "Sustainability fee RM5 per unit per night, paid at check-in. SST is added on top of listed prices (the Activities page quotes 8% SST)."
      },
      "deposit": {
       "status": "not_disclosed",
@@ -1569,7 +1838,7 @@ window.PROPERTIES_DATA = {
      },
      "activities": {
       "status": "additional_charge",
-      "value": "BBQ pit RM25 per night · private BBQ dinner RM35 per person (min 2, order 1 day ahead) · towel RM2 · A/C for Glam 4 RM60 per night · meeting hall RM150 per hour"
+      "value": "BBQ pit RM25 per night · private BBQ dinner RM35 per person (min 2, order 1 day ahead) · towel RM2 · A/C for Glam 4 RM60 per night · meeting hall RM150 per hour · mini river tubing RM8 per tube · guided waterfall walk RM100 per trip (1–20 people) plus RM5 permit per person"
      },
      "meals": {
       "status": "confirmed",
@@ -1613,8 +1882,8 @@ window.PROPERTIES_DATA = {
     },
     {
      "tone": "info",
-     "title": "Bonfire about 9 pm",
-     "body": "A bonfire is set up after dinner if the weather permits."
+     "title": "Bonfire 9:00 – 9:45 pm",
+     "body": "A bonfire is set up after dinner if the weather permits, from 9:00 to 9:45 pm. Each guest who attends gets one stick with three large marshmallows."
     },
     {
      "tone": "info",
@@ -1635,6 +1904,16 @@ window.PROPERTIES_DATA = {
      "tone": "info",
      "title": "Venue positioning",
      "body": "One FAQ answer says Dusun Bonda may not suit team buildings or office trips and fits relaxing stays and family gatherings with casual activities. The Team Building page says groups may book units and organise their own activities."
+    },
+    {
+     "tone": "info",
+     "title": "Pool hours and paid activities",
+     "body": "Pool open daily 8 am to 7 pm, closed 12:30 to 2 pm for cleaning. Bamboo water rafting is free. Mini river tubing is RM8 per tube for a 2-day 1-night stay (excl. 8% SST). The guided walk to Hulu Tamu Waterfall (45–50 min each way) needs a Selangor Forestry Department permit: apply at least 48 working hours ahead. Guide RM100 per trip for 1–20 people, plus RM5 permit per person."
+    },
+    {
+     "tone": "info",
+     "title": "Contacting the venue",
+     "body": "Official WhatsApp-only enquiry line +60 3-8605 3622, 8:30 am to 10 pm. The caretaker's number is sent one day before arrival to the phone number on the booking."
     }
    ],
    "pros": [
@@ -1660,9 +1939,7 @@ window.PROPERTIES_DATA = {
     "Headcount split: adults vs children under 12 (drives the unit mix)",
     "Which units are free, and whether they are close together",
     "Mahjong and gaming: not mentioned. Bring your own",
-    "Meeting hall: conflicting FAQ entries; Riverside Tamu Hall is closed",
-    "Exact entrance coordinates for the map pin",
-    "Official Activities page (guided treks, tubing, etc.) was not reviewed"
+    "Meeting hall: conflicting FAQ entries; Riverside Tamu Hall is closed"
    ],
    "summary": "Riverside orchard glamping in Ulu Tamu: villas and bell tents, a pool with a waterfall, the river, breakfast included. Quiet-hours and halal-only rules are strict.",
    "guests": {
@@ -1690,7 +1967,7 @@ window.PROPERTIES_DATA = {
     "gmapsLabel": "Open the area in Google Maps",
     "dirQuery": "2.52,101.8"
    },
-   "surroundings": "Corner-lot homestay in Port Dickson. Beach access is listed among the amenities.",
+   "surroundings": "Corner-lot homestay in Port Dickson. Beach access is listed among the amenities. Airbnb's highlights say it is about a 10-minute walk to Glory Beach Resort park.",
    "groupFit": "Host: 4 bedrooms and 3 bathrooms, can stay 20 pax.",
    "rating": {
     "score": 4.97,
@@ -1800,10 +2077,11 @@ window.PROPERTIES_DATA = {
    ],
    "sleepingNotes": [
     "Airbnb's headline says 9 beds: that matches 9 queen beds. Plus 2 floor mattresses.",
-    "Linen, pillows and blankets: not disclosed."
+    "Bed linens are listed. Pillows and blankets are not described. Airbnb marks Essentials (towels, bed sheets, soap, toilet paper) as unavailable."
    ],
    "bedding": {
-    "status": "not_disclosed"
+    "status": "need_confirmation",
+    "note": "Bed linens are listed. Pillows and blankets are not described. Airbnb marks Essentials (towels, soap, toilet paper) as unavailable."
    },
    "bathrooms": {
     "total": {
@@ -1813,12 +2091,55 @@ window.PROPERTIES_DATA = {
     "toilets": {
      "status": "need_confirmation",
      "note": "Toilet count is not listed separately from baths."
+    },
+    "hotWater": {
+     "status": "confirmed",
+     "note": "Hot water and a bidet are listed."
+    },
+    "toiletries": {
+     "status": "confirmed",
+     "note": "Shampoo, body soap, shower gel and a hair dryer."
+    },
+    "towels": {
+     "status": "need_confirmation",
+     "note": "Airbnb marks Essentials (towels, bed sheets, soap, toilet paper) as unavailable. Bed linens are listed separately."
     }
    },
    "kitchen": {
     "selfCooking": {
      "status": "confirmed",
-     "note": "Kitchen listed in the amenities."
+     "note": "Kitchen with refrigerator, freezer, microwave, stove, hot water kettle, rice maker, pots and pans with oil, salt and pepper, dishes and cutlery, and a dining table (Airbnb amenity list)."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator and a freezer."
+    },
+    "stove": {
+     "status": "confirmed"
+    },
+    "potsPans": {
+     "status": "confirmed",
+     "note": "Pots and pans, oil, salt and pepper."
+    },
+    "tableware": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
+    },
+    "kettle": {
+     "status": "confirmed",
+     "note": "Hot water kettle."
+    },
+    "bbqAllowed": {
+     "status": "confirmed",
+     "note": "BBQ grill, barbecue utensils (grill, charcoal, skewers) and an outdoor dining area are listed."
+    },
+    "ownSupplies": {
+     "status": "need_confirmation",
+     "note": "Charcoal is listed among the barbecue utensils. Whether it is refilled for each stay is not stated."
+    },
+    "limits": {
+     "status": "confirmed",
+     "note": "Quiet hours 11 pm to 8 am. No smoking, including vaping. Pets allowed (1 maximum). Lock up at checkout."
     }
    },
    "amenities": {
@@ -1837,8 +2158,8 @@ window.PROPERTIES_DATA = {
      "note": "Free parking on premises."
     },
     "bbq": {
-     "status": "need_confirmation",
-     "note": "Guests mention a grill in reviews. The host does not describe BBQ equipment."
+     "status": "confirmed",
+     "note": "BBQ grill, barbecue utensils (grill, charcoal, skewers) and an outdoor dining area are listed. Airbnb's highlights mention a BBQ area. Whether charcoal is refilled for each stay is not stated."
     },
     "outdoor": {
      "status": "confirmed",
@@ -1846,20 +2167,56 @@ window.PROPERTIES_DATA = {
     },
     "other": {
      "status": "confirmed",
-     "note": "Dedicated workspace and self check-in with a smart lock."
+     "note": "Dedicated workspace and self check-in with a smart lock. TV, sound system, exercise equipment, washer, iron, fire extinguisher, first-aid kit, smoke and CO alarms. No dryer and no exterior security cameras (Airbnb)."
+    },
+    "karaoke": {
+     "status": "need_confirmation",
+     "note": "A sound system is listed. Karaoke is not mentioned."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator and a freezer."
+    },
+    "microwave": {
+     "status": "confirmed"
+    },
+    "ricecooker": {
+     "status": "confirmed",
+     "note": "Rice maker."
+    },
+    "stove": {
+     "status": "confirmed"
+    },
+    "utensils": {
+     "status": "confirmed",
+     "note": "Pots and pans, oil, salt and pepper."
+    },
+    "plates": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
+    },
+    "dining": {
+     "status": "confirmed",
+     "note": "Dining table and an outdoor dining area."
+    },
+    "aircon": {
+     "status": "confirmed",
+     "qualifier": "coverage not stated",
+     "note": "Air conditioning is listed. Coverage per room is not stated."
     }
    },
    "pricing": {
-    "total": null,
+    "total": 1438,
     "totalUnit": "night",
     "totalNote": "per night, gross (price quoted by the group)",
     "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
+    "headline": "RM1,438 per night (gross, quoted by the group)",
+    "note": "Gross price per night quoted by the group. Availability and the final total for the countdown dates must be verified on Airbnb.",
     "items": {
      "nightly": {
       "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
+      "value": "RM1,438 per night, gross",
+      "note": "Quoted by the group from the Airbnb app. Availability for the countdown dates must still be verified. What the gross figure includes (cleaning, service fee, taxes) was not specified."
      }
     }
    },
@@ -1867,18 +2224,36 @@ window.PROPERTIES_DATA = {
     "Adult pool, kids pool and a kids slide",
     "Beach access is listed",
     "Rated 4.97 from 34 reviews, Superhost, Guest favourite",
+    "BBQ grill, barbecue utensils and an outdoor dining area",
     "Self check-in with a smart lock"
    ],
    "cautions": [
     "Only 3 bathrooms for about 20 people",
-    "BBQ and karaoke are not described by the host",
-    "Price not yet known"
+    "Quiet hours start at 11 pm, before a midnight countdown. Karaoke is not listed (only a sound system)",
+    "Airbnb marks Essentials (towels, soap, toilet paper) as unavailable, so bring your own"
    ],
    "openItems": [
-    "Price for the countdown dates",
-    "Is BBQ equipment provided? Is karaoke possible? Quiet hours?",
+    "Total price for the countdown dates (nightly rate, cleaning, service fee, taxes, deposit)",
+    "Is karaoke possible, and can the sound system be used for the countdown (11 pm quiet hours)?",
     "Number of toilets and showers",
-    "Full 39-amenity list (tap \"Show all amenities\" on Airbnb)"
+    "Towels, soap and toilet paper (Airbnb lists Essentials as unavailable)"
+   ],
+   "rules": [
+    {
+     "tone": "warn",
+     "title": "Quiet hours 11 pm – 8 am",
+     "body": "House rules list quiet hours from 11:00 PM to 8:00 AM."
+    },
+    {
+     "tone": "info",
+     "title": "No smoking, one pet allowed",
+     "body": "No smoking, including vaping and e-cigarettes. Pets are allowed (1 maximum)."
+    },
+    {
+     "tone": "info",
+     "title": "Self check-in, lock up at checkout",
+     "body": "Self check-in with a smart lock. Lock up when you check out."
+    }
    ]
   },
   {
@@ -2057,25 +2432,39 @@ window.PROPERTIES_DATA = {
    ],
    "sleepingNotes": [
     "Airbnb's headline says 16 beds: that matches 2 king + 5 queen + 8 single + 1 sofa bed.",
-    "Host room guide: 1 guest = 1 room, 5 guests = 2 ground-floor rooms, 10 = 3 rooms, 13 = 4 rooms, 16 = all rooms."
+    "Host room guide: 1 guest = 1 room, 5 guests = 2 ground-floor rooms, 10 = 3 rooms, 13 = 4 rooms, 16 = all rooms.",
+    "Host room capacities: the two ground-floor rooms sleep 2 and 3 guests; the three upstairs rooms sleep 5, 4 and 7 guests (21 adults in total). A sofa bed in the corridor gives extra sleeping space."
    ],
    "bedding": {
-    "status": "not_disclosed"
+    "status": "confirmed",
+    "note": "Bed linens and hotel linens, towels, bed sheets, soap and toilet paper are listed."
    },
    "bathrooms": {
     "total": {
      "status": "need_confirmation",
      "value": "Airbnb headline says 1 bath; the host description says 5 bathrooms",
-     "note": "These do not match. Ask the host."
+     "note": "These do not match. The host's floor-by-floor text describes 2 bathrooms on the ground floor and 2 upstairs. Ask the host."
     },
     "toilets": {
      "status": "need_confirmation"
+    },
+    "hotWater": {
+     "status": "confirmed",
+     "note": "Hot water is listed."
+    },
+    "toiletries": {
+     "status": "confirmed",
+     "note": "Shampoo and a hair dryer."
+    },
+    "towels": {
+     "status": "confirmed",
+     "note": "Towels, bed sheets, soap and toilet paper are listed under Essentials."
     }
    },
    "kitchen": {
     "selfCooking": {
      "status": "confirmed",
-     "note": "Fully equipped kitchen with an expandable 4-seat table."
+     "note": "Fully equipped kitchen with an expandable 4-seat table (host). Airbnb's amenity list itemises only a refrigerator and dishes and cutlery."
     },
     "bbqAllowed": {
      "status": "confirmed",
@@ -2083,13 +2472,21 @@ window.PROPERTIES_DATA = {
     },
     "limits": {
      "status": "confirmed",
-     "note": "Muslim-friendly house: no pets and no non-halal food cooked in the kitchen."
+     "note": "Muslim-friendly house: no pets and no non-halal food cooked in the kitchen. Quiet hours 10 pm to 7 am. No smoking, including vaping."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator."
+    },
+    "tableware": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
     }
    },
    "amenities": {
     "pool": {
      "status": "confirmed",
-     "note": "Private swimming pool."
+     "note": "Private swimming pool, 33 ft × 10 ft and 3.5 ft deep (host), use at your own risk. Airbnb's amenity list labels it \"Shared pool\". CCTV covers the exterior and the pool area."
     },
     "bbq": {
      "status": "confirmed",
@@ -2124,20 +2521,41 @@ window.PROPERTIES_DATA = {
     },
     "garden": {
      "status": "confirmed",
-     "note": "Large compound for outdoor activities."
+     "note": "Large compound for outdoor activities: backyard, outdoor furniture, outdoor dining area and an outdoor kitchen."
+    },
+    "karaoke": {
+     "status": "need_confirmation",
+     "note": "Not listed by the host or in the amenity list."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator."
+    },
+    "plates": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
+    },
+    "fans": {
+     "status": "confirmed",
+     "note": "Ceiling fan and portable fans."
+    },
+    "other": {
+     "status": "confirmed",
+     "note": "Self check-in with a smart lock, dedicated workspace, TV, game console, children's books and toys, smoke alarm, fire extinguisher and first-aid kit. No washer, dryer or carbon monoxide alarm (the host says none is necessary)."
     }
    },
    "pricing": {
-    "total": null,
+    "total": 1430,
     "totalUnit": "night",
     "totalNote": "per night, gross (price quoted by the group)",
     "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
+    "headline": "RM1,430 per night (gross, quoted by the group)",
+    "note": "Gross price per night quoted by the group. Availability and the final total for the countdown dates must be verified on Airbnb.",
     "items": {
      "nightly": {
       "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
+      "value": "RM1,430 per night, gross",
+      "note": "Quoted by the group from the Airbnb app. Availability for the countdown dates must still be verified. What the gross figure includes (cleaning, service fee, taxes) was not specified."
      }
     }
    },
@@ -2150,20 +2568,42 @@ window.PROPERTIES_DATA = {
    "cautions": [
     "Far from Kuala Lumpur (Perak, near Ipoh)",
     "Muslim-friendly rules: no pets, no non-halal cooking in the kitchen",
-    "Bathroom count unclear (1 vs 5)",
+    "Quiet hours are 10 pm to 7 am, before a midnight countdown",
+    "Bathroom count unclear (1 on Airbnb, 5 in the host text, 4 in the floor-by-floor description)",
     "Only 7 reviews; Airbnb lists the carbon monoxide alarm as unavailable"
    ],
    "openItems": [
-    "Price for the countdown dates",
-    "How many bathrooms and toilets (1 vs 5)",
-    "Karaoke or loud music allowed? Quiet hours?",
-    "Driving time and whether the group is happy with the distance"
+    "Total price for the countdown dates (nightly rate, cleaning, service fee, taxes, deposit)",
+    "How many bathrooms and toilets (1 vs 5 vs 4)",
+    "Karaoke or loud music allowed? (Quiet hours are 10 pm to 7 am)",
+    "Driving time and whether the group is happy with the distance",
+    "Microwave, stove and rice cooker are not in the amenity list (the host says the kitchen is fully equipped)"
    ],
    "rules": [
     {
      "tone": "warn",
      "title": "Muslim-friendly house",
      "body": "No pets, and no non-halal food cooked in the kitchen."
+    },
+    {
+     "tone": "warn",
+     "title": "Quiet hours 10 pm – 7 am",
+     "body": "House rules list quiet hours from 10:00 PM to 7:00 AM."
+    },
+    {
+     "tone": "info",
+     "title": "No pets, no smoking",
+     "body": "No pets (service animals only). No smoking, including vaping and e-cigarettes. No commercial photography. Lock up at checkout."
+    },
+    {
+     "tone": "info",
+     "title": "Pool: 33 ft × 10 ft, 3.5 ft deep",
+     "body": "Use the pool at your own risk. CCTV covers the exterior and the pool area."
+    },
+    {
+     "tone": "info",
+     "title": "Rooms open by guest count",
+     "body": "1 guest = 1 double bedroom, 5 guests = two ground-floor rooms, 10 = 3 rooms, 13 = 4 rooms, 16 = all rooms. For 17 to 21 guests select the 16+ option."
     }
    ]
   },
@@ -2312,7 +2752,8 @@ window.PROPERTIES_DATA = {
     "8 super king beds in total."
    ],
    "bedding": {
-    "status": "not_disclosed"
+    "status": "confirmed",
+    "note": "Bed linens, room-darkening shades, towels, bed sheets, soap and toilet paper are listed."
    },
    "bathrooms": {
     "total": {
@@ -2326,20 +2767,47 @@ window.PROPERTIES_DATA = {
     "toilets": {
      "status": "need_confirmation",
      "note": "Toilet count is not listed separately from baths."
+    },
+    "toiletries": {
+     "status": "confirmed",
+     "note": "Shampoo, body soap, shower gel, a hair dryer and cleaning products."
+    },
+    "towels": {
+     "status": "confirmed",
+     "note": "Towels, bed sheets, soap and toilet paper are listed under Essentials."
     }
    },
    "kitchen": {
     "selfCooking": {
      "status": "confirmed",
-     "note": "Kitchen listed in the amenities."
+     "note": "Kitchen with refrigerator, mini fridge, freezer, microwave, stove, hot water kettle, coffee maker, pots and pans with oil, salt and pepper, dishes and cutlery, and a dining table (Airbnb amenity list). A private outdoor kitchen is also listed."
     },
     "bbqAllowed": {
      "status": "confirmed",
      "note": "Outdoor BBQ area with a long table (seats 16+). Bring your own ingredients."
     },
     "ownSupplies": {
-     "status": "need_confirmation",
-     "note": "Charcoal and grill tools are not described."
+     "status": "confirmed",
+     "note": "Barbecue utensils are listed as \"grill, charcoal, bamboo skewers / iron skewers, etc.\". Bring your own ingredients. Whether charcoal is refilled for each stay is not stated."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator, mini fridge and freezer."
+    },
+    "stove": {
+     "status": "confirmed"
+    },
+    "potsPans": {
+     "status": "confirmed",
+     "note": "Pots and pans, oil, salt and pepper."
+    },
+    "tableware": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
+    },
+    "kettle": {
+     "status": "confirmed",
+     "note": "Hot water kettle and a coffee maker."
     }
    },
    "amenities": {
@@ -2349,11 +2817,11 @@ window.PROPERTIES_DATA = {
     },
     "bbq": {
      "status": "confirmed",
-     "note": "Outdoor BBQ area with a long table (16+ seats). Bring your own ingredients."
+     "note": "Outdoor BBQ area with a long table (16+ seats), BBQ grill and barbecue utensils (grill, charcoal, skewers). Bring your own ingredients."
     },
     "karaoke": {
      "status": "confirmed",
-     "note": "Karaoke system (host)."
+     "note": "Karaoke system (host). A Bluetooth sound system is also listed."
     },
     "kitchen": {
      "status": "confirmed"
@@ -2367,20 +2835,60 @@ window.PROPERTIES_DATA = {
     },
     "other": {
      "status": "confirmed",
-     "note": "Dedicated workspace."
+     "note": "Dedicated workspace, HDTV with Netflix, high chair and children's dinnerware, self check-in with a lockbox, smoke and CO alarms, fire extinguisher and first-aid kit. No washer, dryer or heating."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator, mini fridge and freezer."
+    },
+    "microwave": {
+     "status": "confirmed"
+    },
+    "stove": {
+     "status": "confirmed"
+    },
+    "utensils": {
+     "status": "confirmed",
+     "note": "Pots and pans, oil, salt and pepper."
+    },
+    "plates": {
+     "status": "confirmed",
+     "note": "Plates, bowls, cups, cutlery and other utensils."
+    },
+    "dining": {
+     "status": "confirmed",
+     "note": "Dining table, outdoor dining area and the long BBQ table (seats 16+)."
+    },
+    "aircon": {
+     "status": "confirmed",
+     "qualifier": "coverage not stated",
+     "note": "Air conditioning is listed. Coverage per room is not stated."
+    },
+    "fans": {
+     "status": "confirmed",
+     "note": "Ceiling fan and portable fans."
+    },
+    "garden": {
+     "status": "confirmed",
+     "note": "Private fenced backyard with grass, patio or balcony and outdoor furniture."
+    },
+    "outdoor": {
+     "status": "confirmed",
+     "note": "Private outdoor kitchen, outdoor dining area and bikes are listed."
     }
    },
    "pricing": {
-    "total": null,
+    "total": 1527,
     "totalUnit": "night",
     "totalNote": "per night, gross (price quoted by the group)",
     "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
+    "headline": "RM1,527 per night (gross, quoted by the group)",
+    "note": "Gross price per night quoted by the group. Availability and the final total for the countdown dates must be verified on Airbnb.",
     "items": {
      "nightly": {
       "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
+      "value": "RM1,527 per night, gross",
+      "note": "Quoted by the group from the Airbnb app. Availability for the countdown dates must still be verified. What the gross figure includes (cleaning, service fee, taxes) was not specified."
      }
     }
    },
@@ -2393,14 +2901,35 @@ window.PROPERTIES_DATA = {
    "cautions": [
     "Cleanliness scores 4.5, the lowest of its ratings",
     "In Bentong town, so surroundings are town streets rather than nature",
-    "Price not yet known"
+    "No washer or dryer. Fireworks must be lit 50 m away from the property (host rule)"
    ],
    "openItems": [
-    "Price for the countdown dates",
-    "Karaoke and BBQ rules around midnight; quiet hours",
-    "Charcoal and BBQ tools provided?",
-    "Number of toilets and showers",
-    "Full 53-amenity list (tap \"Show all amenities\" on Airbnb)"
+    "Total price for the countdown dates (nightly rate, cleaning, service fee, taxes, deposit)",
+    "Karaoke and BBQ rules around midnight (Airbnb lists no quiet hours)",
+    "Is charcoal refilled for each stay? (Airbnb lists a grill, charcoal and skewers)",
+    "Number of toilets and showers"
+   ],
+   "rules": [
+    {
+     "tone": "warn",
+     "title": "No pets, no smoking",
+     "body": "Strictly no pets (service animals only). No smoking, including vaping and e-cigarettes. Keep the grass area clean: no cigarette ends."
+    },
+    {
+     "tone": "warn",
+     "title": "No fireworks in the house",
+     "body": "Ignite fireworks 50 metres away from the property."
+    },
+    {
+     "tone": "info",
+     "title": "Outdoor CCTV",
+     "body": "CCTV watches the outdoor areas for security."
+    },
+    {
+     "tone": "info",
+     "title": "Self check-in by lockbox",
+     "body": "After booking, the host sends check-in details and a travel guide by WhatsApp."
+    }
    ]
   },
   {
@@ -2408,32 +2937,35 @@ window.PROPERTIES_DATA = {
    "label": "Melaka",
    "name": "H&H Leisure Guest House (H&H 1, Melaka)",
    "region": "Taman Bukit Cheng, Melaka",
-   "type": "Entire house — guest house with a pool",
+   "type": "Entire house — landed home with a pool and karaoke",
    "address": "39, Jalan TBC 17, Taman Bukit Cheng, 75260 Melaka",
-   "summary": "5-bedroom guest house in Taman Bukit Cheng, Melaka, with an outdoor pool, garden, BBQ facilities, free Wi-Fi and free parking (from the listing sites).",
+   "summary": "5-bedroom landed home in Taman Bukit Cheng, Melaka, for up to 16 guests: 4 bathrooms, outdoor pool, garden, BBQ, karaoke (KTV), game room, free Wi-Fi and free parking (Trip.com).",
    "location": {
-    "lat": 2.22,
-    "lng": 102.27,
-    "radiusKm": 5,
-    "precision": "approximate",
-    "basis": "Only the name and address were available from the Google Maps link. The pin sits at area level. Pins of places in the same area are nudged apart a little so they stay readable.",
+    "lat": 2.269,
+    "lng": 102.222,
+    "radiusKm": 1,
+    "precision": "place pin",
+    "basis": "From the Google Maps place pin for H&H Leisure Guest House (checked 26 Oct 2026), in Taman Bukit Cheng. Pins of places in the same area are nudged apart a little so they stay readable.",
     "gmaps": "https://maps.app.goo.gl/Ey9QVeVGdUK6wZyV7?g_st=aw",
     "gmapsLabel": "Open this place in Google Maps",
     "dirQuery": "H&H Leisure Guest House 39 Jalan TBC 17 Taman Bukit Cheng Melaka"
    },
-   "surroundings": "",
-   "groupFit": "",
+   "surroundings": "Taman Bukit Cheng, Melaka. Trip.com distances: Lotus's (Tesco) Cheng about 1.5 km, Malacca International Airport 7.4 km.",
+   "groupFit": "Trip.com lists a landed home for 16 guests with 5 bedrooms, a living room, an outdoor pool, karaoke (KTV) and a game room.",
    "rating": null,
    "headline": {
     "bedrooms": 5,
-    "beds": null,
-    "baths": null
+    "beds": 9,
+    "baths": 4
    },
-   "guests": null,
+   "guests": {
+    "n": 16,
+    "plus": false
+   },
    "maxGuests": {
-    "display": "Not collected yet",
+    "display": "16 (listing sites)",
     "status": "need_confirmation",
-    "note": "Maximum guests, bathrooms and the bed layout have not been collected yet. The 5 bedrooms come from the Travelocity / Hotels.com listing."
+    "note": "Trip.com, Hotels.com and Travelocity list 16 guests; Trip.com also shows a rate for 17. Confirm the maximum and any extra-guest charge with the host."
    },
    "links": [
     {
@@ -2450,18 +2982,109 @@ window.PROPERTIES_DATA = {
     }
    ],
    "photos": [],
-   "bedroomsComplete": false,
-   "bedrooms": [],
-   "sleepingNotes": [],
+   "bedroomsComplete": true,
+   "bedrooms": [
+    {
+     "name": "Bedroom 1",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 1
+      },
+      {
+       "type": "single",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "name": "Bedroom 2",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 1
+      },
+      {
+       "type": "single",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "name": "Bedroom 3",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "name": "Bedroom 4",
+     "beds": [
+      {
+       "type": "double",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "name": "Bedroom 5",
+     "beds": [
+      {
+       "type": "double",
+       "qty": 2
+      }
+     ]
+    }
+   ],
+   "sleepingNotes": [
+    "Bed layout is from the Trip.com room details: 5 bedrooms and 9 beds, plus a living room. A rollaway / extra bed can be requested at a surcharge.",
+    "Linen, pillows and blankets: not disclosed."
+   ],
    "bedding": {
     "status": "not_disclosed"
    },
-   "bathrooms": {},
-   "kitchen": {},
+   "bathrooms": {
+    "total": {
+     "status": "confirmed",
+     "note": "4 bathrooms (Trip.com)."
+    },
+    "toilets": {
+     "status": "need_confirmation",
+     "note": "Toilet count is not listed separately from bathrooms."
+    }
+   },
+   "kitchen": {
+    "selfCooking": {
+     "status": "confirmed",
+     "note": "Shared kitchen with a kitchenette: full-size refrigerator/freezer, oven and microwave (Trip.com)."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Full-size refrigerator/freezer."
+    },
+    "water": {
+     "status": "confirmed",
+     "note": "Water purifier."
+    },
+    "bbqAllowed": {
+     "status": "confirmed",
+     "note": "Barbecue facilities and a picnic area are listed (Trip.com, Kayak)."
+    },
+    "ownSupplies": {
+     "status": "need_confirmation",
+     "note": "Charcoal and BBQ tools are not described."
+    },
+    "limits": {
+     "status": "confirmed",
+     "note": "No smoking in public areas, no pets, and no durian or mangosteen on the property (Trip.com)."
+    }
+   },
    "amenities": {
     "pool": {
      "status": "confirmed",
-     "note": "Outdoor / private pool (Kayak and Travelocity listings)."
+     "note": "Outdoor swimming pool, listed as a scenic outdoor pool (Trip.com). Pool size, a children's pool and opening hours are not stated."
     },
     "garden": {
      "status": "confirmed",
@@ -2477,82 +3100,167 @@ window.PROPERTIES_DATA = {
     },
     "parking": {
      "status": "confirmed",
-     "note": "Free private parking."
+     "note": "Free private parking on site; no reservation needed (Trip.com)."
     },
     "other": {
      "status": "confirmed",
-     "note": "Flat-screen TV and a tea/coffee maker (Kayak)."
+     "note": "40-inch LED TV with satellite channels, a desk, a clothes dryer, a fire extinguisher, self check-in and express check-in / check-out. Tea/coffee maker (Kayak). Staff speak English, Chinese and Malay (Trip.com)."
+    },
+    "karaoke": {
+     "status": "confirmed",
+     "note": "Karaoke / KTV (Trip.com)."
+    },
+    "gaming": {
+     "status": "confirmed",
+     "note": "Game room / gaming area (Trip.com)."
+    },
+    "kitchen": {
+     "status": "confirmed",
+     "note": "Shared kitchen with a kitchenette (Trip.com)."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Full-size refrigerator/freezer."
+    },
+    "microwave": {
+     "status": "confirmed"
+    },
+    "waterdisp": {
+     "status": "confirmed",
+     "note": "Water purifier."
+    },
+    "aircon": {
+     "status": "confirmed",
+     "qualifier": "coverage not stated",
+     "note": "The Trip.com description says the home is air-conditioned. Coverage per room is not stated."
     }
    },
    "pricing": {
-    "total": null,
+    "total": 1735,
     "totalUnit": "night",
     "totalNote": "per night, gross (price quoted by the group)",
     "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
+    "headline": "RM1,735 per night (gross, quoted by the group)",
+    "note": "Gross price per night quoted by the group. Availability and the final total for the countdown dates must be verified (Trip.com or the host).",
     "items": {
      "nightly": {
       "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
+      "value": "RM1,735 per night, gross",
+      "note": "Quoted by the group: RM1,735 per night, gross. For comparison, Trip.com showed RM1,261 (RM1,492 including taxes and fees) for 16 guests on 31 Dec – 1 Jan when checked on 26 Oct 2026. Availability and the final total must still be verified."
+     },
+     "deposit": {
+      "status": "confirmed",
+      "value": "RM600 refundable deposit",
+      "note": "A fixed RM600 deposit is charged and returned to the original payment account within 7 days after check-out (Trip.com)."
+     },
+     "extraMattress": {
+      "status": "additional_charge",
+      "note": "A rollaway / extra bed is available at a surcharge. The amount is not stated (Trip.com)."
      }
     }
    },
    "pros": [
-    "5 bedrooms, an outdoor pool, a garden and BBQ facilities",
-    "Free Wi-Fi and free parking"
+    "5 bedrooms (9 beds), 4 bathrooms, sleeps 16",
+    "Outdoor pool, garden, BBQ facilities, karaoke (KTV) and a game room",
+    "Free Wi-Fi and free private parking, with self check-in",
+    "Trip.com guest score 9.5/10 (2 reviews)"
    ],
    "cautions": [
-    "Maximum guests, bathrooms and bed layout have not been collected yet",
-    "Far from Kuala Lumpur (Melaka)"
+    "Far from Kuala Lumpur (Melaka)",
+    "RM600 refundable deposit, and only 2 reviews on Trip.com so far",
+    "No pets and no smoking in public areas. Durian and mangosteen are not allowed"
    ],
    "openItems": [
-    "Maximum guests and the bed layout",
-    "Number of bathrooms",
     "Karaoke / noise rules and quiet hours",
-    "Photos"
+    "Pool size, opening hours and whether it is private",
+    "Number of toilets and showers",
+    "Are BBQ charcoal and tools provided?",
+    "Which price applies for 31 Dec: the group figure is RM1,735, Trip.com showed RM1,492 incl. taxes for 16 guests"
    ],
-   "shareUrl": "https://my.trip.com/hotels/detail/?cityEnName=Melaka&cityId=62&hotelId=4971367&checkIn=2026-12-31&checkOut=2027-01-01&adult=2&children=0&curr=MYR&locale=en-MY"
+   "shareUrl": "https://my.trip.com/hotels/detail/?cityEnName=Melaka&cityId=62&hotelId=4971367&checkIn=2026-12-31&checkOut=2027-01-01&adult=2&children=0&curr=MYR&locale=en-MY",
+   "rules": [
+    {
+     "tone": "info",
+     "title": "Check-in after 3 pm, check-out before 11 am",
+     "body": "Self check-in: the property sends check-in details after booking. The main guest must be at least 18 years old (Trip.com)."
+    },
+    {
+     "tone": "info",
+     "title": "RM600 refundable deposit",
+     "body": "A fixed RM600 deposit is charged and returned to the original payment account within 7 days after check-out (Trip.com)."
+    },
+    {
+     "tone": "warn",
+     "title": "No pets, no smoking in public areas",
+     "body": "Pets are not allowed. Smoking is not allowed in public areas; a smoking area is provided."
+    },
+    {
+     "tone": "warn",
+     "title": "No durian or mangosteen",
+     "body": "Trip.com notes that bringing durian and mangosteen to the property is prohibited."
+    }
+   ]
   },
   {
    "id": "gm_pool_pd",
    "label": "Port Dickson",
-   "name": "GM Pool Villa Port Dickson — Lok B (Viking theme)",
+   "name": "GM Pool Villa Port Dickson — Viking & Mermaid villas",
    "region": "Port Dickson, Negeri Sembilan",
-   "type": "Villa — Lok B (Viking theme) with a private pool",
-   "address": "Address not available (Google blocks automated reading of the shared link)",
-   "summary": "Two identical pool villas in Port Dickson (the one described is \"Lok B\", Viking theme). Each villa has 3 rooms, 3 bathrooms and 1 private pool, and fits up to 15 people including 4 extra beds. Together: 6 rooms, 6 bathrooms, 2 pools, 30 people. Super-peak price RM1,480 per villa, RM2,960 for both.",
+   "type": "Two villas (Viking and Mermaid themes), each with a private pool",
+   "address": "177, Jalan Rumah Rehat, Kampong Bahasa Kapor, 71000 Port Dickson, Negeri Sembilan (official site)",
+   "summary": "Two pool villas in Port Dickson: Viking (3 rooms, 3 bathrooms, up to 15 guests) and Mermaid (3 rooms, 4 bathrooms, up to 13 guests), each with its own private pool and a karaoke system. Together: 6 rooms, 7 bathrooms, 2 pools. Super-peak price RM1,480 per villa, RM2,960 for both.",
    "location": {
-    "lat": 2.5,
-    "lng": 101.83,
-    "radiusKm": 8,
-    "precision": "approximate",
-    "basis": "Only the name and address were available from the Google Maps link. The pin sits at area level. Pins of places in the same area are nudged apart a little so they stay readable.",
+    "lat": 2.524,
+    "lng": 101.792,
+    "radiusKm": 1,
+    "precision": "place pin",
+    "basis": "From the Google Maps place pin for GM Pool Villa Port Dickson (checked 26 Oct 2026). Official address: 177, Jalan Rumah Rehat, Kampong Bahasa Kapor, 71000 Port Dickson. Pins of places in the same area are nudged apart a little so they stay readable.",
     "gmaps": "https://share.google/PLnzDCD4DBzlIpwTO",
     "gmapsLabel": "Open this place in Google Maps",
     "dirQuery": "GM Pool Villa Port Dickson"
    },
-   "surroundings": "",
-   "groupFit": "",
+   "surroundings": "Port Dickson town area, near the beach and restaurants (official Viking Villa page).",
+   "groupFit": "Official site: for group getaways, team building and weekend staycations. Quiet hours 10 pm to 9 am.",
    "rating": null,
    "headline": {
-    "bedrooms": 3,
+    "bedrooms": 6,
     "beds": null,
-    "baths": 3
+    "baths": 7
    },
    "guests": {
-    "n": 15,
-    "plus": false,
-    "perUnit": true,
-    "units": 2,
-    "identical": true
+    "n": 28,
+    "plus": false
    },
    "maxGuests": {
-    "display": "15 per villa (incl. 4 extra beds) · 2 identical villas = 30",
+    "display": "28 in total · Viking 15 + Mermaid 13",
     "status": "confirmed",
-    "note": "From the owner: maximum 15 people per villa, which includes 4 extra beds. The two villas are identical. The super-peak price is RM1,480 per villa, so RM2,960 for both."
+    "note": "Official site: Viking up to 15 guests, Mermaid up to 13. Viking's 15 includes 4 extra beds (owner). Mermaid is counted at 13, as agreed with the owner."
    },
    "links": [
+    {
+     "label": "Official website",
+     "url": "https://www.gmpoolvillapd.com/"
+    },
+    {
+     "label": "Viking Villa page",
+     "url": "https://www.gmpoolvillapd.com/viking-villa-port-dickson"
+    },
+    {
+     "label": "Mermaid Villa page",
+     "url": "https://www.gmpoolvillapd.com/mermaid-villa-port-dickson"
+    },
+    {
+     "label": "Villa rules",
+     "url": "https://www.gmpoolvillapd.com/general-5-1"
+    },
+    {
+     "label": "FAQ",
+     "url": "https://www.gmpoolvillapd.com/services-7"
+    },
+    {
+     "label": "WhatsApp the owner (Windy)",
+     "url": "https://wa.me/60166253163"
+    },
     {
      "label": "Google Maps (your link)",
      "url": "https://share.google/PLnzDCD4DBzlIpwTO"
@@ -2560,10 +3268,56 @@ window.PROPERTIES_DATA = {
    ],
    "photos": [],
    "bedroomsComplete": false,
-   "bedrooms": [],
+   "bedrooms": [
+    {
+     "name": "Viking — Master Room (official site)",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "name": "Viking — Bedroom 2 (official site)",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "name": "Mermaid — Master Room (official site)",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 1
+      },
+      {
+       "type": "single",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "name": "Mermaid — Bedroom 2 (official site)",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 1
+      },
+      {
+       "type": "single",
+       "qty": 1
+      }
+     ]
+    }
+   ],
    "sleepingNotes": [
-    "The two villas are identical, so every number on this page (rooms, bathrooms, pool, people) is per villa.",
-    "Maximum 15 people per villa, including 4 extra beds (so about 11 on the normal beds)."
+    "This place is two different villas: Viking (3 bedrooms, 3 bathrooms, up to 15 guests) and Mermaid (3 bedrooms, 4 bathrooms, up to 13 guests), each with a private pool (official site).",
+    "Viking: maximum 15 people including 4 extra beds (owner). Mermaid: maximum 13 (official site).",
+    "The third bedroom of each villa is not listed on the official site, so the bed count is incomplete."
    ],
    "bedding": {
     "status": "not_disclosed"
@@ -2571,44 +3325,135 @@ window.PROPERTIES_DATA = {
    "bathrooms": {
     "total": {
      "status": "confirmed",
-     "value": "3 bathrooms per villa (owner)"
+     "value": "Viking 3 + Mermaid 4 = 7 bathrooms (official site)",
+     "note": "The owner's earlier note said 3 bathrooms per villa. The official Mermaid page lists 4."
     }
    },
-   "kitchen": {},
+   "kitchen": {
+    "selfCooking": {
+     "status": "confirmed",
+     "note": "Basic cooking facilities for light meal preparation (official FAQ)."
+    },
+    "bbqAllowed": {
+     "status": "confirmed",
+     "note": "BBQ is allowed. Guests bring charcoal, a BBQ fork and ingredients. For pork BBQ, guests prepare and cook it themselves: the cleaning team does not handle pork."
+    },
+    "ownSupplies": {
+     "status": "not_provided",
+     "note": "Charcoal, BBQ fork and BBQ ingredients are not provided."
+    },
+    "limits": {
+     "status": "confirmed",
+     "note": "Avoid durians and strong-smelling food in the villa. Quiet hours 10 pm to 9 am. Smoking only at designated outdoor areas."
+    }
+   },
    "amenities": {
     "pool": {
      "status": "confirmed",
-     "note": "1 private pool per villa (owner)."
+     "note": "1 private pool per villa, 2 in total (owner and official site)."
+    },
+    "karaoke": {
+     "status": "confirmed",
+     "note": "Karaoke system in both villas (the official site says every villa includes one)."
+    },
+    "bbq": {
+     "status": "confirmed",
+     "note": "Viking: BBQ area. Mermaid: hot plate BBQ equipment. Charcoal, BBQ fork and ingredients are not provided: bring your own."
+    },
+    "kitchen": {
+     "status": "confirmed",
+     "note": "Basic cooking facilities for light meal preparation (official FAQ)."
+    },
+    "wifi": {
+     "status": "confirmed",
+     "note": "Free Wi-Fi."
+    },
+    "parking": {
+     "status": "confirmed",
+     "note": "Free parking inside the villa compound. Park only at designated areas."
+    },
+    "gaming": {
+     "status": "confirmed",
+     "note": "Pool table in the Mermaid villa (official site)."
+    },
+    "aircon": {
+     "status": "confirmed",
+     "qualifier": "Mermaid only",
+     "note": "The official Mermaid page says it is fully air-conditioned. Not stated for Viking."
     }
    },
    "pricing": {
-    "total": null,
+    "total": 2960,
     "totalUnit": "night",
     "totalNote": "per night, gross (price quoted by the group)",
     "status": "need_confirmation",
-    "headline": "Price not yet entered",
-    "note": "Price and availability for the actual countdown dates must be verified.",
+    "headline": "RM2,960 per night for 2 villas (RM1,480 each) — super-peak price",
+    "note": "Super-peak price quoted by the owner. Availability and the final total for the countdown dates must be verified.",
     "items": {
      "nightly": {
       "status": "need_confirmation",
-      "value": "Not yet entered. Check the Airbnb app with your dates."
+      "value": "RM2,960 per night for 2 villas (RM1,480 each)",
+      "note": "Super-peak price from the owner: RM1,480 per villa, RM2,960 for both villas. Availability and the final total for the countdown dates must still be verified."
+     },
+     "deposit": {
+      "status": "need_confirmation",
+      "note": "A refundable security deposit may be required before check-in. It is returned in full after check-out if there is no damage, missing items or serious breach of the rules. The amount is not stated."
      }
     }
    },
    "pros": [
-    "Two identical villas: each has 3 rooms, 3 bathrooms and a private pool",
-    "Each villa fits up to 15 people; book both for 30 (6 rooms, 6 bathrooms)",
-    "Viking-themed villas (Lok B)"
+    "Two villas, each with its own private pool: Viking (up to 15 guests) and Mermaid (up to 13)",
+    "Together 6 rooms, 7 bathrooms and 2 pools (official site)",
+    "Karaoke system, BBQ facilities, free Wi-Fi and free parking (official site)",
+    "Mermaid also has a pool table and is fully air-conditioned. Both are near the beach, restaurants and attractions (official site)"
    ],
    "cautions": [
-    "The limit of 15 people includes 4 extra beds",
-    "This is the super-peak price. Bed layout, other facilities and photos have not been collected yet"
+    "Viking's limit of 15 people includes 4 extra beds. Mermaid fits 13, so both together fit 28",
+    "Quiet hours are 10 pm to 9 am, before and after a midnight countdown. Pets are not allowed",
+    "BBQ charcoal, fork and ingredients are not provided. A refundable security deposit may be required"
    ],
    "openItems": [
-    "Bed layout in the 3 rooms and what the 4 extra beds are",
-    "Facilities (BBQ, karaoke, kitchen)",
-    "Photos",
-    "Is the RM2,960 super-peak price fixed for the countdown dates?"
+    "Bed layout of the third bedroom in each villa, and what the 4 extra beds are (the official site lists Viking: Master Room 3 queen beds, Bedroom 2 1 queen bed; Mermaid: Master Room and Bedroom 2 each 1 queen + 1 single)",
+    "Air conditioning in Viking, fridge, rice cooker and other kitchen items (the official site only says basic cooking facilities)",
+    "Is the RM2,960 super-peak price (RM1,480 per villa) fixed for the countdown dates, and does it cover both Viking and Mermaid?",
+    "Amount of the refundable security deposit"
+   ],
+   "rules": [
+    {
+     "tone": "info",
+     "title": "Check-in 2:30 pm – 9:00 pm, check-out before 12 noon",
+     "body": "Early check-in is subject to availability. Late check-out may incur additional charges."
+    },
+    {
+     "tone": "warn",
+     "title": "Quiet hours 10 pm – 9 am",
+     "body": "Please keep outdoor noise to a minimum during these hours."
+    },
+    {
+     "tone": "warn",
+     "title": "No pets; smoking only at designated outdoor areas",
+     "body": "Pets are not allowed. Illegal activities, dangerous items and prohibited substances are not allowed."
+    },
+    {
+     "tone": "info",
+     "title": "No durian or strong-smelling food",
+     "body": "Please avoid bringing durians or strong-smelling food into the villa."
+    },
+    {
+     "tone": "info",
+     "title": "BBQ: bring your own charcoal and ingredients",
+     "body": "Charcoal, BBQ fork and ingredients are not provided. Pork BBQ must be prepared and cooked by guests: the cleaning team does not handle pork."
+    },
+    {
+     "tone": "info",
+     "title": "Refundable security deposit",
+     "body": "A refundable security deposit may be required before check-in. It is returned in full after check-out if there is no damage, missing items or serious breach of the house guidelines."
+    },
+    {
+     "tone": "info",
+     "title": "Event space",
+     "body": "Booking all 3 villas includes Event Space access. Event setup at the Event Space is RM500 (full property booking required). With one villa only, a small indoor celebration setup is allowed."
+    }
    ]
   }
  ]

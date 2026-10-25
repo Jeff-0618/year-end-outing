@@ -263,7 +263,7 @@
     return ' / ' + (S.lang === 'zh' ? '间' : ((p.pricing && p.pricing.unitName) || 'unit'));
   }
   function unitsSub(p) {
-    var pr = p.pricing, n = pr.units, each = fmtRM(Math.round(pr.total / n)), g = p.guests && p.guests.n;
+    var pr = p.pricing, n = pr.units, each = fmtRM(Math.round(pr.total / n)), g = p.guests && p.guests.perUnit && p.guests.n;
     return S.lang === 'zh' ? n + ' 间 × ' + each + (g ? ' · 每间 ' + g + ' 人' : '') : n + ' ' + unitName(p, n) + ' × ' + each + (g ? ' · ' + g + ' people each' : '');
   }
   function sameEn(p, w) {
@@ -277,7 +277,7 @@
     return '这 ' + n + ' 间一模一样：每间 ' + h.bedrooms + ' 房' + (h.baths ? '、' + h.baths + ' 浴室' : '') + '（' + n + ' 间一共 ' + h.bedrooms * n + ' 房' + (h.baths ? '、' + h.baths * n + ' 浴室' : '') + '）。';
   }
   function unitsNote(p) {
-    var pr = p.pricing, n = pr.units, each = fmtRM(Math.round(pr.total / n)), g = p.guests && p.guests.n, w = unitName(p, n), w1 = unitName(p, 1);
+    var pr = p.pricing, n = pr.units, each = fmtRM(Math.round(pr.total / n)), g = p.guests && p.guests.perUnit && p.guests.n, w = unitName(p, n), w1 = unitName(p, 1);
     return S.lang === 'zh'
       ? '这个价格（' + fmtRM(pr.total) + '）是 ' + n + ' 间一起的价钱。每间 ' + each + (g ? '，可住 ' + g + ' 人；' + n + ' 间一共可住 ' + g * n + ' 人' : '') + '。' + sameZh(p)
       : 'This price (' + fmtRM(pr.total) + ') is for ' + n + ' ' + w + ' together. One ' + w1 + ' costs ' + each + (g ? ' and fits ' + g + ' people; ' + (n === 2 ? 'both' : 'all ' + n) + ' together fit ' + g * n + ' people' : '') + '.' + sameEn(p, w);
