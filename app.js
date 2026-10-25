@@ -90,7 +90,7 @@
       officialLimit: 'Official limit: {a} adults + {c} child under 12', rateRange: '{a} – {b} per unit per night (before SST)',
       ratesTitle: 'Reference rates per unit per night (breakfast included, before SST)', tier1: 'Mon–Thu', tier2: 'Fri, Sun, school holidays', tier3: 'Sat, public holidays and their eve',
       priceDisclaimer: 'Price and availability for the actual countdown dates must be verified.',
-      like: 'Like', pick: 'Vote for this place', picked: 'Voted ✓', ask: 'Ask', share: 'Share', shareTitle: 'Share this place', shareHint: 'This is the link to the real place (not this website). Copy it and send it to friends, e.g. on WhatsApp.', copyLink: 'Copy link', copied: 'Link copied', voteWord: 'vote', signinTitle: 'Sign in with Google', signinShort: 'Sign in', signinHint: 'Sign in to like, vote and ask. We only use your name and email, and the organiser can see who voted. Sign in once and your votes stay with you, even on another phone.', signinWait: 'Loading Google sign-in…', signinFail: 'Google sign-in could not load. Check your connection and try again.', signinBad: 'Sign-in did not work. Please try again.', signout: 'Sign out', signoutDone: 'Signed out', signedAs: 'Signed in as', postingAs: 'Posting as', accountTitle: 'Your account', inapp: 'This looks like an in-app browser (Facebook, Instagram, Line, WeChat…). Google blocks sign-in here. Open this page in Chrome or Safari.', whatsapp: 'WhatsApp', openLink: 'Open the place', nameTitle: 'What is your name?', nameHint: 'So the group can see who voted and who asked. It is saved on this phone.', nameSave: 'Save', nameLabel: 'Your name', nameChange: 'Change', cancel: 'Cancel', resTitle: 'Group votes', resNone: 'No votes yet. Open a place and tap “Vote for this place”.', resAll: 'See all', votesWord: 'votes',
+      like: 'Like', pick: 'Vote for this place', picked: 'Voted ✓', ask: 'Ask', share: 'Share', shareTitle: 'Share this place', shareHint: 'This is the link to the real place (not this website). Copy it and send it to friends, e.g. on WhatsApp.', copyLink: 'Copy link', copied: 'Link copied', voteWord: 'vote', you: 'you', edit: 'Edit', del: 'Delete', save: 'Save', sending: 'sending…', editedTag: '(edited)', delTitle: 'Delete this comment?', delText: 'This cannot be undone.', saveFail: 'Could not save. Please check your connection and try again.', connecting: 'Connecting… please try again in a moment.', emptyEdit: 'The comment cannot be empty.', whoTitle: 'Who voted and liked', whoVoted: 'Voted', whoLiked: 'Liked', whoNone: 'Nobody yet', signinTitle: 'Sign in with Google', signinShort: 'Sign in', signinHint: 'Sign in to like, vote and comment. Your name from Google is shown next to your likes, votes and comments, so everyone can see who chose what. We never show your email. Sign in once and your choices stay with you, even on another phone.', signinWait: 'Loading Google sign-in…', signinFail: 'Google sign-in could not load. Check your connection and try again.', signinBad: 'Sign-in did not work. Please try again.', signout: 'Sign out', signoutDone: 'Signed out', signedAs: 'Signed in as', postingAs: 'Posting as', accountTitle: 'Your account', inapp: 'This looks like an in-app browser (Facebook, Instagram, Line, WeChat…). Google blocks sign-in here. Open this page in Chrome or Safari.', whatsapp: 'WhatsApp', openLink: 'Open the place', nameTitle: 'What is your name?', nameHint: 'So the group can see who voted and who asked. It is saved on this phone.', nameSave: 'Save', nameLabel: 'Your name', nameChange: 'Change', cancel: 'Cancel', resTitle: 'Group votes', resNone: 'No votes yet. Open a place and tap “Vote for this place”.', resAll: 'See all', votesWord: 'votes',
       askTitle: 'Ask a question or leave a comment', yourName: 'Your name (optional)', yourQ: 'Your question or comment', send: 'Send', sent: 'Sent. Thank you!', sendFail: 'Could not send. Try again.',
       noQ: 'No questions yet. Be the first.', reply: 'Reply', anon: 'Anonymous', general: 'General',
       localNote: 'Votes and questions are saved on this phone only. Everyone will see them once the Google Sheet is connected.',
@@ -124,7 +124,7 @@
       officialLimit: '官方上限：{a} 位成人 + {c} 名 12 岁以下儿童', rateRange: '每单位每晚 {a} – {b}（未含 SST）',
       ratesTitle: '每单位每晚参考价（含早餐，未含 SST）', tier1: '周一至周四', tier2: '周五、周日、学校假期', tier3: '周六、公共假期及其前夕',
       priceDisclaimer: '倒数日期的价格和空房必须再确认。',
-      like: '赞', pick: '投一票给这里', picked: '已投票 ✓', ask: '提问', share: '分享', shareTitle: '分享这个场地', shareHint: '这是真正的地点链接（不是本网站）。复制后可以发给朋友，例如发到 WhatsApp。', copyLink: '复制链接', copied: '链接已复制', voteWord: '票', signinTitle: '用 Google 登录', signinShort: '登录', signinHint: '登录后才能点赞、投票和提问。我们只用你的名字和邮箱，主办人能看到谁投了票。登录一次，你的票会一直跟着你，换手机也在。', signinWait: '正在载入 Google 登录…', signinFail: '无法载入 Google 登录，请检查网络后再试。', signinBad: '登录没有成功，请再试一次。', signout: '退出登录', signoutDone: '已退出登录', signedAs: '已登录：', postingAs: '以这个身份发言：', accountTitle: '你的账号', inapp: '这好像是应用内置浏览器（Facebook、Instagram、Line、微信…），Google 会拦截登录。请用 Chrome 或 Safari 打开这个网页。', whatsapp: 'WhatsApp', openLink: '打开这个地点', nameTitle: '你的名字是？', nameHint: '让大家知道谁投了票、谁提了问。名字只保存在这部手机上。', nameSave: '保存', nameLabel: '你的名字', nameChange: '修改', cancel: '取消', resTitle: '大家的投票', resNone: '还没有人投票。打开一个场地，点“投一票给这里”。', resAll: '查看全部', votesWord: '票',
+      like: '赞', pick: '投一票给这里', picked: '已投票 ✓', ask: '提问', share: '分享', shareTitle: '分享这个场地', shareHint: '这是真正的地点链接（不是本网站）。复制后可以发给朋友，例如发到 WhatsApp。', copyLink: '复制链接', copied: '链接已复制', voteWord: '票', you: '你', edit: '编辑', del: '删除', save: '保存', sending: '发送中…', editedTag: '（已编辑）', delTitle: '要删除这条留言吗？', delText: '删除后不能恢复。', saveFail: '没有保存成功，请检查网络后再试。', connecting: '正在连接，请稍后再试。', emptyEdit: '留言不能是空的。', whoTitle: '谁投票、谁点赞', whoVoted: '投票', whoLiked: '点赞', whoNone: '还没有人', signinTitle: '用 Google 登录', signinShort: '登录', signinHint: '登录后才能点赞、投票和留言。你的 Google 名字会显示在你的赞、投票和留言旁边，所有人都看得到谁选了什么。我们不会显示你的邮箱。登录一次，你的选择一直跟着你，换手机也在。', signinWait: '正在载入 Google 登录…', signinFail: '无法载入 Google 登录，请检查网络后再试。', signinBad: '登录没有成功，请再试一次。', signout: '退出登录', signoutDone: '已退出登录', signedAs: '已登录：', postingAs: '以这个身份发言：', accountTitle: '你的账号', inapp: '这好像是应用内置浏览器（Facebook、Instagram、Line、微信…），Google 会拦截登录。请用 Chrome 或 Safari 打开这个网页。', whatsapp: 'WhatsApp', openLink: '打开这个地点', nameTitle: '你的名字是？', nameHint: '让大家知道谁投了票、谁提了问。名字只保存在这部手机上。', nameSave: '保存', nameLabel: '你的名字', nameChange: '修改', cancel: '取消', resTitle: '大家的投票', resNone: '还没有人投票。打开一个场地，点“投一票给这里”。', resAll: '查看全部', votesWord: '票',
       askTitle: '提问或留言', yourName: '你的名字（可不填）', yourQ: '你的问题或留言', send: '发送', sent: '已发送，谢谢！', sendFail: '发送失败，请再试一次。',
       noQ: '还没有人提问，你来第一个。', reply: '回复', anon: '匿名', general: '综合',
       localNote: '投票和提问目前只保存在这部手机上。连接 Google Sheet 后，所有人才会看到。',
@@ -325,22 +325,64 @@
     d.innerHTML = '<span>' + esc(t('photoOff')) + '</span>'; el.replaceWith(d);
   }, true);
 
-  /* ---------- votes and questions (Google Sheet, or this phone only) ---------- */
-  var Soc = { shared: !!CFG.sheetUrl, likes: {}, picks: {}, mine: { likes: [], pick: null }, comments: [], offline: false };
+  /* ---------- likes, votes and comments (Google Sheet, or this phone only) ----------
+     The page never waits for the sheet: a tap is shown at once ("pending"), then saved in the background, one request at a time.
+     Soc.base = what the sheet last told us. Soc.pending = taps not saved yet. What you see = base + pending. */
+  var Soc = { shared: !!CFG.sheetUrl, base: { votes: [], comments: [] }, pending: [], me: { uid: '', name: '', admin: false },
+    likes: {}, picks: {}, mine: { likes: [], pick: null }, who: { likes: {}, picks: {} }, comments: [], offline: false, editing: null, editText: '' };
+  var sending = false, syncTimer = null, CACHE_KEY = 'countdown2026.cache';
+  function newId() { return 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function myName() { return Soc.me.name || S.name || ''; }
+  function derive() {
+    var uid = Soc.me.uid, nm = myName();
+    var votes = Soc.base.votes.slice(), comments = Soc.base.comments.map(function (c) { return Object.assign({}, c); });
+    Soc.pending.forEach(function (op) {
+      if (op.t === 'like') { votes = votes.filter(function (v) { return !(v.u === uid && v.t === 'like' && v.id === op.id); }); if (op.on) votes.push({ u: uid, n: nm, t: 'like', id: op.id }); }
+      else if (op.t === 'pick') { votes = votes.filter(function (v) { return !(v.u === uid && v.t === 'pick'); }); if (op.on) votes.push({ u: uid, n: nm, t: 'pick', id: op.id }); }
+      else if (op.t === 'cadd') comments.push({ cid: op.cid, id: op.id, venue: op.venue, name: nm, uid: uid, text: op.text, time: op.time, reply: '', edited: '', pending: true });
+      else if (op.t === 'cedit') comments.forEach(function (c) { if (c.cid === op.cid) { c.text = op.text; c.edited = op.time; c.pending = true; } });
+      else if (op.t === 'cdel') comments = comments.filter(function (c) { return c.cid !== op.cid; });
+    });
+    var likes = {}, picks = {}, wl = {}, wp = {}, mine = { likes: [], pick: null };
+    votes.forEach(function (v) {
+      var bucket = v.t === 'like' ? likes : picks, who = v.t === 'like' ? wl : wp, me = !!uid && v.u === uid;
+      bucket[v.id] = (bucket[v.id] || 0) + 1; (who[v.id] = who[v.id] || []).push({ n: v.n, me: me });
+      if (me) { if (v.t === 'like') mine.likes.push(v.id); else mine.pick = v.id; }
+    });
+    Soc.likes = likes; Soc.picks = picks; Soc.mine = mine; Soc.who = { likes: wl, picks: wp }; Soc.comments = comments;
+  }
+  /* this phone only (no Google Sheet connected) */
   function localSummary() {
-    Soc.likes = {}; Soc.picks = {};
-    S.localLikes.forEach(function (id) { Soc.likes[id] = 1; });
-    if (S.localPick) Soc.picks[S.localPick] = 1;
-    Soc.mine = { likes: S.localLikes.slice(), pick: S.localPick };
-    Soc.comments = S.localComments.slice();
+    var nm = S.name || t('you');
+    S.localComments.forEach(function (c) { if (!c.cid) c.cid = newId(); });
+    Soc.me = { uid: 'local', name: nm, admin: false }; Soc.pending = [];
+    Soc.base.votes = S.localLikes.map(function (id) { return { u: 'local', n: nm, t: 'like', id: id }; }).concat(S.localPick ? [{ u: 'local', n: nm, t: 'pick', id: S.localPick }] : []);
+    Soc.base.comments = S.localComments.map(function (c) { return { cid: c.cid, id: c.id, venue: c.venue, name: c.name || nm, uid: 'local', text: c.text, time: c.time, reply: c.reply || '', edited: c.edited || '' }; });
+    derive();
+  }
+  function saveCache() {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ url: CFG.sheetUrl, sess: S.auth.session || '', voter: S.voter, me: Soc.me, votes: Soc.base.votes, comments: Soc.base.comments })); } catch (e) { /* ignore */ }
+  }
+  function loadCache() {      /* first paint from the last visit, then the sheet refreshes it */
+    try {
+      var c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+      if (!c || c.url !== CFG.sheetUrl) return;
+      Soc.base = { votes: c.votes || [], comments: c.comments || [] };
+      if (c.me && ((LOGIN && c.sess && c.sess === S.auth.session) || (!LOGIN && c.voter === S.voter))) Soc.me = c.me;
+      derive();
+    } catch (e) { /* ignore */ }
   }
   function applySummary(j) {
     if (!(j && j.ok)) return;
-    Soc.likes = j.likes || {}; Soc.picks = j.picks || {}; Soc.mine = j.mine || { likes: [], pick: null }; Soc.comments = j.comments || []; Soc.offline = false;
-    if (LOGIN) {
-      if (j.me && j.me.name) { if (S.auth.name !== j.me.name) { S.auth.name = j.me.name; save(); refreshAuthUI(); } }
-      else if (S.auth.session) { S.auth = { session: '', name: '' }; save(); refreshAuthUI(); }   /* session ran out: show signed out */
+    Soc.base = { votes: j.votes || [], comments: j.comments || [] }; Soc.offline = false;
+    if (j.me) {
+      Soc.me = { uid: j.me.uid, name: j.me.name, admin: !!j.me.admin };
+      if (LOGIN && S.auth.name !== j.me.name) { S.auth.name = j.me.name; save(); refreshAuthUI(); }
+    } else {
+      Soc.me = { uid: '', name: '', admin: false };
+      if (LOGIN && S.auth.session) { S.auth = { session: '', name: '' }; save(); Soc.pending = []; refreshAuthUI(); }   /* session ran out: show signed out */
     }
+    saveCache(); derive();
   }
   function socLoad() {
     if (!Soc.shared) { localSummary(); return Promise.resolve(); }
@@ -350,12 +392,56 @@
   }
   function socPost(payload) {
     return fetch(CFG.sheetUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ voter: S.voter, name: S.name || '', session: S.auth.session || '' }, payload)) })
-      .then(function (r) { return r.json(); }).then(function (j) {
-        if (!j.ok) { if (LOGIN && j.error === 'login required') handleLoginRequired(); throw new Error(j.error || 'failed'); }
-        applySummary(j); Soc.offline = false; return j;
-      });
+      .then(function (r) { return r.json(); }).then(function (j) { if (!j.ok) { var e = new Error(j.error || 'failed'); e.server = true; throw e; } return j; });
   }
-  function postFailed(e) { if (!/login required/.test(String(e && e.message))) Soc.offline = true; }
+  /* settle one saved tap into "base" so nothing flickers while the next one is sent */
+  function settle(op) {
+    var uid = Soc.me.uid, nm = myName(), v = Soc.base.votes;
+    if (op.t === 'like') { v = v.filter(function (x) { return !(x.u === uid && x.t === 'like' && x.id === op.id); }); if (op.on) v.push({ u: uid, n: nm, t: 'like', id: op.id }); Soc.base.votes = v; }
+    else if (op.t === 'pick') { v = v.filter(function (x) { return !(x.u === uid && x.t === 'pick'); }); if (op.on) v.push({ u: uid, n: nm, t: 'pick', id: op.id }); Soc.base.votes = v; }
+    else if (op.t === 'cadd') Soc.base.comments.push({ cid: op.cid, id: op.id, venue: op.venue, name: nm, uid: uid, text: op.text, time: op.time, reply: '', edited: '' });
+    else if (op.t === 'cedit') Soc.base.comments.forEach(function (c) { if (c.cid === op.cid) { c.text = op.text; c.edited = op.time; } });
+    else if (op.t === 'cdel') Soc.base.comments = Soc.base.comments.filter(function (c) { return c.cid !== op.cid; });
+  }
+  function payloadOf(op) {
+    if (op.t === 'like') return { action: 'like', id: op.id, venue: op.venue, on: op.on };
+    if (op.t === 'pick') return { action: 'pick', id: op.id, venue: op.venue, on: op.on };
+    if (op.t === 'cadd') return { action: 'comment', cid: op.cid, id: op.id, venue: op.venue, text: op.text, lang: S.lang };
+    if (op.t === 'cedit') return { action: 'edit_comment', cid: op.cid, text: op.text };
+    return { action: 'delete_comment', cid: op.cid };
+  }
+  function pump() {
+    if (sending || !Soc.pending.length) return;
+    var op = Soc.pending[0]; sending = true;
+    socPost(payloadOf(op)).then(function () { return true; }, function (e) {
+      if (e.server && /not found/.test(e.message) && (op.t === 'cdel' || op.t === 'cedit')) return true;      /* already gone: fine */
+      throw e;
+    }).then(function () {
+      Soc.pending.shift(); settle(op); sending = false; Soc.offline = false; derive(); refreshSocial();
+      if (Soc.pending.length) pump(); else scheduleSync();
+    }).catch(function (e) {
+      sending = false;
+      if (e.server && /login required/.test(e.message)) { handleLoginRequired(); return; }
+      op.tries = (op.tries || 0) + 1;
+      if (!e.server && op.tries <= 2) { setTimeout(pump, op.tries * 2000); return; }      /* bad connection: try again twice */
+      Soc.pending.shift(); Soc.offline = !e.server; derive(); refreshSocial(); toast(t('saveFail'));
+      if (Soc.pending.length) pump(); else scheduleSync();
+    });
+  }
+  function scheduleSync() { clearTimeout(syncTimer); syncTimer = setTimeout(function () { if (!Soc.pending.length && !sending) socLoad(); }, 1200); }
+  /* every tap goes through here */
+  function commit(op) {
+    if (!Soc.shared) {
+      if (op.t === 'like') { S.localLikes = S.localLikes.filter(function (x) { return x !== op.id; }); if (op.on) S.localLikes.push(op.id); }
+      else if (op.t === 'pick') S.localPick = op.on ? op.id : null;
+      else if (op.t === 'cadd') S.localComments.push({ cid: op.cid, id: op.id, venue: op.venue, name: S.name || '', text: op.text, time: op.time, reply: '' });
+      else if (op.t === 'cedit') S.localComments.forEach(function (c) { if (c.cid === op.cid) { c.text = op.text; c.edited = op.time; } });
+      else if (op.t === 'cdel') S.localComments = S.localComments.filter(function (c) { return c.cid !== op.cid; });
+      save(); localSummary(); refreshSocial(); return;
+    }
+    Soc.pending.push(op); derive(); refreshSocial(); pump();
+  }
+  function connecting() { toast(t('connecting')); socLoad(); }
   function isLiked(id) { return Soc.mine.likes.indexOf(id) > -1; }
   function likeCount(id) { return Soc.likes[id] || 0; }
   function hasIdentity() { return LOGIN ? !!S.auth.session : !!S.name; }
@@ -363,25 +449,23 @@
   function toggleLike(id) {
     var on = !isLiked(id);
     if ((on || LOGIN) && !hasIdentity()) { requireIdentity(function () { if (isLiked(id) !== on) toggleLike(id); }); return; }
-    if (on) { Soc.mine.likes.push(id); Soc.likes[id] = likeCount(id) + 1; } else { Soc.mine.likes = Soc.mine.likes.filter(function (x) { return x !== id; }); Soc.likes[id] = Math.max(0, likeCount(id) - 1); }
-    if (!Soc.shared) { S.localLikes = Soc.mine.likes.slice(); save(); } else socPost({ action: 'like', id: id, venue: BY[id].name, on: on }).catch(postFailed).then(refreshSocial);
-    refreshSocial();
+    if (Soc.shared && !Soc.me.uid) { connecting(); return; }
+    commit({ t: 'like', id: id, on: on, venue: BY[id].name });
   }
   function setPick(id) {
-    var prev = Soc.mine.pick, on = prev !== id;
+    var on = Soc.mine.pick !== id;
     if ((on || LOGIN) && !hasIdentity()) { requireIdentity(function () { if ((Soc.mine.pick === id) !== on) setPick(id); }); return; }
-    if (prev) Soc.picks[prev] = Math.max(0, (Soc.picks[prev] || 0) - 1);
-    Soc.mine.pick = on ? id : null; if (on) Soc.picks[id] = (Soc.picks[id] || 0) + 1;
-    if (!Soc.shared) { S.localPick = Soc.mine.pick; save(); } else socPost({ action: 'pick', id: id, venue: BY[id].name, on: on }).catch(postFailed).then(refreshSocial);
-    refreshSocial();
+    if (Soc.shared && !Soc.me.uid) { connecting(); return; }
+    commit({ t: 'pick', id: id, on: on, venue: BY[id].name });
   }
-  function addComment(id, name, text) {
-    var venue = id === 'general' ? t('general') : BY[id].name;
-    if (!Soc.shared) {
-      S.localComments.push({ id: id, venue: venue, name: name || S.name || '', text: text, time: new Date().toISOString(), reply: '' }); save(); localSummary(); refreshSocial(); return Promise.resolve();
-    }
-    return socPost({ action: 'comment', id: id, venue: venue, name: name || S.name || '', text: text, lang: S.lang }).then(refreshSocial);
+  function addComment(id, text) {
+    if (Soc.shared && !Soc.me.uid) { connecting(); return false; }
+    commit({ t: 'cadd', cid: newId(), id: id, venue: id === 'general' ? t('general') : BY[id].name, text: text, time: new Date().toISOString() });
+    return true;
   }
+  function editComment(cid, text) { commit({ t: 'cedit', cid: cid, text: text, time: new Date().toISOString() }); }
+  function deleteComment(cid) { commit({ t: 'cdel', cid: cid }); }
+  function commentById(cid) { return Soc.comments.filter(function (c) { return c.cid === cid; })[0]; }
 
   /* ---------- small helpers for views ---------- */
   var view = $('#view'), mapView = $('#mapView'), current = { v: 'places' };
@@ -397,7 +481,7 @@
   }
   function saveName() {
     var v = ($('#nameInput') || {}).value; v = (v || '').trim(); if (!v) { var i = $('#nameInput'); if (i) i.focus(); return; }
-    S.name = v; save(); var cb = afterName; closeModal(); renderNameBoxes(); if (cb) cb();
+    S.name = v; save(); if (!LOGIN) { Soc.me.name = v; derive(); } var cb = afterName; closeModal(); renderNameBoxes(); if (cb) cb();
   }
   function renderNameBoxes() { $$('[data-namebox]').forEach(function (el) { el.innerHTML = nameBoxHtml(); }); }
   function nameBoxHtml() {
@@ -433,15 +517,17 @@
   function onCredential(resp) {
     socPost({ action: 'login', credential: resp && resp.credential }).then(function (j) {
       S.auth = { session: j.session, name: (j.me && j.me.name) || '' }; save();
+      Soc.me = { uid: j.me.uid, name: j.me.name, admin: !!j.me.admin }; derive();
       var cb = afterLogin; afterLogin = null; closeModal(); refreshAuthUI(); refreshSocial();
       if (cb) cb();
+      socLoad();
     }).catch(function () { toast(t('signinBad')); });
   }
   function handleLoginRequired() {
-    S.auth = { session: '', name: '' }; save(); Soc.mine = { likes: [], pick: null }; refreshAuthUI(); refreshSocial(); openSignIn(null); socLoad();
+    S.auth = { session: '', name: '' }; save(); Soc.pending = []; Soc.me = { uid: '', name: '', admin: false }; derive(); refreshAuthUI(); refreshSocial(); openSignIn(null); socLoad();
   }
   function signOut() {
-    S.auth = { session: '', name: '' }; save(); Soc.mine = { likes: [], pick: null };
+    S.auth = { session: '', name: '' }; save(); Soc.pending = []; Soc.me = { uid: '', name: '', admin: false }; derive(); Soc.editing = null;
     try { if (window.google && google.accounts && google.accounts.id) google.accounts.id.disableAutoSelect(); } catch (e) { /* ignore */ }
     closeModal(); refreshAuthUI(); refreshSocial(); toast(t('signoutDone'));
   }
@@ -606,7 +692,7 @@
         accordion('todo', t('secTodo'), '<ul class="todo">' + todo.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>') +
         accordion('links', t('secLinks'), '<div class="links">' + p.links.map(function (l) { return '<a class="btn" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' + icon('link', 15) + esc(l.label) + '</a>'; }).join('') + '</div>') +
       '</section>' +
-      '<section class="qa" id="qa"><h3 class="h">' + icon('chat', 18) + esc(t('askTitle')) + '</h3><div id="qaNote"></div><div id="qaList"></div>' + qaForm(p.id) + '</section>' +
+      '<section class="who" id="whoBox">' + whoHtml(p.id) + '</section><section class="qa" id="qa"><h3 class="h">' + icon('chat', 18) + esc(t('askTitle')) + '</h3><div id="qaNote"></div><div id="qaList"></div>' + qaForm(p.id) + '</section>' +
       '</article>' +
       '<div class="actions" role="group">' + likeBtn(p.id, 'big') + '<button type="button" class="pickbtn' + (picked ? ' on' : '') + '" data-pick="' + p.id + '" aria-pressed="' + picked + '">' + icon('star', 18) + '<span>' + esc(picked ? t('picked') : t('pick')) + '</span></button>' + shareBtn(p.id) + '<button type="button" class="askbtn" data-askjump>' + icon('chat', 18) + '<span>' + esc(t('ask')) + '</span></button></div>';
   }
@@ -620,7 +706,21 @@
     var d = ''; try { d = new Date(c.time).toLocaleDateString(S.lang === 'zh' ? 'zh-CN' : 'en-GB', { day: 'numeric', month: 'short' }); } catch (e) { d = ''; }
     var tag = '';
     if (current.v === 'talk') tag = c.id === 'general' ? '<span class="tag">' + esc(t('general')) + '</span>' : (BY[c.id] ? '<a class="tag" href="#/p/' + c.id + '">' + esc(BY[c.id].name) + '</a>' : '');
-    return '<div class="cm"><div class="cm-h"><b>' + esc(c.name || t('anon')) + '</b>' + tag + '<small>' + esc(d) + '</small></div><p>' + esc(c.text) + '</p>' + (c.reply ? '<div class="rp"><b>' + esc(t('reply')) + ':</b> ' + esc(c.reply) + '</div>' : '') + '</div>';
+    var mine = !!Soc.me.uid && c.uid === Soc.me.uid, canDel = mine || Soc.me.admin, editingNow = Soc.editing === c.cid;
+    var body = editingNow
+      ? '<div class="cm-edit"><textarea data-editbox maxlength="600" rows="3" aria-label="' + esc(t('edit')) + '">' + esc(Soc.editText) + '</textarea><div class="mbtns"><button type="button" class="btn" data-cedit-cancel>' + esc(t('cancel')) + '</button><button type="button" class="btn primary" data-cedit-save="' + esc(c.cid) + '">' + esc(t('save')) + '</button></div></div>'
+      : '<p>' + esc(c.text) + '</p>';
+    var acts = (!editingNow && !c.pending && canDel) ? '<div class="cm-act">' + (mine ? '<button type="button" class="linkbtn" data-cedit="' + esc(c.cid) + '">' + esc(t('edit')) + '</button>' : '') + '<button type="button" class="linkbtn warn" data-cdel="' + esc(c.cid) + '">' + esc(t('del')) + '</button></div>' : '';
+    return '<div class="cm' + (c.pending ? ' pend' : '') + '" data-cm="' + esc(c.cid) + '"><div class="cm-h"><b>' + esc(c.name || t('anon')) + '</b>' + (mine ? '<span class="you">' + esc(t('you')) + '</span>' : '') + tag + '<small>' + esc(d) + (c.edited ? ' ' + esc(t('editedTag')) : '') + (c.pending ? ' · ' + esc(t('sending')) : '') + '</small></div>' + body +
+      (c.reply ? '<div class="rp"><b>' + esc(t('reply')) + ':</b> ' + esc(c.reply) + '</div>' : '') + acts + '</div>';
+  }
+  /* who liked and who voted, by name, visible to everyone */
+  function chipsHtml(list) { return list.map(function (w) { return '<span class="chip-n' + (w.me ? ' me' : '') + '">' + esc(w.n || t('anon')) + (w.me ? ' · ' + esc(t('you')) : '') + '</span>'; }).join(''); }
+  function namesInline(list, max) { var n = list.map(function (w) { return w.n || t('anon'); }); return n.slice(0, max).join(', ') + (n.length > max ? ' +' + (n.length - max) : ''); }
+  function whoHtml(id) {
+    var vp = Soc.who.picks[id] || [], vl = Soc.who.likes[id] || [];
+    function row(sym, label, list) { return '<div class="who-row"><b>' + sym + ' ' + esc(label) + ' (' + list.length + ')</b>' + (list.length ? '<div class="chips-n">' + chipsHtml(list) + '</div>' : '<span class="muted small">' + esc(t('whoNone')) + '</span>') + '</div>'; }
+    return '<h3 class="h">' + icon('users', 18) + esc(t('whoTitle')) + '</h3>' + row('★', t('whoVoted'), vp) + row('♥', t('whoLiked'), vl);
   }
   function socialNote() {
     return '<p class="snote ' + (Soc.shared && !Soc.offline ? 'ok' : 'warn') + '">' + esc(Soc.shared ? (Soc.offline ? t('offlineNote') : t('sharedNote')) : t('localNote')) + '</p>';
@@ -658,10 +758,14 @@
       '<section><h3 class="h">' + icon('star', 18) + esc(t('ranking')) + '</h3><p class="muted small">' + esc(t('rankHint')) + '</p><div id="rankList"></div></section>' +
       '<section class="qa"><h3 class="h">' + icon('chat', 18) + esc(t('questions')) + '</h3><div id="talkList"></div><h4 class="sub">' + esc(t('askGeneral')) + '</h4>' + qaForm('general') + '</section>';
   }
+  function rankWho(id) {
+    var vp = Soc.who.picks[id] || [], vl = Soc.who.likes[id] || [];
+    return vp.length || vl.length ? '<div class="rank-who">' + (vp.length ? '<span>★ ' + esc(namesInline(vp, 12)) + '</span>' : '') + (vl.length ? '<span>♥ ' + esc(namesInline(vl, 12)) + '</span>' : '') + '</div>' : '';
+  }
   function rankHtml() {
     var ranked = P.filter(function (p) { return likeCount(p.id) || (Soc.picks[p.id] || 0); }).sort(function (a, b) { return ((Soc.picks[b.id] || 0) - (Soc.picks[a.id] || 0)) || (likeCount(b.id) - likeCount(a.id)) || a.dist - b.dist; });
     if (!ranked.length) return '<p class="muted">—</p>';
-    return '<ol class="rank">' + ranked.map(function (p) { return '<li><a href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><b>' + esc(p.name) + '</b></a><span class="sc">★ ' + (Soc.picks[p.id] || 0) + ' ' + esc(t('picksLabel')) + ' · ♥ ' + likeCount(p.id) + '</span></li>'; }).join('') + '</ol>';
+    return '<ol class="rank">' + ranked.map(function (p) { return '<li><a href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><b>' + esc(p.name) + '</b></a><span class="sc">★ ' + (Soc.picks[p.id] || 0) + ' ' + esc(t('picksLabel')) + ' · ♥ ' + likeCount(p.id) + '</span>' + rankWho(p.id) + '</li>'; }).join('') + '</ol>';
   }
   function resultsHtml() {
     var ranked = P.filter(function (p) { return likeCount(p.id) || (Soc.picks[p.id] || 0); }).sort(function (a, b) { return ((Soc.picks[b.id] || 0) - (Soc.picks[a.id] || 0)) || (likeCount(b.id) - likeCount(a.id)) || a.dist - b.dist; }).slice(0, 3);
@@ -671,20 +775,21 @@
     var max = Math.max.apply(null, ranked.map(function (p) { return byVotes ? (Soc.picks[p.id] || 0) : likeCount(p.id); }).concat(1));
     return head + ranked.map(function (p, i) {
       var v = Soc.picks[p.id] || 0, l = likeCount(p.id), w = Math.max(6, Math.round((byVotes ? v : l) / max * 100));
-      return '<a class="res-row" href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><span class="res-main"><b>' + esc(p.name) + '</b><span class="res-bar"><i style="width:' + w + '%"></i></span></span><span class="res-n">★ ' + v + ' ' + esc(t(v === 1 ? 'voteWord' : 'votesWord')) + '<br>♥ ' + l + '</span></a>';
+      return '<a class="res-row" href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><span class="res-main"><b>' + esc(p.name) + '</b><span class="res-bar"><i style="width:' + w + '%"></i></span>' + ((Soc.who.picks[p.id] || []).length ? '<span class="res-who">★ ' + esc(namesInline(Soc.who.picks[p.id], 3)) + '</span>' : '') + '</span><span class="res-n">★ ' + v + ' ' + esc(t(v === 1 ? 'voteWord' : 'votesWord')) + '<br>♥ ' + l + '</span></a>';
     }).join('');
   }
   /* update only the parts that show votes and questions (keeps typing and scroll position) */
-  function refreshSocial() {
+  function refreshSocial(force) {
     var hr = $('#homeResults'); if (hr) hr.innerHTML = resultsHtml();
+    var wb = $('#whoBox'); if (wb && current.v === 'detail') wb.innerHTML = whoHtml(current.id);
     $$('[data-likecount]').forEach(function (el) { el.textContent = likeCount(el.getAttribute('data-likecount')); });
     $$('[data-like]').forEach(function (b) { var on = isLiked(b.getAttribute('data-like')); b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
     $$('[data-pick]').forEach(function (b) { var on = Soc.mine.pick === b.getAttribute('data-pick'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); var sp = $('span', b); if (sp) sp.textContent = t(on ? 'picked' : 'pick'); });
     var rl = $('#rankList'); if (rl) rl.innerHTML = rankHtml();
     var tn = $('#talkNote'); if (tn) tn.innerHTML = socialNote();
     var qn = $('#qaNote'); if (qn) qn.innerHTML = socialNote();
-    var tl = $('#talkList'); if (tl) { var all = Soc.comments.slice().reverse(); tl.innerHTML = all.length ? all.map(commentHtml).join('') : '<p class="muted">' + esc(t('noQ')) + '</p>'; }
-    var ql = $('#qaList'); if (ql && current.v === 'detail') { var mine = Soc.comments.filter(function (c) { return c.id === current.id; }).reverse(); ql.innerHTML = mine.length ? mine.map(commentHtml).join('') : '<p class="muted">' + esc(t('noQ')) + '</p>'; }
+    var lists = !Soc.editing || force === true; var tl = $('#talkList'); if (tl && lists) { var all = Soc.comments.slice().reverse(); tl.innerHTML = all.length ? all.map(commentHtml).join('') : '<p class="muted">' + esc(t('noQ')) + '</p>'; }
+    var ql = $('#qaList'); if (ql && lists && current.v === 'detail') { var mine = Soc.comments.filter(function (c) { return c.id === current.id; }).reverse(); ql.innerHTML = mine.length ? mine.map(commentHtml).join('') : '<p class="muted">' + esc(t('noQ')) + '</p>'; }
   }
 
   /* ---------- MAP ---------- */
@@ -801,7 +906,7 @@
 
   /* ---------- events ---------- */
   document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('[data-lang],[data-band],[data-fac],[data-clear],[data-like],[data-pick],[data-cmp],[data-lb],[data-askjump],[data-mapmode],[data-sheetclose],[data-share],[data-copy],[data-modalclose],[data-namesave],[data-namechange],[data-signin],[data-signout],[data-account]') : null;
+    var el = e.target.closest ? e.target.closest('[data-lang],[data-band],[data-fac],[data-clear],[data-like],[data-pick],[data-cmp],[data-lb],[data-askjump],[data-mapmode],[data-sheetclose],[data-share],[data-copy],[data-modalclose],[data-namesave],[data-namechange],[data-signin],[data-signout],[data-account],[data-cedit],[data-cedit-save],[data-cedit-cancel],[data-cdel],[data-cdel-yes]') : null;
     if (!el) return;
     if (el.hasAttribute('data-lang')) { S.lang = el.getAttribute('data-lang'); save(); render(); return; }
     if (el.hasAttribute('data-band')) { S.band = el.getAttribute('data-band'); save(); renderPlaces(); refreshSocial(); return; }
@@ -829,11 +934,23 @@
     if (el.hasAttribute('data-signin')) { openSignIn(null); return; }
     if (el.hasAttribute('data-signout')) { signOut(); return; }
     if (el.hasAttribute('data-account')) { openAccount(); return; }
+    if (el.hasAttribute('data-cedit')) { var ce = commentById(el.getAttribute('data-cedit')); if (!ce) return; Soc.editing = ce.cid; Soc.editText = ce.text; refreshSocial(true); var ta2 = $('[data-editbox]'); if (ta2) { ta2.focus(); ta2.setSelectionRange(ta2.value.length, ta2.value.length); } return; }
+    if (el.hasAttribute('data-cedit-cancel')) { Soc.editing = null; refreshSocial(true); return; }
+    if (el.hasAttribute('data-cedit-save')) {
+      var ecid = el.getAttribute('data-cedit-save'), etxt = (Soc.editText || '').trim(), eold = commentById(ecid);
+      if (!etxt) { toast(t('emptyEdit')); return; }
+      Soc.editing = null;
+      if (eold && eold.text === etxt) refreshSocial(true); else editComment(ecid, etxt);
+      return;
+    }
+    if (el.hasAttribute('data-cdel')) { openModal('<h3>' + esc(t('delTitle')) + '</h3><p class="muted small">' + esc(t('delText')) + '</p><div class="mbtns"><button type="button" class="btn" data-modalclose>' + esc(t('cancel')) + '</button><button type="button" class="btn primary danger" data-cdel-yes="' + esc(el.getAttribute('data-cdel')) + '">' + esc(t('del')) + '</button></div>'); return; }
+    if (el.hasAttribute('data-cdel-yes')) { var dcid = el.getAttribute('data-cdel-yes'); closeModal(); deleteComment(dcid); return; }
   });
   modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', function (e) { if (!modal.hidden) { if (e.key === 'Escape') closeModal(); else if (e.key === 'Enter' && e.target.id === 'nameInput') saveName(); } });
   document.addEventListener('change', function (e) { if (e.target.id === 'sort') { S.sort = e.target.value; save(); renderPlaces(); refreshSocial(); } });
   document.addEventListener('input', function (e) {
+    if (e.target.hasAttribute && e.target.hasAttribute('data-editbox')) { Soc.editText = e.target.value; return; }
     if (e.target.id !== 'people') return;
     S.people = e.target.value; save(); renderCompare();
     var el = $('#people'); if (el) { el.focus(); var v = el.value; el.value = ''; el.value = v; }
@@ -841,13 +958,12 @@
   document.addEventListener('submit', function (e) {
     var f = e.target; if (!f.hasAttribute || !f.hasAttribute('data-qform')) return;
     e.preventDefault();
-    var id = f.getAttribute('data-qform'), nameEl = f.elements.name, name = nameEl ? nameEl.value.trim() : '', text = f.elements.text.value.trim(), btn = $('button[type=submit]', f);
+    var id = f.getAttribute('data-qform'), nameEl = f.elements.name, name = nameEl ? nameEl.value.trim() : '', text = f.elements.text.value.trim();
     if (f.elements.website.value || !text) return;
     var resubmit = function () { if (nameEl) nameEl.value = S.name; f.requestSubmit ? f.requestSubmit() : f.dispatchEvent(new Event('submit', { cancelable: true })); };
-    if (LOGIN) { if (!S.auth.session) { openSignIn(resubmit); return; } name = ''; }
-    else { if (!name && !S.name) { askName(resubmit); return; } if (name) { S.name = name; save(); } }
-    btn.disabled = true;
-    Promise.resolve(addComment(id, name, text)).then(function () { f.elements.text.value = ''; toast(t('sent')); }).catch(function () { toast(t('sendFail')); }).then(function () { setTimeout(function () { btn.disabled = false; }, 1500); });
+    if (LOGIN) { if (!S.auth.session) { openSignIn(resubmit); return; } }
+    else { if (!name && !S.name) { askName(resubmit); return; } if (name && name !== S.name) { S.name = name; save(); Soc.me.name = name; } }
+    if (addComment(id, text)) { f.elements.text.value = ''; toast(t('sent')); }
   });
   document.addEventListener('keydown', function (e) {
     if (!lb.open) return;
@@ -860,13 +976,14 @@
   window.addEventListener('hashchange', render);
 
   /* ---------- start ---------- */
-  localSummary();
+  if (Soc.shared) loadCache(); else localSummary();      /* last visit's numbers show at once; the sheet refreshes them a moment later */
   loadGIS();
   render();
   socLoad();
   if (Soc.shared) {
-    setInterval(function () { if (!document.hidden) socLoad(); }, 60000);
-    document.addEventListener('visibilitychange', function () { if (!document.hidden) socLoad(); });
+    var calm = function () { return !document.hidden && !Soc.pending.length && !sending && !Soc.editing; };
+    setInterval(function () { if (calm()) socLoad(); }, 60000);
+    document.addEventListener('visibilitychange', function () { if (calm()) socLoad(); });
   }
   window.__c26 = { data: DATA, S: S, Soc: Soc, version: 2 };
 })();
