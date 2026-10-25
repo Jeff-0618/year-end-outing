@@ -1,2 +1,52 @@
 /* Written by tools/add_photos.py. Lists the photos you added in assets/user-photos/<place-id>/. */
-window.USER_PHOTOS = {};
+window.USER_PHOTOS = {
+ "hh_melaka": [
+  "01_0fd497ee.jpg",
+  "02_4a45ec8e.jpg",
+  "03_317d43fc.jpg",
+  "04_485a0b2e.jpg",
+  "05_c9905b9e.jpg"
+ ],
+ "gm_pool_pd": [
+  "01_62ef7e50.jpg",
+  "02_b8f51db6.jpg",
+  "03_bc42aff5.jpg",
+  "04_e66896e0.jpg",
+  "05_ae95b00a.jpg",
+  "06_0e7ab130.jpg",
+  "07_87521146.jpg",
+  "08_2ef2f46f.jpg",
+  "09_e9490ac6.jpg",
+  "10_20e3f6e9.jpg",
+  "11_68567c12.jpg",
+  "12_aac9a9c4.jpg",
+  "13_6c1e7ff3.jpg",
+  "14_fdabe12d.jpg",
+  "15_eb49f964.jpg",
+  "16_c46ba239.jpg",
+  "17_73a4a0bb.jpg",
+  "18_9e51bcc8.jpg",
+  "19_b4298ea7.jpg",
+  "20_1dc2de60.jpg",
+  "21_9df8b261.jpg",
+  "22_2a65a6a9.jpg",
+  "23_cf51a126.jpg",
+  "24_b68c096d.jpg",
+  "25_12de8e35.jpg",
+  "26_f36b3459.jpg",
+  "27_e545143b.jpg",
+  "28_b0a6451e.jpg",
+  "29_b01f7a42.jpg",
+  "30_c7d762d1.jpg",
+  "31_4cb4f68f.jpg",
+  "32_9011468e.jpg",
+  "33_d3afb644.jpg",
+  "34_9d76dd0b.jpg",
+  "35_9947ee6f.jpg",
+  "36_1716487e.jpg",
+  "37_df2397e4.jpg",
+  "38_494efebc.jpg",
+  "39_ecb7b155.jpg",
+  "40_9ffa4d78.jpg"
+ ]
+};
