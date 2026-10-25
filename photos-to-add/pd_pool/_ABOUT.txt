@@ -1,0 +1,7 @@
+Put photos of THIS place in this folder (any file names, .jpg .jpeg .png .webp).
+Then run:  python tools/add_photos.py
+
+Place: PD4R3BR 20pax Private Pool Homestay
+Region: Port Dickson, Negeri Sembilan
+Links:
+  Airbnb listing (original link): https://www.airbnb.com/rooms/1376514161309219998?unique_share_id=25adfce3-f370-4b7f-a4f9-8eef0f310626&viralityEntryPoint=1&s=76
