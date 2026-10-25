@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf8f2">
+  <title>Year-End Countdown 2026</title>
+  <meta name="description" content="Year-End Countdown 2026: compare accommodation options by distance from FGA CYC Kuchai Lama. 年终倒数 2026 住宿比较。">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a id="brand" class="brand" href="#/places">Year-End Countdown 2026</a>
+    <div id="langbox" class="lang" role="group" aria-label="Language / 语言"></div>
+  </header>
+
+  <main id="main">
+    <div id="view"></div>
+    <div id="mapView" hidden>
+      <div class="mapui"></div>
+      <div id="mapbox"></div>
+      <div id="sheet" class="sheet" hidden></div>
+    </div>
+    <noscript><p class="nojs">This page needs JavaScript. 请使用支持 JavaScript 的浏览器。</p></noscript>
+  </main>
+
+  <nav id="nav" class="nav" aria-label="Main"></nav>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button type="button" id="lbClose" class="lb-btn close" aria-label="Close">×</button>
+    <button type="button" id="lbPrev" class="lb-btn prev" aria-label="Previous photo">‹</button>
+    <figure><div id="lbImg"></div><figcaption id="lbCap"></figcaption></figure>
+    <button type="button" id="lbNext" class="lb-btn next" aria-label="Next photo">›</button>
+  </div>
+
+  <!-- Leaflet loads in the background: if it is blocked or offline, the page still works. -->
+  <script id="leaflet-js" async src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data/config.js"></script>
+  <script src="data/properties.js"></script>
+  <script src="data/zh.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

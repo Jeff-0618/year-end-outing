@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 """
-NOT NEEDED for the website any more (it shows Airbnb and official photos from their original links).
-Running it creates 100+ files, which is too many for the GitHub web upload. Skip it.
-
 Optional helper: save every photo listed in data/properties.js onto this computer.
 
 Run it once while you have internet (before the presentation):
