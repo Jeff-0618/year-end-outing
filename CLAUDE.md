@@ -46,6 +46,8 @@ A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a ch
 - Anonymous person id (`uid`) = HMAC of the email, made by the script; the page never sees emails or Google ids.
 - Sheet tabs (the script upgrades older sheets by itself — keep that working): `Questions` = Time, Venue, VenueId, Name, Question, Lang, Reply, Email, CommentId, Uid, Edited. `Votes` = Time, VoterId, Type (like/pick), VenueId, Venue, Name, Email, Uid. `Results` is rewritten (at most every 30 s).
 - Comments: owner can edit/delete own; admins (`ADMIN_EMAILS`) can delete any, never edit others.
+- **Heads-up (31 Oct 2026):** the repo copy `tools/google-sheet-script.gs` (and the root `google-sheet-script.gs`) is the OLD script — no `edit_comment`, no `ADMIN_EMAILS`, old answer format. The live Apps Script is newer (its answers contain `votes`, `cid`, `uid`). Never paste the repo copy over the live one: it would break likes and comments. To keep the repo in sync, copy the live script out of Apps Script into `tools/google-sheet-script.gs`.
+- When saving a like/vote/comment fails, the toast now says why: "Could not save … check your connection" = no connection (retried twice); "The server could not save this … [reason]" = the script answered with an error (the reason is the script's own message; the owner can also see it in Apps Script → Executions). A busy sheet (lock / timeout) is retried twice before the toast.
 - If `config.js` has no `sheetUrl` the page works in "this phone only" mode; with `sheetUrl` but no `googleClientId` it asks for a typed name instead of Google sign-in.
 
 ## Normal workflow for a change

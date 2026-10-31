@@ -90,7 +90,7 @@
       officialLimit: 'Official limit: {a} adults + {c} child under 12', rateRange: '{a} – {b} per unit per night (before SST)',
       ratesTitle: 'Reference rates per unit per night (breakfast included, before SST)', tier1: 'Mon–Thu', tier2: 'Fri, Sun, school holidays', tier3: 'Sat, public holidays and their eve',
       priceDisclaimer: 'Price and availability for the actual countdown dates must be verified.',
-      like: 'Like', pick: 'Vote for this place', picked: 'Voted ✓', ask: 'Ask', share: 'Share', shareTitle: 'Share this place', shareHint: 'This is the link to the real place (not this website). Copy it and send it to friends, e.g. on WhatsApp.', copyLink: 'Copy link', copied: 'Link copied', voteWord: 'vote', you: 'you', edit: 'Edit', del: 'Delete', save: 'Save', sending: 'sending…', editedTag: '(edited)', delTitle: 'Delete this comment?', delText: 'This cannot be undone.', saveFail: 'Could not save. Please check your connection and try again.', connecting: 'Connecting… please try again in a moment.', emptyEdit: 'The comment cannot be empty.', whoTitle: 'Who voted and liked', whoVoted: 'Voted', whoLiked: 'Liked', whoNone: 'Nobody yet', signinTitle: 'Sign in with Google', signinShort: 'Sign in', signinHint: 'Sign in to like, vote and comment. Your name from Google is shown next to your likes, votes and comments, so everyone can see who chose what. We never show your email. Sign in once and your choices stay with you, even on another phone.', signinWait: 'Loading Google sign-in…', signinFail: 'Google sign-in could not load. Check your connection and try again.', signinBad: 'Sign-in did not work. Please try again.', signout: 'Sign out', signoutDone: 'Signed out', signedAs: 'Signed in as', postingAs: 'Posting as', accountTitle: 'Your account', inapp: 'This looks like an in-app browser (Facebook, Instagram, Line, WeChat…). Google blocks sign-in here. Open this page in Chrome or Safari.', whatsapp: 'WhatsApp', openLink: 'Open the place', nameTitle: 'What is your name?', nameHint: 'So the group can see who voted and who asked. It is saved on this phone.', nameSave: 'Save', nameLabel: 'Your name', nameChange: 'Change', cancel: 'Cancel', resTitle: 'Group votes', resNone: 'No votes yet. Open a place and tap “Vote for this place”.', resAll: 'See all', votesWord: 'votes',
+      like: 'Like', pick: 'Vote for this place', picked: 'Voted ✓', ask: 'Ask', share: 'Share', shareTitle: 'Share this place', shareHint: 'This is the link to the real place (not this website). Copy it and send it to friends, e.g. on WhatsApp.', copyLink: 'Copy link', copied: 'Link copied', voteWord: 'vote', you: 'you', edit: 'Edit', del: 'Delete', save: 'Save', sending: 'sending…', editedTag: '(edited)', delTitle: 'Delete this comment?', delText: 'This cannot be undone.', saveFail: 'Could not save. Please check your connection and try again.', saveFailServer: 'The server could not save this. Please try again in a moment.', connecting: 'Connecting… please try again in a moment.', emptyEdit: 'The comment cannot be empty.', whoTitle: 'Who voted and liked', whoVoted: 'Voted', whoLiked: 'Liked', whoNone: 'Nobody yet', signinTitle: 'Sign in with Google', signinShort: 'Sign in', signinHint: 'Sign in to like, vote and comment. Your name from Google is shown next to your likes, votes and comments, so everyone can see who chose what. We never show your email. Sign in once and your choices stay with you, even on another phone.', signinWait: 'Loading Google sign-in…', signinFail: 'Google sign-in could not load. Check your connection and try again.', signinBad: 'Sign-in did not work. Please try again.', signout: 'Sign out', signoutDone: 'Signed out', signedAs: 'Signed in as', postingAs: 'Posting as', accountTitle: 'Your account', inapp: 'This looks like an in-app browser (Facebook, Instagram, Line, WeChat…). Google blocks sign-in here. Open this page in Chrome or Safari.', whatsapp: 'WhatsApp', openLink: 'Open the place', nameTitle: 'What is your name?', nameHint: 'So the group can see who voted and who asked. It is saved on this phone.', nameSave: 'Save', nameLabel: 'Your name', nameChange: 'Change', cancel: 'Cancel', resTitle: 'Group votes', resNone: 'No votes yet. Open a place and tap “Vote for this place”.', resAll: 'See all', votesWord: 'votes',
       askTitle: 'Ask a question or leave a comment', yourName: 'Your name (optional)', yourQ: 'Your question or comment', send: 'Send', sent: 'Sent. Thank you!', sendFail: 'Could not send. Try again.',
       noQ: 'No questions yet. Be the first.', reply: 'Reply', anon: 'Anonymous', general: 'General',
       localNote: 'Votes and questions are saved on this phone only. Everyone will see them once the Google Sheet is connected.',
@@ -124,7 +124,7 @@
       officialLimit: '官方上限：{a} 位成人 + {c} 名 12 岁以下儿童', rateRange: '每单位每晚 {a} – {b}（未含 SST）',
       ratesTitle: '每单位每晚参考价（含早餐，未含 SST）', tier1: '周一至周四', tier2: '周五、周日、学校假期', tier3: '周六、公共假期及其前夕',
       priceDisclaimer: '倒数日期的价格和空房必须再确认。',
-      like: '赞', pick: '投一票给这里', picked: '已投票 ✓', ask: '提问', share: '分享', shareTitle: '分享这个场地', shareHint: '这是真正的地点链接（不是本网站）。复制后可以发给朋友，例如发到 WhatsApp。', copyLink: '复制链接', copied: '链接已复制', voteWord: '票', you: '你', edit: '编辑', del: '删除', save: '保存', sending: '发送中…', editedTag: '（已编辑）', delTitle: '要删除这条留言吗？', delText: '删除后不能恢复。', saveFail: '没有保存成功，请检查网络后再试。', connecting: '正在连接，请稍后再试。', emptyEdit: '留言不能是空的。', whoTitle: '谁投票、谁点赞', whoVoted: '投票', whoLiked: '点赞', whoNone: '还没有人', signinTitle: '用 Google 登录', signinShort: '登录', signinHint: '登录后才能点赞、投票和留言。你的 Google 名字会显示在你的赞、投票和留言旁边，所有人都看得到谁选了什么。我们不会显示你的邮箱。登录一次，你的选择一直跟着你，换手机也在。', signinWait: '正在载入 Google 登录…', signinFail: '无法载入 Google 登录，请检查网络后再试。', signinBad: '登录没有成功，请再试一次。', signout: '退出登录', signoutDone: '已退出登录', signedAs: '已登录：', postingAs: '以这个身份发言：', accountTitle: '你的账号', inapp: '这好像是应用内置浏览器（Facebook、Instagram、Line、微信…），Google 会拦截登录。请用 Chrome 或 Safari 打开这个网页。', whatsapp: 'WhatsApp', openLink: '打开这个地点', nameTitle: '你的名字是？', nameHint: '让大家知道谁投了票、谁提了问。名字只保存在这部手机上。', nameSave: '保存', nameLabel: '你的名字', nameChange: '修改', cancel: '取消', resTitle: '大家的投票', resNone: '还没有人投票。打开一个场地，点“投一票给这里”。', resAll: '查看全部', votesWord: '票',
+      like: '赞', pick: '投一票给这里', picked: '已投票 ✓', ask: '提问', share: '分享', shareTitle: '分享这个场地', shareHint: '这是真正的地点链接（不是本网站）。复制后可以发给朋友，例如发到 WhatsApp。', copyLink: '复制链接', copied: '链接已复制', voteWord: '票', you: '你', edit: '编辑', del: '删除', save: '保存', sending: '发送中…', editedTag: '（已编辑）', delTitle: '要删除这条留言吗？', delText: '删除后不能恢复。', saveFail: '没有保存成功，请检查网络后再试。', saveFailServer: '服务器没能保存这一项，请稍后再试。', connecting: '正在连接，请稍后再试。', emptyEdit: '留言不能是空的。', whoTitle: '谁投票、谁点赞', whoVoted: '投票', whoLiked: '点赞', whoNone: '还没有人', signinTitle: '用 Google 登录', signinShort: '登录', signinHint: '登录后才能点赞、投票和留言。你的 Google 名字会显示在你的赞、投票和留言旁边，所有人都看得到谁选了什么。我们不会显示你的邮箱。登录一次，你的选择一直跟着你，换手机也在。', signinWait: '正在载入 Google 登录…', signinFail: '无法载入 Google 登录，请检查网络后再试。', signinBad: '登录没有成功，请再试一次。', signout: '退出登录', signoutDone: '已退出登录', signedAs: '已登录：', postingAs: '以这个身份发言：', accountTitle: '你的账号', inapp: '这好像是应用内置浏览器（Facebook、Instagram、Line、微信…），Google 会拦截登录。请用 Chrome 或 Safari 打开这个网页。', whatsapp: 'WhatsApp', openLink: '打开这个地点', nameTitle: '你的名字是？', nameHint: '让大家知道谁投了票、谁提了问。名字只保存在这部手机上。', nameSave: '保存', nameLabel: '你的名字', nameChange: '修改', cancel: '取消', resTitle: '大家的投票', resNone: '还没有人投票。打开一个场地，点“投一票给这里”。', resAll: '查看全部', votesWord: '票',
       askTitle: '提问或留言', yourName: '你的名字（可不填）', yourQ: '你的问题或留言', send: '发送', sent: '已发送，谢谢！', sendFail: '发送失败，请再试一次。',
       noQ: '还没有人提问，你来第一个。', reply: '回复', anon: '匿名', general: '综合',
       localNote: '投票和提问目前只保存在这部手机上。连接 Google Sheet 后，所有人才会看到。',
@@ -392,7 +392,11 @@
   }
   function socPost(payload) {
     return fetch(CFG.sheetUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ voter: S.voter, name: S.name || '', session: S.auth.session || '' }, payload)) })
-      .then(function (r) { return r.json(); }).then(function (j) { if (!j.ok) { var e = new Error(j.error || 'failed'); e.server = true; throw e; } return j; });
+      .then(function (r) {
+        return r.text().then(function (txt) {
+          try { return JSON.parse(txt); } catch (x) { var b = new Error('the server sent a page instead of data (HTTP ' + r.status + ')'); b.bad = true; throw b; }    /* e.g. a Google error page */
+        });
+      }).then(function (j) { if (!j.ok) { var e = new Error(j.error || 'failed'); e.server = true; throw e; } return j; });
   }
   /* settle one saved tap into "base" so nothing flickers while the next one is sent */
   function settle(op) {
@@ -423,8 +427,13 @@
       sending = false;
       if (e.server && /login required/.test(e.message)) { handleLoginRequired(); return; }
       op.tries = (op.tries || 0) + 1;
-      if (!e.server && op.tries <= 2) { setTimeout(pump, op.tries * 2000); return; }      /* bad connection: try again twice */
-      Soc.pending.shift(); Soc.offline = !e.server; derive(); refreshSocial(); toast(t('saveFail'));
+      var busy = e.server && /lock|time ?out|timed out|try again|busy|too many|service/i.test(e.message || '');      /* the sheet was busy: worth another go */
+      if ((!e.server || busy) && op.tries <= 2) { setTimeout(pump, op.tries * 2000); return; }      /* bad connection or busy sheet: try again twice */
+      Soc.pending.shift(); Soc.offline = !e.server; derive(); refreshSocial();
+      try { console.warn('[countdown] could not save', op.t, e.message); } catch (x) { /* ignore */ }
+      /* say what really went wrong: a server answer is not a "connection" problem */
+      var why = (e.server || e.bad) ? String(e.message || '').slice(0, 110) : '';
+      toast((e.server ? t('saveFailServer') : t('saveFail')) + (why ? ' [' + why + ']' : ''), why ? 9000 : 2600);
       if (Soc.pending.length) pump(); else scheduleSync();
     });
   }
@@ -469,8 +478,8 @@
 
   /* ---------- small helpers for views ---------- */
   var view = $('#view'), mapView = $('#mapView'), current = { v: 'places' };
-  function toast(msg) {
-    var el = $('#toast'); el.textContent = msg; el.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(function () { el.hidden = true; }, 2600);
+  function toast(msg, ms) {
+    var el = $('#toast'); el.textContent = msg; el.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(function () { el.hidden = true; }, ms || 2600);
   }
   var modal = $('#modal'), afterName = null;
   function openModal(html) { $('#modalIn').innerHTML = html; modal.hidden = false; document.body.classList.add('noscroll'); var f = $('#modalIn input'); if (f) setTimeout(function () { f.focus(); }, 80); }
