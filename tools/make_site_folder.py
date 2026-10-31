@@ -51,6 +51,12 @@ def main():
     args = [x for x in sys.argv[1:] if not x.startswith("--")]
     with_config = "--with-config" in sys.argv
     target = Path(args[0]).expanduser() if args else None
+    if target is not None and target.is_dir() and target.resolve() == ROOT:
+        # The GitHub folder IS this project: Vercel serves these files as they are, so there is nothing to bundle.
+        # (Building into the project folder would overwrite index.html with the bundled copy and then fail on prices.js.)
+        print("The target folder is this project folder itself, so there is nothing to build or copy.")
+        print("The website is served straight from these files. Now open GitHub Desktop: write a summary, click 'Commit to main', then 'Push origin'.")
+        return
     if target is not None:
         if not target.is_dir():
             sys.exit("Folder not found: %s\nGive the folder of your cloned GitHub repository (the one that contains your index.html)." % target)

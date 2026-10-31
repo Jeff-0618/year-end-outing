@@ -13,6 +13,8 @@ A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a ch
 1. **This source project** — all editing happens here.
 2. **The deployment repo** — holds ONLY the built files (about 14): `index.html` (everything bundled into one file), `config.js`, `prices.js`, `user-photos.js`, `assets/user-photos/…`. Never hand-edit `index.html` there. It is produced by `python tools/make_site_folder.py "<path to the deployment repo folder>"` (or double-click `update-site.bat`), then committed and pushed with GitHub Desktop. The tool keeps the deployment repo's own `config.js` unless `--with-config` is given.
 
+> **Current setup (31 Oct 2026):** the owner's GitHub folder IS this project folder (`update-site.bat` has `REPO` = this folder, remote `Jeff-0618/year-end-outing`). Vercel serves `index.html`, `app.js`, `styles.css` and `data/` straight from the repo, so **no bundling is needed**, and `index.html` here must stay the small template that loads `data/properties.js`, `data/zh.js` and `app.js` (restore it with `git show e8eb510^:index.html > index.html` if it ever becomes a 280 KB bundle). `tools/make_site_folder.py` now refuses to build into the project folder itself; before, it overwrote `index.html` with the bundled copy and then crashed with `SameFileError` on `prices.js`. The two-folder description above only applies if a separate deployment folder is used.
+
 ## Where to change what
 | I want to change… | Edit this file |
 |---|---|
@@ -49,7 +51,7 @@ A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a ch
 ## Normal workflow for a change
 1. Edit the source files above.
 2. Preview: double-click `start.bat`, open http://localhost:8000.
-3. Run `update-site.bat` (adds new photos, builds, copies into the deployment repo folder).
+3. Run `update-site.bat` (adds new photos; with a separate deployment folder it also builds and copies into it; with the current setup it only adds photos).
 4. GitHub Desktop → write a summary → Commit to main → Push origin. Vercel updates in about 30 seconds.
 5. If `tools/google-sheet-script.gs` changed: paste it into Apps Script, keep `CLIENT_ID` and `ADMIN_EMAILS`, then Deploy → Manage deployments → pencil → New version → Deploy.
 
