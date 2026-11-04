@@ -3682,6 +3682,10 @@ window.PROPERTIES_DATA = {
       "status": "confirmed",
       "note": "No — one whole-house listing."
      }
+    },
+    "extraFee": {
+     "from": 21,
+     "fee": 50
     }
    },
    "pros": [

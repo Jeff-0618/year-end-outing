@@ -403,12 +403,14 @@ table.cmp { border-collapse: collapse; width: 100%; font-size: .86rem; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes sheetUp { from { opacity: 0; transform: translateY(42px); } to { opacity: 1; transform: none; } }
-  .intro { animation: rise .6s var(--ease) backwards; }
-  .cd { animation: rise .7s .08s var(--ease) backwards; }
-  .bands, .facs { animation: rise .6s .12s var(--ease) backwards; }
-  .results { animation: rise .6s .16s var(--ease) backwards; }
-  .card { animation: rise .6s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 70ms + 200ms); }
-  .detail { animation: rise .5s var(--ease) backwards; }
+  /* "#view.enter" is set by the app only while the page changes, so typing a number or tapping a filter does not replay the intro */
+  #view.enter .intro-top { animation: rise .6s var(--ease) backwards; }
+  #view.enter .cd { animation: rise .7s .08s var(--ease) backwards; }
+  #view.enter .bands, #view.enter .facs { animation: rise .6s .12s var(--ease) backwards; }
+  #view.enter .results { animation: rise .6s .16s var(--ease) backwards; }
+  #view.enter .detail { animation: rise .5s var(--ease) backwards; }
+  .card { animation: rise .45s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 60ms); }
+  #view.enter .card { animation-duration: .6s; animation-delay: calc(var(--i, 0) * 70ms + 200ms); }
   .acc[open] .acc-in { animation: fadeUp .35s var(--ease) backwards; }
   .toast { animation: rise .3s var(--ease) backwards; }
   .modal { animation: fadeIn .2s ease backwards; }
@@ -422,6 +424,20 @@ table.cmp { border-collapse: collapse; width: 100%; font-size: .86rem; }
 .askbtn { padding: 0 12px; }
 .cd-t { opacity: .94; }
 .cd-u span { opacity: .9; }
+
+/* compare page on phones: the three places share the screen width, so nothing is hidden or needs a sideways swipe */
+@media (max-width: 639px) {
+  table.cmp { table-layout: fixed; width: 100%; }
+  .cmp th, .cmp td { min-width: 0; padding: 8px 5px; font-size: .78rem; overflow-wrap: anywhere; }
+  .cmp th { width: 62px; max-width: none; position: static; font-size: .68rem; line-height: 1.25; }
+  .cmp td { width: calc((100% - 62px) / 3); }
+  .ch { gap: 4px; }
+  .ch b { font-size: .8rem; line-height: 1.25; }
+  .ch .x { top: 3px; right: 3px; width: 26px; height: 26px; }
+  .cmp .dist, .cmp .pill { white-space: normal; font-size: .7rem; line-height: 1.25; }
+  .cmp .pill i { flex: none; }
+  .cmp .usub { font-size: .72rem; }
+}
 
 /* wide screens: a little more room, three columns */
 @media (min-width: 960px) {

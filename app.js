@@ -77,7 +77,7 @@
   /* ---------- words ---------- */
   var UI = {
     en: {
-      title: 'Year-End Countdown 2026', brand: 'Countdown 2026', pickTitle: 'Where shall we stay?', cdTitle: 'Countdown to New Year 2027 (Malaysia time)', cdDays: 'days', cdHours: 'hours', cdMins: 'minutes', cdSecs: 'seconds', cdDone: 'Happy New Year 2027!', tagline: '2 days 1 night · from FGA CYC Kuchai Lama',
+      title: 'Year-End Countdown 2026', brand: 'Countdown 2026', pickTitle: 'Where shall we stay?', cdTitle: 'Countdown to New Year 2027 (Malaysia time)', cdDays: 'days', cdHours: 'hours', cdMins: 'minutes', cdSecs: 'seconds', cdDone: 'Happy New Year 2027!', incExtra: 'incl. {n} for extra guests', tagline: '2 days 1 night · from FGA CYC Kuchai Lama',
       tabPlaces: 'Places', tabMap: 'Map', tabCompare: 'Compare', tabTalk: 'Votes & Q&A',
       near: 'Near', mid: 'Medium', far: 'Far', all: 'All', nearR: '≤ {n} km', midR: '{a}–{b} km', farR: '> {n} km',
       sort: 'Sort', sortDistance: 'Nearest first', sortVotes: 'Most liked', sortGuests: 'Most guests', needFac: 'Must have',
@@ -111,7 +111,7 @@
       facPool: 'Pool', facBbq: 'BBQ', facKaraoke: 'Karaoke', photoCount: 'photos, tap to enlarge', ourPhoto: 'Our photo'
     },
     zh: {
-      title: '年终倒数 2026', brand: '年终倒数 2026', pickTitle: '我们住哪里？', cdTitle: '距离 2027 年元旦（马来西亚时间）', cdDays: '天', cdHours: '小时', cdMins: '分钟', cdSecs: '秒', cdDone: '2027 新年快乐！', tagline: '两天一夜 · 从 FGA CYC Kuchai Lama 出发',
+      title: '年终倒数 2026', brand: '年终倒数 2026', pickTitle: '我们住哪里？', cdTitle: '距离 2027 年元旦（马来西亚时间）', cdDays: '天', cdHours: '小时', cdMins: '分钟', cdSecs: '秒', cdDone: '2027 新年快乐！', incExtra: '含额外人数费 {n}', tagline: '两天一夜 · 从 FGA CYC Kuchai Lama 出发',
       tabPlaces: '场地', tabMap: '地图', tabCompare: '对比', tabTalk: '投票·提问',
       near: '近', mid: '中等', far: '远', all: '全部', nearR: '≤ {n} 公里', midR: '{a}–{b} 公里', farR: '> {n} 公里',
       sort: '排序', sortDistance: '最近优先', sortVotes: '最多赞', sortGuests: '人数最多', needFac: '必须有',
@@ -767,7 +767,7 @@
       ['', function (p) { return '<div class="ch"><a href="#/p/' + p.id + '"><div class="ph sm">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span></div><b>' + esc(p.name) + '</b></a><button type="button" class="x" data-cmp="' + p.id + '" aria-label="' + esc(t('compareRemove')) + '">' + icon('x', 16) + '</button></div>'; }],
       [t('rowDistance'), function (p) { return distBadge(p); }],
       [t('rowPrice'), function (p) { var pr = price(p); return '<b class="' + (pr.known ? '' : 'tbc') + '">' + esc(pr.text) + '</b>' + (pr.sub ? '<br><span class="usub">' + esc(pr.sub) + '</span>' : ''); }],
-      [t('perPerson'), function (p) { var tot = p.pricing && p.pricing.total; if (tot > 0 && people) return '<b>' + fmtRM2(tot / people) + '</b>'; if (p.pricing && p.pricing.perPerson) return '<b>RM' + p.pricing.perPerson.min + '–' + p.pricing.perPerson.max + '</b>'; return '<span class="muted">' + (tot > 0 ? esc(t('perPersonHint')) : '—') + '</span>'; }],
+      [t('perPerson'), function (p) { var tot = p.pricing && p.pricing.total; if (tot > 0 && people) { var xf = p.pricing.extraFee, more = xf ? Math.max(0, people - xf.from + 1) * xf.fee : 0; return '<b>' + fmtRM2((tot + more) / people) + '</b>' + (more ? '<br><span class="usub">' + esc(t('incExtra', { n: fmtRM(more) })) + '</span>' : ''); } if (p.pricing && p.pricing.perPerson) return '<b>RM' + p.pricing.perPerson.min + '–' + p.pricing.perPerson.max + '</b>'; return '<span class="muted">' + (tot > 0 ? esc(t('perPersonHint')) : '—') + '</span>'; }],
       [t('rowGuests'), function (p) { return '<b>' + esc(guestsText(p)) + '</b>'; }],
       [t('rowRooms'), function (p) { return p.headline ? p.headline.bedrooms + ' ' + esc(t('rooms')) + esc(perUnitSuffix(p)) + (p.headline.beds != null ? ' · ' + p.headline.beds + ' ' + esc(t('beds')) : '') : (p.units ? p.units.length + ' ' + esc(t('units')) : '?'); }],
       [t('rowBaths'), function (p) { return p.headline && p.headline.baths != null ? esc(p.headline.baths + perUnitSuffix(p)) : (p.units ? '1 / ' + esc(t('perUnit')) : '?'); }],
@@ -912,6 +912,7 @@
   }
   function render() {
     current = parse(); renderNav();
+    view.classList.add('enter'); clearTimeout(render.t); render.t = setTimeout(function () { view.classList.remove('enter'); }, 1500);   /* entrance motion only when the page changes, not on a filter tap or a keystroke */
     var isMap = current.v === 'map';
     mapView.hidden = !isMap; view.hidden = isMap;
     document.body.classList.toggle('on-map', isMap); document.body.classList.toggle('on-detail', current.v === 'detail');
