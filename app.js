@@ -17,7 +17,10 @@
   var ZHD = (window.ZH && window.ZH.places) || {};
   var CFG = window.APP_CONFIG || {};
   var LOGIN = !!(CFG.sheetUrl && CFG.googleClientId);   /* Google sign-in is on only when both are set in config.js */
-  var META = DATA.meta, ORIGIN = META.origin, P = DATA.properties, BY = {};
+  var META = DATA.meta, ORIGIN = META.origin, BY = {};
+  /* config.js "shortlist": show only these places (the others stay in data/properties.js, hidden). Empty, missing or matching nothing = show all. */
+  var SHORT = (CFG.shortlist || []).filter(Boolean), SHOWN = SHORT.length ? DATA.properties.filter(function (p) { return SHORT.indexOf(p.id) > -1; }) : [];
+  var P = SHOWN.length ? SHOWN : DATA.properties;
 
   /* Prices typed into prices.js (top level of the website) replace the prices in the data. */
   var PR = window.PRICES || {};
@@ -74,7 +77,7 @@
   /* ---------- words ---------- */
   var UI = {
     en: {
-      title: 'Year-End Countdown 2026', brand: 'Countdown 2026', pickTitle: 'Where shall we stay?', tagline: '2 days 1 night · from FGA CYC Kuchai Lama',
+      title: 'Year-End Countdown 2026', brand: 'Countdown 2026', pickTitle: 'Where shall we stay?', cdTitle: 'Countdown to New Year 2027 (Malaysia time)', cdDays: 'days', cdHours: 'hours', cdMins: 'minutes', cdSecs: 'seconds', cdDone: 'Happy New Year 2027!', tagline: '2 days 1 night · from FGA CYC Kuchai Lama',
       tabPlaces: 'Places', tabMap: 'Map', tabCompare: 'Compare', tabTalk: 'Votes & Q&A',
       near: 'Near', mid: 'Medium', far: 'Far', all: 'All', nearR: '≤ {n} km', midR: '{a}–{b} km', farR: '> {n} km',
       sort: 'Sort', sortDistance: 'Nearest first', sortVotes: 'Most liked', sortGuests: 'Most guests', needFac: 'Must have',
@@ -108,7 +111,7 @@
       facPool: 'Pool', facBbq: 'BBQ', facKaraoke: 'Karaoke', photoCount: 'photos, tap to enlarge', ourPhoto: 'Our photo'
     },
     zh: {
-      title: '年终倒数 2026', brand: '年终倒数 2026', pickTitle: '我们住哪里？', tagline: '两天一夜 · 从 FGA CYC Kuchai Lama 出发',
+      title: '年终倒数 2026', brand: '年终倒数 2026', pickTitle: '我们住哪里？', cdTitle: '距离 2027 年元旦（马来西亚时间）', cdDays: '天', cdHours: '小时', cdMins: '分钟', cdSecs: '秒', cdDone: '2027 新年快乐！', tagline: '两天一夜 · 从 FGA CYC Kuchai Lama 出发',
       tabPlaces: '场地', tabMap: '地图', tabCompare: '对比', tabTalk: '投票·提问',
       near: '近', mid: '中等', far: '远', all: '全部', nearR: '≤ {n} 公里', midR: '{a}–{b} 公里', farR: '> {n} 公里',
       sort: '排序', sortDistance: '最近优先', sortVotes: '最多赞', sortGuests: '人数最多', needFac: '必须有',
@@ -584,9 +587,9 @@
     });
     return list;
   }
-  function card(p) {
+  function card(p, i) {
     var pr = price(p);
-    return '<article class="card" data-id="' + p.id + '">' +
+    return '<article class="card" data-id="' + p.id + '" style="--i:' + (i || 0) + '">' +
       '<a class="card-link" href="#/p/' + p.id + '" aria-label="' + esc(p.name) + '">' +
         '<div class="ph">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span>' + distBadge(p) + '</div>' +
         '<div class="cb"><h3>' + esc(p.name) + '</h3><p class="where">' + icon('pin', 15) + esc(regionOf(p)) + '</p>' +
@@ -595,6 +598,24 @@
       '</a>' +
       '<div class="card-actions">' + likeBtn(p.id) + cmpBtn(p.id) + shareBtn(p.id) + '<a class="mapbtn" href="#/map/' + p.id + '" aria-label="' + esc(t('mapPin')) + '">' + icon('map', 18) + '</a></div></article>';
   }
+  /* Live countdown to New Year 2027, Malaysia time (UTC+8): midnight there is 16:00 UTC on 31 Dec 2026. */
+  var NEW_YEAR = Date.UTC(2026, 11, 31, 16, 0, 0);
+  function countdownHtml() {
+    var unit = function (k, label) { return '<div class="cd-u"><b id="cd-' + k + '">--</b><span>' + esc(t(label)) + '</span></div>'; };
+    return '<div class="cd" role="timer" aria-live="off"><p class="cd-t">' + esc(t('cdTitle')) + '</p><div class="cd-grid">' +
+      unit('d', 'cdDays') + unit('h', 'cdHours') + unit('m', 'cdMins') + unit('s', 'cdSecs') + '</div></div>';
+  }
+  function tickCountdown() {
+    var box = $('.cd'); if (!box) return;
+    var s = Math.max(0, Math.floor((NEW_YEAR - Date.now()) / 1000));
+    var two = function (n) { return (n < 10 ? '0' : '') + n; };
+    var vals = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+    Object.keys(vals).forEach(function (k) { var el = $('#cd-' + k); if (el) el.textContent = two(vals[k]); });
+    if (s === 0) { var lab = box.querySelector('.cd-t'); if (lab) lab.textContent = t('cdDone'); }
+    box.classList.toggle('done', s === 0);
+  }
+  setInterval(tickCountdown, 1000);
+
   function renderPlaces() {
     var counts = { all: P.length, near: 0, mid: 0, far: 0 }; P.forEach(function (p) { counts[band(p)]++; });
     var b = META.bands, list = visiblePlaces();
@@ -605,7 +626,7 @@
       return '<button type="button" class="fchip' + (S.fac.indexOf(k) > -1 ? ' on' : '') + '" data-fac="' + k + '" aria-pressed="' + (S.fac.indexOf(k) > -1) + '">' + icon(AMX[k][3], 16) + esc(t('fac' + k.charAt(0).toUpperCase() + k.slice(1))) + '</button>';
     }).join('');
     view.innerHTML =
-      '<section class="intro"><h1>' + esc(t('pickTitle')) + '</h1><p>' + icon('church', 16) + esc(t('tagline')) + '</p></section>' +
+      '<section class="intro"><div class="intro-top"><h1>' + esc(t('pickTitle')) + '</h1><p>' + icon('church', 16) + esc(t('tagline')) + '</p></div>' + countdownHtml() + '</section>' +
       '<section class="results" id="homeResults"></section>' +
       '<div class="bands" role="group">' + chips + '</div>' +
       '<div class="facs" role="group"><span class="lbl">' + esc(t('needFac')) + ':</span>' + facs + '</div>' +
@@ -614,6 +635,7 @@
         [['distance', 'sortDistance'], ['votes', 'sortVotes'], ['guests', 'sortGuests']].map(function (k) { return '<option value="' + k[0] + '"' + (S.sort === k[0] ? ' selected' : '') + '>' + esc(t(k[1])) + '</option>'; }).join('') + '</select></label></div>' +
       (list.length ? '<div class="grid">' + list.map(card).join('') + '</div>' : '<div class="empty"><p>' + esc(t('noMatch')) + '</p><button type="button" class="btn" data-clear>' + esc(t('clear')) + '</button></div>') +
       '<p class="ver">v2.1 · ' + P.length + ' ' + esc(t('places')) + '</p>';
+    tickCountdown();
   }
 
   /* ---------- DETAIL ---------- */

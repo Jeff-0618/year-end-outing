@@ -25,6 +25,7 @@ A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a ch
 | behaviour (map, compare, likes, comments, sign-in) | `app.js` |
 | looks | `styles.css` |
 | Google settings, number of people, photo order | `config.js` (`sheetUrl`, `googleClientId`, `participants`, `userPhotosFirst`) |
+| which places the page shows | `config.js` `shortlist` (list of place ids; the others are hidden, not deleted; `[]` = show all). Set to `batu_gajah`, `aoya_villa`, `gm_pool_pd` on 4 Nov 2026. `aoya_villa` replaced `hh_melaka` (still in the data, hidden, its likes stay in the sheet). It is a fixed list, it does not follow later likes. |
 | the sheet back end (votes, comments, who may delete) | `tools/google-sheet-script.gs` (`CLIENT_ID`, `ADMIN_EMAILS` at the top). The owner pastes it into Apps Script, then Deploy → Manage deployments → New version. The web app address stays the same. |
 | photos of a place | put images in `photos-to-add/<place id>/`, run `python tools/add_photos.py` (or `update-site.bat`) |
 
@@ -38,8 +39,10 @@ A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a ch
 ## Data rules
 - Do not invent facts. Unknown stays unknown (`?`, `"Not collected yet"`). Amenity status words: `confirmed`, `not_provided`, `not_disclosed`, `additional_charge`, `need_confirmation`.
 - Distances are straight-line from the church (area level), not driving time. Coordinates are approximate (town level).
+- Airbnb photo `remote` URLs must have NO query string (`https://a0.muscache.com/im/pictures/<id>.jpg`). The app adds `?im_w=720` / `?im_w=1200` itself; a second `?` breaks the image.
+- Look (4 Nov 2026): the "v3 look" block at the end of `styles.css` is the visual layer (motion only when the device allows it). The New Year countdown on the places page is `countdownHtml()` and `tickCountdown()` in `app.js`; delete those and the `tickCountdown();` call to remove it.
 - GM Pool Villa Port Dickson = TWO DIFFERENT villas booked together (the owner confirmed): Viking (3 rooms, 3 bathrooms, max 15 incl. 4 extra beds) and Mermaid (3 rooms, 4 bathrooms, max 13 — the owner agreed to follow the official site), each with 1 private pool; RM1,480 per villa (super-peak), RM2,960 for both; 28 people in total. Numbers on its page are for both villas together.
-- Places currently on the site: airbnb_a, airbnb_b, airbnb_c, dusun_bonda, pd_pool, batu_gajah, bentong_actb, hh_melaka, gm_pool_pd.
+- Places currently in `data/properties.js`: airbnb_a, airbnb_b, airbnb_c, dusun_bonda, pd_pool, batu_gajah, bentong_actb, hh_melaka, gm_pool_pd, aoya_villa. Only the ones in `config.js` `shortlist` are shown on the page. When a place is replaced (e.g. `hh_melaka`), give the new one a NEW id: reusing an id would hand the old place's likes to a different place.
 
 ## How likes / votes / comments work (so changes do not break them)
 - The page never waits for the sheet: a tap is shown at once, saved in the background one request at a time (`Soc.pending`), retried twice, and synced again about a second later. What is shown = `Soc.base` (last known sheet data) + `Soc.pending`.
@@ -56,7 +59,8 @@ A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a ch
 2. Preview: double-click `start.bat`, open http://localhost:8000.
 3. Run `update-site.bat` (adds new photos; with a separate deployment folder it also builds and copies into it; with the current setup it only adds photos).
 4. GitHub Desktop → write a summary → Commit to main → Push origin. Vercel updates in about 30 seconds.
-5. If `tools/google-sheet-script.gs` changed: paste it into Apps Script, keep `CLIENT_ID` and `ADMIN_EMAILS`, then Deploy → Manage deployments → pencil → New version → Deploy.
+5. Whenever a `.js`, `.css` or `data/` file changes, bump the `?v=N` number on every script and stylesheet tag in `index.html` (all of them, to the same new number). Otherwise browsers keep the old file, and the page shows old data.
+6. If `tools/google-sheet-script.gs` changed: paste it into Apps Script, keep `CLIENT_ID` and `ADMIN_EMAILS`, then Deploy → Manage deployments → pencil → New version → Deploy.
 
 ## About the owner
 - Corporate secretarial assistant; beginner programmer on Windows (PowerShell, VS Code, GitHub Desktop). Talks in Chinese — reply in Chinese, keep website copy in English.

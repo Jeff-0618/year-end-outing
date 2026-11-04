@@ -3455,6 +3455,300 @@ window.PROPERTIES_DATA = {
      "body": "Booking all 3 villas includes Event Space access. Event setup at the Event Space is RM500 (full property booking required). With one villa only, a small indoor celebration setup is allowed."
     }
    ]
+  },
+  {
+   "id": "aoya_villa",
+   "label": "Aoya Villa",
+   "name": "Aoya Villa — private pool, KTV & jacuzzi (Melaka)",
+   "region": "Melaka, Cheng (Cheng Setia)",
+   "type": "Entire home — 8 bedrooms, private pool and KTV lounge",
+   "address": "Exact address not shown by Airbnb before booking (given after booking)",
+   "summary": "8-bedroom house in Cheng, Melaka, for up to 40 people, with a private pool, a pool with a jacuzzi, a KTV lounge, a BBQ area and a meeting room with a projector. Hosted by a Superhost (4.89 from 55 reviews).",
+   "location": {
+    "lat": 2.2794,
+    "lng": 102.20671,
+    "radiusKm": 4,
+    "precision": "approximate",
+    "basis": "Airbnb shows only the area (Cheng, Melaka) before booking. The pin is the area point from the listing; the exact address is given after booking.",
+    "gmaps": "https://www.google.com/maps/search/?api=1&query=2.2794,102.20671",
+    "gmapsLabel": "Open the area in Google Maps",
+    "dirQuery": "2.2794,102.20671"
+   },
+   "surroundings": "In Cheng, near Melaka's old town. Airbnb says Taman Cheng Perdana is a short walk away. Jonker Street is about 14 km by car (25 to 31 minutes on Google Maps).",
+   "groupFit": "The host calls it a home for big family gatherings. It welcomes birthday parties, company gatherings and weddings. A September 2026 review says a team used it for training, and a December 2025 review says a group of 20 stayed 3 days.",
+   "rating": {
+    "score": 4.89,
+    "reviews": 55,
+    "note": "Superhost · Guest favourite · 9 years hosting"
+   },
+   "headline": {
+    "bedrooms": 8,
+    "beds": 27,
+    "baths": 8
+   },
+   "card": {
+    "price": "RM1,989 per night (gross)",
+    "guests": "16+ on Airbnb · host: up to 40",
+    "beds": "27 beds in total",
+    "baths": "8 baths"
+   },
+   "guests": {
+    "n": 40,
+    "plus": false
+   },
+   "maxGuests": {
+    "display": "16+ on Airbnb · host: up to 40 people",
+    "status": "confirmed",
+    "note": "House rules: up to 40 people. From the 21st person, RM50 per person per night. Confirm the total for 25 people with the host."
+   },
+   "links": [
+    {
+     "label": "Airbnb listing (original link)",
+     "url": "https://www.airbnb.com/rooms/32632119"
+    }
+   ],
+   "photos": [
+    {
+     "remote": "https://a0.muscache.com/im/pictures/ecd42c19-d7e0-4a00-bb27-5660651cee0b.jpg",
+     "caption": "Listing cover photo"
+    },
+    {
+     "remote": "https://a0.muscache.com/im/pictures/ba5225ca-23df-4fb9-b6f6-9383df4598ec.jpg",
+     "caption": "Listing photo 2"
+    },
+    {
+     "remote": "https://a0.muscache.com/im/pictures/2ebbf01d-52a1-4d7e-a9d4-e46a2c8edcf0.jpg",
+     "caption": "Listing photo 3"
+    },
+    {
+     "remote": "https://a0.muscache.com/im/pictures/2ec47038-1651-4db2-a122-452fd31b410e.jpg",
+     "caption": "Listing photo 4"
+    },
+    {
+     "remote": "https://a0.muscache.com/im/pictures/8f04ea52-a75f-409a-ba76-5782c0c0dd0c.jpg",
+     "caption": "Listing photo 5"
+    }
+   ],
+   "bedroomsComplete": false,
+   "bedrooms": [
+    {
+     "name": "Bedroom 1 (sample shown on Airbnb)",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 4
+      },
+      {
+       "type": "single",
+       "qty": 5
+      }
+     ]
+    },
+    {
+     "name": "Bedroom 2 (sample shown on Airbnb)",
+     "beds": [
+      {
+       "type": "queen",
+       "qty": 1
+      }
+     ]
+    }
+   ],
+   "sleepingNotes": [
+    "Airbnb shows only 2 of the 8 bedrooms: Bedroom 1 has 4 queen beds and 5 single beds, Bedroom 2 has 1 queen bed.",
+    "The headline says 27 beds in total, so the other 6 bedrooms are not described on the page.",
+    "Bed sheets and towels are listed under Essentials. Pillows and blankets are not listed."
+   ],
+   "bedding": {
+    "status": "confirmed",
+    "note": "Bed sheets and towels are listed (Essentials)."
+   },
+   "bathrooms": {
+    "total": {
+     "status": "confirmed",
+     "value": "8 bathrooms",
+     "note": "8 baths (Airbnb). The host says bath towels and sanitary items are provided."
+    },
+    "toilets": {
+     "status": "need_confirmation",
+     "note": "Toilet count is not listed separately from bathrooms."
+    },
+    "toiletries": {
+     "status": "confirmed",
+     "note": "Shampoo, hair dryer, towels, soap and toilet paper are listed."
+    },
+    "towels": {
+     "status": "confirmed",
+     "note": "Towels are provided (Essentials, and the host's description)."
+    },
+    "hotWater": {
+     "status": "not_provided",
+     "note": "Airbnb marks hot water as unavailable. Ask the host."
+    }
+   },
+   "kitchen": {
+    "selfCooking": {
+     "status": "confirmed",
+     "note": "Kitchen listed, with space where guests can cook their own meals."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator listed."
+    },
+    "microwave": {
+     "status": "need_confirmation",
+     "note": "Reviews mention a microwave and an induction cooker, but neither is in the amenity list."
+    },
+    "bbqAllowed": {
+     "status": "confirmed",
+     "note": "BBQ area for guests (host description)."
+    },
+    "ownSupplies": {
+     "status": "need_confirmation",
+     "note": "Charcoal, grill and BBQ tools are not described."
+    },
+    "limits": {
+     "status": "confirmed",
+     "note": "No food or drink in the KTV room or bedrooms. No food, drink, shampoo or sanitary items at the pool. Quiet hours 10 pm to 7 am."
+    }
+   },
+   "amenities": {
+    "pool": {
+     "status": "confirmed",
+     "note": "Private outdoor pool, open all year, open 7:00 AM to 10:00 PM (Airbnb). The host also lists a pool with a jacuzzi, and a review mentions a kids' pool."
+    },
+    "bbq": {
+     "status": "confirmed",
+     "note": "BBQ area (host description)."
+    },
+    "karaoke": {
+     "status": "confirmed",
+     "note": "Private KTV lounge (host description). Food and drink are not allowed inside."
+    },
+    "projector": {
+     "status": "confirmed",
+     "note": "Meeting room with a projector (host description)."
+    },
+    "gaming": {
+     "status": "need_confirmation",
+     "note": "Reviews mention snooker and table games. They are not in the host's list."
+    },
+    "fridge": {
+     "status": "confirmed",
+     "note": "Refrigerator listed."
+    },
+    "wifi": {
+     "status": "confirmed",
+     "note": "100 Mbps Unifi (host description)."
+    },
+    "parking": {
+     "status": "confirmed",
+     "note": "Free parking on premises. The host describes a private parking space."
+    },
+    "aircon": {
+     "status": "confirmed",
+     "qualifier": "coverage not stated",
+     "note": "Air conditioning is listed. Coverage per room is not stated."
+    },
+    "other": {
+     "status": "confirmed",
+     "note": "Indoor fireplace, iron, hangers, TV, fire extinguisher and first-aid kit. Smoke and carbon monoxide alarms are unavailable (Airbnb)."
+    }
+   },
+   "pricing": {
+    "total": 1989,
+    "totalUnit": "night",
+    "totalNote": "per night, gross, for 16 guests on 31 Dec – 1 Jan (checked on Airbnb, 4 Nov 2026)",
+    "status": "need_confirmation",
+    "headline": "RM1,989 per night (gross, 16 guests on 31 Dec)",
+    "note": "Gross price for 16 guests on 31 Dec – 1 Jan, checked on Airbnb on 4 Nov 2026. From the 21st person RM50 per person per night applies. The final total must be verified.",
+    "items": {
+     "nightly": {
+      "status": "need_confirmation",
+      "value": "RM1,989 per night, gross",
+      "note": "Price for 16 guests, from the Airbnb search. Availability and the final total must still be verified."
+     },
+     "extraGuests": {
+      "status": "additional_charge",
+      "value": "RM50 per person per night from the 21st person",
+      "note": "From the 21st person: RM50 per person per night (house rules)."
+     },
+     "deposit": {
+      "status": "confirmed",
+      "value": "RM500 refundable",
+      "note": "RM500 refundable deposit, paid on check-in (house rules)."
+     },
+     "multiUnit": {
+      "status": "confirmed",
+      "note": "No — one whole-house listing."
+     }
+    }
+   },
+   "pros": [
+    "Very large: 8 bedrooms, 8 bathrooms and 27 beds (Airbnb). The host says it fits up to 40 people",
+    "Private pool open all year (7:00 AM to 10:00 PM), a pool with a jacuzzi, a KTV lounge, a BBQ area and a meeting room with a projector",
+    "The host welcomes birthday parties, company gatherings and weddings",
+    "Rated 4.89 from 55 reviews, Superhost. Guests praise the space, the pool and fast replies",
+    "Free parking on premises. Towels and sanitary items are provided"
+   ],
+   "cautions": [
+    "Far from Kuala Lumpur, and about 14 km (25 to 31 minutes by car) from Jonker Street on Google Maps",
+    "Quiet hours are 10:00 PM to 7:00 AM, so the midnight countdown falls inside them",
+    "Airbnb lists no hot water, and no smoke or carbon monoxide alarm",
+    "From the 21st person: RM50 per person per night (about RM250 extra for 25 people)",
+    "Only 2 of the 8 bedrooms are described on the listing. The bed plan for 25 people must be confirmed"
+   ],
+   "openItems": [
+    "Confirm with the host: 25 people allowed on 31 Dec, and the RM50 per person rule from the 21st person",
+    "The pool closes at 10:00 PM. Can it be used around midnight?",
+    "Bed list for all 8 bedrooms (only 2 are shown; 27 beds in total)",
+    "Hot water: Airbnb marks it unavailable. Ask whether the bathrooms have hot water",
+    "Microwave and induction cooker: reviews mention them, but they are not in the amenity list",
+    "Charcoal, grill and BBQ tools: not described",
+    "Total price for 31 Dec for 25 people (RM500 deposit, cleaning fee, taxes)"
+   ],
+   "rules": [
+    {
+     "tone": "warn",
+     "title": "Quiet hours 10 pm – 7 am",
+     "body": "Quiet hours are 10:00 PM to 7:00 AM."
+    },
+    {
+     "tone": "warn",
+     "title": "No food or drink in the KTV room or bedrooms",
+     "body": "House rule: no food and drink inside the KTV room and the bedrooms."
+    },
+    {
+     "tone": "warn",
+     "title": "No food, drink, shampoo or sanitary items at the pool",
+     "body": "House rule: keep food, drink, shampoo and sanitary items away from the pool area."
+    },
+    {
+     "tone": "warn",
+     "title": "No pets, no smoking",
+     "body": "No pets. No smoking, including vaping and e-cigarettes."
+    },
+    {
+     "tone": "info",
+     "title": "Pool open until 10 pm",
+     "body": "All swimming must end by 10:00 PM. The amenity list says the pool is open 7:00 AM to 10:00 PM."
+    },
+    {
+     "tone": "info",
+     "title": "RM500 refundable deposit",
+     "body": "Paid on check-in and refunded afterwards. Any activity against the house rules means the deposit is kept."
+    },
+    {
+     "tone": "info",
+     "title": "Check-in after 3 pm, check-out before 12 noon",
+     "body": "From Airbnb's 'Things to know' section."
+    },
+    {
+     "tone": "info",
+     "title": "Up to 40 people",
+     "body": "The host says up to 40 people. From the 21st person, RM50 per person per night."
+    }
+   ]
   }
  ]
 };

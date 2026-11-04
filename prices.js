@@ -19,5 +19,6 @@ window.PRICES = {
   "batu_gajah": { "night": 1430 },               // Royale Villa Homestay Private Pool Batu Gajah Ipoh
   "bentong_actb": { "night": 1527 },             // ActB GuestHouse 装B民宿 (Bentong)
   "hh_melaka": { "night": 1735 },                // H&H Leisure Guest House
+  "aoya_villa": { "night": 1989, "note": "Price for 16 guests on 31 Dec. From the 21st person: RM50 per person per night." },   // Aoya Villa (Cheng, Melaka)
   "gm_pool_pd": { "night": 2960, "units": 2, "unitName": "villa", "note": "Super-peak price: RM1,480 per villa." }   // GM Pool Villa Port Dickson: Viking + Mermaid villas, RM1,480 each
 };
