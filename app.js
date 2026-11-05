@@ -80,7 +80,7 @@
       title: 'Year-End Countdown 2026', brand: 'Countdown 2026', pickTitle: 'Where shall we stay?', cdTitle: 'Countdown to New Year 2027 (Malaysia time)', cdDays: 'days', cdHours: 'hours', cdMins: 'minutes', cdSecs: 'seconds', cdDone: 'Happy New Year 2027!', incExtra: 'incl. {n} for extra guests', tagline: '2 days 1 night · from FGA CYC Kuchai Lama',
       tabPlaces: 'Places', tabMap: 'Map', tabCompare: 'Compare', tabTalk: 'Votes & Q&A',
       near: 'Near', mid: 'Medium', far: 'Far', all: 'All', nearR: '≤ {n} km', midR: '{a}–{b} km', farR: '> {n} km',
-      sort: 'Sort', sortDistance: 'Nearest first', sortVotes: 'Most liked', sortGuests: 'Most guests', needFac: 'Must have',
+      sort: 'Sort', sortDistance: 'Nearest first', sortVotes: 'Most votes', sortGuests: 'Most guests', needFac: 'Must have',
       places: 'places', noMatch: 'No places match these filters.', clear: 'Clear filters',
       perNight: '/ night', aboutPP: 'About RM{a}–{b} per person', priceTbc: 'Price to confirm', gross: 'gross',
       guests: 'guests', rooms: 'rooms', beds: 'beds', baths: 'baths', perUnit: 'per unit', units: 'units',
@@ -93,15 +93,15 @@
       officialLimit: 'Official limit: {a} adults + {c} child under 12', rateRange: '{a} – {b} per unit per night (before SST)',
       ratesTitle: 'Reference rates per unit per night (breakfast included, before SST)', tier1: 'Mon–Thu', tier2: 'Fri, Sun, school holidays', tier3: 'Sat, public holidays and their eve',
       priceDisclaimer: 'Price and availability for the actual countdown dates must be verified.',
-      like: 'Like', pick: 'Vote for this place', picked: 'Voted ✓', ask: 'Ask', share: 'Share', shareTitle: 'Share this place', shareHint: 'This is the link to the real place (not this website). Copy it and send it to friends, e.g. on WhatsApp.', copyLink: 'Copy link', copied: 'Link copied', voteWord: 'vote', you: 'you', edit: 'Edit', del: 'Delete', save: 'Save', sending: 'sending…', editedTag: '(edited)', delTitle: 'Delete this comment?', delText: 'This cannot be undone.', saveFail: 'Could not save. Please check your connection and try again.', saveFailServer: 'The server could not save this. Please try again in a moment.', connecting: 'Connecting… please try again in a moment.', emptyEdit: 'The comment cannot be empty.', whoTitle: 'Who voted and liked', whoVoted: 'Voted', whoLiked: 'Liked', whoNone: 'Nobody yet', signinTitle: 'Sign in with Google', signinShort: 'Sign in', signinHint: 'Sign in to like, vote and comment. Your name from Google is shown next to your likes, votes and comments, so everyone can see who chose what. We never show your email. Sign in once and your choices stay with you, even on another phone.', signinWait: 'Loading Google sign-in…', signinFail: 'Google sign-in could not load. Check your connection and try again.', signinBad: 'Sign-in did not work. Please try again.', signout: 'Sign out', signoutDone: 'Signed out', signedAs: 'Signed in as', postingAs: 'Posting as', accountTitle: 'Your account', inapp: 'This looks like an in-app browser (Facebook, Instagram, Line, WeChat…). Google blocks sign-in here. Open this page in Chrome or Safari.', whatsapp: 'WhatsApp', openLink: 'Open the place', nameTitle: 'What is your name?', nameHint: 'So the group can see who voted and who asked. It is saved on this phone.', nameSave: 'Save', nameLabel: 'Your name', nameChange: 'Change', cancel: 'Cancel', resTitle: 'Group votes', resNone: 'No votes yet. Open a place and tap “Vote for this place”.', resAll: 'See all', votesWord: 'votes',
+      like: 'Like', pick: 'Vote for this place', picked: 'Voted ✓', ask: 'Ask', share: 'Share', shareTitle: 'Share this place', shareHint: 'This is the link to the real place (not this website). Copy it and send it to friends, e.g. on WhatsApp.', copyLink: 'Copy link', copied: 'Link copied', voteWord: 'vote', you: 'you', edit: 'Edit', del: 'Delete', save: 'Save', sending: 'sending…', editedTag: '(edited)', delTitle: 'Delete this comment?', delText: 'This cannot be undone.', saveFail: 'Could not save. Please check your connection and try again.', saveFailServer: 'The server could not save this. Please try again in a moment.', connecting: 'Connecting… please try again in a moment.', emptyEdit: 'The comment cannot be empty.', whoTitle: 'Who voted', whoVoted: 'Voted', whoLiked: 'Liked', whoNone: 'Nobody yet', signinTitle: 'Sign in with Google', signinShort: 'Sign in', signinHint: 'Sign in to vote and comment. Your name from Google is shown next to your votes and comments, so everyone can see who chose what. We never show your email. Sign in once and your choices stay with you, even on another phone.', signinWait: 'Loading Google sign-in…', signinFail: 'Google sign-in could not load. Check your connection and try again.', signinBad: 'Sign-in did not work. Please try again.', signout: 'Sign out', signoutDone: 'Signed out', signedAs: 'Signed in as', postingAs: 'Posting as', accountTitle: 'Your account', inapp: 'This looks like an in-app browser (Facebook, Instagram, Line, WeChat…). Google blocks sign-in here. Open this page in Chrome or Safari.', whatsapp: 'WhatsApp', openLink: 'Open the place', nameTitle: 'What is your name?', nameHint: 'So the group can see who voted and who asked. It is saved on this phone.', nameSave: 'Save', nameLabel: 'Your name', nameChange: 'Change', cancel: 'Cancel', resTitle: 'Group votes', resNone: 'No votes yet. Tap the star on a place to vote.', voteRule: 'One vote each. Tap the star again to take it back, or tap another place to move your vote.', resAll: 'See all', votesWord: 'votes',
       askTitle: 'Ask a question or leave a comment', yourName: 'Your name (optional)', yourQ: 'Your question or comment', send: 'Send', sent: 'Sent. Thank you!', sendFail: 'Could not send. Try again.',
       noQ: 'No questions yet. Be the first.', reply: 'Reply', anon: 'Anonymous', general: 'General',
       localNote: 'Votes and questions are saved on this phone only. Everyone will see them once the Google Sheet is connected.',
       sharedNote: 'Shared: everyone sees the same votes and questions.', offlineNote: 'Could not reach the shared sheet. Showing what this phone knows.',
       compareTitle: 'Compare', compareHint: 'Tap the scale icon on up to 3 places, then compare them here.', compareEmpty: 'No places selected yet.', compareAdd: 'Add to compare', compareRemove: 'Remove from compare', compareMax: 'You can compare up to 3 places. The oldest one was replaced.',
       people: 'Number of people', perPerson: 'Per person', perPersonHint: 'Enter the number of people to see the cost per person.',
-      rowDistance: 'From the church', rowPrice: 'Price', rowGuests: 'Guests', rowRooms: 'Rooms and beds', rowBaths: 'Bathrooms', rowPool: 'Pool', rowBbq: 'BBQ', rowKaraoke: 'Karaoke', rowVotes: 'Likes',
-      talkTitle: 'Votes & Q&A', ranking: 'Ranking', rankHint: 'One vote per person (you can change it). Likes are extra.', picksLabel: 'votes',
+      rowDistance: 'From the church', rowPrice: 'Price', rowGuests: 'Guests', rowRooms: 'Rooms and beds', rowBaths: 'Bathrooms', rowPool: 'Pool', rowBbq: 'BBQ', rowKaraoke: 'Karaoke', rowVotes: 'Votes',
+      talkTitle: 'Votes & Q&A', ranking: 'Ranking', rankHint: 'One vote per person (you can change it).', picksLabel: 'votes',
       questions: 'Questions and comments', askGeneral: 'Ask something general',
       mapNear: 'Near view', mapAll: 'All places', church: 'FGA CYC Kuchai Lama', legendChurch: 'Church (start)',
       mapFail: 'The map could not load (offline?). Here are the places by distance instead.', loadingMap: 'Loading map…', details: 'Details',
@@ -114,7 +114,7 @@
       title: '年终倒数 2026', brand: '年终倒数 2026', pickTitle: '我们住哪里？', cdTitle: '距离 2027 年元旦（马来西亚时间）', cdDays: '天', cdHours: '小时', cdMins: '分钟', cdSecs: '秒', cdDone: '2027 新年快乐！', incExtra: '含额外人数费 {n}', tagline: '两天一夜 · 从 FGA CYC Kuchai Lama 出发',
       tabPlaces: '场地', tabMap: '地图', tabCompare: '对比', tabTalk: '投票·提问',
       near: '近', mid: '中等', far: '远', all: '全部', nearR: '≤ {n} 公里', midR: '{a}–{b} 公里', farR: '> {n} 公里',
-      sort: '排序', sortDistance: '最近优先', sortVotes: '最多赞', sortGuests: '人数最多', needFac: '必须有',
+      sort: '排序', sortDistance: '最近优先', sortVotes: '最多票', sortGuests: '人数最多', needFac: '必须有',
       places: '个场地', noMatch: '没有符合条件的场地。', clear: '清除筛选',
       perNight: '/ 晚', aboutPP: '约 RM{a}–{b} / 人', priceTbc: '价格待确认', gross: 'gross',
       guests: '人', rooms: '房', beds: '床', baths: '浴室', perUnit: '每单位', units: '个单位',
@@ -127,15 +127,15 @@
       officialLimit: '官方上限：{a} 位成人 + {c} 名 12 岁以下儿童', rateRange: '每单位每晚 {a} – {b}（未含 SST）',
       ratesTitle: '每单位每晚参考价（含早餐，未含 SST）', tier1: '周一至周四', tier2: '周五、周日、学校假期', tier3: '周六、公共假期及其前夕',
       priceDisclaimer: '倒数日期的价格和空房必须再确认。',
-      like: '赞', pick: '投一票给这里', picked: '已投票 ✓', ask: '提问', share: '分享', shareTitle: '分享这个场地', shareHint: '这是真正的地点链接（不是本网站）。复制后可以发给朋友，例如发到 WhatsApp。', copyLink: '复制链接', copied: '链接已复制', voteWord: '票', you: '你', edit: '编辑', del: '删除', save: '保存', sending: '发送中…', editedTag: '（已编辑）', delTitle: '要删除这条留言吗？', delText: '删除后不能恢复。', saveFail: '没有保存成功，请检查网络后再试。', saveFailServer: '服务器没能保存这一项，请稍后再试。', connecting: '正在连接，请稍后再试。', emptyEdit: '留言不能是空的。', whoTitle: '谁投票、谁点赞', whoVoted: '投票', whoLiked: '点赞', whoNone: '还没有人', signinTitle: '用 Google 登录', signinShort: '登录', signinHint: '登录后才能点赞、投票和留言。你的 Google 名字会显示在你的赞、投票和留言旁边，所有人都看得到谁选了什么。我们不会显示你的邮箱。登录一次，你的选择一直跟着你，换手机也在。', signinWait: '正在载入 Google 登录…', signinFail: '无法载入 Google 登录，请检查网络后再试。', signinBad: '登录没有成功，请再试一次。', signout: '退出登录', signoutDone: '已退出登录', signedAs: '已登录：', postingAs: '以这个身份发言：', accountTitle: '你的账号', inapp: '这好像是应用内置浏览器（Facebook、Instagram、Line、微信…），Google 会拦截登录。请用 Chrome 或 Safari 打开这个网页。', whatsapp: 'WhatsApp', openLink: '打开这个地点', nameTitle: '你的名字是？', nameHint: '让大家知道谁投了票、谁提了问。名字只保存在这部手机上。', nameSave: '保存', nameLabel: '你的名字', nameChange: '修改', cancel: '取消', resTitle: '大家的投票', resNone: '还没有人投票。打开一个场地，点“投一票给这里”。', resAll: '查看全部', votesWord: '票',
+      like: '赞', pick: '投一票给这里', picked: '已投票 ✓', ask: '提问', share: '分享', shareTitle: '分享这个场地', shareHint: '这是真正的地点链接（不是本网站）。复制后可以发给朋友，例如发到 WhatsApp。', copyLink: '复制链接', copied: '链接已复制', voteWord: '票', you: '你', edit: '编辑', del: '删除', save: '保存', sending: '发送中…', editedTag: '（已编辑）', delTitle: '要删除这条留言吗？', delText: '删除后不能恢复。', saveFail: '没有保存成功，请检查网络后再试。', saveFailServer: '服务器没能保存这一项，请稍后再试。', connecting: '正在连接，请稍后再试。', emptyEdit: '留言不能是空的。', whoTitle: '谁投了票', whoVoted: '投票', whoLiked: '点赞', whoNone: '还没有人', signinTitle: '用 Google 登录', signinShort: '登录', signinHint: '登录后才能投票和留言。你的 Google 名字会显示在你的投票和留言旁边，所有人都看得到谁选了什么。我们不会显示你的邮箱。登录一次，你的选择一直跟着你，换手机也在。', signinWait: '正在载入 Google 登录…', signinFail: '无法载入 Google 登录，请检查网络后再试。', signinBad: '登录没有成功，请再试一次。', signout: '退出登录', signoutDone: '已退出登录', signedAs: '已登录：', postingAs: '以这个身份发言：', accountTitle: '你的账号', inapp: '这好像是应用内置浏览器（Facebook、Instagram、Line、微信…），Google 会拦截登录。请用 Chrome 或 Safari 打开这个网页。', whatsapp: 'WhatsApp', openLink: '打开这个地点', nameTitle: '你的名字是？', nameHint: '让大家知道谁投了票、谁提了问。名字只保存在这部手机上。', nameSave: '保存', nameLabel: '你的名字', nameChange: '修改', cancel: '取消', resTitle: '大家的投票', resNone: '还没有人投票。点场地上的星星来投票。', voteRule: '每人只有一票。再点一次星星可以取消，点另一个场地可以改票。', resAll: '查看全部', votesWord: '票',
       askTitle: '提问或留言', yourName: '你的名字（可不填）', yourQ: '你的问题或留言', send: '发送', sent: '已发送，谢谢！', sendFail: '发送失败，请再试一次。',
       noQ: '还没有人提问，你来第一个。', reply: '回复', anon: '匿名', general: '综合',
       localNote: '投票和提问目前只保存在这部手机上。连接 Google Sheet 后，所有人才会看到。',
       sharedNote: '已共享：所有人看到的票数和问题都一样。', offlineNote: '连不上共享表格，先显示这部手机上的内容。',
       compareTitle: '对比', compareHint: '在最多 3 个场地上点天平图标，然后在这里对比。', compareEmpty: '还没有选择场地。', compareAdd: '加入对比', compareRemove: '移出对比', compareMax: '最多对比 3 个场地，已替换最早的一个。',
       people: '人数', perPerson: '每人', perPersonHint: '输入人数，就能看到每人费用。',
-      rowDistance: '离教会', rowPrice: '价格', rowGuests: '可住人数', rowRooms: '房间和床', rowBaths: '浴室', rowPool: '泳池', rowBbq: 'BBQ', rowKaraoke: '卡拉 OK', rowVotes: '赞',
-      talkTitle: '投票·提问', ranking: '排行', rankHint: '每人一票（可以改票），♥ 另算。', picksLabel: '票',
+      rowDistance: '离教会', rowPrice: '价格', rowGuests: '可住人数', rowRooms: '房间和床', rowBaths: '浴室', rowPool: '泳池', rowBbq: 'BBQ', rowKaraoke: '卡拉 OK', rowVotes: '票',
+      talkTitle: '投票·提问', ranking: '排行', rankHint: '每人一票（可以改票）。', picksLabel: '票',
       questions: '问题和留言', askGeneral: '问一个综合问题',
       mapNear: '近处视图', mapAll: '全部场地', church: 'FGA CYC Kuchai Lama', legendChurch: '教会（出发点）',
       mapFail: '地图载入失败（可能没有网络）。改用按距离排列的清单。', loadingMap: '正在载入地图…', details: '详情',
@@ -454,16 +454,25 @@
     Soc.pending.push(op); derive(); refreshSocial(); pump();
   }
   function connecting() { toast(t('connecting')); socLoad(); }
-  function isLiked(id) { return Soc.mine.likes.indexOf(id) > -1; }
-  function likeCount(id) { return Soc.likes[id] || 0; }
+  function pickCount(id) { return Soc.picks[id] || 0; }
+  /* a small star burst and a number bump when a person's own tap turns their vote on (never on a page load or a sync) */
+  var voteFx = null, voteFxT = 0;
+  function markVoteFx(id) { voteFx = id; clearTimeout(voteFxT); voteFxT = setTimeout(function () { voteFx = null; }, 4000); }
+  function burst(btn) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    btn.classList.add('fx'); setTimeout(function () { btn.classList.remove('fx'); }, 700);
+    var r = btn.getBoundingClientRect(), n = 12, i, a, d, s;
+    for (i = 0; i < n; i++) {
+      a = (i / n) * 6.2832 + Math.random() * .4; d = 34 + Math.random() * 30;
+      s = document.createElement('i'); s.className = 'spark';
+      s.style.cssText = 'left:' + Math.round(r.left + r.width / 2) + 'px;top:' + Math.round(r.top + r.height / 2) + 'px;--dx:' + Math.round(Math.cos(a) * d) + 'px;--dy:' + Math.round(Math.sin(a) * d) + 'px;--h:' + Math.round(15 + Math.random() * 45) + ';--s:' + Math.round(7 + Math.random() * 7) + 'px';
+      document.body.appendChild(s);
+      setTimeout((function (el) { return function () { if (el.parentNode) el.parentNode.removeChild(el); }; })(s), 900);
+    }
+  }
+  function bump(el) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
   function hasIdentity() { return LOGIN ? !!S.auth.session : !!S.name; }
   function requireIdentity(cb) { if (LOGIN) openSignIn(cb); else askName(cb); }
-  function toggleLike(id) {
-    var on = !isLiked(id);
-    if ((on || LOGIN) && !hasIdentity()) { requireIdentity(function () { if (isLiked(id) !== on) toggleLike(id); }); return; }
-    if (Soc.shared && !Soc.me.uid) { connecting(); return; }
-    commit({ t: 'like', id: id, on: on, venue: BY[id].name });
-  }
   function setPick(id) {
     var on = Soc.mine.pick !== id;
     if ((on || LOGIN) && !hasIdentity()) { requireIdentity(function () { if ((Soc.mine.pick === id) !== on) setPick(id); }); return; }
@@ -568,8 +577,10 @@
     else { inp.select(); inp.setSelectionRange(0, 999); try { document.execCommand('copy'); } catch (e) { /* user can copy by hand */ } done(); }
   }
   function shareBtn(id) { return '<button type="button" class="shr" data-share="' + id + '" aria-label="' + esc(t('share')) + '">' + icon('share', 18) + '</button>'; }
-  function likeBtn(id, cls) {
-    return '<button type="button" class="like ' + (cls || '') + (isLiked(id) ? ' on' : '') + '" data-like="' + id + '" aria-pressed="' + isLiked(id) + '" aria-label="' + esc(t('like')) + '">' + icon('heart', 18) + '<b data-likecount="' + id + '">' + likeCount(id) + '</b></button>';
+  /* the vote button: one vote per person, shown as a star with the number of votes */
+  function voteBtn(id, cls) {
+    var on = Soc.mine.pick === id;
+    return '<button type="button" class="vote ' + (cls || '') + (on ? ' on' : '') + '" data-pick="' + id + '" aria-pressed="' + on + '" aria-label="' + esc(t('pick')) + '">' + icon('star', 18) + '<b data-votecount="' + id + '">' + pickCount(id) + '</b></button>';
   }
   function cmpBtn(id, label) {
     var on = S.compare.indexOf(id) > -1;
@@ -581,7 +592,7 @@
   function visiblePlaces() {
     var list = P.filter(function (p) { return (S.band === 'all' || band(p) === S.band) && matchesFac(p); });
     list.sort(function (a, b) {
-      if (S.sort === 'votes') return ((Soc.picks[b.id] || 0) * 1000 + likeCount(b.id)) - ((Soc.picks[a.id] || 0) * 1000 + likeCount(a.id)) || a.dist - b.dist;
+      if (S.sort === 'votes') return pickCount(b.id) - pickCount(a.id) || a.dist - b.dist;
       if (S.sort === 'guests') return capN(b) - capN(a) || a.dist - b.dist;
       return a.dist - b.dist;
     });
@@ -589,14 +600,14 @@
   }
   function card(p, i) {
     var pr = price(p);
-    return '<article class="card" data-id="' + p.id + '" style="--i:' + (i || 0) + '">' +
+    return '<article class="card' + (Soc.mine.pick === p.id ? ' voted' : '') + '" data-id="' + p.id + '" style="--i:' + (i || 0) + '">' +
       '<a class="card-link" href="#/p/' + p.id + '" aria-label="' + esc(p.name) + '">' +
         '<div class="ph">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span>' + distBadge(p) + '</div>' +
         '<div class="cb"><h3>' + esc(p.name) + '</h3><p class="where">' + icon('pin', 15) + esc(regionOf(p)) + '</p>' +
         '<p class="price' + (pr.known ? '' : ' tbc') + '">' + esc(pr.text) + '</p>' + (pr.sub ? '<p class="usub">' + esc(pr.sub) + '</p>' : '') +
         '<p class="facts"><span>' + icon('users', 16) + esc(guestsText(p)) + '</span>' + (p.headline && p.headline.bedrooms ? '<span>' + icon('bed', 16) + p.headline.bedrooms + ' ' + esc(t('rooms')) + esc(perUnitSuffix(p)) + '</span>' : '') + (p.headline && p.headline.baths ? '<span>' + icon('bath', 16) + p.headline.baths + esc(perUnitSuffix(p)) + '</span>' : '') + '</p></div>' +
       '</a>' +
-      '<div class="card-actions">' + likeBtn(p.id) + cmpBtn(p.id) + shareBtn(p.id) + '<a class="mapbtn" href="#/map/' + p.id + '" aria-label="' + esc(t('mapPin')) + '">' + icon('map', 18) + '</a></div></article>';
+      '<div class="card-actions">' + voteBtn(p.id) + cmpBtn(p.id) + shareBtn(p.id) + '<a class="mapbtn" href="#/map/' + p.id + '" aria-label="' + esc(t('mapPin')) + '">' + icon('map', 18) + '</a></div></article>';
   }
   /* Live countdown to New Year 2027, Malaysia time (UTC+8): midnight there is 16:00 UTC on 31 Dec 2026. */
   var NEW_YEAR = Date.UTC(2026, 11, 31, 16, 0, 0);
@@ -725,7 +736,7 @@
       '</section>' +
       '<section class="who" id="whoBox">' + whoHtml(p.id) + '</section><section class="qa" id="qa"><h3 class="h">' + icon('chat', 18) + esc(t('askTitle')) + '</h3><div id="qaNote"></div><div id="qaList"></div>' + qaForm(p.id) + '</section>' +
       '</article>' +
-      '<div class="actions" role="group">' + likeBtn(p.id, 'big') + '<button type="button" class="pickbtn' + (picked ? ' on' : '') + '" data-pick="' + p.id + '" aria-pressed="' + picked + '">' + icon('star', 18) + '<span>' + esc(picked ? t('picked') : t('pick')) + '</span></button>' + shareBtn(p.id) + '<button type="button" class="askbtn" data-askjump>' + icon('chat', 18) + '<span>' + esc(t('ask')) + '</span></button></div>';
+      '<div class="actions" role="group"><button type="button" class="pickbtn' + (picked ? ' on' : '') + '" data-pick="' + p.id + '" aria-pressed="' + picked + '">' + icon('star', 18) + '<span>' + esc(picked ? t('picked') : t('pick')) + '</span><b class="vc" data-votecount="' + p.id + '">' + pickCount(p.id) + '</b></button>' + shareBtn(p.id) + '<button type="button" class="askbtn" data-askjump>' + icon('chat', 18) + '<span>' + esc(t('ask')) + '</span></button></div>';
   }
   function qaForm(id) {
     return '<form class="qform" data-qform="' + id + '" autocomplete="off">' + (LOGIN ? '<div class="postas" data-postas>' + postAsHtml() + '</div>' : '<label><span>' + esc(t('yourName')) + '</span><input type="text" name="name" maxlength="40" value="' + esc(S.name) + '"></label>') +
@@ -749,9 +760,9 @@
   function chipsHtml(list) { return list.map(function (w) { return '<span class="chip-n' + (w.me ? ' me' : '') + '">' + esc(w.n || t('anon')) + (w.me ? ' · ' + esc(t('you')) : '') + '</span>'; }).join(''); }
   function namesInline(list, max) { var n = list.map(function (w) { return w.n || t('anon'); }); return n.slice(0, max).join(', ') + (n.length > max ? ' +' + (n.length - max) : ''); }
   function whoHtml(id) {
-    var vp = Soc.who.picks[id] || [], vl = Soc.who.likes[id] || [];
+    var vp = Soc.who.picks[id] || [];
     function row(sym, label, list) { return '<div class="who-row"><b>' + sym + ' ' + esc(label) + ' (' + list.length + ')</b>' + (list.length ? '<div class="chips-n">' + chipsHtml(list) + '</div>' : '<span class="muted small">' + esc(t('whoNone')) + '</span>') + '</div>'; }
-    return '<h3 class="h">' + icon('users', 18) + esc(t('whoTitle')) + '</h3>' + row('★', t('whoVoted'), vp) + row('♥', t('whoLiked'), vl);
+    return '<h3 class="h">' + icon('users', 18) + esc(t('whoTitle')) + '</h3>' + row('★', t('whoVoted'), vp);
   }
   function socialNote() {
     return '<p class="snote ' + (Soc.shared && !Soc.offline ? 'ok' : 'warn') + '">' + esc(Soc.shared ? (Soc.offline ? t('offlineNote') : t('sharedNote')) : t('localNote')) + '</p>';
@@ -774,7 +785,7 @@
       [t('rowPool'), function (p) { return pill(amStatus(p, 'pool')); }],
       [t('rowBbq'), function (p) { return pill(amStatus(p, 'bbq')); }],
       [t('rowKaraoke'), function (p) { return pill(amStatus(p, 'karaoke')); }],
-      [t('rowVotes'), function (p) { return '♥ ' + likeCount(p.id) + (Soc.picks[p.id] ? ' · ★ ' + Soc.picks[p.id] : ''); }]
+      [t('rowVotes'), function (p) { return '★ ' + pickCount(p.id); }]
     ];
     view.innerHTML = head +
       '<label class="people"><span>' + esc(t('people')) + '</span><input type="number" id="people" min="1" inputmode="numeric" value="' + esc(S.people || CFG.participants || '') + '" placeholder="20"></label>' +
@@ -790,32 +801,39 @@
       '<section class="qa"><h3 class="h">' + icon('chat', 18) + esc(t('questions')) + '</h3><div id="talkList"></div><h4 class="sub">' + esc(t('askGeneral')) + '</h4>' + qaForm('general') + '</section>';
   }
   function rankWho(id) {
-    var vp = Soc.who.picks[id] || [], vl = Soc.who.likes[id] || [];
-    return vp.length || vl.length ? '<div class="rank-who">' + (vp.length ? '<span>★ ' + esc(namesInline(vp, 12)) + '</span>' : '') + (vl.length ? '<span>♥ ' + esc(namesInline(vl, 12)) + '</span>' : '') + '</div>' : '';
+    var vp = Soc.who.picks[id] || [];
+    return vp.length ? '<div class="rank-who"><span>★ ' + esc(namesInline(vp, 12)) + '</span></div>' : '';
   }
   function rankHtml() {
-    var ranked = P.filter(function (p) { return likeCount(p.id) || (Soc.picks[p.id] || 0); }).sort(function (a, b) { return ((Soc.picks[b.id] || 0) - (Soc.picks[a.id] || 0)) || (likeCount(b.id) - likeCount(a.id)) || a.dist - b.dist; });
+    var ranked = P.filter(function (p) { return pickCount(p.id); }).sort(function (a, b) { return pickCount(b.id) - pickCount(a.id) || a.dist - b.dist; });
     if (!ranked.length) return '<p class="muted">—</p>';
-    return '<ol class="rank">' + ranked.map(function (p) { return '<li><a href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><b>' + esc(p.name) + '</b></a><span class="sc">★ ' + (Soc.picks[p.id] || 0) + ' ' + esc(t('picksLabel')) + ' · ♥ ' + likeCount(p.id) + '</span>' + rankWho(p.id) + '</li>'; }).join('') + '</ol>';
+    return '<ol class="rank">' + ranked.map(function (p) { return '<li><a href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><b>' + esc(p.name) + '</b></a><span class="sc">★ ' + pickCount(p.id) + ' ' + esc(t('picksLabel')) + '</span>' + rankWho(p.id) + '</li>'; }).join('') + '</ol>';
   }
   function resultsHtml() {
-    var ranked = P.filter(function (p) { return likeCount(p.id) || (Soc.picks[p.id] || 0); }).sort(function (a, b) { return ((Soc.picks[b.id] || 0) - (Soc.picks[a.id] || 0)) || (likeCount(b.id) - likeCount(a.id)) || a.dist - b.dist; }).slice(0, 3);
-    var head = '<div class="res-h"><h2>' + icon('star', 18) + esc(t('resTitle')) + '</h2><a href="#/talk">' + esc(t('resAll')) + '</a></div>';
+    var ranked = P.filter(function (p) { return pickCount(p.id); }).sort(function (a, b) { return pickCount(b.id) - pickCount(a.id) || a.dist - b.dist; }).slice(0, 3);
+    var head = '<div class="res-h"><h2>' + icon('star', 18) + esc(t('resTitle')) + '</h2><a href="#/talk">' + esc(t('resAll')) + '</a></div><p class="muted small res-rule">' + esc(t('voteRule')) + '</p>';
     if (!ranked.length) return head + '<p class="muted small">' + esc(t('resNone')) + '</p>';
-    var byVotes = ranked.some(function (p) { return Soc.picks[p.id]; });
-    var max = Math.max.apply(null, ranked.map(function (p) { return byVotes ? (Soc.picks[p.id] || 0) : likeCount(p.id); }).concat(1));
+    var max = Math.max.apply(null, ranked.map(function (p) { return pickCount(p.id); }).concat(1));
     return head + ranked.map(function (p, i) {
-      var v = Soc.picks[p.id] || 0, l = likeCount(p.id), w = Math.max(6, Math.round((byVotes ? v : l) / max * 100));
-      return '<a class="res-row" href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><span class="res-main"><b>' + esc(p.name) + '</b><span class="res-bar"><i style="width:' + w + '%"></i></span>' + ((Soc.who.picks[p.id] || []).length ? '<span class="res-who">★ ' + esc(namesInline(Soc.who.picks[p.id], 3)) + '</span>' : '') + '</span><span class="res-n">★ ' + v + ' ' + esc(t(v === 1 ? 'voteWord' : 'votesWord')) + '<br>♥ ' + l + '</span></a>';
+      var v = pickCount(p.id), w = Math.max(6, Math.round(v / max * 100));
+      return '<a class="res-row' + (i === 0 ? ' lead' : '') + '" href="#/p/' + p.id + '"><span class="num">' + p.n + '</span><span class="res-main"><b>' + esc(p.name) + '</b><span class="res-bar"><i style="width:' + w + '%"></i></span>' + ((Soc.who.picks[p.id] || []).length ? '<span class="res-who">★ ' + esc(namesInline(Soc.who.picks[p.id], 3)) + '</span>' : '') + '</span><span class="res-n">★ ' + v + ' ' + esc(t(v === 1 ? 'voteWord' : 'votesWord')) + '</span></a>';
     }).join('');
   }
   /* update only the parts that show votes and questions (keeps typing and scroll position) */
   function refreshSocial(force) {
     var hr = $('#homeResults'); if (hr) hr.innerHTML = resultsHtml();
     var wb = $('#whoBox'); if (wb && current.v === 'detail') wb.innerHTML = whoHtml(current.id);
-    $$('[data-likecount]').forEach(function (el) { el.textContent = likeCount(el.getAttribute('data-likecount')); });
-    $$('[data-like]').forEach(function (b) { var on = isLiked(b.getAttribute('data-like')); b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
-    $$('[data-pick]').forEach(function (b) { var on = Soc.mine.pick === b.getAttribute('data-pick'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); var sp = $('span', b); if (sp) sp.textContent = t(on ? 'picked' : 'pick'); });
+    $$('.card').forEach(function (c) { c.classList.toggle('voted', Soc.mine.pick === c.getAttribute('data-id')); });
+    $$('[data-pick]').forEach(function (b) {
+      var id = b.getAttribute('data-pick'), on = Soc.mine.pick === id, was = b.classList.contains('on');
+      b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
+      var sp = $('span', b); if (sp) sp.textContent = t(on ? 'picked' : 'pick');
+      if (on && !was && voteFx === id) burst(b);
+    });
+    $$('[data-votecount]').forEach(function (el) {
+      var n = String(pickCount(el.getAttribute('data-votecount')));
+      if (el.textContent !== n) { el.textContent = n; if (voteFx) bump(el); }
+    });
     var rl = $('#rankList'); if (rl) rl.innerHTML = rankHtml();
     var tn = $('#talkNote'); if (tn) tn.innerHTML = socialNote();
     var qn = $('#qaNote'); if (qn) qn.innerHTML = socialNote();
@@ -835,7 +853,7 @@
   function sheetHtml(p) {
     var pr = price(p);
     return '<button type="button" class="sx" data-sheetclose aria-label="' + esc(t('close')) + '">' + icon('x', 18) + '</button><div class="sh"><div class="ph sm">' + img(p, 0, 'thumb') + '<span class="num">' + p.n + '</span></div><div class="si"><h3>' + esc(p.name) + '</h3><p class="where">' + esc(regionOf(p)) + '</p><p>' + distBadge(p) + '</p><p class="price' + (pr.known ? '' : ' tbc') + '">' + esc(pr.text) + '</p>' + (pr.sub ? '<p class="usub">' + esc(pr.sub) + '</p>' : '') + '</div></div>' +
-      '<div class="sa"><a class="btn primary" href="#/p/' + p.id + '">' + esc(t('details')) + '</a>' + likeBtn(p.id) + shareBtn(p.id) + '<a class="btn ghost" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + icon('route', 16) + esc(t('directions')) + '</a></div>';
+      '<div class="sa"><a class="btn primary" href="#/p/' + p.id + '">' + esc(t('details')) + '</a>' + voteBtn(p.id) + shareBtn(p.id) + '<a class="btn ghost" href="' + esc(dirUrl(p)) + '" target="_blank" rel="noopener noreferrer">' + icon('route', 16) + esc(t('directions')) + '</a></div>';
   }
   function showSheet(id) {
     selected = id; var el = $('#sheet'); el.innerHTML = sheetHtml(BY[id]); el.hidden = false;
@@ -938,14 +956,13 @@
 
   /* ---------- events ---------- */
   document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('[data-lang],[data-band],[data-fac],[data-clear],[data-like],[data-pick],[data-cmp],[data-lb],[data-askjump],[data-mapmode],[data-sheetclose],[data-share],[data-copy],[data-modalclose],[data-namesave],[data-namechange],[data-signin],[data-signout],[data-account],[data-cedit],[data-cedit-save],[data-cedit-cancel],[data-cdel],[data-cdel-yes]') : null;
+    var el = e.target.closest ? e.target.closest('[data-lang],[data-band],[data-fac],[data-clear],[data-pick],[data-cmp],[data-lb],[data-askjump],[data-mapmode],[data-sheetclose],[data-share],[data-copy],[data-modalclose],[data-namesave],[data-namechange],[data-signin],[data-signout],[data-account],[data-cedit],[data-cedit-save],[data-cedit-cancel],[data-cdel],[data-cdel-yes]') : null;
     if (!el) return;
     if (el.hasAttribute('data-lang')) { S.lang = el.getAttribute('data-lang'); save(); render(); return; }
     if (el.hasAttribute('data-band')) { S.band = el.getAttribute('data-band'); save(); renderPlaces(); refreshSocial(); return; }
     if (el.hasAttribute('data-fac')) { var k = el.getAttribute('data-fac'); S.fac = S.fac.indexOf(k) > -1 ? S.fac.filter(function (x) { return x !== k; }) : S.fac.concat(k); save(); renderPlaces(); refreshSocial(); return; }
     if (el.hasAttribute('data-clear')) { S.band = 'all'; S.fac = []; save(); renderPlaces(); refreshSocial(); return; }
-    if (el.hasAttribute('data-like')) { e.preventDefault(); toggleLike(el.getAttribute('data-like')); return; }
-    if (el.hasAttribute('data-pick')) { setPick(el.getAttribute('data-pick')); return; }
+    if (el.hasAttribute('data-pick')) { markVoteFx(el.getAttribute('data-pick')); setPick(el.getAttribute('data-pick')); return; }
     if (el.hasAttribute('data-cmp')) {
       e.preventDefault(); var id = el.getAttribute('data-cmp'), i = S.compare.indexOf(id);
       if (i > -1) S.compare.splice(i, 1); else { S.compare.push(id); if (S.compare.length > 3) { S.compare.shift(); toast(t('compareMax')); } }

@@ -3,7 +3,7 @@
 > 给主人的一句话：这份文件是“项目地图”。以后让 Claude（聊天里读 GitHub，或 Claude Code）看这个项目时，它先读这里，就知道**改什么要去哪里改、哪些文件是自动生成的不要碰**。每个项目都放一份。
 
 ## What this is
-A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a church group choosing where to stay for the Year-End Countdown 2026 (2 days 1 night, around Kuala Lumpur). Shows places with distance from the church (FGA CYC Kuchai Lama), prices, a map, a compare page, likes, one vote per person, comments, and a share button that gives the REAL place link (Airbnb / official site / Google Maps), not this website.
+A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a church group choosing where to stay for the Year-End Countdown 2026 (2 days 1 night, around Kuala Lumpur). Shows places with distance from the church (FGA CYC Kuchai Lama), prices, a map, a compare page, one vote per person (a star button), comments, and a share button that gives the REAL place link (Airbnb / official site / Google Maps), not this website.
 
 - Hosted on Vercel, deployed from a GitHub repo (the **deployment repo**, e.g. `year-end-outing`).
 - Votes and comments are stored in the owner's Google Sheet through a Google Apps Script web app. People sign in with Google (Google Identity Services). Names of who liked / voted / commented are public; emails stay in the sheet only.
@@ -46,6 +46,7 @@ A static website (no build tools, plain HTML/CSS/JS). Mobile-first page for a ch
 - Places currently in `data/properties.js`: airbnb_a, airbnb_b, airbnb_c, dusun_bonda, pd_pool, batu_gajah, bentong_actb, hh_melaka, gm_pool_pd, aoya_villa. Only the ones in `config.js` `shortlist` are shown on the page. When a place is replaced (e.g. `hh_melaka`), give the new one a NEW id: reusing an id would hand the old place's likes to a different place.
 
 ## How likes / votes / comments work (so changes do not break them)
+- **No like button since 5 Nov 2026.** The star is the vote (`pick`): one per person, tap it again to take it back, tap another place to move it. The cards, the place page, the map pop-up, the Group votes box, the rankings, the "who voted" list, the Compare row and the "Most votes" sort all count votes only. Old likes stay in the sheet (the script and `app.js` still understand `like`), but nothing shows them. The celebration (`burst()`, `bump()`, classes `fx` and `voted`) fires only from the person's own tap (`voteFx`), never on a page load or a sync, and not when the device asks for reduced motion.
 - The page never waits for the sheet: a tap is shown at once, saved in the background one request at a time (`Soc.pending`), retried twice, and synced again about a second later. What is shown = `Soc.base` (last known sheet data) + `Soc.pending`.
 - Anonymous person id (`uid`) = HMAC of the email, made by the script; the page never sees emails or Google ids.
 - Sheet tabs (the script upgrades older sheets by itself — keep that working): `Questions` = Time, Venue, VenueId, Name, Question, Lang, Reply, Email, CommentId, Uid, Edited. `Votes` = Time, VoterId, Type (like/pick), VenueId, Venue, Name, Email, Uid. `Results` is rewritten (at most every 30 s).
