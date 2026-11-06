@@ -454,13 +454,14 @@ table.cmp { border-collapse: collapse; width: 100%; font-size: .86rem; }
 @media (max-width: 639px) {
   table.cmp { table-layout: fixed; width: 100%; }
   .cmp th, .cmp td { min-width: 0; padding: 8px 5px; font-size: .78rem; overflow-wrap: anywhere; }
-  .cmp th { width: 62px; max-width: none; position: static; font-size: .68rem; line-height: 1.25; }
-  .cmp td { width: calc((100% - 62px) / 3); }
+  .cmp th { width: 70px; max-width: none; position: static; padding: 8px 4px; font-size: .66rem; line-height: 1.25; overflow-wrap: normal; }
+  .cmp td { width: calc((100% - 70px) / 3); }
   .ch { gap: 4px; }
   .ch b { font-size: .8rem; line-height: 1.25; }
   .ch .x { top: 3px; right: 3px; width: 26px; height: 26px; }
   .cmp .dist, .cmp .pill { white-space: normal; font-size: .7rem; line-height: 1.25; }
-  .cmp .pill i { flex: none; }
+  .cmp .pill { padding: .1rem .4rem .1rem .15rem; gap: .25rem; font-size: .66rem; overflow-wrap: normal; }
+  .cmp .pill i { flex: none; width: 1rem; height: 1rem; font-size: .62rem; }
   .cmp .usub { font-size: .72rem; }
 }
 

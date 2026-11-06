@@ -14,7 +14,7 @@
 window.APP_CONFIG = {
   "sheetUrl": "https://script.google.com/macros/s/AKfycby2KwJv0Q5_Yy9Uk-Gs6oyPG_uqzqgk7OTcjBN5eG3rYASDmVrrCojW95eZIdMgLdWIPQ/exec",
   "googleClientId": "697249602311-eqgen5h437mlbv1ib5a004h9ap1g2unr.apps.googleusercontent.com",
-  "participants": null,
+  "participants": 25,
   "userPhotosFirst": true,
   "shortlist": ["batu_gajah", "aoya_villa", "gm_pool_pd"]
 };

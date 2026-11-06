@@ -3699,7 +3699,7 @@ window.PROPERTIES_DATA = {
     "Far from Kuala Lumpur, and about 14 km (25 to 31 minutes by car) from Jonker Street on Google Maps",
     "Quiet hours are 10:00 PM to 7:00 AM, so the midnight countdown falls inside them",
     "Airbnb lists no hot water, and no smoke or carbon monoxide alarm",
-    "From the 21st person: RM50 per person per night (about RM250 extra for 25 people)",
+    "For 25 people the total is about RM2,239, or RM89.56 each (RM1,989 plus RM50 per night for each person from the 21st)",
     "Only 2 of the 8 bedrooms are described on the listing. The bed plan for 25 people must be confirmed"
    ],
    "openItems": [
